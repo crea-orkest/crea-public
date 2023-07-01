@@ -3,7 +3,7 @@ import { CodegenConfig } from "@graphql-codegen/cli";
 const config: CodegenConfig = {
   schema: [
     {
-      [`https://graphql.contentful.com/content/v1/spaces/pwuxt9271wes/environments/${process.env.CONTENTFUL_ENVIRONMENT}`]:
+      [`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`]:
         {
           headers: {
             Authorization: `Bearer ${process.env.CONTENTFUL_PREVIEW_TOKEN}`,
