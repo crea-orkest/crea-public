@@ -4,6 +4,4 @@ import { authorFormatter } from "./authorFormatter";
 
 export const authorCollectionFormatter = (
   authorCollection: AuthorCollection
-): Author[] => {
-  return authorCollection.items.map((author) => authorFormatter(author));
-};
+): Author[] => authorCollection.items.map((author) => authorFormatter(author));

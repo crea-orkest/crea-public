@@ -1,8 +1,10 @@
 import { Scalars } from "../generated/types";
+import { Image } from "./image";
 
 export interface Page {
-  id: string;
-  title: string;
-  slug: string;
+  id: String;
+  title: String;
+  slug: String;
+  headerImage: Image;
   body: Scalars["JSON"]["output"];
 }

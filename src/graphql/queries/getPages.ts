@@ -1,36 +1,20 @@
 import gql from "graphql-tag";
 
-import { pageBodyFragment } from "../fragments/pageBody";
-import { sysFragment } from "../fragments/sys";
-import { imageFragment } from "../fragments/image";
-import { metadataFragment } from "../fragments/metadata";
+import { pageFragment } from "../fragments/page";
 
 export const GET_PAGES = gql`
   query getPages($limit: Int, $skip: Int) {
-    pageCollection(limit: $limit, skip: $skip) {
+    pageCollection(
+      order: [sys_publishedVersion_ASC]
+      limit: $limit
+      skip: $skip
+    ) {
       limit
       skip
       items {
-        __typename
-        title
-        slug
-        body {
-          ...pageBodyFragment
-        }
-        contentfulMetadata {
-          ...metadataFragment
-        }
-        headerImage {
-          ...imageFragment
-        }
-        sys {
-          ...sysFragment
-        }
+        ...pageFragment
       }
     }
   }
-  ${pageBodyFragment}
-  ${metadataFragment}
-  ${imageFragment}
-  ${sysFragment}
+  ${pageFragment}
 `;

@@ -1553,6 +1553,22 @@ export type AuthorFragmentFragment = {
     title?: string | null;
     url?: string | null;
     width?: number | null;
+    contentfulMetadata: {
+      __typename: "ContentfulMetadata";
+      tags: Array<{
+        __typename: "ContentfulTag";
+        id?: string | null;
+        name?: string | null;
+      } | null>;
+    };
+    sys: {
+      __typename: "Sys";
+      id: string;
+      firstPublishedAt?: any | null;
+      publishedAt?: any | null;
+      environmentId: string;
+      spaceId: string;
+    };
   } | null;
   sys: {
     __typename: "Sys";
@@ -1569,6 +1585,60 @@ export type BlogPostBodyFragmentFragment = {
   json: any;
 };
 
+export type EventFragmentFragment = {
+  __typename: "Event";
+  title?: string | null;
+  startDate?: any | null;
+  contentfulMetadata: {
+    __typename: "ContentfulMetadata";
+    tags: Array<{
+      __typename: "ContentfulTag";
+      id?: string | null;
+      name?: string | null;
+    } | null>;
+  };
+  description?: { __typename: "EventDescription"; json: any } | null;
+  image?: {
+    __typename: "Asset";
+    contentType?: string | null;
+    description?: string | null;
+    fileName?: string | null;
+    height?: number | null;
+    title?: string | null;
+    url?: string | null;
+    width?: number | null;
+    contentfulMetadata: {
+      __typename: "ContentfulMetadata";
+      tags: Array<{
+        __typename: "ContentfulTag";
+        id?: string | null;
+        name?: string | null;
+      } | null>;
+    };
+    sys: {
+      __typename: "Sys";
+      id: string;
+      firstPublishedAt?: any | null;
+      publishedAt?: any | null;
+      environmentId: string;
+      spaceId: string;
+    };
+  } | null;
+  location?: {
+    __typename: "Location";
+    lat?: number | null;
+    lon?: number | null;
+  } | null;
+  sys: {
+    __typename: "Sys";
+    id: string;
+    firstPublishedAt?: any | null;
+    publishedAt?: any | null;
+    environmentId: string;
+    spaceId: string;
+  };
+};
+
 export type ImageFragmentFragment = {
   __typename: "Asset";
   contentType?: string | null;
@@ -1578,6 +1648,28 @@ export type ImageFragmentFragment = {
   title?: string | null;
   url?: string | null;
   width?: number | null;
+  contentfulMetadata: {
+    __typename: "ContentfulMetadata";
+    tags: Array<{
+      __typename: "ContentfulTag";
+      id?: string | null;
+      name?: string | null;
+    } | null>;
+  };
+  sys: {
+    __typename: "Sys";
+    id: string;
+    firstPublishedAt?: any | null;
+    publishedAt?: any | null;
+    environmentId: string;
+    spaceId: string;
+  };
+};
+
+export type LocationFragmentFragment = {
+  __typename: "Location";
+  lat?: number | null;
+  lon?: number | null;
 };
 
 export type MetadataFragmentFragment = {
@@ -1587,6 +1679,55 @@ export type MetadataFragmentFragment = {
     id?: string | null;
     name?: string | null;
   } | null>;
+};
+
+export type PageFragmentFragment = {
+  __typename: "Page";
+  title?: string | null;
+  slug?: string | null;
+  body?: { __typename: "PageBody"; json: any } | null;
+  contentfulMetadata: {
+    __typename: "ContentfulMetadata";
+    tags: Array<{
+      __typename: "ContentfulTag";
+      id?: string | null;
+      name?: string | null;
+    } | null>;
+  };
+  headerImage?: {
+    __typename: "Asset";
+    contentType?: string | null;
+    description?: string | null;
+    fileName?: string | null;
+    height?: number | null;
+    title?: string | null;
+    url?: string | null;
+    width?: number | null;
+    contentfulMetadata: {
+      __typename: "ContentfulMetadata";
+      tags: Array<{
+        __typename: "ContentfulTag";
+        id?: string | null;
+        name?: string | null;
+      } | null>;
+    };
+    sys: {
+      __typename: "Sys";
+      id: string;
+      firstPublishedAt?: any | null;
+      publishedAt?: any | null;
+      environmentId: string;
+      spaceId: string;
+    };
+  } | null;
+  sys: {
+    __typename: "Sys";
+    id: string;
+    firstPublishedAt?: any | null;
+    publishedAt?: any | null;
+    environmentId: string;
+    spaceId: string;
+  };
 };
 
 export type PageBodyFragmentFragment = { __typename: "PageBody"; json: any };
@@ -1617,6 +1758,7 @@ export type GetAuthorsQuery = {
     __typename?: "AuthorCollection";
     limit: number;
     skip: number;
+    total: number;
     items: Array<{
       __typename: "Author";
       description?: string | null;
@@ -1638,6 +1780,22 @@ export type GetAuthorsQuery = {
         title?: string | null;
         url?: string | null;
         width?: number | null;
+        contentfulMetadata: {
+          __typename: "ContentfulMetadata";
+          tags: Array<{
+            __typename: "ContentfulTag";
+            id?: string | null;
+            name?: string | null;
+          } | null>;
+        };
+        sys: {
+          __typename: "Sys";
+          id: string;
+          firstPublishedAt?: any | null;
+          publishedAt?: any | null;
+          environmentId: string;
+          spaceId: string;
+        };
       } | null;
       sys: {
         __typename: "Sys";
@@ -1696,11 +1854,80 @@ export type GetBlogPostsQuery = {
     __typename?: "BlogPostCollection";
     limit: number;
     skip: number;
+    total: number;
     items: Array<{
       __typename: "BlogPost";
       title?: string | null;
       slug?: string | null;
       datePublished?: any | null;
+      sys: {
+        __typename: "Sys";
+        id: string;
+        firstPublishedAt?: any | null;
+        publishedAt?: any | null;
+        environmentId: string;
+        spaceId: string;
+      };
+    } | null>;
+  } | null;
+};
+
+export type GetEventsQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  skip?: InputMaybe<Scalars["Int"]["input"]>;
+}>;
+
+export type GetEventsQuery = {
+  __typename?: "Query";
+  eventCollection?: {
+    __typename?: "EventCollection";
+    limit: number;
+    skip: number;
+    total: number;
+    items: Array<{
+      __typename: "Event";
+      title?: string | null;
+      startDate?: any | null;
+      contentfulMetadata: {
+        __typename: "ContentfulMetadata";
+        tags: Array<{
+          __typename: "ContentfulTag";
+          id?: string | null;
+          name?: string | null;
+        } | null>;
+      };
+      description?: { __typename: "EventDescription"; json: any } | null;
+      image?: {
+        __typename: "Asset";
+        contentType?: string | null;
+        description?: string | null;
+        fileName?: string | null;
+        height?: number | null;
+        title?: string | null;
+        url?: string | null;
+        width?: number | null;
+        contentfulMetadata: {
+          __typename: "ContentfulMetadata";
+          tags: Array<{
+            __typename: "ContentfulTag";
+            id?: string | null;
+            name?: string | null;
+          } | null>;
+        };
+        sys: {
+          __typename: "Sys";
+          id: string;
+          firstPublishedAt?: any | null;
+          publishedAt?: any | null;
+          environmentId: string;
+          spaceId: string;
+        };
+      } | null;
+      location?: {
+        __typename: "Location";
+        lat?: number | null;
+        lon?: number | null;
+      } | null;
       sys: {
         __typename: "Sys";
         id: string;
@@ -1743,6 +1970,22 @@ export type GetPageQuery = {
         title?: string | null;
         url?: string | null;
         width?: number | null;
+        contentfulMetadata: {
+          __typename: "ContentfulMetadata";
+          tags: Array<{
+            __typename: "ContentfulTag";
+            id?: string | null;
+            name?: string | null;
+          } | null>;
+        };
+        sys: {
+          __typename: "Sys";
+          id: string;
+          firstPublishedAt?: any | null;
+          publishedAt?: any | null;
+          environmentId: string;
+          spaceId: string;
+        };
       } | null;
       sys: {
         __typename: "Sys";
@@ -1789,6 +2032,22 @@ export type GetPagesQuery = {
         title?: string | null;
         url?: string | null;
         width?: number | null;
+        contentfulMetadata: {
+          __typename: "ContentfulMetadata";
+          tags: Array<{
+            __typename: "ContentfulTag";
+            id?: string | null;
+            name?: string | null;
+          } | null>;
+        };
+        sys: {
+          __typename: "Sys";
+          id: string;
+          firstPublishedAt?: any | null;
+          publishedAt?: any | null;
+          environmentId: string;
+          spaceId: string;
+        };
       } | null;
       sys: {
         __typename: "Sys";

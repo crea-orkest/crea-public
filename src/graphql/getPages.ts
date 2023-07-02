@@ -14,10 +14,7 @@ export const getPages = async ({ limit, skip }: GetPagesQueryVariables) => {
     });
 
     return { data: pagesQueryFormatter(data), loading };
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log(error.message);
-    }
+  } catch (error: unknown) {
     return { data: null, loading: false };
   }
 };

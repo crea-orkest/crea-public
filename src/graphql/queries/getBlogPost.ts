@@ -7,7 +7,10 @@ import { sysFragment } from "../fragments/sys";
 
 export const GET_BLOG_POST = gql`
   query getBlogPost($slug: String) {
-    blogPostCollection(where: { slug: $slug }) {
+    blogPostCollection(
+      order: [sys_publishedVersion_ASC]
+      where: { slug: $slug }
+    ) {
       items {
         __typename
         title

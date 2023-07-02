@@ -22,10 +22,7 @@ export const getBlogPosts = async ({
       });
 
     return { data: blogPostsQueryFormatter(data), loading, errors };
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.log(error.message);
-    }
-    return { data: null, loading: false };
+  } catch (errors: unknown) {
+    return { data: null, loading: false, errors };
   }
 };

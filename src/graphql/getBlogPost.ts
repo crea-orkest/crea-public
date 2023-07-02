@@ -1,13 +1,9 @@
 import { contentfulClient } from "./contentfulClient";
 import { blogPostQueryFormatter } from "./formatters/blogPostQueryFormatter";
-import { GetBlogPostQuery } from "./generated/types";
+import { GetBlogPostQuery, GetBlogPostQueryVariables } from "./generated/types";
 import { GET_BLOG_POST } from "./queries/getBlogPost";
 
-interface Props {
-  slug: string;
-}
-
-export const getBlogPost = async ({ slug }: Props) => {
+export const getBlogPost = async ({ slug }: GetBlogPostQueryVariables) => {
   try {
     const { data, loading, errors } =
       await contentfulClient.query<GetBlogPostQuery>({
@@ -18,10 +14,7 @@ export const getBlogPost = async ({ slug }: Props) => {
       });
 
     return { data: blogPostQueryFormatter(data), loading, errors };
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log(error.message);
-    }
-    return { data: null, loading: false };
+  } catch (errors) {
+    return { data: null, loading: false, errors };
   }
 };
