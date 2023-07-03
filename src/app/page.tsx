@@ -5,8 +5,6 @@ import { getPages } from "../graphql/getPages";
 import { getPage } from "../graphql/getPage";
 import { getBlogPost } from "../graphql/getBlogPost";
 import { getEvents } from "../graphql/getEvents";
-import { DefaultPage } from "../components/defaultPage/defaultPage";
-import { BlogPage } from "../components/blogPage/blogPage";
 
 const Page = async () => {
   const data = await getAuthors({ limit: 0, skip: 0 });
@@ -24,18 +22,13 @@ const Page = async () => {
       <code>{JSON.stringify(data)}</code>
       <hr />
       <p>blog posts</p>
-      {blogPosts.data.map((blogPage) => {
-        return <BlogPage slug={blogPage.slug} />;
-      })}
+      <code>{JSON.stringify(blogPosts)}</code>
       <hr />
       <p>blog post</p>
       <code>{JSON.stringify(blogPost)}</code>
       <hr />
       <p>pages</p>
-      {pages.data.map((page) => {
-        return <DefaultPage slug={page.slug} />;
-      })}
-
+      <code>{JSON.stringify(pages)}</code>
       <hr />
       <p>page</p>
       <code>{JSON.stringify(page)}</code>
