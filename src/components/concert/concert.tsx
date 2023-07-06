@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Image {
   url: string;
   alt: string;
@@ -8,7 +10,8 @@ interface Props {
   name: string;
   image?: Image;
 }
-const Author: React.FC<Props> = ({ name, image }) => (
+
+export const Author: React.FC<Props> = ({ name, image }) => (
   <div>
     <p>{name}</p>
     <picture>

@@ -1,0 +1,46 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "pwuxt9271wes" }
+    },
+    "id": "478K23gRKp73sFi0buiYA1",
+    "type": "Entry",
+    "createdAt": "2023-06-26T18:51:09.530Z",
+    "updatedAt": "2023-06-26T18:51:40.494Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "publishedVersion": 5,
+    "publishedAt": "2023-06-26T18:51:40.494Z",
+    "firstPublishedAt": "2023-06-26T18:51:29.694Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "publishedCounter": 2,
+    "version": 6,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "automationTags": [],
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "homePage" }
+    }
+  },
+  "fields": { "title": { "nl": "Homepage" } }
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "pwuxt9271wes" }
+    },
+    "id": "2bghK1clHXkcooDk8kl3W4",
+    "type": "Entry",
+    "createdAt": "2023-07-01T13:55:36.866Z",
+    "updatedAt": "2023-07-01T13:55:47.808Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "publishedVersion": 3,
+    "publishedAt": "2023-07-01T13:55:47.808Z",
+    "firstPublishedAt": "2023-07-01T13:55:47.808Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "publishedCounter": 1,
+    "version": 4,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "automationTags": [],
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "author" }
+    }
+  },
+  "fields": {
+    "name": { "nl": "test" },
+    "description": { "nl": "wawfe" },
+    "image": {
+      "nl": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Asset",
+          "id": "6zrsdGMgAfZyvCjGS5bi4q"
+        }
+      }
+    }
+  }
+}

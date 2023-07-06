@@ -1,0 +1,76 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "pwuxt9271wes" }
+    },
+    "id": "3Wp7Kmp4bE4hmKrSohW6K5",
+    "type": "Entry",
+    "createdAt": "2023-07-01T13:55:22.232Z",
+    "updatedAt": "2023-07-01T14:42:54.124Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "publishedVersion": 23,
+    "publishedAt": "2023-07-01T14:42:54.124Z",
+    "firstPublishedAt": "2023-07-01T13:56:11.319Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "publishedCounter": 8,
+    "version": 24,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "automationTags": [],
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "blogPost" }
+    }
+  },
+  "fields": {
+    "title": { "en": "test 42", "nl": "test 42" },
+    "slug": { "en": "test-42", "nl": "test-32" },
+    "body": {
+      "nl": {
+        "data": {},
+        "content": [
+          {
+            "data": {},
+            "content": [
+              { "data": {}, "marks": [], "value": "test 2", "nodeType": "text" }
+            ],
+            "nodeType": "paragraph"
+          }
+        ],
+        "nodeType": "document"
+      }
+    },
+    "datePublished": { "nl": "2023-07-20T00:00+02:00" },
+    "author": {
+      "nl": [
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "2bghK1clHXkcooDk8kl3W4"
+          }
+        }
+      ]
+    }
+  }
+}

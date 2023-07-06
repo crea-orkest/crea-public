@@ -1,0 +1,75 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "pwuxt9271wes" }
+    },
+    "id": "6JIjmPxWnpG7qGyLjEWvMj",
+    "type": "Entry",
+    "createdAt": "2023-07-01T09:15:13.270Z",
+    "updatedAt": "2023-07-01T09:17:35.022Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "publishedVersion": 5,
+    "publishedAt": "2023-07-01T09:17:18.195Z",
+    "firstPublishedAt": "2023-07-01T09:17:18.195Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "publishedCounter": 1,
+    "version": 7,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "automationTags": [],
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "navigation" }
+    }
+  },
+  "fields": {
+    "title": { "en": "Crea Orkest", "nl": "Crea Orkest" },
+    "logo": {
+      "nl": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Asset",
+          "id": "dX8gdsVsu3GU5ZbmrQx7K"
+        }
+      }
+    },
+    "navigationItems": {
+      "nl": [
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1ViDOCNuHiLlnomgBMLpa3"
+          }
+        },
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3b2gjqc0vXGmZbXHawlbl4"
+          }
+        }
+      ]
+    }
+  }
+}

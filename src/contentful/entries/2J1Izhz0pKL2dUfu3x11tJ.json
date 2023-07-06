@@ -1,0 +1,74 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "pwuxt9271wes" }
+    },
+    "id": "2J1Izhz0pKL2dUfu3x11tJ",
+    "type": "Entry",
+    "createdAt": "2023-07-02T13:53:35.574Z",
+    "updatedAt": "2023-07-02T13:54:29.780Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "publishedVersion": 5,
+    "publishedAt": "2023-07-02T13:54:29.780Z",
+    "firstPublishedAt": "2023-07-02T13:54:29.780Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "publishedCounter": 1,
+    "version": 6,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "automationTags": [],
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "event" }
+    }
+  },
+  "fields": {
+    "title": { "en": "test", "nl": "test" },
+    "image": {
+      "nl": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Asset",
+          "id": "6zrsdGMgAfZyvCjGS5bi4q"
+        }
+      }
+    },
+    "startDate": { "nl": "2023-07-20T00:00+02:00" },
+    "location": { "nl": { "lon": 4.904138, "lat": 52.36757 } },
+    "description": {
+      "nl": {
+        "data": {},
+        "content": [
+          {
+            "data": {},
+            "content": [
+              { "data": {}, "marks": [], "value": "desc", "nodeType": "text" }
+            ],
+            "nodeType": "paragraph"
+          }
+        ],
+        "nodeType": "document"
+      }
+    }
+  }
+}
