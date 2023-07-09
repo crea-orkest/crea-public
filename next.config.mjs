@@ -9,6 +9,19 @@ const nextConfig = {
     typedRoutes: true,
     serverActions: true,
   },
+  webpack: (config) => {
+    config.experiments = { ...config.experiments, topLevelAwait: true };
+    return config;
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+      },
+    ],
+  },
+
   serverRuntimeConfig: {
     // Will only be available on the server side
   },

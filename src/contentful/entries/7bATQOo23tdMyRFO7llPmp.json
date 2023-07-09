@@ -1,0 +1,77 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "pwuxt9271wes" }
+    },
+    "id": "7bATQOo23tdMyRFO7llPmp",
+    "type": "Entry",
+    "createdAt": "2023-06-26T18:13:21.730Z",
+    "updatedAt": "2023-07-01T14:16:29.807Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "publishedVersion": 13,
+    "publishedAt": "2023-07-01T14:16:29.807Z",
+    "firstPublishedAt": "2023-06-26T18:14:04.962Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "publishedCounter": 2,
+    "version": 14,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "automationTags": [],
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "blogPost" }
+    }
+  },
+  "fields": {
+    "title": { "en": "first blog post", "nl": "first blog post" },
+    "slug": { "en": "first-blog-post", "nl": "first-blog-post" },
+    "body": {
+      "nl": {
+        "data": {},
+        "content": [
+          {
+            "data": {},
+            "content": [
+              {
+                "data": {},
+                "marks": [],
+                "value": "Blog post",
+                "nodeType": "text"
+              }
+            ],
+            "nodeType": "paragraph"
+          },
+          {
+            "data": {},
+            "content": [
+              { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+            ],
+            "nodeType": "paragraph"
+          }
+        ],
+        "nodeType": "document"
+      }
+    },
+    "datePublished": { "nl": "2023-06-01T00:00+02:00" }
+  }
+}

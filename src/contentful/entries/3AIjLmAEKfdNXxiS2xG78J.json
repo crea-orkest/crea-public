@@ -1,0 +1,49 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "pwuxt9271wes" }
+    },
+    "id": "3AIjLmAEKfdNXxiS2xG78J",
+    "type": "Entry",
+    "createdAt": "2023-07-01T10:22:40.341Z",
+    "updatedAt": "2023-07-01T10:22:52.392Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "publishedVersion": 3,
+    "publishedAt": "2023-07-01T10:22:52.392Z",
+    "firstPublishedAt": "2023-07-01T10:22:52.392Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "publishedCounter": 1,
+    "version": 4,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7dyBSKYa3yVW3xUX4g19qy"
+      }
+    },
+    "automationTags": [],
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "author" }
+    }
+  },
+  "fields": {
+    "name": { "nl": "Thijs" },
+    "description": { "nl": "double bass player" }
+  }
+}
