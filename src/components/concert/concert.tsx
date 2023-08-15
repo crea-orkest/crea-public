@@ -14,8 +14,10 @@ interface Props {
 export const Author: React.FC<Props> = ({ name, image }) => (
   <div>
     <p>{name}</p>
-    <picture>
-      <img src={image.url} alt={image.alt} title={image.title} />
-    </picture>
+    {image && (
+      <picture>
+        <img src={image.url} alt={image.alt} title={image.title} />
+      </picture>
+    )}
   </div>
 );

@@ -1,9 +1,8 @@
-import { Author as AuthorCollectionType } from "../generated/types";
+import { GetAuthorQuery } from "../generated/types";
 import { Author } from "../types/author";
 
-export const authorFormatter = (author: AuthorCollectionType): Author => ({
-  id: author.sys.id,
-  name: author.name,
-  description: author.description,
-  image: author.image,
+export const authorFormatter = (author: GetAuthorQuery): Author => ({
+  id: String(author.person?.id),
+  name: String(author.person?.name),
+  description: String(author.person?.role),
 });

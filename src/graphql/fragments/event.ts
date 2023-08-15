@@ -1,34 +1,32 @@
 import gql from "graphql-tag";
+import { tag } from "./tag";
+import { file } from "./file";
+import { identifiable } from "./identifiable";
 
-import { imageFragment } from "../fragments/image";
-import { metadataFragment } from "../fragments/metadata";
-import { sysFragment } from "../fragments/sys";
-import { locationFragment } from "./location";
-
-export const eventFragment = gql`
-  fragment eventFragment on Event {
-    __typename
+export const event = gql`
+  fragment event on ConcertRecord {
+    ...identifiable
     title
-    startDate
-    contentfulMetadata {
-      ...metadataFragment
+    _seoMetaTags {
+      ...tag
     }
-    description {
+    content {
       __typename
-      json
     }
-    image {
-      ...imageFragment
+    link {
+      __typename
     }
-    location {
-      ...locationFragment
+    locations {
+      __typename
     }
-    sys {
-      ...sysFragment
+    persons {
+      __typename
+    }
+    poster {
+      ...file
     }
   }
-  ${metadataFragment}
-  ${locationFragment}
-  ${imageFragment}
-  ${sysFragment}
+  ${identifiable}
+  ${tag}
+  ${file}
 `;

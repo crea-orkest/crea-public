@@ -1,9 +1,15 @@
 import gql from "graphql-tag";
+import { coordinates } from "./coordinates";
 
-export const locationFragment = gql`
-  fragment locationFragment on Location {
+export const location = gql`
+  fragment location on LocationRecord {
     __typename
-    lat
-    lon
+    id
+    title
+    addressTitle
+    address {
+      ...coordinates
+    }
   }
+  ${coordinates}
 `;

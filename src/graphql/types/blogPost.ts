@@ -1,12 +1,7 @@
-import { Scalars } from "../generated/types";
-
-export interface BlogPostMetadata {
+export interface BlogPost {
   id: string;
   title: string;
   slug: string;
   datePublished: Date;
-}
-
-export interface BlogPost extends BlogPostMetadata {
-  body: Scalars["JSON"]["output"];
+  dateUpdated: Date;
 }

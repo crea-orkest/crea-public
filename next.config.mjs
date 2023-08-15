@@ -6,8 +6,9 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
-    typedRoutes: true,
-    serverActions: true,
+    // typedRoutes: true,
+    // serverActions: true,
+    turbo: {},
   },
   webpack: (config) => {
     config.experiments = { ...config.experiments, topLevelAwait: true };
@@ -17,7 +18,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.ctfassets.net",
+        hostname: "www.datocms-assets.com",
       },
     ],
   },

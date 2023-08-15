@@ -1,8 +1,13 @@
 import React from "react";
 
-import { DefaultPage } from "../../components/defaultPage/defaultPage";
+import { DefaultPage } from "components/defaultPage/defaultPage";
 
-const Page = async ({ params: { slug } }) => {
+interface PageProps {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+const Page = async ({ params: { slug } }: PageProps) => {
   return <DefaultPage slug={slug} />;
 };
 

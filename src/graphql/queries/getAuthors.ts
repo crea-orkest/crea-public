@@ -1,21 +1,15 @@
 import gql from "graphql-tag";
-
-import { authorFragment } from "../fragments/author";
+import { author } from "../fragments/author";
 
 export const GET_AUTHORS = gql`
-  query getAuthors($limit: Int, $skip: Int) {
-    authorCollection(
-      order: [sys_publishedVersion_ASC]
-      limit: $limit
-      skip: $skip
-    ) {
-      limit
-      skip
-      total
-      items {
-        ...authorFragment
-      }
+  query getAuthors(
+    $first: IntType
+    $skip: IntType
+    $order: [PersonModelOrderBy]
+  ) {
+    allPeople(first: $first, skip: $skip, orderBy: $order) {
+      ...author
     }
   }
-  ${authorFragment}
+  ${author}
 `;

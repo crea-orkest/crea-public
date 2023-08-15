@@ -1,20 +1,24 @@
-import { contentfulClient } from "./contentfulClient";
+import { gqlClient } from "./gqlClient";
 import { GET_PAGES } from "./queries/getPages";
-import { GetPagesQuery, GetPagesQueryVariables } from "./generated/types";
 import { pagesQueryFormatter } from "./formatters/pagesQueryFormatter";
+import { GetPagesQuery, GetPagesQueryVariables } from "./generated/types";
 
-export const getPages = async ({ limit, skip }: GetPagesQueryVariables) => {
+export const getPages = async ({
+  skip = 0,
+  first = 10,
+}: GetPagesQueryVariables) => {
   try {
-    const { data, loading } = await contentfulClient.query<GetPagesQuery>({
+    const { data, loading } = await gqlClient.query<GetPagesQuery>({
       query: GET_PAGES,
       variables: {
-        limit,
         skip,
+        first,
       },
     });
 
     return { data: pagesQueryFormatter(data), loading };
-  } catch (error: unknown) {
-    return { data: null, loading: false };
+  } catch (error) {
+    if (error instanceof Error) console.log(error.message);
+    return { data: null, loading: false, error };
   }
 };

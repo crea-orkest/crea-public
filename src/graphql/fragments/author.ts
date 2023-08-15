@@ -1,24 +1,13 @@
 import gql from "graphql-tag";
-import { metadataFragment } from "./metadata";
-import { imageFragment } from "./image";
-import { sysFragment } from "./sys";
+import { tag } from "./tag";
+import { identifiable } from "./identifiable";
 
-export const authorFragment = gql`
-  fragment authorFragment on Author {
-    __typename
-    contentfulMetadata {
-      ...metadataFragment
-    }
-    description
-    image {
-      ...imageFragment
-    }
+export const author = gql`
+  fragment author on PersonRecord {
+    ...identifiable
     name
-    sys {
-      ...sysFragment
-    }
+    role
   }
-  ${metadataFragment}
-  ${imageFragment}
-  ${sysFragment}
+  ${identifiable}
+  ${tag}
 `;

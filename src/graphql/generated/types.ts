@@ -25,1467 +25,3217 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean };
   Int: { input: number; output: number };
   Float: { input: number; output: number };
-  DateTime: { input: any; output: any };
-  JSON: { input: any; output: any };
-  HexColor: { input: any; output: any };
-  Dimension: { input: any; output: any };
-  Quality: { input: any; output: any };
-  Circle: { input: any; output: any };
-  Rectangle: { input: any; output: any };
+  DateTime: { input: string; output: string };
+  BooleanType: { input: boolean; output: boolean };
+  ItemId: { input: string; output: string };
+  UploadId: { input: string; output: string };
+  IntType: { input: number; output: number };
+  FloatType: { input: number; output: number };
+  CustomData: { input: Record<string, string>; output: Record<string, string> };
+  MetaTagAttributes: {
+    input: Record<string, string>;
+    output: Record<string, string>;
+  };
+  JsonField: { input: unknown; output: unknown };
 };
 
+/** The query root for this schema */
 export type Query = {
   __typename?: "Query";
-  asset?: Maybe<Asset>;
-  assetCollection?: Maybe<AssetCollection>;
-  author?: Maybe<Author>;
-  authorCollection?: Maybe<AuthorCollection>;
-  blogPost?: Maybe<BlogPost>;
-  blogPostCollection?: Maybe<BlogPostCollection>;
-  entryCollection?: Maybe<EntryCollection>;
-  event?: Maybe<Event>;
-  eventCollection?: Maybe<EventCollection>;
-  homePage?: Maybe<HomePage>;
-  homePageCollection?: Maybe<HomePageCollection>;
-  navigation?: Maybe<Navigation>;
-  navigationCollection?: Maybe<NavigationCollection>;
-  page?: Maybe<Page>;
-  pageCollection?: Maybe<PageCollection>;
+  /** Returns meta information regarding a record collection */
+  _allConcertsMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allLinksMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allLocationsMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allMediaItemsMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allPagesMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allPeopleMeta: CollectionMetadata;
+  /** Returns meta information regarding an assets collection */
+  _allUploadsMeta: CollectionMetadata;
+  /** Returns the single instance record */
+  _site: Site;
+  /** Returns a collection of records */
+  allConcerts: Array<ConcertRecord>;
+  /** Returns a collection of records */
+  allLinks: Array<LinkRecord>;
+  /** Returns a collection of records */
+  allLocations: Array<LocationRecord>;
+  /** Returns a collection of records */
+  allMediaItems: Array<MediaItemRecord>;
+  /** Returns a collection of records */
+  allPages: Array<PageRecord>;
+  /** Returns a collection of records */
+  allPeople: Array<PersonRecord>;
+  /** Returns a collection of assets */
+  allUploads: Array<FileField>;
+  /** Returns a specific record */
+  concert?: Maybe<ConcertRecord>;
+  /** Returns the single instance record */
+  general?: Maybe<GeneralRecord>;
+  /** Returns a specific record */
+  link?: Maybe<LinkRecord>;
+  /** Returns a specific record */
+  location?: Maybe<LocationRecord>;
+  /** Returns a specific record */
+  mediaItem?: Maybe<MediaItemRecord>;
+  /** Returns a specific record */
+  page?: Maybe<PageRecord>;
+  /** Returns a specific record */
+  person?: Maybe<PersonRecord>;
+  /** Returns a specific asset */
+  upload?: Maybe<FileField>;
 };
 
-export type QueryAssetArgs = {
-  id: Scalars["String"]["input"];
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
+/** The query root for this schema */
+export type Query_AllConcertsMetaArgs = {
+  filter?: InputMaybe<ConcertModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryAssetCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<AssetOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<AssetFilter>;
+/** The query root for this schema */
+export type Query_AllLinksMetaArgs = {
+  filter?: InputMaybe<LinkModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryAuthorArgs = {
-  id: Scalars["String"]["input"];
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
+/** The query root for this schema */
+export type Query_AllLocationsMetaArgs = {
+  filter?: InputMaybe<LocationModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryAuthorCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<AuthorOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<AuthorFilter>;
+/** The query root for this schema */
+export type Query_AllMediaItemsMetaArgs = {
+  filter?: InputMaybe<MediaItemModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryBlogPostArgs = {
-  id: Scalars["String"]["input"];
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
+/** The query root for this schema */
+export type Query_AllPagesMetaArgs = {
+  filter?: InputMaybe<PageModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryBlogPostCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<BlogPostOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<BlogPostFilter>;
+/** The query root for this schema */
+export type Query_AllPeopleMetaArgs = {
+  filter?: InputMaybe<PersonModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<EntryOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<EntryFilter>;
+/** The query root for this schema */
+export type Query_AllUploadsMetaArgs = {
+  filter?: InputMaybe<UploadFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryEventArgs = {
-  id: Scalars["String"]["input"];
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
+/** The query root for this schema */
+export type Query_SiteArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type QueryEventCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<EventOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<EventFilter>;
+/** The query root for this schema */
+export type QueryAllConcertsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<ConcertModelFilter>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<ConcertModelOrderBy>>>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
 };
 
-export type QueryHomePageArgs = {
-  id: Scalars["String"]["input"];
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
+/** The query root for this schema */
+export type QueryAllLinksArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<LinkModelFilter>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<LinkModelOrderBy>>>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
 };
 
-export type QueryHomePageCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<HomePageOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<HomePageFilter>;
+/** The query root for this schema */
+export type QueryAllLocationsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<LocationModelFilter>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<LocationModelOrderBy>>>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
 };
 
-export type QueryNavigationArgs = {
-  id: Scalars["String"]["input"];
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
+/** The query root for this schema */
+export type QueryAllMediaItemsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<MediaItemModelFilter>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<MediaItemModelOrderBy>>>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
 };
 
-export type QueryNavigationCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<NavigationOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<NavigationFilter>;
+/** The query root for this schema */
+export type QueryAllPagesArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<PageModelFilter>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<PageModelOrderBy>>>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
 };
 
+/** The query root for this schema */
+export type QueryAllPeopleArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<PersonModelFilter>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<PersonModelOrderBy>>>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
+};
+
+/** The query root for this schema */
+export type QueryAllUploadsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<UploadFilter>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<UploadOrderBy>>>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
+};
+
+/** The query root for this schema */
+export type QueryConcertArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<ConcertModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<ConcertModelOrderBy>>>;
+};
+
+/** The query root for this schema */
+export type QueryGeneralArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** The query root for this schema */
+export type QueryLinkArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<LinkModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<LinkModelOrderBy>>>;
+};
+
+/** The query root for this schema */
+export type QueryLocationArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<LocationModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<LocationModelOrderBy>>>;
+};
+
+/** The query root for this schema */
+export type QueryMediaItemArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<MediaItemModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<MediaItemModelOrderBy>>>;
+};
+
+/** The query root for this schema */
 export type QueryPageArgs = {
-  id: Scalars["String"]["input"];
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<PageModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<PageModelOrderBy>>>;
 };
 
-export type QueryPageCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<PageOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<PageFilter>;
+/** The query root for this schema */
+export type QueryPersonArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<PersonModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<PersonModelOrderBy>>>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type Asset = {
-  __typename?: "Asset";
-  contentfulMetadata: ContentfulMetadata;
-  contentType?: Maybe<Scalars["String"]["output"]>;
-  description?: Maybe<Scalars["String"]["output"]>;
-  fileName?: Maybe<Scalars["String"]["output"]>;
-  height?: Maybe<Scalars["Int"]["output"]>;
-  linkedFrom?: Maybe<AssetLinkingCollections>;
-  size?: Maybe<Scalars["Int"]["output"]>;
-  sys: Sys;
+/** The query root for this schema */
+export type QueryUploadArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<UploadFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<UploadOrderBy>>>;
+};
+
+export type ConcertModelFilter = {
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  AND?: InputMaybe<Array<InputMaybe<ConcertModelFilter>>>;
+  id?: InputMaybe<ItemIdFilter>;
+  link?: InputMaybe<LinkFilter>;
+  OR?: InputMaybe<Array<InputMaybe<ConcertModelFilter>>>;
+  persons?: InputMaybe<LinksFilter>;
+  poster?: InputMaybe<FileFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+/** Specifies how to filter by creation datetime */
+export type CreatedAtFilter = {
+  /** Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument. */
+  eq?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument. */
+  gt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument. */
+  gte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument. */
+  lt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument. */
+  lte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument. */
+  neq?: InputMaybe<Scalars["DateTime"]["input"]>;
+};
+
+/** Specifies how to filter by publication datetime */
+export type PublishedAtFilter = {
+  /** Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument. */
+  eq?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument. */
+  gt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument. */
+  gte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument. */
+  lt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument. */
+  lte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument. */
+  neq?: InputMaybe<Scalars["DateTime"]["input"]>;
+};
+
+/** Specifies how to filter Boolean fields */
+export type BooleanFilter = {
+  /** Search for records with an exact match */
+  eq?: InputMaybe<Scalars["BooleanType"]["input"]>;
+};
+
+/** Specifies how to filter by status */
+export type StatusFilter = {
+  /** Search the record with the specified status */
+  eq?: InputMaybe<ItemStatus>;
+  /** Search records with the specified statuses */
+  in?: InputMaybe<Array<InputMaybe<ItemStatus>>>;
+  /** Exclude the record with the specified status */
+  neq?: InputMaybe<ItemStatus>;
+  /** Search records without the specified statuses */
+  notIn?: InputMaybe<Array<InputMaybe<ItemStatus>>>;
+};
+
+export enum ItemStatus {
+  Draft = "draft",
+  Published = "published",
+  Updated = "updated",
+}
+
+/** Specifies how to filter by update datetime */
+export type UpdatedAtFilter = {
+  /** Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument. */
+  eq?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument. */
+  gt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument. */
+  gte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument. */
+  lt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument. */
+  lte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument. */
+  neq?: InputMaybe<Scalars["DateTime"]["input"]>;
+};
+
+/** Specifies how to filter by ID */
+export type ItemIdFilter = {
+  /** Search the record with the specified ID */
+  eq?: InputMaybe<Scalars["ItemId"]["input"]>;
+  /** Search records with the specified IDs */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+  /** Exclude the record with the specified ID */
+  neq?: InputMaybe<Scalars["ItemId"]["input"]>;
+  /** Search records that do not have the specified IDs */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+};
+
+/** Specifies how to filter Single-link fields */
+export type LinkFilter = {
+  /** Search for records with an exact match. The specified value must be a Record ID */
+  eq?: InputMaybe<Scalars["ItemId"]["input"]>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records linked to one of the specified records */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+  /** Exclude records with an exact match. The specified value must be a Record ID */
+  neq?: InputMaybe<Scalars["ItemId"]["input"]>;
+  /** Filter records not linked to one of the specified records */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+};
+
+/** Specifies how to filter Multiple-links fields */
+export type LinksFilter = {
+  /** Filter records linked to all of the specified records. The specified values must be Record IDs */
+  allIn?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+  /** Filter records linked to at least one of the specified records. The specified values must be Record IDs */
+  anyIn?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+  /** Search for records with an exact match. The specified values must be Record IDs */
+  eq?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records not linked to any of the specified records. The specified values must be Record IDs */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ItemId"]["input"]>>>;
+};
+
+/** Specifies how to filter Single-file/image fields */
+export type FileFilter = {
+  /** Search for records with an exact match. The specified value must be an Upload ID */
+  eq?: InputMaybe<Scalars["UploadId"]["input"]>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records that have one of the specified uploads */
+  in?: InputMaybe<Array<InputMaybe<Scalars["UploadId"]["input"]>>>;
+  /** Exclude records with an exact match. The specified value must be an Upload ID */
+  neq?: InputMaybe<Scalars["UploadId"]["input"]>;
+  /** Filter records that do not have one of the specified uploads */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["UploadId"]["input"]>>>;
+};
+
+/** Specifies how to filter Single-line string fields */
+export type StringFilter = {
+  /** Search for records with an exact match */
+  eq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Filter records with the specified field defined (i.e. with any value) or not [DEPRECATED] */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records that equal one of the specified values */
+  in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Filter records with the specified field set as blank (null or empty string) */
+  isBlank?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records with the specified field present (neither null, nor empty string) */
+  isPresent?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude records with an exact match */
+  neq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Filter records that do not equal one of the specified values */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Exclude records based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+export type StringMatchesFilter = {
+  caseSensitive?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  pattern: Scalars["String"]["input"];
+  regexp?: InputMaybe<Scalars["BooleanType"]["input"]>;
+};
+
+export enum SiteLocale {
+  En = "en",
+  NlNl = "nl_NL",
+}
+
+export type CollectionMetadata = {
+  __typename?: "CollectionMetadata";
+  count: Scalars["IntType"]["output"];
+};
+
+export type LinkModelFilter = {
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  AND?: InputMaybe<Array<InputMaybe<LinkModelFilter>>>;
+  externalUrl?: InputMaybe<StringFilter>;
+  id?: InputMaybe<ItemIdFilter>;
+  internalTitle?: InputMaybe<StringFilter>;
+  OR?: InputMaybe<Array<InputMaybe<LinkModelFilter>>>;
+  page?: InputMaybe<LinkFilter>;
+};
+
+export type LocationModelFilter = {
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  address?: InputMaybe<LatLonFilter>;
+  addressTitle?: InputMaybe<StringFilter>;
+  AND?: InputMaybe<Array<InputMaybe<LocationModelFilter>>>;
+  id?: InputMaybe<ItemIdFilter>;
+  OR?: InputMaybe<Array<InputMaybe<LocationModelFilter>>>;
+  title?: InputMaybe<StringFilter>;
+};
+
+/** Specifies how to filter Geolocation fields */
+export type LatLonFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter records within the specified radius in meters */
+  near?: InputMaybe<LatLonNearFilter>;
+};
+
+export type LatLonNearFilter = {
+  latitude: Scalars["FloatType"]["input"];
+  longitude: Scalars["FloatType"]["input"];
+  radius: Scalars["FloatType"]["input"];
+};
+
+export type MediaItemModelFilter = {
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  AND?: InputMaybe<Array<InputMaybe<MediaItemModelFilter>>>;
+  id?: InputMaybe<ItemIdFilter>;
+  item?: InputMaybe<FileFilter>;
+  itemUrl?: InputMaybe<StringFilter>;
+  OR?: InputMaybe<Array<InputMaybe<MediaItemModelFilter>>>;
+  title?: InputMaybe<StringFilter>;
+};
+
+export type PageModelFilter = {
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  AND?: InputMaybe<Array<InputMaybe<PageModelFilter>>>;
+  id?: InputMaybe<ItemIdFilter>;
+  OR?: InputMaybe<Array<InputMaybe<PageModelFilter>>>;
+  seo?: InputMaybe<SeoFilter>;
+  slug?: InputMaybe<SlugFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+/** Specifies how to filter SEO meta tags fields */
+export type SeoFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+};
+
+/** Specifies how to filter Slug fields */
+export type SlugFilter = {
+  /** Search for records with an exact match */
+  eq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Filter records that have one of the specified slugs */
+  in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Exclude records with an exact match */
+  neq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Filter records that do have one of the specified slugs */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+};
+
+export type PersonModelFilter = {
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  AND?: InputMaybe<Array<InputMaybe<PersonModelFilter>>>;
+  id?: InputMaybe<ItemIdFilter>;
+  name?: InputMaybe<StringFilter>;
+  OR?: InputMaybe<Array<InputMaybe<PersonModelFilter>>>;
+  role?: InputMaybe<StringFilter>;
+};
+
+export type UploadFilter = {
+  _createdAt?: InputMaybe<UploadCreatedAtFilter>;
+  _updatedAt?: InputMaybe<UploadUpdatedAtFilter>;
+  alt?: InputMaybe<UploadAltFilter>;
+  AND?: InputMaybe<Array<InputMaybe<UploadFilter>>>;
+  author?: InputMaybe<UploadAuthorFilter>;
+  basename?: InputMaybe<UploadBasenameFilter>;
+  colors?: InputMaybe<UploadColorsFilter>;
+  copyright?: InputMaybe<UploadCopyrightFilter>;
+  filename?: InputMaybe<UploadFilenameFilter>;
+  format?: InputMaybe<UploadFormatFilter>;
+  height?: InputMaybe<UploadHeightFilter>;
+  id?: InputMaybe<UploadIdFilter>;
+  inUse?: InputMaybe<InUseFilter>;
+  md5?: InputMaybe<UploadMd5Filter>;
+  mimeType?: InputMaybe<UploadMimeTypeFilter>;
+  notes?: InputMaybe<UploadNotesFilter>;
+  OR?: InputMaybe<Array<InputMaybe<UploadFilter>>>;
+  orientation?: InputMaybe<OrientationFilter>;
+  resolution?: InputMaybe<ResolutionFilter>;
+  size?: InputMaybe<UploadSizeFilter>;
+  smartTags?: InputMaybe<UploadTagsFilter>;
+  tags?: InputMaybe<UploadTagsFilter>;
+  title?: InputMaybe<UploadTitleFilter>;
+  type?: InputMaybe<TypeFilter>;
+  width?: InputMaybe<UploadWidthFilter>;
+};
+
+/** Specifies how to filter by creation datetime */
+export type UploadCreatedAtFilter = {
+  /** Search for uploads with an exact match */
+  eq?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's strictly greater than the one specified */
+  gt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's greater than or equal to the one specified */
+  gte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's less than the one specified */
+  lt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's less or equal than the one specified */
+  lte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Exclude uploads with an exact match */
+  neq?: InputMaybe<Scalars["DateTime"]["input"]>;
+};
+
+/** Specifies how to filter by update datetime */
+export type UploadUpdatedAtFilter = {
+  /** Search for uploads with an exact match */
+  eq?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's strictly greater than the one specified */
+  gt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's greater than or equal to the one specified */
+  gte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's less than the one specified */
+  lt?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Filter uploads with a value that's less or equal than the one specified */
+  lte?: InputMaybe<Scalars["DateTime"]["input"]>;
+  /** Exclude uploads with an exact match */
+  neq?: InputMaybe<Scalars["DateTime"]["input"]>;
+};
+
+/** Specifies how to filter by default alt */
+export type UploadAltFilter = {
+  /** Search the uploads with the specified alt */
+  eq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Filter uploads with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Search uploads with the specified values as default alt */
+  in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude the uploads with the specified alt */
+  neq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search uploads that do not have the specified values as default alt */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by auhtor */
+export type UploadAuthorFilter = {
+  /** Filter uploads with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by basename */
+export type UploadBasenameFilter = {
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by colors */
+export type UploadColorsFilter = {
+  /** Filter uploads that have all of the specified colors */
+  allIn?: InputMaybe<Array<InputMaybe<ColorBucketType>>>;
+  /** Filter uploads that have at least one of the specified colors */
+  anyIn?: InputMaybe<Array<InputMaybe<ColorBucketType>>>;
+  /** Filter uploads that have the specified colors */
+  contains?: InputMaybe<ColorBucketType>;
+  /** Search for uploads with an exact match */
+  eq?: InputMaybe<Array<InputMaybe<ColorBucketType>>>;
+  /** Filter uploads that do not have any of the specified colors */
+  notIn?: InputMaybe<Array<InputMaybe<ColorBucketType>>>;
+};
+
+export enum ColorBucketType {
+  Black = "black",
+  Blue = "blue",
+  Brown = "brown",
+  Cyan = "cyan",
+  Green = "green",
+  Grey = "grey",
+  Orange = "orange",
+  Pink = "pink",
+  Purple = "purple",
+  Red = "red",
+  White = "white",
+  Yellow = "yellow",
+}
+
+/** Specifies how to filter by copyright */
+export type UploadCopyrightFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by filename */
+export type UploadFilenameFilter = {
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by format */
+export type UploadFormatFilter = {
+  /** Search the asset with the specified format */
+  eq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search assets with the specified formats */
+  in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Exclude the asset with the specified format */
+  neq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search assets that do not have the specified formats */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+};
+
+/** Specifies how to filter by height */
+export type UploadHeightFilter = {
+  /** Search assets with the specified height */
+  eq?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger than the specified height */
+  gt?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger or equal to the specified height */
+  gte?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets smaller than the specified height */
+  lt?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger or equal to the specified height */
+  lte?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search assets that do not have the specified height */
+  neq?: InputMaybe<Scalars["IntType"]["input"]>;
+};
+
+/** Specifies how to filter by ID */
+export type UploadIdFilter = {
+  /** Search the asset with the specified ID */
+  eq?: InputMaybe<Scalars["UploadId"]["input"]>;
+  /** Search assets with the specified IDs */
+  in?: InputMaybe<Array<InputMaybe<Scalars["UploadId"]["input"]>>>;
+  /** Exclude the asset with the specified ID */
+  neq?: InputMaybe<Scalars["UploadId"]["input"]>;
+  /** Search assets that do not have the specified IDs */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["UploadId"]["input"]>>>;
+};
+
+/** Specifies how to filter by usage */
+export type InUseFilter = {
+  /** Search uploads that are currently used by some record or not */
+  eq?: InputMaybe<Scalars["BooleanType"]["input"]>;
+};
+
+/** Specifies how to filter by MD5 */
+export type UploadMd5Filter = {
+  /** Search the asset with the specified MD5 */
+  eq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search assets with the specified MD5s */
+  in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Exclude the asset with the specified MD5 */
+  neq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search assets that do not have the specified MD5s */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+};
+
+/** Specifies how to filter by mime type */
+export type UploadMimeTypeFilter = {
+  /** Search the asset with the specified mime type */
+  eq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search assets with the specified mime types */
+  in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude the asset with the specified mime type */
+  neq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search assets that do not have the specified mime types */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by notes */
+export type UploadNotesFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by image orientation */
+export type OrientationFilter = {
+  /** Search uploads with the specified orientation */
+  eq?: InputMaybe<UploadOrientation>;
+  /** Exclude uploads with the specified orientation */
+  neq?: InputMaybe<UploadOrientation>;
+};
+
+export enum UploadOrientation {
+  Landscape = "landscape",
+  Portrait = "portrait",
+  Square = "square",
+}
+
+/** Specifies how to filter by upload type */
+export type ResolutionFilter = {
+  /** Search uploads with the specified resolution */
+  eq?: InputMaybe<ResolutionType>;
+  /** Search uploads with the specified resolutions */
+  in?: InputMaybe<Array<InputMaybe<ResolutionType>>>;
+  /** Exclude uploads with the specified resolution */
+  neq?: InputMaybe<ResolutionType>;
+  /** Search uploads without the specified resolutions */
+  notIn?: InputMaybe<Array<InputMaybe<ResolutionType>>>;
+};
+
+export enum ResolutionType {
+  Icon = "icon",
+  Large = "large",
+  Medium = "medium",
+  Small = "small",
+}
+
+/** Specifies how to filter by size */
+export type UploadSizeFilter = {
+  /** Search assets with the specified size (in bytes) */
+  eq?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger than the specified size (in bytes) */
+  gt?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger or equal to the specified size (in bytes) */
+  gte?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets smaller than the specified size (in bytes) */
+  lt?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger or equal to the specified size (in bytes) */
+  lte?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search assets that do not have the specified size (in bytes) */
+  neq?: InputMaybe<Scalars["IntType"]["input"]>;
+};
+
+/** Specifies how to filter by tags */
+export type UploadTagsFilter = {
+  /** Filter uploads linked to all of the specified tags */
+  allIn?: InputMaybe<Array<Scalars["String"]["input"]>>;
+  /** Filter uploads linked to at least one of the specified tags */
+  anyIn?: InputMaybe<Array<Scalars["String"]["input"]>>;
+  /** Filter uploads linked to the specified tag */
+  contains?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search for uploads with an exact match */
+  eq?: InputMaybe<Array<Scalars["String"]["input"]>>;
+  /** Filter uploads not linked to any of the specified tags */
+  notIn?: InputMaybe<Array<Scalars["String"]["input"]>>;
+};
+
+/** Specifies how to filter by default title */
+export type UploadTitleFilter = {
+  /** Search the asset with the specified title */
+  eq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Filter assets with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /** Search assets with the specified as default title */
+  in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Filter uploads based on a regular expression */
+  matches?: InputMaybe<StringMatchesFilter>;
+  /** Exclude the asset with the specified title */
+  neq?: InputMaybe<Scalars["String"]["input"]>;
+  /** Search assets that do not have the specified as default title */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: InputMaybe<StringMatchesFilter>;
+};
+
+/** Specifies how to filter by upload type */
+export type TypeFilter = {
+  /** Search uploads with the specified type */
+  eq?: InputMaybe<UploadType>;
+  /** Search uploads with the specified types */
+  in?: InputMaybe<Array<InputMaybe<UploadType>>>;
+  /** Exclude uploads with the specified type */
+  neq?: InputMaybe<UploadType>;
+  /** Search uploads without the specified types */
+  notIn?: InputMaybe<Array<InputMaybe<UploadType>>>;
+};
+
+export enum UploadType {
+  Archive = "archive",
+  Audio = "audio",
+  Image = "image",
+  Pdfdocument = "pdfdocument",
+  Presentation = "presentation",
+  Richtext = "richtext",
+  Spreadsheet = "spreadsheet",
+  Video = "video",
+}
+
+/** Specifies how to filter by width */
+export type UploadWidthFilter = {
+  /** Search assets with the specified width */
+  eq?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger than the specified width */
+  gt?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger or equal to the specified width */
+  gte?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets smaller than the specified width */
+  lt?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search all assets larger or equal to the specified width */
+  lte?: InputMaybe<Scalars["IntType"]["input"]>;
+  /** Search assets that do not have the specified width */
+  neq?: InputMaybe<Scalars["IntType"]["input"]>;
+};
+
+export type Site = {
+  __typename?: "Site";
+  favicon?: Maybe<FileField>;
+  faviconMetaTags: Array<Tag>;
+  globalSeo?: Maybe<GlobalSeoField>;
+  locales: Array<SiteLocale>;
+};
+
+export type SiteFaviconMetaTagsArgs = {
+  variants?: InputMaybe<Array<InputMaybe<FaviconType>>>;
+};
+
+export type SiteGlobalSeoArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type FileField = FileFieldInterface & {
+  __typename?: "FileField";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  alt?: Maybe<Scalars["String"]["output"]>;
+  author?: Maybe<Scalars["String"]["output"]>;
+  basename: Scalars["String"]["output"];
+  blurhash?: Maybe<Scalars["String"]["output"]>;
+  blurUpThumb?: Maybe<Scalars["String"]["output"]>;
+  colors: Array<ColorField>;
+  copyright?: Maybe<Scalars["String"]["output"]>;
+  customData: Scalars["CustomData"]["output"];
+  exifInfo: Scalars["CustomData"]["output"];
+  filename: Scalars["String"]["output"];
+  focalPoint?: Maybe<FocalPoint>;
+  format: Scalars["String"]["output"];
+  height?: Maybe<Scalars["IntType"]["output"]>;
+  id: Scalars["UploadId"]["output"];
+  md5: Scalars["String"]["output"];
+  mimeType: Scalars["String"]["output"];
+  notes?: Maybe<Scalars["String"]["output"]>;
+  responsiveImage?: Maybe<ResponsiveImage>;
+  size: Scalars["IntType"]["output"];
+  smartTags: Array<Scalars["String"]["output"]>;
+  tags: Array<Scalars["String"]["output"]>;
+  thumbhash?: Maybe<Scalars["String"]["output"]>;
   title?: Maybe<Scalars["String"]["output"]>;
-  url?: Maybe<Scalars["String"]["output"]>;
-  width?: Maybe<Scalars["Int"]["output"]>;
+  url: Scalars["String"]["output"];
+  video?: Maybe<UploadVideoField>;
+  width?: Maybe<Scalars["IntType"]["output"]>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetContentTypeArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type FileFieldAltArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetDescriptionArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type FileFieldBlurUpThumbArgs = {
+  imgixParams?: InputMaybe<ImgixParams>;
+  punch?: Scalars["Float"]["input"];
+  quality?: Scalars["Int"]["input"];
+  size?: Scalars["Int"]["input"];
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetFileNameArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type FileFieldCustomDataArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetHeightArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type FileFieldFocalPointArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+export type FileFieldResponsiveImageArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  imgixParams?: InputMaybe<ImgixParams>;
+  locale?: InputMaybe<SiteLocale>;
+  sizes?: InputMaybe<Scalars["String"]["input"]>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetSizeArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type FileFieldTitleArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetTitleArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type FileFieldUrlArgs = {
+  imgixParams?: InputMaybe<ImgixParams>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetUrlArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  transform?: InputMaybe<ImageTransformOptions>;
+export type FileFieldInterface = {
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  alt?: Maybe<Scalars["String"]["output"]>;
+  author?: Maybe<Scalars["String"]["output"]>;
+  basename: Scalars["String"]["output"];
+  blurhash?: Maybe<Scalars["String"]["output"]>;
+  blurUpThumb?: Maybe<Scalars["String"]["output"]>;
+  colors: Array<ColorField>;
+  copyright?: Maybe<Scalars["String"]["output"]>;
+  customData: Scalars["CustomData"]["output"];
+  exifInfo: Scalars["CustomData"]["output"];
+  filename: Scalars["String"]["output"];
+  focalPoint?: Maybe<FocalPoint>;
+  format: Scalars["String"]["output"];
+  height?: Maybe<Scalars["IntType"]["output"]>;
+  id: Scalars["UploadId"]["output"];
+  md5: Scalars["String"]["output"];
+  mimeType: Scalars["String"]["output"];
+  notes?: Maybe<Scalars["String"]["output"]>;
+  responsiveImage?: Maybe<ResponsiveImage>;
+  size: Scalars["IntType"]["output"];
+  smartTags: Array<Scalars["String"]["output"]>;
+  tags: Array<Scalars["String"]["output"]>;
+  thumbhash?: Maybe<Scalars["String"]["output"]>;
+  title?: Maybe<Scalars["String"]["output"]>;
+  url: Scalars["String"]["output"];
+  video?: Maybe<UploadVideoField>;
+  width?: Maybe<Scalars["IntType"]["output"]>;
 };
 
-/** Represents a binary file in a space. An asset can be any file type. */
-export type AssetWidthArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type FileFieldInterfaceAltArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type ContentfulMetadata = {
-  __typename?: "ContentfulMetadata";
-  tags: Array<Maybe<ContentfulTag>>;
+export type FileFieldInterfaceBlurUpThumbArgs = {
+  imgixParams?: InputMaybe<ImgixParams>;
+  punch?: Scalars["Float"]["input"];
+  quality?: Scalars["Int"]["input"];
+  size?: Scalars["Int"]["input"];
 };
 
-/**
- * Represents a tag entity for finding and organizing content easily.
- *     Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
- */
-export type ContentfulTag = {
-  __typename?: "ContentfulTag";
-  id?: Maybe<Scalars["String"]["output"]>;
+export type FileFieldInterfaceCustomDataArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type FileFieldInterfaceFocalPointArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type FileFieldInterfaceResponsiveImageArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  imgixParams?: InputMaybe<ImgixParams>;
+  locale?: InputMaybe<SiteLocale>;
+  sizes?: InputMaybe<Scalars["String"]["input"]>;
+};
+
+export type FileFieldInterfaceTitleArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type FileFieldInterfaceUrlArgs = {
+  imgixParams?: InputMaybe<ImgixParams>;
+};
+
+export type ImgixParams = {
+  /**
+   * Aspect Ratio
+   *
+   * Specifies an aspect ratio to maintain when resizing and cropping the image
+   *
+   * Depends on: `fit=crop`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/ar)
+   */
+  ar?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Automatic
+   *
+   * Applies automatic enhancements to images.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/auto)
+   */
+  auto?: InputMaybe<Array<ImgixParamsAuto>>;
+  /**
+   * Background Color
+   *
+   * Colors the background of padded and partially-transparent images.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/bg)
+   */
+  bg?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Background Removal
+   *
+   * Removes background from image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background-removal/bg-remove)
+   */
+  bgRemove?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /**
+   * Blend
+   *
+   * Specifies the location of the blend image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend)
+   */
+  blend?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Blend Align
+   *
+   * Changes the blend alignment relative to the parent image.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-align)
+   */
+  blendAlign?: InputMaybe<Array<ImgixParamsBlendAlign>>;
+  /**
+   * Blend Alpha
+   *
+   * Changes the alpha of the blend image.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-alpha)
+   */
+  blendAlpha?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Blend Color
+   *
+   * Specifies a color to use when applying the blend.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-color)
+   */
+  blendColor?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Blend Crop
+   *
+   * Specifies the type of crop for blend images.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-crop)
+   */
+  blendCrop?: InputMaybe<Array<ImgixParamsBlendCrop>>;
+  /**
+   * Blend Fit
+   *
+   * Specifies the fit mode for blend images.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-fit)
+   */
+  blendFit?: InputMaybe<ImgixParamsBlendFit>;
+  /**
+   * Blend Height
+   *
+   * Adjusts the height of the blend image.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-h)
+   */
+  blendH?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Blend Mode
+   *
+   * Sets the blend mode for a blend image.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-mode)
+   */
+  blendMode?: InputMaybe<ImgixParamsBlendMode>;
+  /**
+   * Blend Padding
+   *
+   * Applies padding to the blend image.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-pad)
+   */
+  blendPad?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Blend Size
+   *
+   * Adjusts the size of the blend image.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-size)
+   */
+  blendSize?: InputMaybe<ImgixParamsBlendSize>;
+  /**
+   * Blend Width
+   *
+   * Adjusts the width of the blend image.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-w)
+   */
+  blendW?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Blend X Position
+   *
+   * Adjusts the x-offset of the blend image relative to its parent.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-x)
+   */
+  blendX?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Blend Y Position
+   *
+   * Adjusts the y-offset of the blend image relative to its parent.
+   *
+   * Depends on: `blend`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-y)
+   */
+  blendY?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Gaussian Blur
+   *
+   * Applies a gaussian blur to an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/blur)
+   */
+  blur?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Border Size & Color
+   *
+   * Applies a border to an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border)
+   */
+  border?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Border Bottom
+   *
+   * Sets bottom border of an image.
+   *
+   * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-bottom)
+   */
+  borderBottom?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Border Left
+   *
+   * Sets left border of an image.
+   *
+   * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-left)
+   */
+  borderLeft?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Outer Border Radius
+   *
+   * Sets the outer radius of the image's border in pixels.
+   *
+   * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius)
+   */
+  borderRadius?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Inner Border Radius
+   *
+   * Sets the inner radius of the image's border in pixels.
+   *
+   * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius-inner)
+   */
+  borderRadiusInner?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Border Right
+   *
+   * Sets right border of an image.
+   *
+   * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-right)
+   */
+  borderRight?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Border Top
+   *
+   * Sets top border of an image.
+   *
+   * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-top)
+   */
+  borderTop?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Brightness
+   *
+   * Adjusts the brightness of the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/bri)
+   */
+  bri?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Client Hints
+   *
+   * Sets one or more Client-Hints headers
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/ch)
+   */
+  ch?: InputMaybe<Array<ImgixParamsCh>>;
+  /**
+   * Chroma Subsampling
+   *
+   * Specifies the output chroma subsampling rate.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/chromasub)
+   */
+  chromasub?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Color Quantization
+   *
+   * Limits the number of unique colors in an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/colorquant)
+   */
+  colorquant?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Palette Color Count
+   *
+   * Specifies how many colors to include in a palette-extraction response.
+   *
+   * Depends on: `palette`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/colors)
+   */
+  colors?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Contrast
+   *
+   * Adjusts the contrast of the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/con)
+   */
+  con?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Mask Corner Radius
+   *
+   * Specifies the radius value for a rounded corner mask.
+   *
+   * Depends on: `mask=corners`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/corner-radius)
+   */
+  cornerRadius?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Crop Mode
+   *
+   * Specifies how to crop an image.
+   *
+   * Depends on: `fit=crop`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/crop)
+   */
+  crop?: InputMaybe<Array<ImgixParamsCrop>>;
+  /**
+   * Color Space
+   *
+   * Specifies the color space of the output image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/cs)
+   */
+  cs?: InputMaybe<ImgixParamsCs>;
+  /**
+   * Download
+   *
+   * Forces a URL to use send-file in its response.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dl)
+   */
+  dl?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Dots Per Inch
+   *
+   * Sets the DPI value in the EXIF header.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dpi)
+   */
+  dpi?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Device Pixel Ratio
+   *
+   * Adjusts the device-pixel ratio of the output image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/dpr)
+   */
+  dpr?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Duotone
+   *
+   * Applies a duotone effect to the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone)
+   */
+  duotone?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Duotone Alpha
+   *
+   * Changes the alpha of the duotone effect atop the source image.
+   *
+   * Depends on: `duotone`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone-alpha)
+   */
+  duotoneAlpha?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Exposure
+   *
+   * Adjusts the exposure of the output image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/exp)
+   */
+  exp?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Url Expiration Timestamp
+   *
+   * A Unix timestamp specifying a UTC time. Requests made to this URL after that time will output a 404 status code.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/expires)
+   */
+  expires?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Face Index
+   *
+   * Selects a face to crop to.
+   *
+   * Depends on: `fit=facearea`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faceindex)
+   */
+  faceindex?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Face Padding
+   *
+   * Adjusts padding around a selected face.
+   *
+   * Depends on: `fit=facearea`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/facepad)
+   */
+  facepad?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Json Face Data
+   *
+   * Specifies that face data should be included in output when combined with `fm=json`.
+   *
+   * Depends on: `fm=json`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faces)
+   */
+  faces?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Fill Mode
+   *
+   * Determines how to fill in additional space created by the fit setting
+   *
+   * Depends on: `fit`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill)
+   */
+  fill?: InputMaybe<ImgixParamsFill>;
+  /**
+   * Fill Color
+   *
+   * Sets the fill color for images with additional space created by the fit setting
+   *
+   * Depends on: `fill=solid`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-color)
+   */
+  fillColor?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Resize Fit Mode
+   *
+   * Specifies how to map the source image to the output image dimensions.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/fit)
+   */
+  fit?: InputMaybe<ImgixParamsFit>;
+  /**
+   * Flip Axis
+   *
+   * Flips an image on a specified axis.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/flip)
+   */
+  flip?: InputMaybe<ImgixParamsFlip>;
+  /**
+   * Output Format
+   *
+   * Changes the format of the output image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/fm)
+   */
+  fm?: InputMaybe<ImgixParamsFm>;
+  /**
+   * Focal Point Debug
+   *
+   * Displays crosshairs identifying the location of the set focal point
+   *
+   * Depends on: `fit=crop`, `crop=focalpoint`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-debug)
+   */
+  fpDebug?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /**
+   * Frames Per Second
+   *
+   * Specifies the framerate of the generated image.
+   */
+  fps?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Focal Point X Position
+   *
+   * Sets the relative horizontal value for the focal point of an image
+   *
+   * Depends on: `fit=crop`, `crop=focalpoint`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-x)
+   */
+  fpX?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Focal Point Y Position
+   *
+   * Sets the relative vertical value for the focal point of an image
+   *
+   * Depends on: `fit=crop`, `crop=focalpoint`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-y)
+   */
+  fpY?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Focal Point Zoom
+   *
+   * Sets the relative zoom value for the focal point of an image
+   *
+   * Depends on: `fit=crop`, `crop=focalpoint`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z)
+   */
+  fpZ?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Frame Selection
+   *
+   * Specifies the frame of an animated image to use.
+   */
+  frame?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Gamma
+   *
+   * Adjusts the gamma of the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/gam)
+   */
+  gam?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Animated Gif Quality
+   *
+   * Depends on: `fm=gif`
+   */
+  gifQ?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Grid Colors
+   *
+   * Sets grid colors for the transparency checkerboard grid.
+   *
+   * Depends on: `transparency`
+   */
+  gridColors?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Grid Size
+   *
+   * Sets grid size for the transparency checkerboard grid.
+   *
+   * Depends on: `transparency`
+   */
+  gridSize?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Image Height
+   *
+   * Adjusts the height of the output image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/h)
+   */
+  h?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Highlight
+   *
+   * Adjusts the highlights of the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/high)
+   */
+  high?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Halftone
+   *
+   * Applies a half-tone effect to the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/htn)
+   */
+  htn?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Hue Shift
+   *
+   * Adjusts the hue of the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/hue)
+   */
+  hue?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Frame Interval
+   *
+   * Displays every Nth frame starting with the first frame.
+   */
+  interval?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Invert
+   *
+   * Inverts the colors on the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/invert)
+   */
+  invert?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /**
+   * Iptc Passthrough
+   *
+   * Determine if IPTC data should be passed for JPEG images.
+   */
+  iptc?: InputMaybe<ImgixParamsIptc>;
+  /**
+   * Animation Loop Count
+   *
+   * Specifies the number of times an animated image should repeat. A value of 0 means infinite looping.
+   */
+  loop?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Lossless Compression
+   *
+   * Specifies that the output image should be a lossless variant.
+   *
+   * Depends on: `fm=webp`, `fm=jxr`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/lossless)
+   */
+  lossless?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /**
+   * Watermark Image Url
+   *
+   * Specifies the location of the watermark image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark)
+   */
+  mark?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Watermark Alignment Mode
+   *
+   * Changes the watermark alignment relative to the parent image.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-align)
+   */
+  markAlign?: InputMaybe<Array<ImgixParamsMarkAlign>>;
+  /**
+   * Watermark Alpha
+   *
+   * Changes the alpha of the watermark image.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-alpha)
+   */
+  markAlpha?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Watermark Base Url
+   *
+   * Changes base URL of the watermark image.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-base)
+   */
+  markBase?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Watermark Fit Mode
+   *
+   * Specifies the fit mode for watermark images.
+   *
+   * Depends on: `mark`, `markw`, `markh`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-fit)
+   */
+  markFit?: InputMaybe<ImgixParamsMarkFit>;
+  /**
+   * Watermark Height
+   *
+   * Adjusts the height of the watermark image.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-h)
+   */
+  markH?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Watermark Padding
+   *
+   * Applies padding to the watermark image.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-pad)
+   */
+  markPad?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Watermark Rotation
+   *
+   * Rotates a watermark or tiled watermarks by a specified number of degrees.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-rot)
+   */
+  markRot?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Watermark Scale
+   *
+   * Adjusts the scale of the watermark image.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-scale)
+   */
+  markScale?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Watermark Tile
+   *
+   * Adds tiled watermark.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-tile)
+   */
+  markTile?: InputMaybe<ImgixParamsMarkTile>;
+  /**
+   * Watermark Width
+   *
+   * Adjusts the width of the watermark image.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-w)
+   */
+  markW?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Watermark X Position
+   *
+   * Adjusts the x-offset of the watermark image relative to its parent.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-x)
+   */
+  markX?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Watermark Y Position
+   *
+   * Adjusts the y-offset of the watermark image relative to its parent.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-y)
+   */
+  markY?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Mask Type
+   *
+   * Defines the type of mask and specifies the URL if that type is selected.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask)
+   */
+  mask?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Mask Background Color
+   *
+   * Colors the background of the transparent mask area of images
+   *
+   * Depends on: `mask`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/mask-bg)
+   */
+  maskBg?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Maximum Height
+   *
+   * Specifies the maximum height of the output image in pixels.
+   *
+   * Depends on: `fit=crop`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-height)
+   */
+  maxH?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Maximum Width
+   *
+   * Specifies the maximum width of the output image in pixels.
+   *
+   * Depends on: `fit=crop`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-width)
+   */
+  maxW?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Minimum Height
+   *
+   * Specifies the minimum height of the output image in pixels.
+   *
+   * Depends on: `fit=crop`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-height)
+   */
+  minH?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Minimum Width
+   *
+   * Specifies the minimum width of the output image in pixels.
+   *
+   * Depends on: `fit=crop`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-width)
+   */
+  minW?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Monochrome
+   *
+   * Applies a monochrome effect to the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/monochrome)
+   */
+  monochrome?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Noise Reduction Bound
+   *
+   * Reduces the noise in an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nr)
+   */
+  nr?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Noise Reduction Sharpen
+   *
+   * Provides a threshold by which to sharpen an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nrs)
+   */
+  nrs?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Orientation
+   *
+   * Changes the image orientation.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/orient)
+   */
+  orient?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Padding
+   *
+   * Pads an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad)
+   */
+  pad?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Padding Bottom
+   *
+   * Sets bottom padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-bottom)
+   */
+  padBottom?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Padding Left
+   *
+   * Sets left padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-left)
+   */
+  padLeft?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Padding Right
+   *
+   * Sets right padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-right)
+   */
+  padRight?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Padding Top
+   *
+   * Sets top padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-top)
+   */
+  padTop?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Pdf Page Number
+   *
+   * Selects a page from a PDF for display.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/page)
+   */
+  page?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Color Palette Extraction
+   *
+   * Specifies an output format for palette-extraction.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/palette)
+   */
+  palette?: InputMaybe<ImgixParamsPalette>;
+  /**
+   * Pdf Annotation
+   *
+   * Enables or disables PDF annotation.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/pdf-annotation)
+   */
+  pdfAnnotation?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /**
+   * Css Prefix
+   *
+   * Specifies a CSS prefix for all classes in palette-extraction.
+   *
+   * Depends on: `palette=css`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/prefix)
+   */
+  prefix?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Pixellate
+   *
+   * Applies a pixelation effect to an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/px)
+   */
+  px?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Output Quality
+   *
+   * Adjusts the quality of an output image.
+   *
+   * Depends on: `fm=jpg`, `fm=pjpg`, `fm=webp`, `fm=jxr`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/q)
+   */
+  q?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Source Rectangle Region
+   *
+   * Crops an image to a specified rectangle.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/rect)
+   */
+  rect?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Reverse
+   *
+   * Reverses the frame order on the source animation.
+   */
+  reverse?: InputMaybe<Scalars["BooleanType"]["input"]>;
+  /**
+   * Rotation
+   *
+   * Rotates an image by a specified number of degrees.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/rot)
+   */
+  rot?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Saturation
+   *
+   * Adjusts the saturation of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sat)
+   */
+  sat?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Sepia Tone
+   *
+   * Applies a sepia effect to an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/sepia)
+   */
+  sepia?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Shadow
+   *
+   * Adjusts the highlights of the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/shad)
+   */
+  shad?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Sharpen
+   *
+   * Adjusts the sharpness of the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sharp)
+   */
+  sharp?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Frame Skip
+   *
+   * Skips every Nth frame starting with the first frame.
+   */
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Transparency
+   *
+   * Adds checkerboard behind images which support transparency.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/transparency)
+   */
+  transparency?: InputMaybe<ImgixParamsTransparency>;
+  /**
+   * Trim Image
+   *
+   * Trims the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim)
+   */
+  trim?: InputMaybe<ImgixParamsTrim>;
+  /**
+   * Trim Color
+   *
+   * Specifies a trim color on a trim operation.
+   *
+   * Depends on: `trim=color`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-color)
+   */
+  trimColor?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Trim Mean Difference
+   *
+   * Specifies the mean difference on a trim operation.
+   *
+   * Depends on: `trim=auto`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-md)
+   */
+  trimMd?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Trim Padding
+   *
+   * Pads the area of the source image before trimming.
+   *
+   * Depends on: `trim`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-pad)
+   */
+  trimPad?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Trim Standard Deviation
+   *
+   * Specifies the standard deviation on a trim operation.
+   *
+   * Depends on: `trim=auto`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-sd)
+   */
+  trimSd?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Trim Tolerance
+   *
+   * Specifies the tolerance on a trim operation.
+   *
+   * Depends on: `trim=color`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-tol)
+   */
+  trimTol?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Text String
+   *
+   * Sets the text string to render.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt)
+   */
+  txt?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Text Align
+   *
+   * Sets the vertical and horizontal alignment of rendered text relative to the base image.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-align)
+   */
+  txtAlign?: InputMaybe<Array<ImgixParamsTxtAlign>>;
+  /**
+   * Text Clipping Mode
+   *
+   * Sets the clipping properties of rendered text.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-clip)
+   */
+  txtClip?: InputMaybe<Array<ImgixParamsTxtClip>>;
+  /**
+   * Text Color
+   *
+   * Specifies the color of rendered text.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-color)
+   */
+  txtColor?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Text Fit Mode
+   *
+   * Specifies the fit approach for rendered text.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-fit)
+   */
+  txtFit?: InputMaybe<ImgixParamsTxtFit>;
+  /**
+   * Text Font
+   *
+   * Selects a font for rendered text.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-font)
+   */
+  txtFont?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Text Leading
+   *
+   * Sets the leading (line spacing) for rendered text. Only works on the multi-line text endpoint.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-lead)
+   */
+  txtLead?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text Ligatures
+   *
+   * Controls the level of ligature substitution
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)
+   */
+  txtLig?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text Outline
+   *
+   * Outlines the rendered text with a specified color.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line)
+   */
+  txtLine?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text Outline Color
+   *
+   * Specifies a text outline color.
+   *
+   * Depends on: `txt`, `txtline`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line-color)
+   */
+  txtLineColor?: InputMaybe<Scalars["String"]["input"]>;
+  /**
+   * Text Padding
+   *
+   * Specifies the padding (in device-independent pixels) between a textbox and the edges of the base image.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-pad)
+   */
+  txtPad?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text Shadow
+   *
+   * Applies a shadow to rendered text.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-shad)
+   */
+  txtShad?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Text Font Size
+   *
+   * Sets the font size of rendered text.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-size)
+   */
+  txtSize?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text Tracking
+   *
+   * Sets the tracking (letter spacing) for rendered text. Only works on the multi-line text endpoint.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-track)
+   */
+  txtTrack?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text Width
+   *
+   * Sets the width of rendered text.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-width)
+   */
+  txtWidth?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text X Position
+   *
+   * Sets the horizontal (x) position of the text in pixels relative to the left edge of the base image.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-x)
+   */
+  txtX?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Text Y Position
+   *
+   * Sets the vertical (y) position of the text in pixels relative to the top edge of the base image.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-y)
+   */
+  txtY?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Unsharp Mask
+   *
+   * Sharpens the source image using an unsharp mask.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usm)
+   */
+  usm?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Unsharp Mask Radius
+   *
+   * Specifies the radius for an unsharp mask operation.
+   *
+   * Depends on: `usm`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usmrad)
+   */
+  usmrad?: InputMaybe<Scalars["FloatType"]["input"]>;
+  /**
+   * Vibrance
+   *
+   * Adjusts the vibrance of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/vib)
+   */
+  vib?: InputMaybe<Scalars["IntType"]["input"]>;
+  /**
+   * Image Width
+   *
+   * Adjusts the width of the output image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/w)
+   */
+  w?: InputMaybe<Scalars["FloatType"]["input"]>;
+};
+
+export enum ImgixParamsAuto {
+  Compress = "compress",
+  Enhance = "enhance",
+  Format = "format",
+  Redeye = "redeye",
+}
+
+export enum ImgixParamsBlendAlign {
+  Bottom = "bottom",
+  Center = "center",
+  Left = "left",
+  Middle = "middle",
+  Right = "right",
+  Top = "top",
+}
+
+export enum ImgixParamsBlendCrop {
+  Bottom = "bottom",
+  Faces = "faces",
+  Left = "left",
+  Right = "right",
+  Top = "top",
+}
+
+export enum ImgixParamsBlendFit {
+  Clamp = "clamp",
+  Clip = "clip",
+  Crop = "crop",
+  Max = "max",
+  Scale = "scale",
+}
+
+export enum ImgixParamsBlendMode {
+  Burn = "burn",
+  Color = "color",
+  Darken = "darken",
+  Difference = "difference",
+  Dodge = "dodge",
+  Exclusion = "exclusion",
+  Hardlight = "hardlight",
+  Hue = "hue",
+  Lighten = "lighten",
+  Luminosity = "luminosity",
+  Multiply = "multiply",
+  Normal = "normal",
+  Overlay = "overlay",
+  Saturation = "saturation",
+  Screen = "screen",
+  Softlight = "softlight",
+}
+
+export enum ImgixParamsBlendSize {
+  Inherit = "inherit",
+}
+
+export enum ImgixParamsCh {
+  Dpr = "dpr",
+  SaveData = "saveData",
+  Width = "width",
+}
+
+export enum ImgixParamsCrop {
+  Bottom = "bottom",
+  Edges = "edges",
+  Entropy = "entropy",
+  Faces = "faces",
+  Focalpoint = "focalpoint",
+  Left = "left",
+  Right = "right",
+  Top = "top",
+}
+
+export enum ImgixParamsCs {
+  Adobergb1998 = "adobergb1998",
+  Srgb = "srgb",
+  Strip = "strip",
+  Tinysrgb = "tinysrgb",
+}
+
+export enum ImgixParamsFill {
+  Blur = "blur",
+  Solid = "solid",
+}
+
+export enum ImgixParamsFit {
+  Clamp = "clamp",
+  Clip = "clip",
+  Crop = "crop",
+  Facearea = "facearea",
+  Fill = "fill",
+  Fillmax = "fillmax",
+  Max = "max",
+  Min = "min",
+  Scale = "scale",
+}
+
+export enum ImgixParamsFlip {
+  H = "h",
+  Hv = "hv",
+  V = "v",
+}
+
+export enum ImgixParamsFm {
+  Avif = "avif",
+  Blurhash = "blurhash",
+  Gif = "gif",
+  Jp2 = "jp2",
+  Jpg = "jpg",
+  Json = "json",
+  Jxr = "jxr",
+  Mp4 = "mp4",
+  Pjpg = "pjpg",
+  Png = "png",
+  Png32 = "png32",
+  Png8 = "png8",
+  Webm = "webm",
+  Webp = "webp",
+}
+
+export enum ImgixParamsIptc {
+  Allow = "allow",
+  Block = "block",
+}
+
+export enum ImgixParamsMarkAlign {
+  Bottom = "bottom",
+  Center = "center",
+  Left = "left",
+  Middle = "middle",
+  Right = "right",
+  Top = "top",
+}
+
+export enum ImgixParamsMarkFit {
+  Clip = "clip",
+  Crop = "crop",
+  Fill = "fill",
+  Max = "max",
+  Scale = "scale",
+}
+
+export enum ImgixParamsMarkTile {
+  Grid = "grid",
+}
+
+export enum ImgixParamsPalette {
+  Css = "css",
+  Json = "json",
+}
+
+export enum ImgixParamsTransparency {
+  Grid = "grid",
+}
+
+export enum ImgixParamsTrim {
+  Auto = "auto",
+  Color = "color",
+}
+
+export enum ImgixParamsTxtAlign {
+  Bottom = "bottom",
+  Center = "center",
+  Left = "left",
+  Middle = "middle",
+  Right = "right",
+  Top = "top",
+}
+
+export enum ImgixParamsTxtClip {
+  Ellipsis = "ellipsis",
+  End = "end",
+  Middle = "middle",
+  Start = "start",
+}
+
+export enum ImgixParamsTxtFit {
+  Max = "max",
+}
+
+export type ColorField = {
+  __typename?: "ColorField";
+  alpha: Scalars["IntType"]["output"];
+  blue: Scalars["IntType"]["output"];
+  cssRgb: Scalars["String"]["output"];
+  green: Scalars["IntType"]["output"];
+  hex: Scalars["String"]["output"];
+  red: Scalars["IntType"]["output"];
+};
+
+export type FocalPoint = {
+  __typename?: "focalPoint";
+  x: Scalars["FloatType"]["output"];
+  y: Scalars["FloatType"]["output"];
+};
+
+export type ResponsiveImage = {
+  __typename?: "ResponsiveImage";
+  alt?: Maybe<Scalars["String"]["output"]>;
+  aspectRatio: Scalars["FloatType"]["output"];
+  base64?: Maybe<Scalars["String"]["output"]>;
+  bgColor?: Maybe<Scalars["String"]["output"]>;
+  height: Scalars["IntType"]["output"];
+  sizes: Scalars["String"]["output"];
+  src: Scalars["String"]["output"];
+  srcSet: Scalars["String"]["output"];
+  title?: Maybe<Scalars["String"]["output"]>;
+  webpSrcSet: Scalars["String"]["output"];
+  width: Scalars["IntType"]["output"];
+};
+
+export type UploadVideoField = {
+  __typename?: "UploadVideoField";
+  duration?: Maybe<Scalars["Int"]["output"]>;
+  framerate?: Maybe<Scalars["Int"]["output"]>;
+  mp4Url?: Maybe<Scalars["String"]["output"]>;
+  muxAssetId: Scalars["String"]["output"];
+  muxPlaybackId: Scalars["String"]["output"];
+  streamingUrl: Scalars["String"]["output"];
+  thumbnailUrl: Scalars["String"]["output"];
+};
+
+export type UploadVideoFieldMp4UrlArgs = {
+  exactRes?: InputMaybe<VideoMp4Res>;
+  res?: InputMaybe<VideoMp4Res>;
+};
+
+export type UploadVideoFieldThumbnailUrlArgs = {
+  format?: InputMaybe<MuxThumbnailFormatType>;
+};
+
+export enum VideoMp4Res {
+  High = "high",
+  Low = "low",
+  Medium = "medium",
+}
+
+export enum MuxThumbnailFormatType {
+  Gif = "gif",
+  Jpg = "jpg",
+  Png = "png",
+}
+
+export enum FaviconType {
+  AppleTouchIcon = "appleTouchIcon",
+  Icon = "icon",
+  MsApplication = "msApplication",
+}
+
+export type Tag = {
+  __typename?: "Tag";
+  attributes?: Maybe<Scalars["MetaTagAttributes"]["output"]>;
+  content?: Maybe<Scalars["String"]["output"]>;
+  tag: Scalars["String"]["output"];
+};
+
+export type GlobalSeoField = {
+  __typename?: "GlobalSeoField";
+  facebookPageUrl?: Maybe<Scalars["String"]["output"]>;
+  fallbackSeo?: Maybe<SeoField>;
+  siteName?: Maybe<Scalars["String"]["output"]>;
+  titleSuffix?: Maybe<Scalars["String"]["output"]>;
+  twitterAccount?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type SeoField = {
+  __typename?: "SeoField";
+  description?: Maybe<Scalars["String"]["output"]>;
+  image?: Maybe<FileField>;
+  title?: Maybe<Scalars["String"]["output"]>;
+  twitterCard?: Maybe<Scalars["String"]["output"]>;
+};
+
+export enum ConcertModelOrderBy {
+  CreatedAtAsc = "_createdAt_ASC",
+  CreatedAtDesc = "_createdAt_DESC",
+  FirstPublishedAtAsc = "_firstPublishedAt_ASC",
+  FirstPublishedAtDesc = "_firstPublishedAt_DESC",
+  IsValidAsc = "_isValid_ASC",
+  IsValidDesc = "_isValid_DESC",
+  PublicationScheduledAtAsc = "_publicationScheduledAt_ASC",
+  PublicationScheduledAtDesc = "_publicationScheduledAt_DESC",
+  PublishedAtAsc = "_publishedAt_ASC",
+  PublishedAtDesc = "_publishedAt_DESC",
+  StatusAsc = "_status_ASC",
+  StatusDesc = "_status_DESC",
+  UnpublishingScheduledAtAsc = "_unpublishingScheduledAt_ASC",
+  UnpublishingScheduledAtDesc = "_unpublishingScheduledAt_DESC",
+  UpdatedAtAsc = "_updatedAt_ASC",
+  UpdatedAtDesc = "_updatedAt_DESC",
+  IdAsc = "id_ASC",
+  IdDesc = "id_DESC",
+  TitleAsc = "title_ASC",
+  TitleDesc = "title_DESC",
+}
+
+/** Record of type Concerten (concert) */
+export type ConcertRecord = RecordInterface & {
+  __typename?: "ConcertRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  content: Array<ConcertModelContentField>;
+  id: Scalars["ItemId"]["output"];
+  link?: Maybe<LinkRecord>;
+  locations: Array<LocationItemRecord>;
+  persons: Array<PersonRecord>;
+  poster?: Maybe<FileField>;
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+/** Record of type Concerten (concert) */
+export type ConcertRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type RecordInterface = {
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+};
+
+export type RecordInterface_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type ConcertModelContentField = TextBlockRecord | TwoColumnRecord;
+
+/** Block of type Tekst blok (text_block) */
+export type TextBlockRecord = RecordInterface & {
+  __typename?: "TextBlockRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  content?: Maybe<TextBlockModelContentField>;
+  id: Scalars["ItemId"]["output"];
+};
+
+/** Block of type Tekst blok (text_block) */
+export type TextBlockRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type TextBlockModelContentField = {
+  __typename?: "TextBlockModelContentField";
+  blocks: Array<TextBlockModelContentBlocksField>;
+  links: Array<PageRecord>;
+  value: Scalars["JsonField"]["output"];
+};
+
+export type TextBlockModelContentBlocksField =
+  | ConcertListRecord
+  | ImageRecord
+  | VideoRecord;
+
+/** Block of type Concert lijst (concert_list) */
+export type ConcertListRecord = RecordInterface & {
+  __typename?: "ConcertListRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  pinnedConcerts: Array<ConcertRecord>;
+  showAllConcerts?: Maybe<Scalars["BooleanType"]["output"]>;
+};
+
+/** Block of type Concert lijst (concert_list) */
+export type ConcertListRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** Block of type Afbeelding (image) */
+export type ImageRecord = RecordInterface & {
+  __typename?: "ImageRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  item?: Maybe<MediaItemRecord>;
+};
+
+/** Block of type Afbeelding (image) */
+export type ImageRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** Record of type Media item (media_item) */
+export type MediaItemRecord = RecordInterface & {
+  __typename?: "MediaItemRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  item?: Maybe<FileField>;
+  itemUrl?: Maybe<Scalars["String"]["output"]>;
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+/** Record of type Media item (media_item) */
+export type MediaItemRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** Block of type Video (video) */
+export type VideoRecord = RecordInterface & {
+  __typename?: "VideoRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  media?: Maybe<VideoField>;
+  thumbnail?: Maybe<MediaItemRecord>;
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+/** Block of type Video (video) */
+export type VideoRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type VideoField = {
+  __typename?: "VideoField";
+  height: Scalars["IntType"]["output"];
+  provider: Scalars["String"]["output"];
+  providerUid: Scalars["String"]["output"];
+  thumbnailUrl: Scalars["String"]["output"];
+  title: Scalars["String"]["output"];
+  url: Scalars["String"]["output"];
+  width: Scalars["IntType"]["output"];
+};
+
+/** Record of type Pagina's (page) */
+export type PageRecord = RecordInterface & {
+  __typename?: "PageRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  content: Array<PageModelContentField>;
+  id: Scalars["ItemId"]["output"];
+  seo?: Maybe<SeoField>;
+  slug?: Maybe<Scalars["String"]["output"]>;
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+/** Record of type Pagina's (page) */
+export type PageRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type PageModelContentField =
+  | ConcertListRecord
+  | TextBlockRecord
+  | TwoColumnRecord;
+
+/** Block of type Two kolommen tekst blok (two_column) */
+export type TwoColumnRecord = RecordInterface & {
+  __typename?: "TwoColumnRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  leftContent?: Maybe<TwoColumnModelLeftContentField>;
+  rightContent?: Maybe<TwoColumnModelRightContentField>;
+};
+
+/** Block of type Two kolommen tekst blok (two_column) */
+export type TwoColumnRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type TwoColumnModelLeftContentField = {
+  __typename?: "TwoColumnModelLeftContentField";
+  blocks: Array<TwoColumnModelLeftContentBlocksField>;
+  links: Array<PageRecord>;
+  value: Scalars["JsonField"]["output"];
+};
+
+export type TwoColumnModelLeftContentBlocksField =
+  | ConcertListRecord
+  | ImageRecord
+  | VideoRecord;
+
+export type TwoColumnModelRightContentField = {
+  __typename?: "TwoColumnModelRightContentField";
+  blocks: Array<TwoColumnModelRightContentBlocksField>;
+  links: Array<PageRecord>;
+  value: Scalars["JsonField"]["output"];
+};
+
+export type TwoColumnModelRightContentBlocksField =
+  | ConcertListRecord
+  | ImageRecord
+  | VideoRecord;
+
+/** Record of type Links (link) */
+export type LinkRecord = RecordInterface & {
+  __typename?: "LinkRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  externalUrl?: Maybe<Scalars["String"]["output"]>;
+  id: Scalars["ItemId"]["output"];
+  internalTitle?: Maybe<Scalars["String"]["output"]>;
+  page?: Maybe<PageRecord>;
+};
+
+/** Record of type Links (link) */
+export type LinkRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** Block of type Locatie item (location_item) */
+export type LocationItemRecord = RecordInterface & {
+  __typename?: "LocationItemRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  dateTime?: Maybe<Scalars["DateTime"]["output"]>;
+  id: Scalars["ItemId"]["output"];
+  location?: Maybe<LinkRecord>;
+};
+
+/** Block of type Locatie item (location_item) */
+export type LocationItemRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** Record of type Personen (person) */
+export type PersonRecord = RecordInterface & {
+  __typename?: "PersonRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
   name?: Maybe<Scalars["String"]["output"]>;
+  role?: Maybe<Scalars["String"]["output"]>;
 };
 
-export type AssetLinkingCollections = {
-  __typename?: "AssetLinkingCollections";
-  authorCollection?: Maybe<AuthorCollection>;
-  entryCollection?: Maybe<EntryCollection>;
-  eventCollection?: Maybe<EventCollection>;
-  navigationCollection?: Maybe<NavigationCollection>;
-  pageCollection?: Maybe<PageCollection>;
+/** Record of type Personen (person) */
+export type PersonRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type AssetLinkingCollectionsAuthorCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<
-    Array<InputMaybe<AssetLinkingCollectionsAuthorCollectionOrder>>
-  >;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
+export enum LinkModelOrderBy {
+  CreatedAtAsc = "_createdAt_ASC",
+  CreatedAtDesc = "_createdAt_DESC",
+  FirstPublishedAtAsc = "_firstPublishedAt_ASC",
+  FirstPublishedAtDesc = "_firstPublishedAt_DESC",
+  IsValidAsc = "_isValid_ASC",
+  IsValidDesc = "_isValid_DESC",
+  PublicationScheduledAtAsc = "_publicationScheduledAt_ASC",
+  PublicationScheduledAtDesc = "_publicationScheduledAt_DESC",
+  PublishedAtAsc = "_publishedAt_ASC",
+  PublishedAtDesc = "_publishedAt_DESC",
+  StatusAsc = "_status_ASC",
+  StatusDesc = "_status_DESC",
+  UnpublishingScheduledAtAsc = "_unpublishingScheduledAt_ASC",
+  UnpublishingScheduledAtDesc = "_unpublishingScheduledAt_DESC",
+  UpdatedAtAsc = "_updatedAt_ASC",
+  UpdatedAtDesc = "_updatedAt_DESC",
+  ExternalUrlAsc = "externalUrl_ASC",
+  ExternalUrlDesc = "externalUrl_DESC",
+  IdAsc = "id_ASC",
+  IdDesc = "id_DESC",
+  InternalTitleAsc = "internalTitle_ASC",
+  InternalTitleDesc = "internalTitle_DESC",
+}
+
+export enum LocationModelOrderBy {
+  CreatedAtAsc = "_createdAt_ASC",
+  CreatedAtDesc = "_createdAt_DESC",
+  FirstPublishedAtAsc = "_firstPublishedAt_ASC",
+  FirstPublishedAtDesc = "_firstPublishedAt_DESC",
+  IsValidAsc = "_isValid_ASC",
+  IsValidDesc = "_isValid_DESC",
+  PublicationScheduledAtAsc = "_publicationScheduledAt_ASC",
+  PublicationScheduledAtDesc = "_publicationScheduledAt_DESC",
+  PublishedAtAsc = "_publishedAt_ASC",
+  PublishedAtDesc = "_publishedAt_DESC",
+  StatusAsc = "_status_ASC",
+  StatusDesc = "_status_DESC",
+  UnpublishingScheduledAtAsc = "_unpublishingScheduledAt_ASC",
+  UnpublishingScheduledAtDesc = "_unpublishingScheduledAt_DESC",
+  UpdatedAtAsc = "_updatedAt_ASC",
+  UpdatedAtDesc = "_updatedAt_DESC",
+  AddressTitleAsc = "addressTitle_ASC",
+  AddressTitleDesc = "addressTitle_DESC",
+  IdAsc = "id_ASC",
+  IdDesc = "id_DESC",
+  TitleAsc = "title_ASC",
+  TitleDesc = "title_DESC",
+}
+
+/** Record of type Locaties (location) */
+export type LocationRecord = RecordInterface & {
+  __typename?: "LocationRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  address?: Maybe<LatLonField>;
+  addressTitle?: Maybe<Scalars["String"]["output"]>;
+  id: Scalars["ItemId"]["output"];
+  title?: Maybe<Scalars["String"]["output"]>;
 };
 
-export type AssetLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
+/** Record of type Locaties (location) */
+export type LocationRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type AssetLinkingCollectionsEventCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<
-    Array<InputMaybe<AssetLinkingCollectionsEventCollectionOrder>>
-  >;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
+export type LatLonField = {
+  __typename?: "LatLonField";
+  latitude: Scalars["FloatType"]["output"];
+  longitude: Scalars["FloatType"]["output"];
 };
 
-export type AssetLinkingCollectionsNavigationCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<
-    Array<InputMaybe<AssetLinkingCollectionsNavigationCollectionOrder>>
-  >;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
+export enum MediaItemModelOrderBy {
+  CreatedAtAsc = "_createdAt_ASC",
+  CreatedAtDesc = "_createdAt_DESC",
+  FirstPublishedAtAsc = "_firstPublishedAt_ASC",
+  FirstPublishedAtDesc = "_firstPublishedAt_DESC",
+  IsValidAsc = "_isValid_ASC",
+  IsValidDesc = "_isValid_DESC",
+  PublicationScheduledAtAsc = "_publicationScheduledAt_ASC",
+  PublicationScheduledAtDesc = "_publicationScheduledAt_DESC",
+  PublishedAtAsc = "_publishedAt_ASC",
+  PublishedAtDesc = "_publishedAt_DESC",
+  StatusAsc = "_status_ASC",
+  StatusDesc = "_status_DESC",
+  UnpublishingScheduledAtAsc = "_unpublishingScheduledAt_ASC",
+  UnpublishingScheduledAtDesc = "_unpublishingScheduledAt_DESC",
+  UpdatedAtAsc = "_updatedAt_ASC",
+  UpdatedAtDesc = "_updatedAt_DESC",
+  IdAsc = "id_ASC",
+  IdDesc = "id_DESC",
+  ItemUrlAsc = "itemUrl_ASC",
+  ItemUrlDesc = "itemUrl_DESC",
+  TitleAsc = "title_ASC",
+  TitleDesc = "title_DESC",
+}
 
-export type AssetLinkingCollectionsPageCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<
-    Array<InputMaybe<AssetLinkingCollectionsPageCollectionOrder>>
-  >;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
+export enum PageModelOrderBy {
+  CreatedAtAsc = "_createdAt_ASC",
+  CreatedAtDesc = "_createdAt_DESC",
+  FirstPublishedAtAsc = "_firstPublishedAt_ASC",
+  FirstPublishedAtDesc = "_firstPublishedAt_DESC",
+  IsValidAsc = "_isValid_ASC",
+  IsValidDesc = "_isValid_DESC",
+  PublicationScheduledAtAsc = "_publicationScheduledAt_ASC",
+  PublicationScheduledAtDesc = "_publicationScheduledAt_DESC",
+  PublishedAtAsc = "_publishedAt_ASC",
+  PublishedAtDesc = "_publishedAt_DESC",
+  StatusAsc = "_status_ASC",
+  StatusDesc = "_status_DESC",
+  UnpublishingScheduledAtAsc = "_unpublishingScheduledAt_ASC",
+  UnpublishingScheduledAtDesc = "_unpublishingScheduledAt_DESC",
+  UpdatedAtAsc = "_updatedAt_ASC",
+  UpdatedAtDesc = "_updatedAt_DESC",
+  IdAsc = "id_ASC",
+  IdDesc = "id_DESC",
+  TitleAsc = "title_ASC",
+  TitleDesc = "title_DESC",
+}
 
-export enum AssetLinkingCollectionsAuthorCollectionOrder {
+export enum PersonModelOrderBy {
+  CreatedAtAsc = "_createdAt_ASC",
+  CreatedAtDesc = "_createdAt_DESC",
+  FirstPublishedAtAsc = "_firstPublishedAt_ASC",
+  FirstPublishedAtDesc = "_firstPublishedAt_DESC",
+  IsValidAsc = "_isValid_ASC",
+  IsValidDesc = "_isValid_DESC",
+  PublicationScheduledAtAsc = "_publicationScheduledAt_ASC",
+  PublicationScheduledAtDesc = "_publicationScheduledAt_DESC",
+  PublishedAtAsc = "_publishedAt_ASC",
+  PublishedAtDesc = "_publishedAt_DESC",
+  StatusAsc = "_status_ASC",
+  StatusDesc = "_status_DESC",
+  UnpublishingScheduledAtAsc = "_unpublishingScheduledAt_ASC",
+  UnpublishingScheduledAtDesc = "_unpublishingScheduledAt_DESC",
+  UpdatedAtAsc = "_updatedAt_ASC",
+  UpdatedAtDesc = "_updatedAt_DESC",
+  IdAsc = "id_ASC",
+  IdDesc = "id_DESC",
   NameAsc = "name_ASC",
   NameDesc = "name_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
+  RoleAsc = "role_ASC",
+  RoleDesc = "role_DESC",
 }
 
-export type AuthorCollection = {
-  __typename?: "AuthorCollection";
-  items: Array<Maybe<Author>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/author) */
-export type Author = Entry & {
-  __typename?: "Author";
-  contentfulMetadata: ContentfulMetadata;
-  description?: Maybe<Scalars["String"]["output"]>;
-  image?: Maybe<Asset>;
-  linkedFrom?: Maybe<AuthorLinkingCollections>;
-  name?: Maybe<Scalars["String"]["output"]>;
-  sys: Sys;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/author) */
-export type AuthorDescriptionArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/author) */
-export type AuthorImageArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/author) */
-export type AuthorLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/author) */
-export type AuthorNameArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-export type Entry = {
-  contentfulMetadata: ContentfulMetadata;
-  sys: Sys;
-};
-
-export type Sys = {
-  __typename?: "Sys";
-  environmentId: Scalars["String"]["output"];
-  firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  id: Scalars["String"]["output"];
-  publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  publishedVersion?: Maybe<Scalars["Int"]["output"]>;
-  spaceId: Scalars["String"]["output"];
-};
-
-export type AuthorLinkingCollections = {
-  __typename?: "AuthorLinkingCollections";
-  blogPostCollection?: Maybe<BlogPostCollection>;
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-export type AuthorLinkingCollectionsBlogPostCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<
-    Array<InputMaybe<AuthorLinkingCollectionsBlogPostCollectionOrder>>
-  >;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
-
-export type AuthorLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
-
-export enum AuthorLinkingCollectionsBlogPostCollectionOrder {
-  DatePublishedAsc = "datePublished_ASC",
-  DatePublishedDesc = "datePublished_DESC",
-  SlugAsc = "slug_ASC",
-  SlugDesc = "slug_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type BlogPostCollection = {
-  __typename?: "BlogPostCollection";
-  items: Array<Maybe<BlogPost>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/blogPost) */
-export type BlogPost = Entry & {
-  __typename?: "BlogPost";
-  authorCollection?: Maybe<BlogPostAuthorCollection>;
-  body?: Maybe<BlogPostBody>;
-  contentfulMetadata: ContentfulMetadata;
-  datePublished?: Maybe<Scalars["DateTime"]["output"]>;
-  linkedFrom?: Maybe<BlogPostLinkingCollections>;
-  slug?: Maybe<Scalars["String"]["output"]>;
-  sys: Sys;
-  title?: Maybe<Scalars["String"]["output"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/blogPost) */
-export type BlogPostAuthorCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<Array<InputMaybe<BlogPostAuthorCollectionOrder>>>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<AuthorFilter>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/blogPost) */
-export type BlogPostBodyArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/blogPost) */
-export type BlogPostDatePublishedArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/blogPost) */
-export type BlogPostLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/blogPost) */
-export type BlogPostSlugArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/blogPost) */
-export type BlogPostTitleArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-export enum BlogPostAuthorCollectionOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-}
-
-export type AuthorFilter = {
-  AND?: InputMaybe<Array<InputMaybe<AuthorFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  description_contains?: InputMaybe<Scalars["String"]["input"]>;
-  description_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  description_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  description_not?: InputMaybe<Scalars["String"]["input"]>;
-  description_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["String"]["input"]>>
-  >;
-  image_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  name_contains?: InputMaybe<Scalars["String"]["input"]>;
-  name_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  name_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  name_not?: InputMaybe<Scalars["String"]["input"]>;
-  name_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  name_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  OR?: InputMaybe<Array<InputMaybe<AuthorFilter>>>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export type ContentfulMetadataFilter = {
-  tags?: InputMaybe<ContentfulMetadataTagsFilter>;
-  tags_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-};
-
-export type ContentfulMetadataTagsFilter = {
-  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-export type SysFilter = {
-  firstPublishedAt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  firstPublishedAt_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  firstPublishedAt_gt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  firstPublishedAt_gte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  firstPublishedAt_in?: InputMaybe<
-    Array<InputMaybe<Scalars["DateTime"]["input"]>>
-  >;
-  firstPublishedAt_lt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  firstPublishedAt_lte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  firstPublishedAt_not?: InputMaybe<Scalars["DateTime"]["input"]>;
-  firstPublishedAt_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["DateTime"]["input"]>>
-  >;
-  id?: InputMaybe<Scalars["String"]["input"]>;
-  id_contains?: InputMaybe<Scalars["String"]["input"]>;
-  id_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  id_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  id_not?: InputMaybe<Scalars["String"]["input"]>;
-  id_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  publishedAt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  publishedAt_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  publishedAt_gt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  publishedAt_gte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]["input"]>>>;
-  publishedAt_lt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  publishedAt_lte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  publishedAt_not?: InputMaybe<Scalars["DateTime"]["input"]>;
-  publishedAt_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["DateTime"]["input"]>>
-  >;
-  publishedVersion?: InputMaybe<Scalars["Float"]["input"]>;
-  publishedVersion_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  publishedVersion_gt?: InputMaybe<Scalars["Float"]["input"]>;
-  publishedVersion_gte?: InputMaybe<Scalars["Float"]["input"]>;
-  publishedVersion_in?: InputMaybe<
-    Array<InputMaybe<Scalars["Float"]["input"]>>
-  >;
-  publishedVersion_lt?: InputMaybe<Scalars["Float"]["input"]>;
-  publishedVersion_lte?: InputMaybe<Scalars["Float"]["input"]>;
-  publishedVersion_not?: InputMaybe<Scalars["Float"]["input"]>;
-  publishedVersion_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["Float"]["input"]>>
-  >;
-};
-
-export type BlogPostAuthorCollection = {
-  __typename?: "BlogPostAuthorCollection";
-  items: Array<Maybe<Author>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-export type BlogPostBody = {
-  __typename?: "BlogPostBody";
-  json: Scalars["JSON"]["output"];
-  links: BlogPostBodyLinks;
-};
-
-export type BlogPostBodyLinks = {
-  __typename?: "BlogPostBodyLinks";
-  assets: BlogPostBodyAssets;
-  entries: BlogPostBodyEntries;
-  resources: BlogPostBodyResources;
-};
-
-export type BlogPostBodyAssets = {
-  __typename?: "BlogPostBodyAssets";
-  block: Array<Maybe<Asset>>;
-  hyperlink: Array<Maybe<Asset>>;
-};
-
-export type BlogPostBodyEntries = {
-  __typename?: "BlogPostBodyEntries";
-  block: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  inline: Array<Maybe<Entry>>;
-};
-
-export type BlogPostBodyResources = {
-  __typename?: "BlogPostBodyResources";
-  block: Array<ResourceLink>;
-};
-
-export type ResourceLink = {
-  __typename?: "ResourceLink";
-  sys: ResourceSys;
-};
-
-export type ResourceSys = {
-  __typename?: "ResourceSys";
-  linkType: Scalars["String"]["output"];
-  type: Scalars["String"]["output"];
-  urn: Scalars["String"]["output"];
-};
-
-export type BlogPostLinkingCollections = {
-  __typename?: "BlogPostLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-export type BlogPostLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
-
-export type EntryCollection = {
-  __typename?: "EntryCollection";
-  items: Array<Maybe<Entry>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-export enum AssetLinkingCollectionsEventCollectionOrder {
-  StartDateAsc = "startDate_ASC",
-  StartDateDesc = "startDate_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type EventCollection = {
-  __typename?: "EventCollection";
-  items: Array<Maybe<Event>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/event) */
-export type Event = Entry & {
-  __typename?: "Event";
-  contentfulMetadata: ContentfulMetadata;
-  description?: Maybe<EventDescription>;
-  image?: Maybe<Asset>;
-  linkedFrom?: Maybe<EventLinkingCollections>;
-  location?: Maybe<Location>;
-  startDate?: Maybe<Scalars["DateTime"]["output"]>;
-  sys: Sys;
-  title?: Maybe<Scalars["String"]["output"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/event) */
-export type EventDescriptionArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/event) */
-export type EventImageArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/event) */
-export type EventLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/event) */
-export type EventLocationArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/event) */
-export type EventStartDateArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/event) */
-export type EventTitleArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-export type EventDescription = {
-  __typename?: "EventDescription";
-  json: Scalars["JSON"]["output"];
-  links: EventDescriptionLinks;
-};
-
-export type EventDescriptionLinks = {
-  __typename?: "EventDescriptionLinks";
-  assets: EventDescriptionAssets;
-  entries: EventDescriptionEntries;
-  resources: EventDescriptionResources;
-};
-
-export type EventDescriptionAssets = {
-  __typename?: "EventDescriptionAssets";
-  block: Array<Maybe<Asset>>;
-  hyperlink: Array<Maybe<Asset>>;
-};
-
-export type EventDescriptionEntries = {
-  __typename?: "EventDescriptionEntries";
-  block: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  inline: Array<Maybe<Entry>>;
-};
-
-export type EventDescriptionResources = {
-  __typename?: "EventDescriptionResources";
-  block: Array<ResourceLink>;
-};
-
-export type EventLinkingCollections = {
-  __typename?: "EventLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-export type EventLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
-
-export type Location = {
-  __typename?: "Location";
-  lat?: Maybe<Scalars["Float"]["output"]>;
-  lon?: Maybe<Scalars["Float"]["output"]>;
-};
-
-export enum AssetLinkingCollectionsNavigationCollectionOrder {
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type NavigationCollection = {
-  __typename?: "NavigationCollection";
-  items: Array<Maybe<Navigation>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/navigation) */
-export type Navigation = Entry & {
-  __typename?: "Navigation";
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<NavigationLinkingCollections>;
-  logo?: Maybe<Asset>;
-  navigationItemsCollection?: Maybe<NavigationNavigationItemsCollection>;
-  sys: Sys;
-  title?: Maybe<Scalars["String"]["output"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/navigation) */
-export type NavigationLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/navigation) */
-export type NavigationLogoArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/navigation) */
-export type NavigationNavigationItemsCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<
-    Array<InputMaybe<NavigationNavigationItemsCollectionOrder>>
-  >;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-  where?: InputMaybe<PageFilter>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/navigation) */
-export type NavigationTitleArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-export type NavigationLinkingCollections = {
-  __typename?: "NavigationLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-export type NavigationLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
-
-export enum NavigationNavigationItemsCollectionOrder {
-  SlugAsc = "slug_ASC",
-  SlugDesc = "slug_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type PageFilter = {
-  AND?: InputMaybe<Array<InputMaybe<PageFilter>>>;
-  body_contains?: InputMaybe<Scalars["String"]["input"]>;
-  body_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  body_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  headerImage_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  OR?: InputMaybe<Array<InputMaybe<PageFilter>>>;
-  slug?: InputMaybe<Scalars["String"]["input"]>;
-  slug_contains?: InputMaybe<Scalars["String"]["input"]>;
-  slug_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  slug_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  slug_not?: InputMaybe<Scalars["String"]["input"]>;
-  slug_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  title_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  title_not?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-export type NavigationNavigationItemsCollection = {
-  __typename?: "NavigationNavigationItemsCollection";
-  items: Array<Maybe<Page>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/page) */
-export type Page = Entry & {
-  __typename?: "Page";
-  body?: Maybe<PageBody>;
-  contentfulMetadata: ContentfulMetadata;
-  headerImage?: Maybe<Asset>;
-  linkedFrom?: Maybe<PageLinkingCollections>;
-  slug?: Maybe<Scalars["String"]["output"]>;
-  sys: Sys;
-  title?: Maybe<Scalars["String"]["output"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/page) */
-export type PageBodyArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/page) */
-export type PageHeaderImageArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/page) */
-export type PageLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/page) */
-export type PageSlugArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/page) */
-export type PageTitleArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-};
-
-export type PageBody = {
-  __typename?: "PageBody";
-  json: Scalars["JSON"]["output"];
-  links: PageBodyLinks;
-};
-
-export type PageBodyLinks = {
-  __typename?: "PageBodyLinks";
-  assets: PageBodyAssets;
-  entries: PageBodyEntries;
-  resources: PageBodyResources;
-};
-
-export type PageBodyAssets = {
-  __typename?: "PageBodyAssets";
-  block: Array<Maybe<Asset>>;
-  hyperlink: Array<Maybe<Asset>>;
-};
-
-export type PageBodyEntries = {
-  __typename?: "PageBodyEntries";
-  block: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  inline: Array<Maybe<Entry>>;
-};
-
-export type PageBodyResources = {
-  __typename?: "PageBodyResources";
-  block: Array<ResourceLink>;
-};
-
-export type PageLinkingCollections = {
-  __typename?: "PageLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
-  navigationCollection?: Maybe<NavigationCollection>;
-};
-
-export type PageLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
-
-export type PageLinkingCollectionsNavigationCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  order?: InputMaybe<
-    Array<InputMaybe<PageLinkingCollectionsNavigationCollectionOrder>>
-  >;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-};
-
-export enum PageLinkingCollectionsNavigationCollectionOrder {
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export enum AssetLinkingCollectionsPageCollectionOrder {
-  SlugAsc = "slug_ASC",
-  SlugDesc = "slug_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type PageCollection = {
-  __typename?: "PageCollection";
-  items: Array<Maybe<Page>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-export type ImageTransformOptions = {
-  /**
-   * Desired background color, used with corner radius or `PAD` resize strategy.
-   *         Defaults to transparent (for `PNG`, `PNG8` and `WEBP`) or white (for `JPG` and `JPG_PROGRESSIVE`).
-   */
-  backgroundColor?: InputMaybe<Scalars["HexColor"]["input"]>;
-  /**
-   * Desired corner radius in pixels.
-   *         Results in an image with rounded corners (pass `-1` for a full circle/ellipse).
-   *         Defaults to `0`. Uses desired background color as padding color,
-   *         unless the format is `JPG` or `JPG_PROGRESSIVE` and resize strategy is `PAD`, then defaults to white.
-   */
-  cornerRadius?: InputMaybe<Scalars["Int"]["input"]>;
-  /** Desired image format. Defaults to the original image format. */
-  format?: InputMaybe<ImageFormat>;
-  /** Desired height in pixels. Defaults to the original image height. */
-  height?: InputMaybe<Scalars["Dimension"]["input"]>;
-  /**
-   * Desired quality of the image in percents.
-   *         Used for `PNG8`, `JPG`, `JPG_PROGRESSIVE` and `WEBP` formats.
-   */
-  quality?: InputMaybe<Scalars["Quality"]["input"]>;
-  /** Desired resize focus area. Defaults to `CENTER`. */
-  resizeFocus?: InputMaybe<ImageResizeFocus>;
-  /** Desired resize strategy. Defaults to `FIT`. */
-  resizeStrategy?: InputMaybe<ImageResizeStrategy>;
-  /** Desired width in pixels. Defaults to the original image width. */
-  width?: InputMaybe<Scalars["Dimension"]["input"]>;
-};
-
-export enum ImageFormat {
-  Avif = "AVIF",
-  /** JPG image format. */
-  Jpg = "JPG",
-  /**
-   * Progressive JPG format stores multiple passes of an image in progressively higher detail.
-   *         When a progressive image is loading, the viewer will first see a lower quality pixelated version which
-   *         will gradually improve in detail, until the image is fully downloaded. This is to display an image as
-   *         early as possible to make the layout look as designed.
-   */
-  JpgProgressive = "JPG_PROGRESSIVE",
-  /** PNG image format */
-  Png = "PNG",
-  /**
-   * 8-bit PNG images support up to 256 colors and weigh less than the standard 24-bit PNG equivalent.
-   *         The 8-bit PNG format is mostly used for simple images, such as icons or logos.
-   */
-  Png8 = "PNG8",
-  /** WebP image format. */
-  Webp = "WEBP",
-}
-
-export enum ImageResizeFocus {
-  /** Focus the resizing on the bottom. */
-  Bottom = "BOTTOM",
-  /** Focus the resizing on the bottom left. */
-  BottomLeft = "BOTTOM_LEFT",
-  /** Focus the resizing on the bottom right. */
-  BottomRight = "BOTTOM_RIGHT",
-  /** Focus the resizing on the center. */
-  Center = "CENTER",
-  /** Focus the resizing on the largest face. */
-  Face = "FACE",
-  /** Focus the resizing on the area containing all the faces. */
-  Faces = "FACES",
-  /** Focus the resizing on the left. */
-  Left = "LEFT",
-  /** Focus the resizing on the right. */
-  Right = "RIGHT",
-  /** Focus the resizing on the top. */
-  Top = "TOP",
-  /** Focus the resizing on the top left. */
-  TopLeft = "TOP_LEFT",
-  /** Focus the resizing on the top right. */
-  TopRight = "TOP_RIGHT",
-}
-
-export enum ImageResizeStrategy {
-  /** Crops a part of the original image to fit into the specified dimensions. */
-  Crop = "CROP",
-  /** Resizes the image to the specified dimensions, cropping the image if needed. */
-  Fill = "FILL",
-  /** Resizes the image to fit into the specified dimensions. */
-  Fit = "FIT",
-  /**
-   * Resizes the image to the specified dimensions, padding the image if needed.
-   *         Uses desired background color as padding color.
-   */
-  Pad = "PAD",
-  /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
-  Scale = "SCALE",
-  /** Creates a thumbnail from the image. */
-  Thumb = "THUMB",
-}
-
-export enum AssetOrder {
-  ContentTypeAsc = "contentType_ASC",
-  ContentTypeDesc = "contentType_DESC",
-  FileNameAsc = "fileName_ASC",
-  FileNameDesc = "fileName_DESC",
-  HeightAsc = "height_ASC",
-  HeightDesc = "height_DESC",
+export enum UploadOrderBy {
+  CreatedAtAsc = "_createdAt_ASC",
+  CreatedAtDesc = "_createdAt_DESC",
+  UpdatedAtAsc = "_updatedAt_ASC",
+  UpdatedAtDesc = "_updatedAt_DESC",
+  BasenameAsc = "basename_ASC",
+  BasenameDesc = "basename_DESC",
+  FilenameAsc = "filename_ASC",
+  FilenameDesc = "filename_DESC",
+  FormatAsc = "format_ASC",
+  FormatDesc = "format_DESC",
+  IdAsc = "id_ASC",
+  IdDesc = "id_DESC",
+  MimeTypeAsc = "mimeType_ASC",
+  MimeTypeDesc = "mimeType_DESC",
+  ResolutionAsc = "resolution_ASC",
+  ResolutionDesc = "resolution_DESC",
   SizeAsc = "size_ASC",
   SizeDesc = "size_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  UrlAsc = "url_ASC",
-  UrlDesc = "url_DESC",
-  WidthAsc = "width_ASC",
-  WidthDesc = "width_DESC",
 }
 
-export type AssetFilter = {
-  AND?: InputMaybe<Array<InputMaybe<AssetFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  contentType?: InputMaybe<Scalars["String"]["input"]>;
-  contentType_contains?: InputMaybe<Scalars["String"]["input"]>;
-  contentType_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  contentType_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  contentType_not?: InputMaybe<Scalars["String"]["input"]>;
-  contentType_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  contentType_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["String"]["input"]>>
-  >;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  description_contains?: InputMaybe<Scalars["String"]["input"]>;
-  description_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  description_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  description_not?: InputMaybe<Scalars["String"]["input"]>;
-  description_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["String"]["input"]>>
-  >;
-  fileName?: InputMaybe<Scalars["String"]["input"]>;
-  fileName_contains?: InputMaybe<Scalars["String"]["input"]>;
-  fileName_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  fileName_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  fileName_not?: InputMaybe<Scalars["String"]["input"]>;
-  fileName_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  fileName_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  height?: InputMaybe<Scalars["Int"]["input"]>;
-  height_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  height_gt?: InputMaybe<Scalars["Int"]["input"]>;
-  height_gte?: InputMaybe<Scalars["Int"]["input"]>;
-  height_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]["input"]>>>;
-  height_lt?: InputMaybe<Scalars["Int"]["input"]>;
-  height_lte?: InputMaybe<Scalars["Int"]["input"]>;
-  height_not?: InputMaybe<Scalars["Int"]["input"]>;
-  height_not_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]["input"]>>>;
-  OR?: InputMaybe<Array<InputMaybe<AssetFilter>>>;
-  size?: InputMaybe<Scalars["Int"]["input"]>;
-  size_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  size_gt?: InputMaybe<Scalars["Int"]["input"]>;
-  size_gte?: InputMaybe<Scalars["Int"]["input"]>;
-  size_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]["input"]>>>;
-  size_lt?: InputMaybe<Scalars["Int"]["input"]>;
-  size_lte?: InputMaybe<Scalars["Int"]["input"]>;
-  size_not?: InputMaybe<Scalars["Int"]["input"]>;
-  size_not_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]["input"]>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  title_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  title_not?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  url?: InputMaybe<Scalars["String"]["input"]>;
-  url_contains?: InputMaybe<Scalars["String"]["input"]>;
-  url_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  url_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  url_not?: InputMaybe<Scalars["String"]["input"]>;
-  url_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  url_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  width?: InputMaybe<Scalars["Int"]["input"]>;
-  width_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  width_gt?: InputMaybe<Scalars["Int"]["input"]>;
-  width_gte?: InputMaybe<Scalars["Int"]["input"]>;
-  width_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]["input"]>>>;
-  width_lt?: InputMaybe<Scalars["Int"]["input"]>;
-  width_lte?: InputMaybe<Scalars["Int"]["input"]>;
-  width_not?: InputMaybe<Scalars["Int"]["input"]>;
-  width_not_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]["input"]>>>;
-};
-
-export type AssetCollection = {
-  __typename?: "AssetCollection";
-  items: Array<Maybe<Asset>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-export enum AuthorOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-}
-
-export enum BlogPostOrder {
-  DatePublishedAsc = "datePublished_ASC",
-  DatePublishedDesc = "datePublished_DESC",
-  SlugAsc = "slug_ASC",
-  SlugDesc = "slug_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type BlogPostFilter = {
-  AND?: InputMaybe<Array<InputMaybe<BlogPostFilter>>>;
-  author?: InputMaybe<CfAuthorNestedFilter>;
-  authorCollection_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  body_contains?: InputMaybe<Scalars["String"]["input"]>;
-  body_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  body_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  datePublished?: InputMaybe<Scalars["DateTime"]["input"]>;
-  datePublished_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  datePublished_gt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  datePublished_gte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  datePublished_in?: InputMaybe<
-    Array<InputMaybe<Scalars["DateTime"]["input"]>>
-  >;
-  datePublished_lt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  datePublished_lte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  datePublished_not?: InputMaybe<Scalars["DateTime"]["input"]>;
-  datePublished_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["DateTime"]["input"]>>
-  >;
-  OR?: InputMaybe<Array<InputMaybe<BlogPostFilter>>>;
-  slug?: InputMaybe<Scalars["String"]["input"]>;
-  slug_contains?: InputMaybe<Scalars["String"]["input"]>;
-  slug_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  slug_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  slug_not?: InputMaybe<Scalars["String"]["input"]>;
-  slug_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  title_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  title_not?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-export type CfAuthorNestedFilter = {
-  AND?: InputMaybe<Array<InputMaybe<CfAuthorNestedFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  description?: InputMaybe<Scalars["String"]["input"]>;
-  description_contains?: InputMaybe<Scalars["String"]["input"]>;
-  description_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  description_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  description_not?: InputMaybe<Scalars["String"]["input"]>;
-  description_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["String"]["input"]>>
-  >;
-  image_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  name?: InputMaybe<Scalars["String"]["input"]>;
-  name_contains?: InputMaybe<Scalars["String"]["input"]>;
-  name_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  name_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  name_not?: InputMaybe<Scalars["String"]["input"]>;
-  name_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  name_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  OR?: InputMaybe<Array<InputMaybe<CfAuthorNestedFilter>>>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export enum EntryOrder {
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-}
-
-export type EntryFilter = {
-  AND?: InputMaybe<Array<InputMaybe<EntryFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  OR?: InputMaybe<Array<InputMaybe<EntryFilter>>>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export enum EventOrder {
-  StartDateAsc = "startDate_ASC",
-  StartDateDesc = "startDate_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type EventFilter = {
-  AND?: InputMaybe<Array<InputMaybe<EventFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  description_contains?: InputMaybe<Scalars["String"]["input"]>;
-  description_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  description_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  image_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  location_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  location_within_circle?: InputMaybe<Scalars["Circle"]["input"]>;
-  location_within_rectangle?: InputMaybe<Scalars["Rectangle"]["input"]>;
-  OR?: InputMaybe<Array<InputMaybe<EventFilter>>>;
-  startDate?: InputMaybe<Scalars["DateTime"]["input"]>;
-  startDate_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  startDate_gt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  startDate_gte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  startDate_in?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]["input"]>>>;
-  startDate_lt?: InputMaybe<Scalars["DateTime"]["input"]>;
-  startDate_lte?: InputMaybe<Scalars["DateTime"]["input"]>;
-  startDate_not?: InputMaybe<Scalars["DateTime"]["input"]>;
-  startDate_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars["DateTime"]["input"]>>
-  >;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  title_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  title_not?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/homePage) */
-export type HomePage = Entry & {
-  __typename?: "HomePage";
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<HomePageLinkingCollections>;
-  sys: Sys;
+/** Record of type Algemene info (general) */
+export type GeneralRecord = RecordInterface & {
+  __typename?: "GeneralRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  logo?: Maybe<FileField>;
+  menu: Array<GeneralModelMenuField>;
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/homePage) */
-export type HomePageLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+/** Record of type Algemene info (general) */
+export type GeneralRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/pwuxt9271wes/content_types/homePage) */
-export type HomePageTitleArgs = {
-  locale?: InputMaybe<Scalars["String"]["input"]>;
+export type GeneralModelMenuField = MenuItemRecord | SubmenuItemRecord;
+
+/** Block of type Menu item (menu_item) */
+export type MenuItemRecord = RecordInterface & {
+  __typename?: "MenuItemRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  label?: Maybe<Scalars["String"]["output"]>;
+  link?: Maybe<PageRecord>;
 };
 
-export type HomePageLinkingCollections = {
-  __typename?: "HomePageLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
+/** Block of type Menu item (menu_item) */
+export type MenuItemRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
-export type HomePageLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  locale?: InputMaybe<Scalars["String"]["input"]>;
-  preview?: InputMaybe<Scalars["Boolean"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
+/** Block of type Submenu item (submenu_item) */
+export type SubmenuItemRecord = RecordInterface & {
+  __typename?: "SubmenuItemRecord";
+  _createdAt: Scalars["DateTime"]["output"];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars["String"]["output"]>;
+  _firstPublishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _isValid: Scalars["BooleanType"]["output"];
+  _modelApiKey: Scalars["String"]["output"];
+  _publicationScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _publishedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars["DateTime"]["output"]>;
+  _updatedAt: Scalars["DateTime"]["output"];
+  id: Scalars["ItemId"]["output"];
+  label?: Maybe<Scalars["String"]["output"]>;
+  menu: Array<MenuItemRecord>;
 };
 
-export enum HomePageOrder {
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type HomePageFilter = {
-  AND?: InputMaybe<Array<InputMaybe<HomePageFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  OR?: InputMaybe<Array<InputMaybe<HomePageFilter>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  title_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  title_not?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+/** Block of type Submenu item (submenu_item) */
+export type SubmenuItemRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
-
-export type HomePageCollection = {
-  __typename?: "HomePageCollection";
-  items: Array<Maybe<HomePage>>;
-  limit: Scalars["Int"]["output"];
-  skip: Scalars["Int"]["output"];
-  total: Scalars["Int"]["output"];
-};
-
-export enum NavigationOrder {
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
-
-export type NavigationFilter = {
-  AND?: InputMaybe<Array<InputMaybe<NavigationFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  logo_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  navigationItems?: InputMaybe<CfPageNestedFilter>;
-  navigationItemsCollection_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  OR?: InputMaybe<Array<InputMaybe<NavigationFilter>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  title_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  title_not?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-export type CfPageNestedFilter = {
-  AND?: InputMaybe<Array<InputMaybe<CfPageNestedFilter>>>;
-  body_contains?: InputMaybe<Scalars["String"]["input"]>;
-  body_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  body_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  headerImage_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  OR?: InputMaybe<Array<InputMaybe<CfPageNestedFilter>>>;
-  slug?: InputMaybe<Scalars["String"]["input"]>;
-  slug_contains?: InputMaybe<Scalars["String"]["input"]>;
-  slug_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  slug_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  slug_not?: InputMaybe<Scalars["String"]["input"]>;
-  slug_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars["String"]["input"]>;
-  title_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_exists?: InputMaybe<Scalars["Boolean"]["input"]>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-  title_not?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_contains?: InputMaybe<Scalars["String"]["input"]>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
-};
-
-export enum PageOrder {
-  SlugAsc = "slug_ASC",
-  SlugDesc = "slug_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-}
 
 export interface IntrospectionResultData {
   __schema: {
@@ -1504,25 +3254,145 @@ const result: IntrospectionResultData = {
     types: [
       {
         kind: "INTERFACE",
-        name: "Entry",
+        name: "FileFieldInterface",
         possibleTypes: [
           {
-            name: "Author",
+            name: "FileField",
+          },
+        ],
+      },
+      {
+        kind: "INTERFACE",
+        name: "RecordInterface",
+        possibleTypes: [
+          {
+            name: "ConcertRecord",
           },
           {
-            name: "BlogPost",
+            name: "TextBlockRecord",
           },
           {
-            name: "Event",
+            name: "ConcertListRecord",
           },
           {
-            name: "Navigation",
+            name: "ImageRecord",
           },
           {
-            name: "Page",
+            name: "MediaItemRecord",
           },
           {
-            name: "HomePage",
+            name: "VideoRecord",
+          },
+          {
+            name: "PageRecord",
+          },
+          {
+            name: "TwoColumnRecord",
+          },
+          {
+            name: "LinkRecord",
+          },
+          {
+            name: "LocationItemRecord",
+          },
+          {
+            name: "PersonRecord",
+          },
+          {
+            name: "LocationRecord",
+          },
+          {
+            name: "GeneralRecord",
+          },
+          {
+            name: "MenuItemRecord",
+          },
+          {
+            name: "SubmenuItemRecord",
+          },
+        ],
+      },
+      {
+        kind: "UNION",
+        name: "ConcertModelContentField",
+        possibleTypes: [
+          {
+            name: "TextBlockRecord",
+          },
+          {
+            name: "TwoColumnRecord",
+          },
+        ],
+      },
+      {
+        kind: "UNION",
+        name: "TextBlockModelContentBlocksField",
+        possibleTypes: [
+          {
+            name: "ConcertListRecord",
+          },
+          {
+            name: "ImageRecord",
+          },
+          {
+            name: "VideoRecord",
+          },
+        ],
+      },
+      {
+        kind: "UNION",
+        name: "PageModelContentField",
+        possibleTypes: [
+          {
+            name: "ConcertListRecord",
+          },
+          {
+            name: "TextBlockRecord",
+          },
+          {
+            name: "TwoColumnRecord",
+          },
+        ],
+      },
+      {
+        kind: "UNION",
+        name: "TwoColumnModelLeftContentBlocksField",
+        possibleTypes: [
+          {
+            name: "ConcertListRecord",
+          },
+          {
+            name: "ImageRecord",
+          },
+          {
+            name: "VideoRecord",
+          },
+        ],
+      },
+      {
+        kind: "UNION",
+        name: "TwoColumnModelRightContentBlocksField",
+        possibleTypes: [
+          {
+            name: "ConcertListRecord",
+          },
+          {
+            name: "ImageRecord",
+          },
+          {
+            name: "VideoRecord",
+          },
+        ],
+      },
+      {
+        kind: "UNION",
+        name: "GeneralModelMenuField",
+        possibleTypes: [
+          {
+            name: "MenuItemRecord",
+          },
+          {
+            name: "SubmenuItemRecord",
           },
         ],
       },
@@ -1532,412 +3402,875 @@ const result: IntrospectionResultData = {
 
 export default result;
 
-export type AuthorFragmentFragment = {
-  __typename: "Author";
-  description?: string | null;
+export type AuthorFragment = {
+  __typename?: "PersonRecord";
   name?: string | null;
-  contentfulMetadata: {
-    __typename: "ContentfulMetadata";
-    tags: Array<{
-      __typename: "ContentfulTag";
-      id?: string | null;
-      name?: string | null;
-    } | null>;
-  };
-  image?: {
-    __typename: "Asset";
-    contentType?: string | null;
-    description?: string | null;
-    fileName?: string | null;
-    height?: number | null;
-    title?: string | null;
-    url?: string | null;
-    width?: number | null;
-    contentfulMetadata: {
-      __typename: "ContentfulMetadata";
-      tags: Array<{
-        __typename: "ContentfulTag";
-        id?: string | null;
-        name?: string | null;
-      } | null>;
-    };
-    sys: {
-      __typename: "Sys";
-      id: string;
-      firstPublishedAt?: any | null;
-      publishedAt?: any | null;
-      environmentId: string;
-      spaceId: string;
-    };
-  } | null;
-  sys: {
-    __typename: "Sys";
-    id: string;
-    firstPublishedAt?: any | null;
-    publishedAt?: any | null;
-    environmentId: string;
-    spaceId: string;
-  };
+  role?: string | null;
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
 };
 
-export type BlogPostBodyFragmentFragment = {
-  __typename: "BlogPostBody";
-  json: any;
+export type ColorsFragment = {
+  __typename: "ColorField";
+  alpha: number;
+  blue: number;
+  cssRgb: string;
+  green: number;
+  hex: string;
+  red: number;
 };
 
-export type EventFragmentFragment = {
-  __typename: "Event";
+export type CoordinatesFragment = {
+  __typename: "LatLonField";
+  latitude: number;
+  longitude: number;
+};
+
+export type EventFragment = {
+  __typename?: "ConcertRecord";
   title?: string | null;
-  startDate?: any | null;
-  contentfulMetadata: {
-    __typename: "ContentfulMetadata";
-    tags: Array<{
-      __typename: "ContentfulTag";
-      id?: string | null;
-      name?: string | null;
-    } | null>;
-  };
-  description?: { __typename: "EventDescription"; json: any } | null;
-  image?: {
-    __typename: "Asset";
-    contentType?: string | null;
-    description?: string | null;
-    fileName?: string | null;
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+  _seoMetaTags: Array<{
+    __typename: "Tag";
+    attributes?: Record<string, string> | null;
+    content?: string | null;
+    tag: string;
+  }>;
+  content: Array<
+    { __typename: "TextBlockRecord" } | { __typename: "TwoColumnRecord" }
+  >;
+  link?: { __typename: "LinkRecord" } | null;
+  locations: Array<{ __typename: "LocationItemRecord" }>;
+  persons: Array<{ __typename: "PersonRecord" }>;
+  poster?: {
+    __typename: "FileField";
+    _createdAt: string;
+    _editingUrl?: string | null;
+    _updatedAt: string;
+    alt?: string | null;
+    author?: string | null;
+    basename: string;
+    blurhash?: string | null;
+    blurUpThumb?: string | null;
+    copyright?: string | null;
+    customData: Record<string, string>;
+    exifInfo: Record<string, string>;
+    filename: string;
+    format: string;
     height?: number | null;
-    title?: string | null;
-    url?: string | null;
-    width?: number | null;
-    contentfulMetadata: {
-      __typename: "ContentfulMetadata";
-      tags: Array<{
-        __typename: "ContentfulTag";
-        id?: string | null;
-        name?: string | null;
-      } | null>;
-    };
-    sys: {
-      __typename: "Sys";
-      id: string;
-      firstPublishedAt?: any | null;
-      publishedAt?: any | null;
-      environmentId: string;
-      spaceId: string;
-    };
-  } | null;
-  location?: {
-    __typename: "Location";
-    lat?: number | null;
-    lon?: number | null;
-  } | null;
-  sys: {
-    __typename: "Sys";
     id: string;
-    firstPublishedAt?: any | null;
-    publishedAt?: any | null;
-    environmentId: string;
-    spaceId: string;
-  };
+    md5: string;
+    mimeType: string;
+    notes?: string | null;
+    size: number;
+    smartTags: Array<string>;
+    tags: Array<string>;
+    thumbhash?: string | null;
+    title?: string | null;
+    url: string;
+    width?: number | null;
+    colors: Array<{
+      __typename: "ColorField";
+      alpha: number;
+      blue: number;
+      cssRgb: string;
+      green: number;
+      hex: string;
+      red: number;
+    }>;
+    focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+    responsiveImage?: {
+      __typename: "ResponsiveImage";
+      title?: string | null;
+      alt?: string | null;
+      sizes: string;
+      aspectRatio: number;
+      bgColor?: string | null;
+      src: string;
+      height: number;
+      width: number;
+      srcSet: string;
+      webpSrcSet: string;
+    } | null;
+    video?: {
+      __typename: "UploadVideoField";
+      mp4Url?: string | null;
+      muxAssetId: string;
+      muxPlaybackId: string;
+      streamingUrl: string;
+      thumbnailUrl: string;
+    } | null;
+  } | null;
 };
 
-export type ImageFragmentFragment = {
-  __typename: "Asset";
-  contentType?: string | null;
-  description?: string | null;
-  fileName?: string | null;
+export type FileFragment = {
+  __typename: "FileField";
+  _createdAt: string;
+  _editingUrl?: string | null;
+  _updatedAt: string;
+  alt?: string | null;
+  author?: string | null;
+  basename: string;
+  blurhash?: string | null;
+  blurUpThumb?: string | null;
+  copyright?: string | null;
+  customData: Record<string, string>;
+  exifInfo: Record<string, string>;
+  filename: string;
+  format: string;
   height?: number | null;
+  id: string;
+  md5: string;
+  mimeType: string;
+  notes?: string | null;
+  size: number;
+  smartTags: Array<string>;
+  tags: Array<string>;
+  thumbhash?: string | null;
   title?: string | null;
-  url?: string | null;
+  url: string;
   width?: number | null;
-  contentfulMetadata: {
-    __typename: "ContentfulMetadata";
-    tags: Array<{
-      __typename: "ContentfulTag";
-      id?: string | null;
-      name?: string | null;
-    } | null>;
-  };
-  sys: {
-    __typename: "Sys";
-    id: string;
-    firstPublishedAt?: any | null;
-    publishedAt?: any | null;
-    environmentId: string;
-    spaceId: string;
-  };
+  colors: Array<{
+    __typename: "ColorField";
+    alpha: number;
+    blue: number;
+    cssRgb: string;
+    green: number;
+    hex: string;
+    red: number;
+  }>;
+  focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+  responsiveImage?: {
+    __typename: "ResponsiveImage";
+    title?: string | null;
+    alt?: string | null;
+    sizes: string;
+    aspectRatio: number;
+    bgColor?: string | null;
+    src: string;
+    height: number;
+    width: number;
+    srcSet: string;
+    webpSrcSet: string;
+  } | null;
+  video?: {
+    __typename: "UploadVideoField";
+    mp4Url?: string | null;
+    muxAssetId: string;
+    muxPlaybackId: string;
+    streamingUrl: string;
+    thumbnailUrl: string;
+  } | null;
 };
 
-export type LocationFragmentFragment = {
-  __typename: "Location";
-  lat?: number | null;
-  lon?: number | null;
+export type FocalPointFragment = {
+  __typename: "focalPoint";
+  x: number;
+  y: number;
 };
 
-export type MetadataFragmentFragment = {
-  __typename: "ContentfulMetadata";
-  tags: Array<{
-    __typename: "ContentfulTag";
-    id?: string | null;
-    name?: string | null;
-  } | null>;
+type Identifiable_ConcertRecord_Fragment = {
+  __typename?: "ConcertRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
 };
 
-export type PageFragmentFragment = {
-  __typename: "Page";
+type Identifiable_TextBlockRecord_Fragment = {
+  __typename?: "TextBlockRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_ConcertListRecord_Fragment = {
+  __typename?: "ConcertListRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_ImageRecord_Fragment = {
+  __typename?: "ImageRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_MediaItemRecord_Fragment = {
+  __typename?: "MediaItemRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_VideoRecord_Fragment = {
+  __typename?: "VideoRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_PageRecord_Fragment = {
+  __typename?: "PageRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_TwoColumnRecord_Fragment = {
+  __typename?: "TwoColumnRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_LinkRecord_Fragment = {
+  __typename?: "LinkRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_LocationItemRecord_Fragment = {
+  __typename?: "LocationItemRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_PersonRecord_Fragment = {
+  __typename?: "PersonRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_LocationRecord_Fragment = {
+  __typename?: "LocationRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_GeneralRecord_Fragment = {
+  __typename?: "GeneralRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_MenuItemRecord_Fragment = {
+  __typename?: "MenuItemRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+type Identifiable_SubmenuItemRecord_Fragment = {
+  __typename?: "SubmenuItemRecord";
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+};
+
+export type IdentifiableFragment =
+  | Identifiable_ConcertRecord_Fragment
+  | Identifiable_TextBlockRecord_Fragment
+  | Identifiable_ConcertListRecord_Fragment
+  | Identifiable_ImageRecord_Fragment
+  | Identifiable_MediaItemRecord_Fragment
+  | Identifiable_VideoRecord_Fragment
+  | Identifiable_PageRecord_Fragment
+  | Identifiable_TwoColumnRecord_Fragment
+  | Identifiable_LinkRecord_Fragment
+  | Identifiable_LocationItemRecord_Fragment
+  | Identifiable_PersonRecord_Fragment
+  | Identifiable_LocationRecord_Fragment
+  | Identifiable_GeneralRecord_Fragment
+  | Identifiable_MenuItemRecord_Fragment
+  | Identifiable_SubmenuItemRecord_Fragment;
+
+export type MediaItemFragment = { __typename: "MediaItemRecord" };
+
+export type ResponsiveImageFragment = {
+  __typename: "ResponsiveImage";
+  title?: string | null;
+  alt?: string | null;
+  sizes: string;
+  aspectRatio: number;
+  bgColor?: string | null;
+  src: string;
+  height: number;
+  width: number;
+  srcSet: string;
+  webpSrcSet: string;
+};
+
+export type LocationFragment = {
+  __typename: "LocationRecord";
+  id: string;
+  title?: string | null;
+  addressTitle?: string | null;
+  address?: {
+    __typename: "LatLonField";
+    latitude: number;
+    longitude: number;
+  } | null;
+};
+
+export type PageFragment = {
+  __typename: "PageRecord";
+  _updatedAt: string;
+  _publishedAt?: string | null;
   title?: string | null;
   slug?: string | null;
-  body?: { __typename: "PageBody"; json: any } | null;
-  contentfulMetadata: {
-    __typename: "ContentfulMetadata";
-    tags: Array<{
-      __typename: "ContentfulTag";
-      id?: string | null;
-      name?: string | null;
-    } | null>;
-  };
-  headerImage?: {
-    __typename: "Asset";
-    contentType?: string | null;
-    description?: string | null;
-    fileName?: string | null;
-    height?: number | null;
-    title?: string | null;
-    url?: string | null;
-    width?: number | null;
-    contentfulMetadata: {
-      __typename: "ContentfulMetadata";
-      tags: Array<{
-        __typename: "ContentfulTag";
-        id?: string | null;
-        name?: string | null;
-      } | null>;
-    };
-    sys: {
-      __typename: "Sys";
-      id: string;
-      firstPublishedAt?: any | null;
-      publishedAt?: any | null;
-      environmentId: string;
-      spaceId: string;
-    };
-  } | null;
-  sys: {
-    __typename: "Sys";
-    id: string;
-    firstPublishedAt?: any | null;
-    publishedAt?: any | null;
-    environmentId: string;
-    spaceId: string;
-  };
-};
-
-export type PageBodyFragmentFragment = { __typename: "PageBody"; json: any };
-
-export type SysFragmentFragment = {
-  __typename: "Sys";
   id: string;
-  firstPublishedAt?: any | null;
-  publishedAt?: any | null;
-  environmentId: string;
-  spaceId: string;
+  _seoMetaTags: Array<{
+    __typename: "Tag";
+    attributes?: Record<string, string> | null;
+    content?: string | null;
+    tag: string;
+  }>;
+  seo?: {
+    __typename: "SeoField";
+    description?: string | null;
+    title?: string | null;
+    twitterCard?: string | null;
+    image?: {
+      __typename: "FileField";
+      _createdAt: string;
+      _editingUrl?: string | null;
+      _updatedAt: string;
+      alt?: string | null;
+      author?: string | null;
+      basename: string;
+      blurhash?: string | null;
+      blurUpThumb?: string | null;
+      copyright?: string | null;
+      customData: Record<string, string>;
+      exifInfo: Record<string, string>;
+      filename: string;
+      format: string;
+      height?: number | null;
+      id: string;
+      md5: string;
+      mimeType: string;
+      notes?: string | null;
+      size: number;
+      smartTags: Array<string>;
+      tags: Array<string>;
+      thumbhash?: string | null;
+      title?: string | null;
+      url: string;
+      width?: number | null;
+      colors: Array<{
+        __typename: "ColorField";
+        alpha: number;
+        blue: number;
+        cssRgb: string;
+        green: number;
+        hex: string;
+        red: number;
+      }>;
+      focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+      responsiveImage?: {
+        __typename: "ResponsiveImage";
+        title?: string | null;
+        alt?: string | null;
+        sizes: string;
+        aspectRatio: number;
+        bgColor?: string | null;
+        src: string;
+        height: number;
+        width: number;
+        srcSet: string;
+        webpSrcSet: string;
+      } | null;
+      video?: {
+        __typename: "UploadVideoField";
+        mp4Url?: string | null;
+        muxAssetId: string;
+        muxPlaybackId: string;
+        streamingUrl: string;
+        thumbnailUrl: string;
+      } | null;
+    } | null;
+  } | null;
+  content: Array<
+    | { __typename: "ConcertListRecord"; id: string }
+    | { __typename: "TextBlockRecord"; id: string }
+    | { __typename: "TwoColumnRecord" }
+  >;
 };
 
-export type TagsFragmentFragment = {
-  __typename: "ContentfulTag";
-  id?: string | null;
-  name?: string | null;
+export type PageDetailFragment = {
+  __typename: "PageRecord";
+  title?: string | null;
+  slug?: string | null;
+  _createdAt: string;
+  _firstPublishedAt?: string | null;
+  _publishedAt?: string | null;
+  _status: ItemStatus;
+  _updatedAt: string;
+  id: string;
+  _seoMetaTags: Array<{
+    __typename: "Tag";
+    attributes?: Record<string, string> | null;
+    content?: string | null;
+    tag: string;
+  }>;
+  seo?: {
+    __typename: "SeoField";
+    description?: string | null;
+    title?: string | null;
+    twitterCard?: string | null;
+    image?: {
+      __typename: "FileField";
+      _createdAt: string;
+      _editingUrl?: string | null;
+      _updatedAt: string;
+      alt?: string | null;
+      author?: string | null;
+      basename: string;
+      blurhash?: string | null;
+      blurUpThumb?: string | null;
+      copyright?: string | null;
+      customData: Record<string, string>;
+      exifInfo: Record<string, string>;
+      filename: string;
+      format: string;
+      height?: number | null;
+      id: string;
+      md5: string;
+      mimeType: string;
+      notes?: string | null;
+      size: number;
+      smartTags: Array<string>;
+      tags: Array<string>;
+      thumbhash?: string | null;
+      title?: string | null;
+      url: string;
+      width?: number | null;
+      colors: Array<{
+        __typename: "ColorField";
+        alpha: number;
+        blue: number;
+        cssRgb: string;
+        green: number;
+        hex: string;
+        red: number;
+      }>;
+      focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+      responsiveImage?: {
+        __typename: "ResponsiveImage";
+        title?: string | null;
+        alt?: string | null;
+        sizes: string;
+        aspectRatio: number;
+        bgColor?: string | null;
+        src: string;
+        height: number;
+        width: number;
+        srcSet: string;
+        webpSrcSet: string;
+      } | null;
+      video?: {
+        __typename: "UploadVideoField";
+        mp4Url?: string | null;
+        muxAssetId: string;
+        muxPlaybackId: string;
+        streamingUrl: string;
+        thumbnailUrl: string;
+      } | null;
+    } | null;
+  } | null;
+  content: Array<
+    | {
+        __typename: "ConcertListRecord";
+        _createdAt: string;
+        _firstPublishedAt?: string | null;
+        _publishedAt?: string | null;
+        _status: ItemStatus;
+        _updatedAt: string;
+        id: string;
+      }
+    | {
+        __typename: "TextBlockRecord";
+        _createdAt: string;
+        _firstPublishedAt?: string | null;
+        _publishedAt?: string | null;
+        _status: ItemStatus;
+        _updatedAt: string;
+        id: string;
+      }
+    | {
+        __typename: "TwoColumnRecord";
+        _createdAt: string;
+        _firstPublishedAt?: string | null;
+        _publishedAt?: string | null;
+        _status: ItemStatus;
+        _updatedAt: string;
+        id: string;
+      }
+  >;
+};
+
+export type SeoFragment = {
+  __typename: "SeoField";
+  description?: string | null;
+  title?: string | null;
+  twitterCard?: string | null;
+  image?: {
+    __typename: "FileField";
+    _createdAt: string;
+    _editingUrl?: string | null;
+    _updatedAt: string;
+    alt?: string | null;
+    author?: string | null;
+    basename: string;
+    blurhash?: string | null;
+    blurUpThumb?: string | null;
+    copyright?: string | null;
+    customData: Record<string, string>;
+    exifInfo: Record<string, string>;
+    filename: string;
+    format: string;
+    height?: number | null;
+    id: string;
+    md5: string;
+    mimeType: string;
+    notes?: string | null;
+    size: number;
+    smartTags: Array<string>;
+    tags: Array<string>;
+    thumbhash?: string | null;
+    title?: string | null;
+    url: string;
+    width?: number | null;
+    colors: Array<{
+      __typename: "ColorField";
+      alpha: number;
+      blue: number;
+      cssRgb: string;
+      green: number;
+      hex: string;
+      red: number;
+    }>;
+    focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+    responsiveImage?: {
+      __typename: "ResponsiveImage";
+      title?: string | null;
+      alt?: string | null;
+      sizes: string;
+      aspectRatio: number;
+      bgColor?: string | null;
+      src: string;
+      height: number;
+      width: number;
+      srcSet: string;
+      webpSrcSet: string;
+    } | null;
+    video?: {
+      __typename: "UploadVideoField";
+      mp4Url?: string | null;
+      muxAssetId: string;
+      muxPlaybackId: string;
+      streamingUrl: string;
+      thumbnailUrl: string;
+    } | null;
+  } | null;
+};
+
+export type TagFragment = {
+  __typename: "Tag";
+  attributes?: Record<string, string> | null;
+  content?: string | null;
+  tag: string;
+};
+
+export type VideoFragment = {
+  __typename: "UploadVideoField";
+  mp4Url?: string | null;
+  muxAssetId: string;
+  muxPlaybackId: string;
+  streamingUrl: string;
+  thumbnailUrl: string;
+};
+
+export type GetAuthorQueryVariables = Exact<{
+  id?: InputMaybe<Scalars["ItemId"]["input"]>;
+}>;
+
+export type GetAuthorQuery = {
+  __typename?: "Query";
+  person?: {
+    __typename?: "PersonRecord";
+    name?: string | null;
+    role?: string | null;
+    _createdAt: string;
+    _firstPublishedAt?: string | null;
+    _publishedAt?: string | null;
+    _status: ItemStatus;
+    _updatedAt: string;
+    id: string;
+  } | null;
 };
 
 export type GetAuthorsQueryVariables = Exact<{
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
+  order?: InputMaybe<
+    Array<InputMaybe<PersonModelOrderBy>> | InputMaybe<PersonModelOrderBy>
+  >;
 }>;
 
 export type GetAuthorsQuery = {
   __typename?: "Query";
-  authorCollection?: {
-    __typename?: "AuthorCollection";
-    limit: number;
-    skip: number;
-    total: number;
-    items: Array<{
-      __typename: "Author";
-      description?: string | null;
-      name?: string | null;
-      contentfulMetadata: {
-        __typename: "ContentfulMetadata";
-        tags: Array<{
-          __typename: "ContentfulTag";
-          id?: string | null;
-          name?: string | null;
-        } | null>;
-      };
-      image?: {
-        __typename: "Asset";
-        contentType?: string | null;
-        description?: string | null;
-        fileName?: string | null;
-        height?: number | null;
+  allPeople: Array<{
+    __typename?: "PersonRecord";
+    name?: string | null;
+    role?: string | null;
+    _createdAt: string;
+    _firstPublishedAt?: string | null;
+    _publishedAt?: string | null;
+    _status: ItemStatus;
+    _updatedAt: string;
+    id: string;
+  }>;
+};
+
+export type GetConcertQueryVariables = Exact<{
+  id?: InputMaybe<Scalars["ItemId"]["input"]>;
+}>;
+
+export type GetConcertQuery = {
+  __typename?: "Query";
+  concert?: {
+    __typename?: "ConcertRecord";
+    title?: string | null;
+    _createdAt: string;
+    _firstPublishedAt?: string | null;
+    _publishedAt?: string | null;
+    _status: ItemStatus;
+    _updatedAt: string;
+    id: string;
+    _seoMetaTags: Array<{
+      __typename: "Tag";
+      attributes?: Record<string, string> | null;
+      content?: string | null;
+      tag: string;
+    }>;
+    content: Array<
+      { __typename: "TextBlockRecord" } | { __typename: "TwoColumnRecord" }
+    >;
+    link?: { __typename: "LinkRecord" } | null;
+    locations: Array<{ __typename: "LocationItemRecord" }>;
+    persons: Array<{ __typename: "PersonRecord" }>;
+    poster?: {
+      __typename: "FileField";
+      _createdAt: string;
+      _editingUrl?: string | null;
+      _updatedAt: string;
+      alt?: string | null;
+      author?: string | null;
+      basename: string;
+      blurhash?: string | null;
+      blurUpThumb?: string | null;
+      copyright?: string | null;
+      customData: Record<string, string>;
+      exifInfo: Record<string, string>;
+      filename: string;
+      format: string;
+      height?: number | null;
+      id: string;
+      md5: string;
+      mimeType: string;
+      notes?: string | null;
+      size: number;
+      smartTags: Array<string>;
+      tags: Array<string>;
+      thumbhash?: string | null;
+      title?: string | null;
+      url: string;
+      width?: number | null;
+      colors: Array<{
+        __typename: "ColorField";
+        alpha: number;
+        blue: number;
+        cssRgb: string;
+        green: number;
+        hex: string;
+        red: number;
+      }>;
+      focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+      responsiveImage?: {
+        __typename: "ResponsiveImage";
         title?: string | null;
-        url?: string | null;
-        width?: number | null;
-        contentfulMetadata: {
-          __typename: "ContentfulMetadata";
-          tags: Array<{
-            __typename: "ContentfulTag";
-            id?: string | null;
-            name?: string | null;
-          } | null>;
-        };
-        sys: {
-          __typename: "Sys";
-          id: string;
-          firstPublishedAt?: any | null;
-          publishedAt?: any | null;
-          environmentId: string;
-          spaceId: string;
-        };
+        alt?: string | null;
+        sizes: string;
+        aspectRatio: number;
+        bgColor?: string | null;
+        src: string;
+        height: number;
+        width: number;
+        srcSet: string;
+        webpSrcSet: string;
       } | null;
-      sys: {
-        __typename: "Sys";
-        id: string;
-        firstPublishedAt?: any | null;
-        publishedAt?: any | null;
-        environmentId: string;
-        spaceId: string;
-      };
-    } | null>;
+      video?: {
+        __typename: "UploadVideoField";
+        mp4Url?: string | null;
+        muxAssetId: string;
+        muxPlaybackId: string;
+        streamingUrl: string;
+        thumbnailUrl: string;
+      } | null;
+    } | null;
   } | null;
 };
 
-export type GetBlogPostQueryVariables = Exact<{
-  slug?: InputMaybe<Scalars["String"]["input"]>;
+export type GetConcertsQueryVariables = Exact<{
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
 }>;
 
-export type GetBlogPostQuery = {
+export type GetConcertsQuery = {
   __typename?: "Query";
-  blogPostCollection?: {
-    __typename?: "BlogPostCollection";
-    items: Array<{
-      __typename: "BlogPost";
+  allConcerts: Array<{
+    __typename?: "ConcertRecord";
+    title?: string | null;
+    _createdAt: string;
+    _firstPublishedAt?: string | null;
+    _publishedAt?: string | null;
+    _status: ItemStatus;
+    _updatedAt: string;
+    id: string;
+    _seoMetaTags: Array<{
+      __typename: "Tag";
+      attributes?: Record<string, string> | null;
+      content?: string | null;
+      tag: string;
+    }>;
+    content: Array<
+      { __typename: "TextBlockRecord" } | { __typename: "TwoColumnRecord" }
+    >;
+    link?: { __typename: "LinkRecord" } | null;
+    locations: Array<{ __typename: "LocationItemRecord" }>;
+    persons: Array<{ __typename: "PersonRecord" }>;
+    poster?: {
+      __typename: "FileField";
+      _createdAt: string;
+      _editingUrl?: string | null;
+      _updatedAt: string;
+      alt?: string | null;
+      author?: string | null;
+      basename: string;
+      blurhash?: string | null;
+      blurUpThumb?: string | null;
+      copyright?: string | null;
+      customData: Record<string, string>;
+      exifInfo: Record<string, string>;
+      filename: string;
+      format: string;
+      height?: number | null;
+      id: string;
+      md5: string;
+      mimeType: string;
+      notes?: string | null;
+      size: number;
+      smartTags: Array<string>;
+      tags: Array<string>;
+      thumbhash?: string | null;
       title?: string | null;
-      slug?: string | null;
-      datePublished?: any | null;
-      body?: { __typename: "BlogPostBody"; json: any } | null;
-      contentfulMetadata: {
-        __typename: "ContentfulMetadata";
-        tags: Array<{
-          __typename: "ContentfulTag";
-          id?: string | null;
-          name?: string | null;
-        } | null>;
-      };
-      sys: {
-        __typename: "Sys";
-        id: string;
-        firstPublishedAt?: any | null;
-        publishedAt?: any | null;
-        environmentId: string;
-        spaceId: string;
-      };
-    } | null>;
-  } | null;
-};
-
-export type GetBlogPostsQueryVariables = Exact<{
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-}>;
-
-export type GetBlogPostsQuery = {
-  __typename?: "Query";
-  blogPostCollection?: {
-    __typename?: "BlogPostCollection";
-    limit: number;
-    skip: number;
-    total: number;
-    items: Array<{
-      __typename: "BlogPost";
-      title?: string | null;
-      slug?: string | null;
-      datePublished?: any | null;
-      sys: {
-        __typename: "Sys";
-        id: string;
-        firstPublishedAt?: any | null;
-        publishedAt?: any | null;
-        environmentId: string;
-        spaceId: string;
-      };
-    } | null>;
-  } | null;
-};
-
-export type GetEventsQueryVariables = Exact<{
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
-}>;
-
-export type GetEventsQuery = {
-  __typename?: "Query";
-  eventCollection?: {
-    __typename?: "EventCollection";
-    limit: number;
-    skip: number;
-    total: number;
-    items: Array<{
-      __typename: "Event";
-      title?: string | null;
-      startDate?: any | null;
-      contentfulMetadata: {
-        __typename: "ContentfulMetadata";
-        tags: Array<{
-          __typename: "ContentfulTag";
-          id?: string | null;
-          name?: string | null;
-        } | null>;
-      };
-      description?: { __typename: "EventDescription"; json: any } | null;
-      image?: {
-        __typename: "Asset";
-        contentType?: string | null;
-        description?: string | null;
-        fileName?: string | null;
-        height?: number | null;
+      url: string;
+      width?: number | null;
+      colors: Array<{
+        __typename: "ColorField";
+        alpha: number;
+        blue: number;
+        cssRgb: string;
+        green: number;
+        hex: string;
+        red: number;
+      }>;
+      focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+      responsiveImage?: {
+        __typename: "ResponsiveImage";
         title?: string | null;
-        url?: string | null;
-        width?: number | null;
-        contentfulMetadata: {
-          __typename: "ContentfulMetadata";
-          tags: Array<{
-            __typename: "ContentfulTag";
-            id?: string | null;
-            name?: string | null;
-          } | null>;
-        };
-        sys: {
-          __typename: "Sys";
-          id: string;
-          firstPublishedAt?: any | null;
-          publishedAt?: any | null;
-          environmentId: string;
-          spaceId: string;
-        };
+        alt?: string | null;
+        sizes: string;
+        aspectRatio: number;
+        bgColor?: string | null;
+        src: string;
+        height: number;
+        width: number;
+        srcSet: string;
+        webpSrcSet: string;
       } | null;
-      location?: {
-        __typename: "Location";
-        lat?: number | null;
-        lon?: number | null;
+      video?: {
+        __typename: "UploadVideoField";
+        mp4Url?: string | null;
+        muxAssetId: string;
+        muxPlaybackId: string;
+        streamingUrl: string;
+        thumbnailUrl: string;
       } | null;
-      sys: {
-        __typename: "Sys";
-        id: string;
-        firstPublishedAt?: any | null;
-        publishedAt?: any | null;
-        environmentId: string;
-        spaceId: string;
-      };
-    } | null>;
-  } | null;
+    } | null;
+  }>;
 };
 
 export type GetPageQueryVariables = Exact<{
@@ -1946,117 +4279,208 @@ export type GetPageQueryVariables = Exact<{
 
 export type GetPageQuery = {
   __typename?: "Query";
-  pageCollection?: {
-    __typename?: "PageCollection";
-    items: Array<{
-      __typename: "Page";
+  page?: {
+    __typename: "PageRecord";
+    title?: string | null;
+    slug?: string | null;
+    _createdAt: string;
+    _firstPublishedAt?: string | null;
+    _publishedAt?: string | null;
+    _status: ItemStatus;
+    _updatedAt: string;
+    id: string;
+    _seoMetaTags: Array<{
+      __typename: "Tag";
+      attributes?: Record<string, string> | null;
+      content?: string | null;
+      tag: string;
+    }>;
+    seo?: {
+      __typename: "SeoField";
+      description?: string | null;
       title?: string | null;
-      slug?: string | null;
-      body?: { __typename: "PageBody"; json: any } | null;
-      contentfulMetadata: {
-        __typename: "ContentfulMetadata";
-        tags: Array<{
-          __typename: "ContentfulTag";
-          id?: string | null;
-          name?: string | null;
-        } | null>;
-      };
-      headerImage?: {
-        __typename: "Asset";
-        contentType?: string | null;
-        description?: string | null;
-        fileName?: string | null;
+      twitterCard?: string | null;
+      image?: {
+        __typename: "FileField";
+        _createdAt: string;
+        _editingUrl?: string | null;
+        _updatedAt: string;
+        alt?: string | null;
+        author?: string | null;
+        basename: string;
+        blurhash?: string | null;
+        blurUpThumb?: string | null;
+        copyright?: string | null;
+        customData: Record<string, string>;
+        exifInfo: Record<string, string>;
+        filename: string;
+        format: string;
         height?: number | null;
-        title?: string | null;
-        url?: string | null;
-        width?: number | null;
-        contentfulMetadata: {
-          __typename: "ContentfulMetadata";
-          tags: Array<{
-            __typename: "ContentfulTag";
-            id?: string | null;
-            name?: string | null;
-          } | null>;
-        };
-        sys: {
-          __typename: "Sys";
-          id: string;
-          firstPublishedAt?: any | null;
-          publishedAt?: any | null;
-          environmentId: string;
-          spaceId: string;
-        };
-      } | null;
-      sys: {
-        __typename: "Sys";
         id: string;
-        firstPublishedAt?: any | null;
-        publishedAt?: any | null;
-        environmentId: string;
-        spaceId: string;
-      };
-    } | null>;
+        md5: string;
+        mimeType: string;
+        notes?: string | null;
+        size: number;
+        smartTags: Array<string>;
+        tags: Array<string>;
+        thumbhash?: string | null;
+        title?: string | null;
+        url: string;
+        width?: number | null;
+        colors: Array<{
+          __typename: "ColorField";
+          alpha: number;
+          blue: number;
+          cssRgb: string;
+          green: number;
+          hex: string;
+          red: number;
+        }>;
+        focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+        responsiveImage?: {
+          __typename: "ResponsiveImage";
+          title?: string | null;
+          alt?: string | null;
+          sizes: string;
+          aspectRatio: number;
+          bgColor?: string | null;
+          src: string;
+          height: number;
+          width: number;
+          srcSet: string;
+          webpSrcSet: string;
+        } | null;
+        video?: {
+          __typename: "UploadVideoField";
+          mp4Url?: string | null;
+          muxAssetId: string;
+          muxPlaybackId: string;
+          streamingUrl: string;
+          thumbnailUrl: string;
+        } | null;
+      } | null;
+    } | null;
+    content: Array<
+      | {
+          __typename: "ConcertListRecord";
+          _createdAt: string;
+          _firstPublishedAt?: string | null;
+          _publishedAt?: string | null;
+          _status: ItemStatus;
+          _updatedAt: string;
+          id: string;
+        }
+      | {
+          __typename: "TextBlockRecord";
+          _createdAt: string;
+          _firstPublishedAt?: string | null;
+          _publishedAt?: string | null;
+          _status: ItemStatus;
+          _updatedAt: string;
+          id: string;
+        }
+      | {
+          __typename: "TwoColumnRecord";
+          _createdAt: string;
+          _firstPublishedAt?: string | null;
+          _publishedAt?: string | null;
+          _status: ItemStatus;
+          _updatedAt: string;
+          id: string;
+        }
+    >;
   } | null;
 };
 
 export type GetPagesQueryVariables = Exact<{
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
-  skip?: InputMaybe<Scalars["Int"]["input"]>;
+  skip?: InputMaybe<Scalars["IntType"]["input"]>;
+  first?: InputMaybe<Scalars["IntType"]["input"]>;
 }>;
 
 export type GetPagesQuery = {
   __typename?: "Query";
-  pageCollection?: {
-    __typename?: "PageCollection";
-    limit: number;
-    skip: number;
-    items: Array<{
-      __typename: "Page";
+  allPages: Array<{
+    __typename: "PageRecord";
+    _updatedAt: string;
+    _publishedAt?: string | null;
+    title?: string | null;
+    slug?: string | null;
+    id: string;
+    _seoMetaTags: Array<{
+      __typename: "Tag";
+      attributes?: Record<string, string> | null;
+      content?: string | null;
+      tag: string;
+    }>;
+    seo?: {
+      __typename: "SeoField";
+      description?: string | null;
       title?: string | null;
-      slug?: string | null;
-      body?: { __typename: "PageBody"; json: any } | null;
-      contentfulMetadata: {
-        __typename: "ContentfulMetadata";
-        tags: Array<{
-          __typename: "ContentfulTag";
-          id?: string | null;
-          name?: string | null;
-        } | null>;
-      };
-      headerImage?: {
-        __typename: "Asset";
-        contentType?: string | null;
-        description?: string | null;
-        fileName?: string | null;
+      twitterCard?: string | null;
+      image?: {
+        __typename: "FileField";
+        _createdAt: string;
+        _editingUrl?: string | null;
+        _updatedAt: string;
+        alt?: string | null;
+        author?: string | null;
+        basename: string;
+        blurhash?: string | null;
+        blurUpThumb?: string | null;
+        copyright?: string | null;
+        customData: Record<string, string>;
+        exifInfo: Record<string, string>;
+        filename: string;
+        format: string;
         height?: number | null;
-        title?: string | null;
-        url?: string | null;
-        width?: number | null;
-        contentfulMetadata: {
-          __typename: "ContentfulMetadata";
-          tags: Array<{
-            __typename: "ContentfulTag";
-            id?: string | null;
-            name?: string | null;
-          } | null>;
-        };
-        sys: {
-          __typename: "Sys";
-          id: string;
-          firstPublishedAt?: any | null;
-          publishedAt?: any | null;
-          environmentId: string;
-          spaceId: string;
-        };
-      } | null;
-      sys: {
-        __typename: "Sys";
         id: string;
-        firstPublishedAt?: any | null;
-        publishedAt?: any | null;
-        environmentId: string;
-        spaceId: string;
-      };
-    } | null>;
-  } | null;
+        md5: string;
+        mimeType: string;
+        notes?: string | null;
+        size: number;
+        smartTags: Array<string>;
+        tags: Array<string>;
+        thumbhash?: string | null;
+        title?: string | null;
+        url: string;
+        width?: number | null;
+        colors: Array<{
+          __typename: "ColorField";
+          alpha: number;
+          blue: number;
+          cssRgb: string;
+          green: number;
+          hex: string;
+          red: number;
+        }>;
+        focalPoint?: { __typename: "focalPoint"; x: number; y: number } | null;
+        responsiveImage?: {
+          __typename: "ResponsiveImage";
+          title?: string | null;
+          alt?: string | null;
+          sizes: string;
+          aspectRatio: number;
+          bgColor?: string | null;
+          src: string;
+          height: number;
+          width: number;
+          srcSet: string;
+          webpSrcSet: string;
+        } | null;
+        video?: {
+          __typename: "UploadVideoField";
+          mp4Url?: string | null;
+          muxAssetId: string;
+          muxPlaybackId: string;
+          streamingUrl: string;
+          thumbnailUrl: string;
+        } | null;
+      } | null;
+    } | null;
+    content: Array<
+      | { __typename: "ConcertListRecord"; id: string }
+      | { __typename: "TextBlockRecord"; id: string }
+      | { __typename: "TwoColumnRecord" }
+    >;
+  }>;
 };

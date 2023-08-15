@@ -1,18 +1,17 @@
 import gql from "graphql-tag";
 import { seo } from "./seo";
 import { tag } from "./tag";
+import { identifiable } from "./identifiable";
 
-export const page = gql`
-  fragment page on PageRecord {
+export const pageDetail = gql`
+  fragment pageDetail on PageRecord {
     __typename
-    _updatedAt
-    _publishedAt
+    ...identifiable
     _seoMetaTags {
       ...tag
     }
     title
     slug
-    id
     seo {
       ...seo
     }
@@ -20,18 +19,19 @@ export const page = gql`
       __typename
       ... on ConcertListRecord {
         __typename
-        id
+        ...identifiable
       }
       ... on TextBlockRecord {
         __typename
-        id
+        ...identifiable
       }
-      ... on ConcertListRecord {
+      ... on TwoColumnRecord {
         __typename
-        id
+        ...identifiable
       }
     }
   }
+  ${identifiable}
   ${seo}
   ${tag}
 `;

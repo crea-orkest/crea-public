@@ -1,24 +1,23 @@
 import gql from "graphql-tag";
-import { metadataFragment } from "./metadata";
-import { sysFragment } from "./sys";
 
-export const imageFragment = gql`
-  fragment imageFragment on Asset {
+export const mediaItem = gql`
+  fragment mediaItem on MediaItemRecord {
     __typename
-    contentType
-    description
-    fileName
-    height
-    title
-    url
-    width
-    contentfulMetadata {
-      ...metadataFragment
-    }
-    sys {
-      ...sysFragment
-    }
   }
-  ${metadataFragment}
-  ${sysFragment}
+`;
+
+export const responsiveImage = gql`
+  fragment responsiveImage on ResponsiveImage {
+    __typename
+    title
+    alt
+    sizes
+    aspectRatio
+    bgColor
+    src
+    height
+    width
+    srcSet
+    webpSrcSet
+  }
 `;

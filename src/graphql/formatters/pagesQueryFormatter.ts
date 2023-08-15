@@ -1,12 +1,9 @@
 import { GetPagesQuery } from "../generated/types";
 import { Page } from "../types/page";
-import { imageFormatter } from "./imageFormatter";
 
-export const pagesQueryFormatter = (query: GetPagesQuery): Page[] =>
-  query.pageCollection.items.map((page) => ({
-    id: page.sys.id,
-    title: page.title,
-    slug: page.slug,
-    headerImage: imageFormatter(page.headerImage),
-    body: page.body.json,
+export const pagesQueryFormatter = (data: GetPagesQuery): Page[] =>
+  data.allPages.map((page) => ({
+    id: String(page.id),
+    title: String(page.title),
+    slug: String(page.slug),
   }));

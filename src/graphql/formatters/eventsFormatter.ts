@@ -1,12 +1,11 @@
-import { GetEventsQuery } from "../generated/types";
+import { GetConcertsQuery } from "../generated/types";
 import { Event } from "../types/event";
-import { imageFormatter } from "./imageFormatter";
+import { fileFormatter } from "./fileFormatter";
 
-export const eventsFormatter = (data: GetEventsQuery): Event[] =>
-  data.eventCollection.items.map((event) => ({
-    id: event.sys.id,
-    title: event.title,
-    image: imageFormatter(event.image),
-    description: event.description.json,
-    startDate: new Date(event.startDate),
+export const eventsFormatter = (data: GetConcertsQuery): Event[] =>
+  data.allConcerts.map((event) => ({
+    id: String(event.id),
+    title: String(event.title),
+    image: event.poster ? fileFormatter(event.poster) : undefined,
+    startDate: new Date(),
   }));
