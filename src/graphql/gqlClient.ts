@@ -19,9 +19,6 @@ const link = createHttpLink({
 
 const authLink = setContext(() => ({
   headers: {
-    "X-Base-Editing-Url": "true",
-    "X-Include-Drafts": "true",
-    "X-Exclude-Invalid": "true",
     "Content-Type": "application/json",
     Accept: "application/json",
     Authorization: `Bearer ${accessToken}`,
@@ -32,5 +29,7 @@ const authLink = setContext(() => ({
 export const gqlClient = new ApolloClient({
   ssrMode: process.env.NODE_ENV === "production",
   link: authLink.concat(link),
-  cache: new InMemoryCache({ fragmentMatcher }),
+  cache: new InMemoryCache({
+    fragmentMatcher,
+  }),
 });

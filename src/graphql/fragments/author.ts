@@ -1,5 +1,4 @@
 import gql from "graphql-tag";
-import { tag } from "./tag";
 import { identifiable } from "./identifiable";
 
 export const author = gql`
@@ -9,5 +8,4 @@ export const author = gql`
     role
   }
   ${identifiable}
-  ${tag}
 `;
