@@ -8,11 +8,6 @@ const nextConfig = {
     appDir: true,
     // typedRoutes: true,
     // serverActions: true,
-    turbo: {},
-  },
-  webpack: (config) => {
-    config.experiments = { ...config.experiments, topLevelAwait: true };
-    return config;
   },
   images: {
     remotePatterns: [
