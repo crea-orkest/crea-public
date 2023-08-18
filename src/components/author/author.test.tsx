@@ -11,11 +11,8 @@ async function resolvedComponent(Component: Function, props: Props) {
 }
 
 jest.mock("../../graphql/getters/getAuthor", () => {
-  const originalModule = jest.requireActual("../../graphql/getters/getAuthor");
-
   return {
     __esModule: true,
-    ...originalModule,
     getAuthor: jest.fn(),
   };
 });
