@@ -5,8 +5,13 @@ import styles from "./styles.module.scss";
 import { getEvents } from "graphql/getters/getEvents";
 import { Event } from "graphql/types/event";
 
-export const Events = async () => {
-  const { data } = await getEvents({ skip: 0, first: 3 });
+export interface Props {
+  skip: number;
+  first: number;
+}
+
+export const Events = async ({ skip, first }: Props) => {
+  const { data } = await getEvents({ skip, first });
   if (data === null) return null;
 
   return (

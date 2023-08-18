@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { getPage } from "graphql/getters/getPage";
 import { notFound } from "next/navigation";
 
-interface Props {
+export interface Props {
   slug: string;
 }
 

@@ -1,6 +1,7 @@
 import type { Image } from "./image";
 
-interface Location {
+export interface Location {
+  startTime: string;
   id: string;
 }
 

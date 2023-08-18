@@ -2,7 +2,7 @@ import { Location } from "components/location/location";
 import { getEvent } from "graphql/getters/getEvent";
 import React from "react";
 
-interface Props {
+export interface Props {
   id: string;
 }
 

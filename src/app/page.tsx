@@ -39,7 +39,7 @@ const Page = async () => {
       <hr />
       <p>events</p>
       <code>{JSON.stringify(events)}</code>
-      <Events />
+      <Events skip={0} first={3} />
       <hr />
       <p>event</p>
       <code>{JSON.stringify(event)}</code>
