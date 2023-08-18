@@ -5,15 +5,16 @@ const config: CodegenConfig = {
     {
       [`https://graphql.datocms.com`]: {
         headers: {
-          Authorization: `Bearer ${process.env.DATOCMS_ACCESS_TOKEN}`,
+          Authorization: `Bearer ${process.env["DATOCMS_ACCESS_TOKEN"]}`,
+          "X-Exclude-Invalid": "true",
         },
       },
     },
   ],
-  documents: ["./src/graphql/**/*.ts"],
+  documents: ["./src/**/*.{ts,tsx}"],
   generates: {
-    "./src/graphql/generated/types.ts": {
-      plugins: ["typescript", "fragment-matcher", "typescript-operations"],
+    "./src/graphql/generated/": {
+      preset: "client",
       config: {
         withHooks: true,
         scalars: {
@@ -30,7 +31,9 @@ const config: CodegenConfig = {
         },
       },
       presetConfig: {
+        persistedDocuments: true,
         gqlTagName: "gql",
+        fragmentMasking: false,
       },
     },
   },

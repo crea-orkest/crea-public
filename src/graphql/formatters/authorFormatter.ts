@@ -1,8 +1,12 @@
-import { GetAuthorQuery } from "../generated/types";
+import { GetAuthorQuery } from "graphql/generated/graphql";
 import { Author } from "../types/author";
 
-export const authorFormatter = (author: GetAuthorQuery): Author => ({
-  id: String(author.person?.id),
-  name: String(author.person?.name),
-  description: String(author.person?.role),
-});
+export const authorFormatter = (data: GetAuthorQuery): Author | undefined => {
+  if (!data.person) return undefined;
+
+  return {
+    id: data.person.id,
+    name: data.person.name,
+    description: data.person.role,
+  };
+};

@@ -1,7 +1,8 @@
 export interface Image {
+  id: string;
+  title: string;
   description: string;
   height: number;
-  title: string;
   url: string;
   width: number;
 }

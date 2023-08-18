@@ -55,7 +55,7 @@ const nextConfig = {
         },
         {
           key: "Content-Security-Policy",
-          value: `default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval';`,
+          value: `default-src 'unsafe-inline' 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval';`,
         },
       ],
     },

@@ -1,11 +1,11 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 import { seo } from "./seo";
 import { tag } from "./tag";
 import { identifiable } from "./identifiable";
 
 export const pageDetail = gql`
   fragment pageDetail on PageRecord {
-    __typename
+    id
     ...identifiable
     _seoMetaTags {
       ...tag
@@ -16,17 +16,13 @@ export const pageDetail = gql`
       ...seo
     }
     content {
-      __typename
       ... on ConcertListRecord {
-        __typename
         ...identifiable
       }
       ... on TextBlockRecord {
-        __typename
         ...identifiable
       }
       ... on TwoColumnRecord {
-        __typename
         ...identifiable
       }
     }

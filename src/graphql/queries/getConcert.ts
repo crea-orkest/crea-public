@@ -1,11 +1,28 @@
-import gql from "graphql-tag";
-import { event } from "../fragments/event";
+import { gql } from "@apollo/client";
+import { author } from "graphql/fragments/author";
+import { file } from "graphql/fragments/file";
+import { locations } from "graphql/fragments/locations";
 
 export const GET_CONCERT = gql`
   query getConcert($id: ItemId) {
     concert(filter: { id: { eq: $id } }) {
-      ...event
+      id
+      title
+      link {
+        ...identifiable
+      }
+      locations {
+        ...locations
+      }
+      persons {
+        ...author
+      }
+      poster {
+        ...file
+      }
     }
   }
-  ${event}
+  ${locations}
+  ${file}
+  ${author}
 `;

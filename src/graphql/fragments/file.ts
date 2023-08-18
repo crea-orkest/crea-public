@@ -1,18 +1,13 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 import { responsiveImage } from "./image";
-import { video } from "./video";
-import { colors } from "./colors";
 import { focalPoint } from "./focalpoint";
+import { colors } from "./colors";
+import { video } from "./video";
 
 export const file = gql`
   fragment file on FileField {
-    __typename
-    _createdAt
-    _editingUrl
-    _updatedAt
+    id
     alt
-    author
-    basename
     blurhash
     blurUpThumb
     colors {
@@ -20,15 +15,13 @@ export const file = gql`
     }
     copyright
     customData
-    exifInfo
     filename
     focalPoint {
       ...focalPoint
     }
     format
+    width
     height
-    id
-    md5
     mimeType
     notes
     responsiveImage {
@@ -37,16 +30,14 @@ export const file = gql`
     size
     smartTags
     tags
-    thumbhash
     title
     url
     video {
       ...video
     }
-    width
   }
+  ${responsiveImage}
   ${focalPoint}
   ${colors}
   ${video}
-  ${responsiveImage}
 `;

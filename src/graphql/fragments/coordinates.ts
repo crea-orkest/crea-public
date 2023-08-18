@@ -1,8 +1,7 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 
 export const coordinates = gql`
   fragment coordinates on LatLonField {
-    __typename
     latitude
     longitude
   }

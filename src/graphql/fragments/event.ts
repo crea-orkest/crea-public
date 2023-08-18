@@ -1,32 +1,33 @@
-import gql from "graphql-tag";
-import { tag } from "./tag";
+import { gql } from "@apollo/client";
 import { file } from "./file";
-import { identifiable } from "./identifiable";
+import { tag } from "./tag";
+import { author } from "./author";
+import { locations } from "./locations";
+import { link } from "./link";
 
 export const event = gql`
   fragment event on ConcertRecord {
-    ...identifiable
+    id
     title
     _seoMetaTags {
       ...tag
     }
-    content {
-      __typename
-    }
     link {
-      __typename
+      ...link
     }
     locations {
-      __typename
+      ...locations
     }
     persons {
-      __typename
+      ...author
     }
     poster {
       ...file
     }
   }
-  ${identifiable}
-  ${tag}
+  ${link}
   ${file}
+  ${tag}
+  ${author}
+  ${locations}
 `;

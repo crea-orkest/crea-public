@@ -1,8 +1,7 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 
 export const video = gql`
   fragment video on UploadVideoField {
-    __typename
     mp4Url
     muxAssetId
     muxPlaybackId

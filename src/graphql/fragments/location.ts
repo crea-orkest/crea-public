@@ -1,9 +1,8 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 import { coordinates } from "./coordinates";
 
 export const location = gql`
   fragment location on LocationRecord {
-    __typename
     id
     title
     addressTitle

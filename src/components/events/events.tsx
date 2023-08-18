@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 import styles from "./styles.module.scss";
-import { getEvents } from "graphql/getEvents";
+import { getEvents } from "graphql/getters/getEvents";
 import { Event } from "graphql/types/event";
 
 export const Events = async () => {

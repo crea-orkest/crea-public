@@ -1,8 +1,7 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 
 export const colors = gql`
   fragment colors on ColorField {
-    __typename
     alpha
     blue
     cssRgb

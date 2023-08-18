@@ -1,11 +1,10 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 
 export const identifiable = gql`
   fragment identifiable on RecordInterface {
     _createdAt
     _firstPublishedAt
     _publishedAt
-    _status
     _updatedAt
     id
   }

@@ -1,4 +1,4 @@
-import { GetPageQuery } from "../generated/types";
+import { GetPageQuery } from "../generated/graphql";
 import { Page } from "../types/page";
 
 export const pageQueryFormatter = (data: GetPageQuery): Page => ({

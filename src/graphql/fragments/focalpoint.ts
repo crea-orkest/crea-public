@@ -1,8 +1,7 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 
 export const focalPoint = gql`
   fragment focalPoint on focalPoint {
-    __typename
     x
     y
   }

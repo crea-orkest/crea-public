@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 import { pageDetail } from "../fragments/pageDetail";
 
 export const GET_PAGE = gql`

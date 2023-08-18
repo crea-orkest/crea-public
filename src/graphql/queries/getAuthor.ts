@@ -1,8 +1,7 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
+import { author } from "graphql/fragments/author";
 
-import { author } from "../fragments/author";
-
-export const GET_AUTHORS = gql`
+export const GET_AUTHOR = gql`
   query getAuthor($id: ItemId) {
     person(filter: { id: { eq: $id } }) {
       ...author
