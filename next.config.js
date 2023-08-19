@@ -1,3 +1,5 @@
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+
 /**
  * @type {import('next').NextConfig}
  */
@@ -16,6 +18,13 @@ const nextConfig = {
         hostname: "www.datocms-assets.com",
       },
     ],
+  },
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    if (process.env.ANALYZE === "true") {
+      config.plugins.push(new BundleAnalyzerPlugin({}));
+    }
+
+    return config;
   },
 
   serverRuntimeConfig: {
