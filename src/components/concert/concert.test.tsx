@@ -28,7 +28,7 @@ describe("Concert component", () => {
         id: "id",
         title: "name",
         image: undefined,
-        locations: [{ id: "test id" }],
+        locations: [{ startTime: "DATETIME", id: "test id" }],
       },
       loading: false,
       errors: undefined,

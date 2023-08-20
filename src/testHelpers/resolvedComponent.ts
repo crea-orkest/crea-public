@@ -1,9 +1,7 @@
-import type { JSX } from "react";
+import type { ReactNode } from "react";
 
-export const resolvedComponent = async <T>(
-  Component: (props: T) => Promise<JSX.Element>,
-  props: T
-) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const resolvedComponent = async <T>(Component: any, props: T) => {
   const ComponentResolved = await Component(props);
-  return () => ComponentResolved;
+  return () => ComponentResolved as ReactNode;
 };
