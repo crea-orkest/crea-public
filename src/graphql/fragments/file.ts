@@ -1,7 +1,7 @@
-import { gql } from "@apollo/client";
-import { responsiveImage } from "./image";
-import { focalPoint } from "./focalpoint";
 import { colors } from "./colors";
+import { focalPoint } from "./focalpoint";
+import { gql } from "@apollo/client/core";
+import { responsiveImage } from "./image";
 import { video } from "./video";
 
 export const file = gql`

@@ -1,5 +1,5 @@
-import { GetConcertsQuery } from "../generated/graphql";
-import { Event } from "../types/event";
+import type { Event } from "../types/event";
+import type { GetConcertsQuery } from "../generated/graphql";
 import { fileFormatter } from "./fileFormatter";
 
 export const eventsFormatter = (data: GetConcertsQuery): Event[] =>

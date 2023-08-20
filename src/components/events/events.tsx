@@ -1,9 +1,8 @@
-import React from "react";
-
+import type { Event } from "graphql/types/event";
 import Image from "next/image";
-import styles from "./styles.module.scss";
+import React from "react";
 import { getEvents } from "graphql/getters/getEvents";
-import { Event } from "graphql/types/event";
+import styles from "./styles.module.scss";
 
 export interface Props {
   skip: number;

@@ -1,10 +1,10 @@
 import { GET_AUTHORS } from "graphql/queries/getAuthors";
 import { authorsFormatter } from "../formatters/authorsFormatter";
-import {
+import { getClient } from "../gqlClient";
+import type {
   GetAuthorsQuery,
   GetAuthorsQueryVariables,
 } from "../generated/graphql";
-import { getClient } from "../gqlClient";
 
 export const getAuthors = async ({
   first,

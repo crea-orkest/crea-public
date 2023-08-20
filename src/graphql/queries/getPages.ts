@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from "@apollo/client/core";
 import { identifiable } from "graphql/fragments/identifiable";
 
 export const GET_PAGES = gql`

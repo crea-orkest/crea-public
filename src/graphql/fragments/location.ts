@@ -1,5 +1,5 @@
-import { gql } from "@apollo/client";
 import { coordinates } from "./coordinates";
+import { gql } from "@apollo/client/core";
 
 export const location = gql`
   fragment location on LocationRecord {

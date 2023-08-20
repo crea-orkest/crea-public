@@ -1,5 +1,5 @@
-import { FileFragment } from "graphql/generated/graphql";
-import { Image } from "../types/image";
+import type { FileFragment } from "graphql/generated/graphql";
+import type { Image } from "../types/image";
 
 export const fileFormatter = (data: FileFragment): Image | undefined => {
   if (!data) return;

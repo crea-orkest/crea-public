@@ -1,7 +1,9 @@
+import type { JSX } from "react";
+
 export const resolvedComponent = async <T>(
-  Component: Function,
+  Component: (props: T) => Promise<JSX.Element>,
   props: T
-): Promise<() => JSX.Element> => {
+) => {
   const ComponentResolved = await Component(props);
   return () => ComponentResolved;
 };

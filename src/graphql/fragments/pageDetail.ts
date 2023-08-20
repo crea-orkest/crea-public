@@ -1,7 +1,7 @@
-import { gql } from "@apollo/client";
+import { gql } from "@apollo/client/core";
+import { identifiable } from "./identifiable";
 import { seo } from "./seo";
 import { tag } from "./tag";
-import { identifiable } from "./identifiable";
 
 export const pageDetail = gql`
   fragment pageDetail on PageRecord {

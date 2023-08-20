@@ -1,15 +1,15 @@
-import React from "react";
-import { getAuthors } from "graphql/getters/getAuthors";
-import { getPages } from "graphql/getters/getPages";
-import { getPage } from "graphql/getters/getPage";
-import { getEvents } from "graphql/getters/getEvents";
-import { getEvent } from "graphql/getters/getEvent";
-import { Events } from "components/events/events";
-import { getAuthor } from "graphql/getters/getAuthor";
 import { Author } from "components/author/author";
 import { Concert } from "components/concert/concert";
+import { Events } from "components/events/events";
+import React from "react";
+import { getAuthor } from "graphql/getters/getAuthor";
+import { getAuthors } from "graphql/getters/getAuthors";
+import { getEvent } from "graphql/getters/getEvent";
+import { getEvents } from "graphql/getters/getEvents";
 import { getLocation } from "graphql/getters/getLocation";
 import { getLocations } from "graphql/getters/getLocations";
+import { getPage } from "graphql/getters/getPage";
+import { getPages } from "graphql/getters/getPages";
 
 const Page = async () => {
   const author = await getAuthor({ id: "186234305" });

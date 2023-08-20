@@ -1,16 +1,18 @@
-import {
-  ApolloClient,
-  createHttpLink,
-  HttpLink,
-  InMemoryCache,
-} from "@apollo/client";
 import { cacheConfig } from "./cacheConfig";
 import { linkConfig } from "./linkConfig";
-import {
-  NextSSRInMemoryCache,
-  NextSSRApolloClient,
-} from "@apollo/experimental-nextjs-app-support/ssr";
 import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
+
+import {
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client/core";
+
+import {
+  NextSSRApolloClient,
+  NextSSRInMemoryCache,
+} from "@apollo/experimental-nextjs-app-support/ssr";
 
 export const client = new ApolloClient({
   ssrMode: true,

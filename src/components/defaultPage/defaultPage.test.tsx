@@ -1,10 +1,9 @@
-import { DefaultPage, Props } from "./defaultPage";
-import { getPage } from "graphql/getters/getPage";
-
+import { DefaultPage } from "./defaultPage";
+import type { Props } from "./defaultPage";
 import React from "react";
-
-import { render, screen } from "@testing-library/react";
+import { getPage } from "graphql/getters/getPage";
 import { resolvedComponent } from "../../testHelpers/resolvedComponent";
+import { render, screen } from "@testing-library/react";
 
 jest.mock("../../graphql/getters/getPage", () => {
   return {
