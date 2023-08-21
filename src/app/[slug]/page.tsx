@@ -1,4 +1,4 @@
-import { DefaultPage } from "components/defaultPage/defaultPage";
+import { DefaultPage } from "components/defaultPage";
 
 interface PageProps {
   params: { slug: string };

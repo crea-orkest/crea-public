@@ -1,4 +1,4 @@
-import { Location } from "components/location/location";
+import { Location } from "components/location";
 import React from "react";
 import { Spinner } from "components/spinner";
 import { getEvent } from "graphql/getters/getEvent";

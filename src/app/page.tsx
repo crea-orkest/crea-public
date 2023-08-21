@@ -1,6 +1,6 @@
-import { Author } from "components/author/author";
-import { Concert } from "components/concert/concert";
-import { Events } from "components/events/events";
+import { Author } from "components/author";
+import { Concert } from "components/concert";
+import { Events } from "components/events";
 import React from "react";
 import { getAuthor } from "graphql/getters/getAuthor";
 import { getAuthors } from "graphql/getters/getAuthors";
