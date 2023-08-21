@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner } from "components/spinner";
 import { getPage } from "graphql/getters/getPage";
 import { notFound } from "next/navigation";
 import styles from "./styles.module.scss";
@@ -10,7 +11,7 @@ export interface Props {
 export const DefaultPage = async ({ slug }: Props) => {
   const { data, loading } = await getPage({ slug });
   if (loading) {
-    return <p>loading</p>;
+    return <Spinner />;
   }
 
   if (!data) return notFound();

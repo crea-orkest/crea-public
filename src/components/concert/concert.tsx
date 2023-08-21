@@ -1,5 +1,6 @@
 import { Location } from "components/location/location";
 import React from "react";
+import { Spinner } from "components/spinner";
 import { getEvent } from "graphql/getters/getEvent";
 
 export interface Props {
@@ -7,7 +8,10 @@ export interface Props {
 }
 
 export const Concert: React.FC<Props> = async ({ id }) => {
-  const { data } = await getEvent({ id });
+  const { data, loading } = await getEvent({ id });
+
+  if (loading) return <Spinner />;
+
   if (!data) return null;
 
   return (

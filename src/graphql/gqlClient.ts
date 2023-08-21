@@ -13,7 +13,7 @@ export const { getClient } = registerApolloClient(() => {
     cache: new NextSSRInMemoryCache(cacheConfig),
     link: new HttpLink({
       ...linkConfig,
-      fetchOptions: { cache: "no-store" },
+      fetchOptions: { next: { revalidate: 60 } },
     }),
   });
 });

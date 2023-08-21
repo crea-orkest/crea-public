@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner } from "components/spinner";
 import { getAuthor } from "graphql/getters/getAuthor";
 
 export interface Props {
@@ -7,7 +8,8 @@ export interface Props {
 
 export const Author: React.FC<Props> = async ({ id }) => {
   if (!id) return null;
-  const { data } = await getAuthor({ id });
+  const { data, loading } = await getAuthor({ id });
+  if (loading) return <Spinner />;
   if (!data) return null;
 
   return (
