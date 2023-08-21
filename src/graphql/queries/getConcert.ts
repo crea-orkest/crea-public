@@ -1,6 +1,6 @@
 import { author } from "graphql/fragments/author";
 import { file } from "graphql/fragments/file";
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
 import { locations } from "graphql/fragments/locations";
 
 export const GET_CONCERT = gql`

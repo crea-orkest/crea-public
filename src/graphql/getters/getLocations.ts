@@ -1,5 +1,5 @@
 import { GET_LOCATIONS } from "graphql/queries/getLocations";
-import { getClient } from "../gqlClient";
+import { client } from "../gqlClient";
 import { locationsFormatter } from "graphql/formatters/locationsFormatter";
 import type {
   GetLocationsQuery,
@@ -7,19 +7,20 @@ import type {
 } from "graphql/generated/graphql";
 
 export const getLocations = async ({
-  first,
-  skip,
+  first = 1,
+  skip = 0,
 }: GetLocationsQueryVariables) => {
   try {
-    const client = getClient();
-    const { data, loading, errors } = await client.query<GetLocationsQuery>({
-      query: GET_LOCATIONS,
-      variables: { first, skip },
-    });
+    const { data, error } = await client.query<
+      GetLocationsQuery,
+      GetLocationsQueryVariables
+    >(GET_LOCATIONS, { first, skip });
 
-    return { data: locationsFormatter(data), loading, errors };
+    if (error) throw error;
+    if (!data) throw new Error("no data");
+    return { data: locationsFormatter(data) };
   } catch (errors) {
     if (errors instanceof Error) console.log(errors.message);
-    return { data: null, loading: false, errors };
+    return { data: null, errors };
   }
 };

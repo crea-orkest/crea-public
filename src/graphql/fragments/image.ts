@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
 
 export const responsiveImage = gql`
   fragment responsiveImage on ResponsiveImage {

@@ -22,8 +22,6 @@ describe("Concert component", () => {
         title: "title",
         slug: "contact",
       },
-      loading: false,
-      errors: undefined,
     });
 
     const Resolved = await resolvedComponent<Props>(DefaultPage, {

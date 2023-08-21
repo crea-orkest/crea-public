@@ -1,6 +1,7 @@
 import { author } from "./author";
 import { file } from "./file";
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
+
 import { link } from "./link";
 import { locations } from "./locations";
 import { tag } from "./tag";

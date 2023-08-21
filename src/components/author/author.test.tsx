@@ -22,8 +22,6 @@ describe("Author component", () => {
         name: "name",
         description: "role",
       },
-      loading: false,
-      errors: undefined,
     });
 
     const Resolved = await resolvedComponent<Props>(Author, { id: "some id" });

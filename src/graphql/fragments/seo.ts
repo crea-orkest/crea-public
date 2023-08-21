@@ -1,5 +1,5 @@
 import { file } from "./file";
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
 
 export const seo = gql`
   fragment seo on SeoField {

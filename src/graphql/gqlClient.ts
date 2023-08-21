@@ -1,19 +1,13 @@
-import { HttpLink } from "@apollo/client/core";
-import { cacheConfig } from "./cacheConfig";
-import { linkConfig } from "./linkConfig";
-import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
+import { Client, cacheExchange, fetchExchange } from "@urql/core";
+import { linkConfig, url } from "./linkConfig";
 
-import {
-  NextSSRApolloClient,
-  NextSSRInMemoryCache,
-} from "@apollo/experimental-nextjs-app-support/ssr";
-
-export const { getClient } = registerApolloClient(() => {
-  return new NextSSRApolloClient({
-    cache: new NextSSRInMemoryCache(cacheConfig),
-    link: new HttpLink({
-      ...linkConfig,
-      fetchOptions: { next: { revalidate: 60 } },
-    }),
-  });
+export const client = new Client({
+  url,
+  exchanges: [cacheExchange, fetchExchange],
+  fetchOptions: () => {
+    return {
+      headers: { ...linkConfig.headers },
+      next: { revalidate: 60 },
+    };
+  },
 });

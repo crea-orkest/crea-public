@@ -1,5 +1,5 @@
 import { author } from "../fragments/author";
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
 
 export const GET_AUTHORS = gql`
   query getAuthors(

@@ -1,20 +1,22 @@
 import { GET_PAGE } from "graphql/queries/getPage";
-import { getClient } from "../gqlClient";
+import { client } from "../gqlClient";
 import { pageQueryFormatter } from "graphql/formatters/pageQueryFormatter";
 import type { GetPageQuery, GetPageQueryVariables } from "../generated/graphql";
 
 export const getPage = async ({ slug }: GetPageQueryVariables) => {
-  const client = getClient();
-
   try {
-    const { data, loading, errors } = await client.query<GetPageQuery>({
-      query: GET_PAGE,
-      variables: { slug },
-    });
+    if (!slug) throw new Error("no slug");
 
-    return { data: pageQueryFormatter(data), loading, errors };
+    const { data, error } = await client.query<
+      GetPageQuery,
+      GetPageQueryVariables
+    >(GET_PAGE, { slug });
+
+    if (error) throw error;
+    if (!data) throw new Error("no data");
+    return { data: pageQueryFormatter(data) };
   } catch (errors) {
     if (errors instanceof Error) console.log(errors.message);
-    return { data: null, loading: false, errors };
+    return { data: null, errors };
   }
 };

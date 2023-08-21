@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
 
 export const link = gql`
   fragment link on LinkRecord {

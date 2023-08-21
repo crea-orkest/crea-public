@@ -1,27 +1,29 @@
 import { GET_AUTHORS } from "graphql/queries/getAuthors";
 import { authorsFormatter } from "../formatters/authorsFormatter";
-import { getClient } from "../gqlClient";
-import type {
-  GetAuthorsQuery,
-  GetAuthorsQueryVariables,
+import { client } from "../gqlClient";
+import {
+  type GetAuthorsQuery,
+  type GetAuthorsQueryVariables,
+  PersonModelOrderBy,
 } from "../generated/graphql";
 
 export const getAuthors = async ({
-  first,
-  skip,
-  order,
+  first = 1,
+  skip = 0,
+  order = PersonModelOrderBy.PublishedAtAsc,
 }: GetAuthorsQueryVariables) => {
-  const client = getClient();
-
   try {
-    const { data, loading, errors } = await client.query<GetAuthorsQuery>({
-      query: GET_AUTHORS,
-      variables: { first, skip, order },
-    });
-    return { data: authorsFormatter(data), loading, errors };
+    const { data, error } = await client.query<
+      GetAuthorsQuery,
+      GetAuthorsQueryVariables
+    >(GET_AUTHORS, { first, skip, order });
+
+    if (error) throw error;
+    if (!data) throw new Error("no data");
+    return { data: authorsFormatter(data) };
   } catch (errors) {
     if (errors instanceof Error) console.log(errors.message);
 
-    return { data: null, loading: false, errors };
+    return { data: null, errors };
   }
 };

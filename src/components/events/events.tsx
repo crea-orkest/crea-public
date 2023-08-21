@@ -1,7 +1,6 @@
 import type { Event } from "graphql/types/event";
 import Image from "next/image";
 import React from "react";
-import { Spinner } from "components/spinner";
 import { getEvents } from "graphql/getters/getEvents";
 import styles from "./styles.module.scss";
 
@@ -11,10 +10,8 @@ export interface Props {
 }
 
 export const Events = async ({ skip, first }: Props) => {
-  const { data, loading } = await getEvents({ skip, first });
-  if (loading) return <Spinner />;
-
-  if (data === null) return null;
+  const { data } = await getEvents({ skip, first });
+  if (!data) return null;
 
   return (
     <section>

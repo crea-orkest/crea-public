@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
 import { identifiable } from "./identifiable";
 import { seo } from "./seo";
 import { tag } from "./tag";

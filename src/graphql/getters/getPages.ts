@@ -1,5 +1,5 @@
 import { GET_PAGES } from "graphql/queries/getPages";
-import { getClient } from "../gqlClient";
+import { client } from "../gqlClient";
 import type {
   GetPagesQuery,
   GetPagesQueryVariables,
@@ -9,20 +9,17 @@ export const getPages = async ({
   skip = 0,
   first = 10,
 }: GetPagesQueryVariables) => {
-  const client = getClient();
-
   try {
-    const { data, loading } = await client.query<GetPagesQuery>({
-      query: GET_PAGES,
-      variables: {
-        skip,
-        first,
-      },
+    const { data, error } = await client.query<GetPagesQuery>(GET_PAGES, {
+      skip,
+      first,
     });
 
-    return { data, loading };
+    if (error) throw error;
+    if (!data) throw new Error("no data");
+    return { data };
   } catch (errors) {
     if (errors instanceof Error) console.log(errors.message);
-    return { data: null, loading: false, errors };
+    return { data: null, errors };
   }
 };

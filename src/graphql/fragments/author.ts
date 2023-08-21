@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
 
 export const author = gql`
   fragment author on PersonRecord {

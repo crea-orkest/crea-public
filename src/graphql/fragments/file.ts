@@ -1,6 +1,7 @@
 import { colors } from "./colors";
 import { focalPoint } from "./focalpoint";
-import { gql } from "@apollo/client/core";
+import { gql } from "@urql/core";
+
 import { responsiveImage } from "./image";
 import { video } from "./video";
 
