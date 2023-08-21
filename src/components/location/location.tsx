@@ -1,5 +1,5 @@
-import { getLocation } from "graphql/getters/getLocation";
 import React from "react";
+import { getLocation } from "graphql/getters/getLocation";
 
 export interface Props {
   id: string;

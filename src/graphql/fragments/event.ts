@@ -1,9 +1,9 @@
-import { gql } from "@apollo/client";
-import { file } from "./file";
-import { tag } from "./tag";
 import { author } from "./author";
-import { locations } from "./locations";
+import { file } from "./file";
+import { gql } from "@apollo/client/core";
 import { link } from "./link";
+import { locations } from "./locations";
+import { tag } from "./tag";
 
 export const event = gql`
   fragment event on ConcertRecord {

@@ -1,5 +1,5 @@
-import { Location } from "graphql/types/location";
-import { GetLocationsQuery } from "../generated/graphql";
+import type { GetLocationsQuery } from "../generated/graphql";
+import type { Location } from "graphql/types/location";
 
 export const locationsFormatter = (data: GetLocationsQuery): Location[] =>
   data.allLocations.map((location) => ({

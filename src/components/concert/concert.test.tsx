@@ -1,10 +1,9 @@
-import { Concert, Props } from "./concert";
-import { getEvent } from "graphql/getters/getEvent";
-
+import { Concert } from "./concert";
+import type { Props } from "./concert";
 import React from "react";
-
-import { render, screen } from "@testing-library/react";
+import { getEvent } from "graphql/getters/getEvent";
 import { resolvedComponent } from "../../testHelpers/resolvedComponent";
+import { render, screen } from "@testing-library/react";
 
 jest.mock("../location/location", () => {
   return {
@@ -29,7 +28,7 @@ describe("Concert component", () => {
         id: "id",
         title: "name",
         image: undefined,
-        locations: [{ id: "test id" }],
+        locations: [{ startTime: "DATETIME", id: "test id" }],
       },
       loading: false,
       errors: undefined,

@@ -1,10 +1,10 @@
-import { getClient } from "../gqlClient";
+import { GET_CONCERTS } from "graphql/queries/getConcerts";
 import { eventsFormatter } from "../formatters/eventsFormatter";
-import {
+import { getClient } from "../gqlClient";
+import type {
   GetConcertsQuery,
   GetConcertsQueryVariables,
 } from "../generated/graphql";
-import { GET_CONCERTS } from "graphql/queries/getConcerts";
 
 export const getEvents = async ({
   skip = 0,

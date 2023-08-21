@@ -1,8 +1,7 @@
 import React from "react";
-
-import styles from "./styles.module.scss";
 import { getPage } from "graphql/getters/getPage";
 import { notFound } from "next/navigation";
+import styles from "./styles.module.scss";
 
 export interface Props {
   slug: string;

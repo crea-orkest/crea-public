@@ -1,7 +1,7 @@
-import { getClient } from "../gqlClient";
-import { GetPageQuery, GetPageQueryVariables } from "../generated/graphql";
-import { pageQueryFormatter } from "graphql/formatters/pageQueryFormatter";
 import { GET_PAGE } from "graphql/queries/getPage";
+import { getClient } from "../gqlClient";
+import { pageQueryFormatter } from "graphql/formatters/pageQueryFormatter";
+import type { GetPageQuery, GetPageQueryVariables } from "../generated/graphql";
 
 export const getPage = async ({ slug }: GetPageQueryVariables) => {
   const client = getClient();

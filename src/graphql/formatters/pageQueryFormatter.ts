@@ -1,5 +1,5 @@
-import { GetPageQuery } from "../generated/graphql";
-import { Page } from "../types/page";
+import type { GetPageQuery } from "../generated/graphql";
+import type { Page } from "../types/page";
 
 export const pageQueryFormatter = (data: GetPageQuery): Page => ({
   id: String(data.page?.id),

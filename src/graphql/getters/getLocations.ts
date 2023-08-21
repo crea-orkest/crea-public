@@ -1,10 +1,10 @@
-import {
+import { GET_LOCATIONS } from "graphql/queries/getLocations";
+import { getClient } from "../gqlClient";
+import { locationsFormatter } from "graphql/formatters/locationsFormatter";
+import type {
   GetLocationsQuery,
   GetLocationsQueryVariables,
 } from "graphql/generated/graphql";
-import { getClient } from "../gqlClient";
-import { GET_LOCATIONS } from "graphql/queries/getLocations";
-import { locationsFormatter } from "graphql/formatters/locationsFormatter";
 
 export const getLocations = async ({
   first,
