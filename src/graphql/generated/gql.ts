@@ -49,7 +49,7 @@ const documents = {
     types.GetAuthorDocument,
   "\n  query getAuthors(\n    $first: IntType\n    $skip: IntType\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n":
     types.GetAuthorsDocument,
-  "\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n":
+  "\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n":
     types.GetConcertDocument,
   "\n  query getConcerts($skip: IntType, $first: IntType) {\n    allConcerts(first: $first, skip: $skip) {\n      id\n      title\n      locations {\n        ...locations\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n":
     types.GetConcertsDocument,
@@ -189,8 +189,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n"
-): (typeof documents)["\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n"];
+  source: "\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n"
+): (typeof documents)["\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

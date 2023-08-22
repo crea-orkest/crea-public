@@ -1,8 +1,8 @@
+import { linkConfig } from "./linkConfig";
 import { Client, cacheExchange, fetchExchange } from "@urql/core";
-import { linkConfig, url } from "./linkConfig";
 
 export const client = new Client({
-  url,
+  url: linkConfig.url,
   exchanges: [cacheExchange, fetchExchange],
   fetchOptions: () => {
     return {
@@ -10,4 +10,6 @@ export const client = new Client({
       next: { revalidate: 60 },
     };
   },
+  // suspense: true,
+  // maskTypename: true,
 });

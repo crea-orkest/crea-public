@@ -1,5 +1,5 @@
-import { Concert } from "./concert";
-import type { Props } from "./concert";
+import { Event } from "./event";
+import type { Props } from "./event";
 import React from "react";
 import { getEvent } from "graphql/getters/getEvent";
 import { resolvedComponent } from "../../testHelpers/resolvedComponent";
@@ -30,9 +30,10 @@ describe("Concert component", () => {
         image: undefined,
         locations: [{ startTime: "DATETIME", id: "test id" }],
       },
+      errors: undefined,
     });
 
-    const Resolved = await resolvedComponent<Props>(Concert, {
+    const Resolved = await resolvedComponent<Props>(Event, {
       id: "some id",
     });
 

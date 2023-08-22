@@ -3,12 +3,11 @@ import React from "react";
 import { getEvent } from "graphql/getters/getEvent";
 
 export interface Props {
-  id: string;
+  id?: string;
 }
 
-export const Concert: React.FC<Props> = async ({ id }) => {
+export const Event: React.FC<Props> = async ({ id }) => {
   const { data } = await getEvent({ id });
-
   if (!data) return null;
 
   return (

@@ -1,5 +1,5 @@
 import { Author } from "components/author";
-import { Concert } from "components/concert";
+import { Event } from "components/event";
 import { Events } from "components/events";
 import React from "react";
 import { getAuthor } from "graphql/getters/getAuthor";
@@ -43,7 +43,7 @@ const Page = async () => {
       <hr />
       <p>event</p>
       <code>{JSON.stringify(event)}</code>
-      <Concert id={"186970038"} />
+      <Event id={"186970038"} />
       <hr />
       <p>location</p>
       <code>{JSON.stringify(location)}</code>

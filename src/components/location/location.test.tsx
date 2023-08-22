@@ -24,6 +24,7 @@ describe("Concert component", () => {
         lon: 42,
         id: "mock-ids",
       },
+      errors: undefined,
     });
 
     const Resolved = await resolvedComponent<Props>(Location, {

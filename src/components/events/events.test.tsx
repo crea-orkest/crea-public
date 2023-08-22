@@ -25,6 +25,7 @@ describe("Events component", () => {
           locations: [{ startTime: "time", id: "loc" }],
         },
       ],
+      errors: undefined,
     });
 
     const Resolved = await resolvedComponent<Props>(Events, {
