@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const identifiable = gql`
   fragment identifiable on RecordInterface {
@@ -8,4 +8,4 @@ export const identifiable = gql`
     _updatedAt
     id
   }
-`;
+`

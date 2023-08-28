@@ -1,9 +1,9 @@
-import { colors } from "./colors";
-import { focalPoint } from "./focalpoint";
-import { gql } from "@urql/core";
+import { colors } from './colors'
+import { focalPoint } from './focalpoint'
+import { gql } from '@urql/core'
 
-import { responsiveImage } from "./image";
-import { video } from "./video";
+import { responsiveImage } from './image'
+import { video } from './video'
 
 export const file = gql`
   fragment file on FileField {
@@ -41,4 +41,4 @@ export const file = gql`
   ${focalPoint}
   ${colors}
   ${video}
-`;
+`

@@ -1,10 +1,10 @@
-import { author } from "./author";
-import { file } from "./file";
-import { gql } from "@urql/core";
+import { author } from './author'
+import { file } from './file'
+import { gql } from '@urql/core'
 
-import { link } from "./link";
-import { locations } from "./locations";
-import { tag } from "./tag";
+import { link } from './link'
+import { locations } from './locations'
+import { tag } from './tag'
 
 export const event = gql`
   fragment event on ConcertRecord {
@@ -31,4 +31,4 @@ export const event = gql`
   ${tag}
   ${author}
   ${locations}
-`;
+`

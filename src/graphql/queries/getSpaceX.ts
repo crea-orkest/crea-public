@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const GET_SPACEX = gql`
   query GetSpaceX {
@@ -17,4 +17,4 @@ export const GET_SPACEX = gql`
       vehicles
     }
   }
-`;
+`

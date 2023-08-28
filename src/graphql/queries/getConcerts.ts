@@ -1,7 +1,7 @@
-import { file } from "graphql/fragments/file";
-import { gql } from "@urql/core";
+import { file } from 'graphql/fragments/file'
+import { gql } from '@urql/core'
 
-import { locations } from "graphql/fragments/locations";
+import { locations } from 'graphql/fragments/locations'
 
 export const GET_CONCERTS = gql`
   query getConcerts(
@@ -22,4 +22,4 @@ export const GET_CONCERTS = gql`
   }
   ${locations}
   ${file}
-`;
+`

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const RootLayout: React.FC<Props> = ({ children }) => {
@@ -9,7 +9,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
     <html lang="nl-NL">
       <body>{children}</body>
     </html>
-  );
-};
+  )
+}
 
-export default RootLayout;
+export default RootLayout

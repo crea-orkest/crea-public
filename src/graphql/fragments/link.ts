@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const link = gql`
   fragment link on LinkRecord {
@@ -9,4 +9,4 @@ export const link = gql`
       slug
     }
   }
-`;
+`

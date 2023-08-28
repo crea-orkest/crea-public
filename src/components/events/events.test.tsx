@@ -1,40 +1,40 @@
-import { Events } from "./events";
-import type { Props } from "./events";
-import React from "react";
-import { getEvents } from "graphql/getters/getEvents";
-import { resolvedComponent } from "../../testHelpers/resolvedComponent";
-import { render, screen } from "@testing-library/react";
+import { Events } from './events'
+import type { Props } from './events'
+import React from 'react'
+import { getEvents } from 'graphql/getters/getEvents'
+import { resolvedComponent } from '../../testHelpers/resolvedComponent'
+import { render, screen } from '@testing-library/react'
 
-jest.mock("../../graphql/getters/getEvents", () => {
+jest.mock('../../graphql/getters/getEvents', () => {
   return {
     __esModule: true,
     getEvents: jest.fn(),
-  };
-});
+  }
+})
 
-const getEventsMock = jest.mocked(getEvents);
+const getEventsMock = jest.mocked(getEvents)
 
-describe("Events component", () => {
-  it("shows all the data", async () => {
+describe('Events component', () => {
+  it('shows all the data', async () => {
     getEventsMock.mockResolvedValueOnce({
       data: [
         {
-          id: "id",
-          title: "title",
+          id: 'id',
+          title: 'title',
           image: undefined,
-          locations: [{ startTime: "time", id: "loc" }],
+          locations: [{ startTime: 'time', id: 'loc' }],
         },
       ],
       error: undefined,
-    });
+    })
 
     const Resolved = await resolvedComponent<Props>(Events, {
       skip: 0,
       first: 3,
-    });
+    })
 
-    render(<Resolved />);
+    render(<Resolved />)
 
-    expect(screen.getByText("title")).toBeTruthy();
-  });
-});
+    expect(screen.getByText('title')).toBeTruthy()
+  })
+})

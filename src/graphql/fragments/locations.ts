@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const locations = gql`
   fragment locations on LocationItemRecord {
@@ -8,4 +8,4 @@ export const locations = gql`
       id
     }
   }
-`;
+`

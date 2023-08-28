@@ -1,5 +1,5 @@
-import { client } from "../gqlClient";
-import { GetSpaceXDocument, type GetSpaceXQuery } from "../generated/graphql";
+import { client } from '../gqlClient'
+import { GetSpaceXDocument, type GetSpaceXQuery } from '../generated/graphql'
 
 // Dummy data
 export const GetSpaceX = async () => {
@@ -7,11 +7,11 @@ export const GetSpaceX = async () => {
     const { data, error } = await client.query<GetSpaceXQuery>(
       GetSpaceXDocument,
       {}
-    );
+    )
 
-    return { data: data ? data : null, error };
+    return { data: data ? data : null, error }
   } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-    return { data: null, error };
+    if (error instanceof Error) console.log(error.message)
+    return { data: null, error }
   }
-};
+}

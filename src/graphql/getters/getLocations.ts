@@ -1,10 +1,10 @@
-import { client } from "../gqlClient";
-import { locationsFormatter } from "graphql/formatters/locationsFormatter";
+import { client } from '../gqlClient'
+import { locationsFormatter } from 'graphql/formatters/locationsFormatter'
 import {
   GetLocationsDocument,
   type GetLocationsQuery,
   type GetLocationsQueryVariables,
-} from "graphql/generated/graphql";
+} from 'graphql/generated/graphql'
 
 export const getLocations = async ({
   first,
@@ -17,14 +17,14 @@ export const getLocations = async ({
     >(GetLocationsDocument, {
       first,
       skip,
-    });
+    })
 
     return {
       data: data ? locationsFormatter(data) : null,
       error,
-    };
+    }
   } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-    return { data: null, error };
+    if (error instanceof Error) console.log(error.message)
+    return { data: null, error }
   }
-};
+}

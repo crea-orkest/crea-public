@@ -1,5 +1,5 @@
-import { author } from "../fragments/author";
-import { gql } from "@urql/core";
+import { author } from '../fragments/author'
+import { gql } from '@urql/core'
 
 export const GET_AUTHORS = gql`
   query getAuthors(
@@ -12,4 +12,4 @@ export const GET_AUTHORS = gql`
     }
   }
   ${author}
-`;
+`

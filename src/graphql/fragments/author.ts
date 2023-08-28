@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const author = gql`
   fragment author on PersonRecord {
@@ -6,4 +6,4 @@ export const author = gql`
     name
     role
   }
-`;
+`

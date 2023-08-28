@@ -1,7 +1,7 @@
-import { gql } from "@urql/core";
-import { identifiable } from "./identifiable";
-import { seo } from "./seo";
-import { tag } from "./tag";
+import { gql } from '@urql/core'
+import { identifiable } from './identifiable'
+import { seo } from './seo'
+import { tag } from './tag'
 
 export const page = gql`
   fragment page on PageRecord {
@@ -29,4 +29,4 @@ export const page = gql`
   ${identifiable}
   ${seo}
   ${tag}
-`;
+`

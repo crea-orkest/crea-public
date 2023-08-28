@@ -1,5 +1,5 @@
-import { file } from "./file";
-import { gql } from "@urql/core";
+import { file } from './file'
+import { gql } from '@urql/core'
 
 export const seo = gql`
   fragment seo on SeoField {
@@ -11,4 +11,4 @@ export const seo = gql`
     twitterCard
   }
   ${file}
-`;
+`

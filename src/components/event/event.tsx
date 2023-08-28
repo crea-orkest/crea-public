@@ -1,14 +1,14 @@
-import { Location } from "components/location";
-import React from "react";
-import { getEvent } from "graphql/getters/getEvent";
+import { Location } from 'components/location'
+import React from 'react'
+import { getEvent } from 'graphql/getters/getEvent'
 
 export interface Props {
-  id: string;
+  id: string
 }
 
 export const Event: React.FC<Props> = async ({ id }) => {
-  const { data } = await getEvent({ id });
-  if (!data) return null;
+  const { data } = await getEvent({ id })
+  if (!data) return null
 
   return (
     <div>
@@ -20,5 +20,5 @@ export const Event: React.FC<Props> = async ({ id }) => {
       ))}
       <p>{JSON.stringify(data.locations)}</p>
     </div>
-  );
-};
+  )
+}

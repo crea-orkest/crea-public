@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const video = gql`
   fragment video on UploadVideoField {
@@ -8,4 +8,4 @@ export const video = gql`
     streamingUrl
     thumbnailUrl
   }
-`;
+`

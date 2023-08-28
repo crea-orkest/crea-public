@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const colors = gql`
   fragment colors on ColorField {
@@ -9,4 +9,4 @@ export const colors = gql`
     hex
     red
   }
-`;
+`

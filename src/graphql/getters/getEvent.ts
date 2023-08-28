@@ -1,10 +1,10 @@
-import { client } from "../gqlClient";
-import { eventFormatter } from "graphql/formatters/eventFormatter";
+import { client } from '../gqlClient'
+import { eventFormatter } from 'graphql/formatters/eventFormatter'
 import {
   GetConcertDocument,
   type GetConcertQuery,
   type GetConcertQueryVariables,
-} from "../generated/graphql";
+} from '../generated/graphql'
 
 export const getEvent = async ({ id }: GetConcertQueryVariables) => {
   try {
@@ -13,14 +13,14 @@ export const getEvent = async ({ id }: GetConcertQueryVariables) => {
       GetConcertQueryVariables
     >(GetConcertDocument, {
       id,
-    });
+    })
 
     return {
       data: data ? eventFormatter(data) : null,
       error,
-    };
+    }
   } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-    return { data: null, error };
+    if (error instanceof Error) console.log(error.message)
+    return { data: null, error }
   }
-};
+}

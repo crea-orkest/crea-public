@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const responsiveImage = gql`
   fragment responsiveImage on ResponsiveImage {
@@ -13,4 +13,4 @@ export const responsiveImage = gql`
     srcSet
     webpSrcSet
   }
-`;
+`

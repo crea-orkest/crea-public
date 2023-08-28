@@ -1,4 +1,4 @@
-import { gql } from "@urql/core";
+import { gql } from '@urql/core'
 
 export const tag = gql`
   fragment tag on Tag {
@@ -6,4 +6,4 @@ export const tag = gql`
     content
     tag
   }
-`;
+`

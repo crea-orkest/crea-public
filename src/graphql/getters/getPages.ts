@@ -1,9 +1,9 @@
-import { client } from "../gqlClient";
+import { client } from '../gqlClient'
 import {
   GetPagesDocument,
   type GetPagesQuery,
   type GetPagesQueryVariables,
-} from "../generated/graphql";
+} from '../generated/graphql'
 
 export const getPages = async ({ skip, first }: GetPagesQueryVariables) => {
   try {
@@ -13,11 +13,11 @@ export const getPages = async ({ skip, first }: GetPagesQueryVariables) => {
     >(GetPagesDocument, {
       skip,
       first,
-    });
+    })
 
-    return { data: data ? data : null, error };
+    return { data: data ? data : null, error }
   } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-    return { data: null, error };
+    if (error instanceof Error) console.log(error.message)
+    return { data: null, error }
   }
-};
+}

@@ -1,6 +1,6 @@
-import type { Event } from "../types/event";
-import type { GetConcertQuery } from "../generated/graphql";
-import { fileFormatter } from "./fileFormatter";
+import type { Event } from '../types/event'
+import type { GetConcertQuery } from '../generated/graphql'
+import { fileFormatter } from './fileFormatter'
 
 export const eventFormatter = (data: GetConcertQuery): Event => ({
   id: String(data.concert?.id),
@@ -8,6 +8,6 @@ export const eventFormatter = (data: GetConcertQuery): Event => ({
   image: data.concert?.poster ? fileFormatter(data.concert.poster) : undefined,
   locations: data.concert?.locations.map((location) => ({
     startTime: location.dateTime,
-    id: location.location?.id || "",
+    id: location.location?.id || '',
   })),
-});
+})

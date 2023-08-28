@@ -1,6 +1,6 @@
-import { linkConfig } from "./linkConfig";
-import { persistedExchange } from "@urql/exchange-persisted";
-import { Client, cacheExchange, fetchExchange } from "@urql/core";
+import { linkConfig } from './linkConfig'
+import { persistedExchange } from '@urql/exchange-persisted'
+import { Client, cacheExchange, fetchExchange } from '@urql/core'
 
 export const client = new Client({
   url: linkConfig.url,
@@ -15,8 +15,8 @@ export const client = new Client({
     return {
       headers: { ...linkConfig.headers },
       next: { revalidate: 60 },
-    };
+    }
   },
   // suspense: true,
   // maskTypename: true,
-});
+})

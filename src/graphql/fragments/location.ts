@@ -1,5 +1,5 @@
-import { coordinates } from "./coordinates";
-import { gql } from "@urql/core";
+import { coordinates } from './coordinates'
+import { gql } from '@urql/core'
 
 export const location = gql`
   fragment location on LocationRecord {
@@ -11,4 +11,4 @@ export const location = gql`
     }
   }
   ${coordinates}
-`;
+`

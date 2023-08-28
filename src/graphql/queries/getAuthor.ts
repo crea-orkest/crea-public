@@ -1,5 +1,5 @@
-import { author } from "graphql/fragments/author";
-import { gql } from "@urql/core";
+import { author } from 'graphql/fragments/author'
+import { gql } from '@urql/core'
 
 export const GET_AUTHOR = gql`
   query getAuthor($id: ItemId!) {
@@ -8,4 +8,4 @@ export const GET_AUTHOR = gql`
     }
   }
   ${author}
-`;
+`

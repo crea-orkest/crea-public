@@ -1,17 +1,17 @@
-import type { Event } from "graphql/types/event";
-import Image from "next/image";
-import React from "react";
-import { getEvents } from "graphql/getters/getEvents";
-import styles from "./styles.module.scss";
+import type { Event } from 'graphql/types/event'
+import Image from 'next/image'
+import React from 'react'
+import { getEvents } from 'graphql/getters/getEvents'
+import styles from './styles.module.scss'
 
 export interface Props {
-  skip: number;
-  first: number;
+  skip: number
+  first: number
 }
 
 export const Events = async ({ skip, first }: Props) => {
-  const { data } = await getEvents({ skip, first });
-  if (!data) return null;
+  const { data } = await getEvents({ skip, first })
+  if (!data) return null
 
   return (
     <section>
@@ -30,5 +30,5 @@ export const Events = async ({ skip, first }: Props) => {
         </article>
       ))}
     </section>
-  );
-};
+  )
+}
