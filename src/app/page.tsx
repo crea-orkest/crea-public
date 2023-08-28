@@ -7,10 +7,12 @@ import { getAuthor } from 'graphql/getters/getAuthor'
 import { getAuthors } from 'graphql/getters/getAuthors'
 import { getEvent } from 'graphql/getters/getEvent'
 import { getEvents } from 'graphql/getters/getEvents'
+import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
 import { getLocation } from 'graphql/getters/getLocation'
 import { getLocations } from 'graphql/getters/getLocations'
 import { getPage } from 'graphql/getters/getPage'
 import { getPages } from 'graphql/getters/getPages'
+import { getSiteInfo } from 'graphql/getters/getSiteInfo'
 
 const Page = async () => {
   const author = await getAuthor({ id: '186234305' })
@@ -25,6 +27,8 @@ const Page = async () => {
   const event = await getEvent({ id: '186970038' })
   const location = await getLocation({ id: '188451657' })
   const locations = await getLocations({ first: 10, skip: 0 })
+  const genInfo = await getGeneralInfo()
+  const siteInfo = await getSiteInfo()
   return (
     <main>
       <h1>Page</h1>
@@ -57,6 +61,12 @@ const Page = async () => {
       <p>locations</p>
       <code>{JSON.stringify(locations)}</code>
       <hr />
+
+      <p>site info</p>
+      <code>{JSON.stringify(siteInfo)}</code>
+
+      <p>gen info</p>
+      <code>{JSON.stringify(genInfo)}</code>
     </main>
   )
 }

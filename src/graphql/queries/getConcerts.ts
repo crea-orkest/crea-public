@@ -1,7 +1,5 @@
-import { file } from 'graphql/fragments/file'
+import { eventMetadata } from 'graphql/fragments/eventMetadata'
 import { gql } from '@urql/core'
-
-import { locations } from 'graphql/fragments/locations'
 
 export const GET_CONCERTS = gql`
   query getConcerts(
@@ -10,16 +8,8 @@ export const GET_CONCERTS = gql`
     $order: [ConcertModelOrderBy]
   ) {
     allConcerts(first: $first, skip: $skip, orderBy: $order) {
-      id
-      title
-      locations {
-        ...locations
-      }
-      poster {
-        ...file
-      }
+      ...eventMetadata
     }
   }
-  ${locations}
-  ${file}
+  ${eventMetadata}
 `

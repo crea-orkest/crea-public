@@ -1,4 +1,5 @@
 .vercel
 .next
+.svc
 
 node_modules

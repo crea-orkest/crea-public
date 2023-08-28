@@ -19,19 +19,15 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, { webpack }) => {
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'globalThis.__DEV__': false,
-      })
-    )
-
-    config.plugins.push(
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'disabled',
-        generateStatsFile: true,
-      })
-    )
+  webpack: (config) => {
+    if (process.env.ANALYZE === 'true') {
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'disabled',
+          generateStatsFile: true,
+        })
+      )
+    }
     return config
   },
 

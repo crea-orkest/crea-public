@@ -10,7 +10,30 @@ export const responsiveImage = gql`
     src
     height
     width
-    srcSet
-    webpSrcSet
+  }
+`
+
+export const image = gql`
+  fragment image on ImageRecord {
+    id
+    item {
+      id
+      item {
+        ...file
+      }
+      itemUrl
+      title
+    }
+  }
+`
+
+export const mediaItem = gql`
+  fragment mediaItem on MediaItemRecord {
+    id
+    title
+    item {
+      ...file
+    }
+    itemUrl
   }
 `

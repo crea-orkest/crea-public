@@ -1,12 +1,11 @@
 import { gql } from '@urql/core'
 import { pageLink } from './pageLink'
 
-export const link = gql`
-  fragment link on LinkRecord {
+export const menuItem = gql`
+  fragment menuItem on MenuItemRecord {
     id
-    internalTitle
-    externalUrl
-    page {
+    label
+    link {
       ...pageLink
     }
   }

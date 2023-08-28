@@ -3,42 +3,31 @@ import { focalPoint } from './focalpoint'
 import { gql } from '@urql/core'
 
 import { responsiveImage } from './image'
-import { video } from './video'
+import { videoUpload } from './video'
 
 export const file = gql`
   fragment file on FileField {
     id
     alt
-    blurhash
-    blurUpThumb
     colors {
       ...colors
     }
-    copyright
-    customData
-    filename
     focalPoint {
       ...focalPoint
     }
-    format
     width
     height
-    mimeType
-    notes
     responsiveImage {
       ...responsiveImage
     }
-    size
-    smartTags
-    tags
     title
     url
     video {
-      ...video
+      ...videoUpload
     }
   }
   ${responsiveImage}
   ${focalPoint}
   ${colors}
-  ${video}
+  ${videoUpload}
 `
