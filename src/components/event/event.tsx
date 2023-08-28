@@ -3,7 +3,7 @@ import React from "react";
 import { getEvent } from "graphql/getters/getEvent";
 
 export interface Props {
-  id?: string;
+  id: string;
 }
 
 export const Event: React.FC<Props> = async ({ id }) => {

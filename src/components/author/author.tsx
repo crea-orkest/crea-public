@@ -2,7 +2,7 @@ import React from "react";
 import { getAuthor } from "graphql/getters/getAuthor";
 
 export interface Props {
-  id?: string;
+  id: string;
 }
 
 export const Author: React.FC<Props> = async ({ id }) => {

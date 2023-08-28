@@ -1,12 +1,22 @@
 import { client } from "../gqlClient";
 import { eventsFormatter } from "../formatters/eventsFormatter";
 import {
+  ConcertModelOrderBy,
   GetConcertsDocument,
   type GetConcertsQuery,
   type GetConcertsQueryVariables,
 } from "../generated/graphql";
 
-export const getEvents = async ({ skip, first }: GetConcertsQueryVariables) => {
+interface Props extends GetConcertsQueryVariables {
+  skip: number;
+  first: number;
+}
+
+export const getEvents = async ({
+  skip,
+  first,
+  order = ConcertModelOrderBy.UpdatedAtAsc,
+}: Props) => {
   try {
     const { data, error } = await client.query<
       GetConcertsQuery,
@@ -14,14 +24,15 @@ export const getEvents = async ({ skip, first }: GetConcertsQueryVariables) => {
     >(GetConcertsDocument, {
       skip,
       first,
+      order,
     });
 
     return {
       data: data ? eventsFormatter(data) : null,
-      errors: error,
+      error,
     };
-  } catch (errors) {
-    if (errors instanceof Error) console.log(errors.message);
-    return { data: null, errors };
+  } catch (error) {
+    if (error instanceof Error) console.log(error.message);
+    return { data: null, error };
   }
 };

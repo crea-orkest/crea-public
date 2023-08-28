@@ -3,8 +3,8 @@ import { gql } from "@urql/core";
 
 export const GET_AUTHORS = gql`
   query getAuthors(
-    $first: IntType
-    $skip: IntType
+    $first: IntType!
+    $skip: IntType!
     $order: [PersonModelOrderBy]
   ) {
     allPeople(first: $first, skip: $skip, orderBy: $order) {

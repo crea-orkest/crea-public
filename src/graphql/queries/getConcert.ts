@@ -5,7 +5,7 @@ import { identifiable } from "graphql/fragments/identifiable";
 import { locations } from "graphql/fragments/locations";
 
 export const GET_CONCERT = gql`
-  query getConcert($id: ItemId) {
+  query getConcert($id: ItemId!) {
     concert(filter: { id: { eq: $id } }) {
       id
       title

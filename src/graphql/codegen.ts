@@ -1,16 +1,7 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: [
-    {
-      [`https://graphql.datocms.com`]: {
-        headers: {
-          Authorization: `Bearer ${process.env["DATOCMS_ACCESS_TOKEN"]}`,
-          "X-Exclude-Invalid": "true",
-        },
-      },
-    },
-  ],
+  schema: "./src/graphql/generated/schema.graphql",
   documents: ["./src/**/*.{ts,tsx}"],
   generates: {
     "./src/graphql/generated/": {

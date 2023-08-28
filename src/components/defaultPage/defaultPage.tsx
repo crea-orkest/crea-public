@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import styles from "./styles.module.scss";
 
 export interface Props {
-  slug?: string;
+  slug: string;
 }
 
 export const DefaultPage = async ({ slug }: Props) => {

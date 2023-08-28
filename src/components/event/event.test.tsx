@@ -30,7 +30,7 @@ describe("Concert component", () => {
         image: undefined,
         locations: [{ startTime: "DATETIME", id: "test id" }],
       },
-      errors: undefined,
+      error: undefined,
     });
 
     const Resolved = await resolvedComponent<Props>(Event, {

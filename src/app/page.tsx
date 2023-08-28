@@ -1,4 +1,5 @@
 import { Author } from "components/author";
+import { ConcertModelOrderBy } from "graphql/generated/graphql";
 import { Event } from "components/event";
 import { Events } from "components/events";
 import React from "react";
@@ -16,7 +17,11 @@ const Page = async () => {
   const data = await getAuthors({ first: 10, skip: 0 });
   const pages = await getPages({ first: 10, skip: 0 });
   const page = await getPage({ slug: "contact" });
-  const events = await getEvents({ first: 10, skip: 0 });
+  const events = await getEvents({
+    first: 10,
+    skip: 0,
+    order: ConcertModelOrderBy.UpdatedAtAsc,
+  });
   const event = await getEvent({ id: "186970038" });
   const location = await getLocation({ id: "188451657" });
   const locations = await getLocations({ first: 10, skip: 0 });
@@ -26,7 +31,7 @@ const Page = async () => {
       <p>hello world</p>
       <p>author</p>
       <code>{JSON.stringify(author)}</code>
-      <Author id={author.data?.id} />
+      {author.data?.id && <Author id={author.data.id} />}
       <hr />
       <p>authors</p>
       <code>{JSON.stringify(data)}</code>

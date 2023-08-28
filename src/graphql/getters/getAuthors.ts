@@ -23,11 +23,11 @@ export const getAuthors = async ({
 
     return {
       data: data ? authorsFormatter(data) : null,
-      errors: error,
+      error,
     };
-  } catch (errors) {
-    if (errors instanceof Error) console.log(errors.message);
+  } catch (error) {
+    if (error instanceof Error) console.log(error.message);
 
-    return { data: null, errors };
+    return { data: null, error };
   }
 };

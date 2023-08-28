@@ -45,22 +45,24 @@ const documents = {
     types.TagFragmentDoc,
   "\n  fragment video on UploadVideoField {\n    mp4Url\n    muxAssetId\n    muxPlaybackId\n    streamingUrl\n    thumbnailUrl\n  }\n":
     types.VideoFragmentDoc,
-  "\n  query getAuthor($id: ItemId) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n":
+  "\n  query getAuthor($id: ItemId!) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n":
     types.GetAuthorDocument,
-  "\n  query getAuthors(\n    $first: IntType\n    $skip: IntType\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n":
+  "\n  query getAuthors(\n    $first: IntType!\n    $skip: IntType!\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n":
     types.GetAuthorsDocument,
-  "\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n":
+  "\n  query getConcert($id: ItemId!) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n":
     types.GetConcertDocument,
-  "\n  query getConcerts($skip: IntType, $first: IntType) {\n    allConcerts(first: $first, skip: $skip) {\n      id\n      title\n      locations {\n        ...locations\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n":
+  "\n  query getConcerts(\n    $skip: IntType!\n    $first: IntType!\n    $order: [ConcertModelOrderBy]\n  ) {\n    allConcerts(first: $first, skip: $skip, orderBy: $order) {\n      id\n      title\n      locations {\n        ...locations\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n":
     types.GetConcertsDocument,
   "\n  query getLocation($id: ItemId) {\n    location(filter: { id: { eq: $id } }) {\n      ...location\n    }\n  }\n  \n":
     types.GetLocationDocument,
-  "\n  query getLocations($first: IntType, $skip: IntType) {\n    allLocations(first: $first, skip: $skip) {\n      ...location\n    }\n  }\n  \n":
+  "\n  query getLocations(\n    $first: IntType\n    $skip: IntType\n    $order: [LocationModelOrderBy]\n  ) {\n    allLocations(first: $first, skip: $skip, orderBy: $order) {\n      ...location\n    }\n  }\n  \n":
     types.GetLocationsDocument,
-  "\n  query getPage($slug: String) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetail\n    }\n  }\n  \n":
+  "\n  query getPage($slug: String!) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetail\n    }\n  }\n  \n":
     types.GetPageDocument,
-  "\n  query getPages($skip: IntType, $first: IntType) {\n    allPages(first: $first, skip: $skip) {\n      ...identifiable\n      title\n      slug\n    }\n  }\n  \n":
+  "\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...identifiable\n      title\n      slug\n    }\n  }\n  \n":
     types.GetPagesDocument,
+  "\n  query GetSpaceX {\n    company {\n      ceo\n      coo\n      cto\n      cto_propulsion\n      employees\n      founded\n      founder\n      launch_sites\n      name\n      summary\n      test_sites\n      vehicles\n    }\n  }\n":
+    types.GetSpaceXDocument,
 };
 
 /**
@@ -177,26 +179,26 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getAuthor($id: ItemId) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n"
-): (typeof documents)["\n  query getAuthor($id: ItemId) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n"];
+  source: "\n  query getAuthor($id: ItemId!) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n"
+): (typeof documents)["\n  query getAuthor($id: ItemId!) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getAuthors(\n    $first: IntType\n    $skip: IntType\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n"
-): (typeof documents)["\n  query getAuthors(\n    $first: IntType\n    $skip: IntType\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n"];
+  source: "\n  query getAuthors(\n    $first: IntType!\n    $skip: IntType!\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n"
+): (typeof documents)["\n  query getAuthors(\n    $first: IntType!\n    $skip: IntType!\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n"
-): (typeof documents)["\n  query getConcert($id: ItemId) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n"];
+  source: "\n  query getConcert($id: ItemId!) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n"
+): (typeof documents)["\n  query getConcert($id: ItemId!) {\n    concert(filter: { id: { eq: $id } }) {\n      id\n      title\n      link {\n        ...identifiable\n      }\n      locations {\n        ...locations\n      }\n      persons {\n        ...author\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n  \n  \n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getConcerts($skip: IntType, $first: IntType) {\n    allConcerts(first: $first, skip: $skip) {\n      id\n      title\n      locations {\n        ...locations\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n"
-): (typeof documents)["\n  query getConcerts($skip: IntType, $first: IntType) {\n    allConcerts(first: $first, skip: $skip) {\n      id\n      title\n      locations {\n        ...locations\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n"];
+  source: "\n  query getConcerts(\n    $skip: IntType!\n    $first: IntType!\n    $order: [ConcertModelOrderBy]\n  ) {\n    allConcerts(first: $first, skip: $skip, orderBy: $order) {\n      id\n      title\n      locations {\n        ...locations\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n"
+): (typeof documents)["\n  query getConcerts(\n    $skip: IntType!\n    $first: IntType!\n    $order: [ConcertModelOrderBy]\n  ) {\n    allConcerts(first: $first, skip: $skip, orderBy: $order) {\n      id\n      title\n      locations {\n        ...locations\n      }\n      poster {\n        ...file\n      }\n    }\n  }\n  \n  \n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -207,20 +209,26 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getLocations($first: IntType, $skip: IntType) {\n    allLocations(first: $first, skip: $skip) {\n      ...location\n    }\n  }\n  \n"
-): (typeof documents)["\n  query getLocations($first: IntType, $skip: IntType) {\n    allLocations(first: $first, skip: $skip) {\n      ...location\n    }\n  }\n  \n"];
+  source: "\n  query getLocations(\n    $first: IntType\n    $skip: IntType\n    $order: [LocationModelOrderBy]\n  ) {\n    allLocations(first: $first, skip: $skip, orderBy: $order) {\n      ...location\n    }\n  }\n  \n"
+): (typeof documents)["\n  query getLocations(\n    $first: IntType\n    $skip: IntType\n    $order: [LocationModelOrderBy]\n  ) {\n    allLocations(first: $first, skip: $skip, orderBy: $order) {\n      ...location\n    }\n  }\n  \n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getPage($slug: String) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetail\n    }\n  }\n  \n"
-): (typeof documents)["\n  query getPage($slug: String) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetail\n    }\n  }\n  \n"];
+  source: "\n  query getPage($slug: String!) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetail\n    }\n  }\n  \n"
+): (typeof documents)["\n  query getPage($slug: String!) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetail\n    }\n  }\n  \n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: "\n  query getPages($skip: IntType, $first: IntType) {\n    allPages(first: $first, skip: $skip) {\n      ...identifiable\n      title\n      slug\n    }\n  }\n  \n"
-): (typeof documents)["\n  query getPages($skip: IntType, $first: IntType) {\n    allPages(first: $first, skip: $skip) {\n      ...identifiable\n      title\n      slug\n    }\n  }\n  \n"];
+  source: "\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...identifiable\n      title\n      slug\n    }\n  }\n  \n"
+): (typeof documents)["\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...identifiable\n      title\n      slug\n    }\n  }\n  \n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
+  source: "\n  query GetSpaceX {\n    company {\n      ceo\n      coo\n      cto\n      cto_propulsion\n      employees\n      founded\n      founder\n      launch_sites\n      name\n      summary\n      test_sites\n      vehicles\n    }\n  }\n"
+): (typeof documents)["\n  query GetSpaceX {\n    company {\n      ceo\n      coo\n      cto\n      cto_propulsion\n      employees\n      founded\n      founder\n      launch_sites\n      name\n      summary\n      test_sites\n      vehicles\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};
