@@ -21,9 +21,6 @@ export const page = gql`
       ... on TextBlockRecord {
         id
       }
-      ... on ConcertListRecord {
-        id
-      }
     }
   }
   ${identifiable}

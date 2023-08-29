@@ -11,9 +11,6 @@ export const event = gql`
     _seoMetaTags {
       ...tag
     }
-    link {
-      ...link
-    }
     persons {
       ...author
     }
