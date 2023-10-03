@@ -31,6 +31,7 @@ permissions:
 jobs:
   Release:
     runs-on: ubuntu-latest
+    if: ${{ secrets.REPO_SCOPED_TOKEN }}
     env:
       GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
     outputs:
