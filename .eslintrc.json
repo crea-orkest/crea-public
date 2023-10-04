@@ -11,6 +11,7 @@
     "jest": true
   },
   "rules": {
+    "require-await": ["warn"],
     "no-unused-vars": ["warn"],
     "@typescript-eslint/consistent-type-imports": "error",
     "sort-imports": [

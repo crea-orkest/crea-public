@@ -1,7 +1,7 @@
 import { eventFormatter } from './eventFormatter'
 
 describe('eventFormatter', () => {
-  it('should return a location object', async () => {
+  it('should return a location object', () => {
     expect(
       eventFormatter({
         __typename: 'ConcertRecord',

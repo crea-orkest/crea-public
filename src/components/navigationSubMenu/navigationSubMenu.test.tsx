@@ -20,7 +20,7 @@ const mockData = [
 ]
 
 describe('navigationSubMenu', () => {
-  it('should render a button', async () => {
+  it('should render a button', () => {
     const { container } = render(
       <NavigationSubMenu label="root label" item={JSON.stringify(mockData)} />
     )

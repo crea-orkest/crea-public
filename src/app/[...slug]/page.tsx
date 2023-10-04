@@ -14,7 +14,7 @@ export async function generateMetadata({
   return data
 }
 
-const Page = async ({ params: { slug } }: PageProps) => {
+const Page = ({ params: { slug } }: PageProps) => {
   return <DefaultPage slug={slug.join('/')} />
 }
 

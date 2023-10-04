@@ -1,7 +1,7 @@
 import { fileFormatter } from './fileFormatter'
 
 describe('fileFormatter', () => {
-  it('should return an object', async () => {
+  it('should return an object', () => {
     expect(
       fileFormatter({
         id: 'file-id',
