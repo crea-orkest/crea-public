@@ -1,16 +1,17 @@
 {
   "ignorePatterns": ["**/generated/*.ts"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "next"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
   "env": {
     "jest": true
   },
   "rules": {
+    "require-await": ["warn"],
     "no-unused-vars": ["warn"],
     "@typescript-eslint/consistent-type-imports": "error",
     "sort-imports": [

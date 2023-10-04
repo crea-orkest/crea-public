@@ -25,7 +25,7 @@ jest.mock('../../hooks/useEventsMeta', () => {
 const getEventsMock = jest.mocked(getEvents)
 
 describe('Events component', () => {
-  it('shows all the data', async () => {
+  it('shows all the data', () => {
     getEventsMock.mockResolvedValue({
       data: [mockEvent],
       error: undefined,

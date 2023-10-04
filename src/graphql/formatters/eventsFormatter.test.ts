@@ -1,11 +1,11 @@
 import { eventsFormatter } from './eventsFormatter'
 
 describe('eventsFormatter', () => {
-  it('should return undefined if there is no concert', async () => {
+  it('should return undefined if there is no concert', () => {
     expect(eventsFormatter([])).toEqual([])
   })
 
-  it('should return an object', async () => {
+  it('should return an object', () => {
     expect(
       eventsFormatter([
         {

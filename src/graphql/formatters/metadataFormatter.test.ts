@@ -2,7 +2,7 @@ import type { GetPageSeoQuery } from 'graphql/generated/graphql'
 import { metadataFormatter } from './metadataFormatter'
 
 describe('metadataFormatter', () => {
-  it('should return defaults', async () => {
+  it('should return defaults', () => {
     expect(metadataFormatter(undefined, 'some-page')).toEqual({
       alternates: {
         canonical: 'https://creaorkest.nl/some-page',
@@ -55,7 +55,7 @@ describe('metadataFormatter', () => {
       },
     })
   })
-  it('should return correct homepage values', async () => {
+  it('should return correct homepage values', () => {
     expect(metadataFormatter(undefined, 'homepage')).toEqual(
       expect.objectContaining({
         alternates: expect.objectContaining({
@@ -169,7 +169,7 @@ describe('metadataFormatter', () => {
     },
   }
 
-  it('should return correct page values', async () => {
+  it('should return correct page values', () => {
     expect(metadataFormatter(mockData, 'some-page')).toEqual({
       alternates: {
         canonical: 'https://creaorkest.nl/some-page',
