@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.3](https://github.com/crea-orkest/crea-public/compare/v0.1.2...v0.1.3) (2023-10-04)
+
+
+### Bug Fixes
+
+* casing ([b4bea04](https://github.com/crea-orkest/crea-public/commit/b4bea046cc49bc3957a0033ab74f8ede13213d35))
+* error message component ([e13c62b](https://github.com/crea-orkest/crea-public/commit/e13c62b0b44df09ac1fc06989631e9d61aa9b770))
+* event inline record url ([1c5f43d](https://github.com/crea-orkest/crea-public/commit/1c5f43db558b66cf9296092c127f9f3a5da71b8d))
+* invalid workflow file ([0ce986d](https://github.com/crea-orkest/crea-public/commit/0ce986d74a2ac5b638289e06c8c69d52b46ec9ed))
+
 ## [0.1.2](https://github.com/crea-orkest/crea-public/compare/v0.1.1...v0.1.2) (2023-10-03)
 
 
