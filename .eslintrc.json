@@ -1,12 +1,12 @@
 {
   "ignorePatterns": ["**/generated/*.ts"],
+  "plugins": ["@typescript-eslint", "testing-library"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "next"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
   "env": {
     "jest": true
   },
