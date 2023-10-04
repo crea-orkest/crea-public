@@ -30,7 +30,7 @@ const nextConfig = {
     return config
   },
 
-  async rewrites() {
+  rewrites() {
     return {
       beforeFiles: [
         {
@@ -45,7 +45,7 @@ const nextConfig = {
   serverRuntimeConfig: {
     // Will only be available on the server side
   },
-  headers: async () => [
+  headers: () => [
     {
       source: '/:path*',
       headers: [
