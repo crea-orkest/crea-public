@@ -17,7 +17,9 @@ describe('metadataFormatter', () => {
         origin: 'https://creaorkest.nl',
       }),
       openGraph: {
-        description: undefined, // TODO: not good
+        description:
+          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+
         images: [
           {
             height: 900,
@@ -25,7 +27,7 @@ describe('metadataFormatter', () => {
             width: 1200,
           },
         ],
-        locale: undefined, // TODO: not good
+        locale: 'nl-NL',
         siteName: 'Het Crea Orkest',
         title: 'Het Crea Orkest',
         type: 'article',
@@ -50,7 +52,6 @@ describe('metadataFormatter', () => {
       },
       viewport: {
         initialScale: 1,
-        maximumScale: 1,
         width: 'device-width',
       },
     })
@@ -130,7 +131,7 @@ describe('metadataFormatter', () => {
         tag: 'meta',
       },
       {
-        attributes: { property: 'og:locale', content: 'en' },
+        attributes: { property: 'og:locale', content: 'nl-NL' },
         content: null,
         tag: 'meta',
       },
@@ -183,7 +184,9 @@ describe('metadataFormatter', () => {
         origin: 'https://creaorkest.nl',
       }),
       openGraph: {
-        description: undefined,
+        description:
+          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+
         images: [
           {
             height: 900,
@@ -191,7 +194,7 @@ describe('metadataFormatter', () => {
             width: 1200,
           },
         ],
-        locale: undefined,
+        locale: 'nl-NL',
         siteName: 'Het Crea Orkest',
         title: 'Het Crea Orkest',
         type: 'article',
@@ -216,7 +219,6 @@ describe('metadataFormatter', () => {
       },
       viewport: {
         initialScale: 1,
-        maximumScale: 1,
         width: 'device-width',
       },
     })
