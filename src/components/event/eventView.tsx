@@ -7,21 +7,20 @@ import styles from './styles.module.scss'
 
 export interface Props {
   data: Event
+  priority?: boolean
 }
 
-export const EventView: React.FC<Props> = ({ data }: Props) => {
+export const EventView: React.FC<Props> = ({ data, priority }: Props) => {
   return (
     <div className={classNames(styles.card)}>
-      {data.image?.url && (
-        <Image
-          priority={true} // TODO: only for the first item
-          className={classNames(styles.card__image)}
-          src={data.image.url}
-          alt={data.image.description}
-          width={data.image.width ?? 100}
-          height={data.image.height ?? 100}
-        />
-      )}
+      <Image
+        priority={priority}
+        className={classNames(styles.card__image)}
+        src={data.image?.url ?? ''} // TODO: fallback
+        alt={data.image?.description ?? ''}
+        width={data.image?.width ?? 100}
+        height={data.image?.height ?? 100}
+      />
       <h2>{data.title}</h2>
       {data.persons && data.persons.length > 0 && (
         <ul>

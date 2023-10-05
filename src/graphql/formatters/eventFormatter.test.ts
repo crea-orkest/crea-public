@@ -20,14 +20,25 @@ describe('eventFormatter', () => {
       })
     ).toEqual({
       id: 'some-id',
-      image: undefined,
+      image: {
+        description: '',
+        height: undefined,
+        id: 'fallback-id',
+        title: '',
+        url: 'https://creaorkest.nl/fallback.jpeg',
+        width: undefined,
+      },
       locations: [
         {
+          address: undefined,
           id: 'location-id',
+          lat: undefined,
+          lon: undefined,
           startTime: undefined,
+          title: undefined,
         },
       ],
-      title: undefined,
+      title: '',
       persons: [{ id: 'person-id', name: '', description: '' }],
     })
   })

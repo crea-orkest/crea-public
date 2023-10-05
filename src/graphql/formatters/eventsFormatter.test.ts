@@ -27,9 +27,16 @@ describe('eventsFormatter', () => {
     ).toEqual([
       {
         id: 'some-id',
-        image: undefined,
+        image: {
+          description: '',
+          height: undefined,
+          id: 'fallback-id',
+          title: '',
+          url: 'https://creaorkest.nl/fallback.jpeg',
+          width: undefined,
+        },
         locations: [{ id: 'location-id', startTime: undefined }],
-        title: undefined,
+        title: '',
         persons: [{ id: 'some-id', name: '', description: '' }],
       },
     ])

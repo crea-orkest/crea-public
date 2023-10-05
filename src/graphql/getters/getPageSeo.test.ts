@@ -49,7 +49,8 @@ describe('getPageSeo', () => {
         origin: 'https://creaorkest.nl',
       }),
       openGraph: {
-        description: undefined,
+        description:
+          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
         images: [
           {
             height: 900,
@@ -57,7 +58,7 @@ describe('getPageSeo', () => {
             width: 1200,
           },
         ],
-        locale: undefined,
+        locale: 'nl-NL',
         siteName: 'Het Crea Orkest',
         title: 'Het Crea Orkest',
         type: 'article',
@@ -81,7 +82,6 @@ describe('getPageSeo', () => {
       },
       viewport: {
         initialScale: 1,
-        maximumScale: 1,
         width: 'device-width',
       },
     })
@@ -103,9 +103,10 @@ describe('getPageSeo', () => {
         origin: 'https://creaorkest.nl',
       }),
       openGraph: {
-        description: undefined,
+        description:
+          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
         images: [{ height: 900, url: '', width: 1200 }],
-        locale: undefined,
+        locale: 'nl-NL',
         siteName: 'Het Crea Orkest',
         title: 'Het Crea Orkest',
         type: 'article',
@@ -122,7 +123,7 @@ describe('getPageSeo', () => {
         images: [''],
         title: 'Het Crea Orkest',
       },
-      viewport: { initialScale: 1, maximumScale: 1, width: 'device-width' },
+      viewport: { initialScale: 1, width: 'device-width' },
     })
     expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
