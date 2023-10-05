@@ -10,5 +10,5 @@ export const Event: React.FC<Props> = async ({ id }: Props) => {
   const { data } = await getEvent({ id })
   if (!data) return null
 
-  return <EventView data={data} />
+  return <EventView data={data} priority={true} />
 }
