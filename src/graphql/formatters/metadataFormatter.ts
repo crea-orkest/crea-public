@@ -4,21 +4,20 @@ import type {
   PageDetailSeoFragment,
 } from 'graphql/generated/graphql'
 
-const base = 'https://creaorkest.nl' as const // TODO: runtime variable
-const title = 'Het Crea Orkest' as const
-const description =
-  'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.' as const
-
+const base = 'https://creaorkest.nl' // TODO: runtime variable
+const defaultTitle = 'Het Crea Orkest'
+const defaultDescription =
+  'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.'
+const defaultLocale = 'nl-NL'
 export const metadataFormatter = (
   data: PageDetailSeoFragment | EventPageSeoFragment | undefined,
   slug: string
 ): Metadata => ({
-  title: data?.seo?.title ?? title, // TODO: default title formatters
-  description: data?.seo?.description ?? description,
+  title: data?.seo?.title ?? defaultTitle, // TODO: default title formatters
+  description: data?.seo?.description ?? defaultDescription,
   viewport: {
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 1,
   },
   metadataBase: new URL(base),
   alternates: {
@@ -37,13 +36,13 @@ export const metadataFormatter = (
     title:
       data?._seoMetaTags.find(
         (tags) => tags?.attributes?.property === 'og:title'
-      )?.content || title,
+      )?.content ?? defaultTitle,
     description:
       data?._seoMetaTags.find(
         (tags) => tags?.attributes?.property === 'og:description'
-      )?.content || undefined,
+      )?.content ?? defaultDescription,
     url: slug === 'homepage' ? base : `${base}/${slug}`,
-    siteName: 'Het Crea Orkest',
+    siteName: defaultTitle,
     type: 'article', // TODO: we only support this type at the moment
     images: [
       {
@@ -58,14 +57,14 @@ export const metadataFormatter = (
     locale:
       data?._seoMetaTags.find(
         (tags) => tags?.attributes?.property === 'og:locale'
-      )?.content || undefined,
+      )?.content ?? defaultLocale,
   },
   twitter: {
     card: 'summary_large_image',
     title:
       data?._seoMetaTags.find(
         (tags) => tags?.attributes?.name === 'twitter:title'
-      )?.content || title,
+      )?.content ?? defaultTitle,
     description:
       data?._seoMetaTags.find(
         (tags) => tags?.attributes?.name === 'twitter:description'
