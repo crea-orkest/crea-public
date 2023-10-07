@@ -1,0 +1,29 @@
+@use '../styles/tokens/colors.scss' as colors;
+@use '../styles/tokens/spacing.scss' as spacings;
+@use '../styles/tokens/typography.scss' as typography;
+
+@import './reset.scss';
+@import './fonts.scss';
+
+body {
+  font-family: typography.$dm-sans;
+  background-color: colors.$background;
+  color: colors.$dark;
+  font-size: calc(spacings.$base-font-size * 1px);
+}
+
+a {
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
