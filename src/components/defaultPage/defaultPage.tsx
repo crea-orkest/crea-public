@@ -17,7 +17,7 @@ export const DefaultPage = async ({ slug }: Props) => {
 
   return (
     <article className={classNames(styles.article)}>
-      <h1>{data.title}</h1>
+      <h2>{data.title}</h2>
 
       {data.content.map((item) => {
         if (item.__typename === 'ConcertListRecord') {
