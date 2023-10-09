@@ -5,9 +5,9 @@ exports[`Concert component shows all the data 1`] = `
   <article
     class="article"
   >
-    <h1>
+    <h2>
       title
-    </h1>
+    </h2>
   </article>
 </div>
 `;
