@@ -11,6 +11,8 @@ describe('eventsFormatter', () => {
         {
           __typename: 'ConcertRecord',
           id: 'some-id',
+          title: 'required title',
+          slug: 'required-slug',
           _updatedAt: '2023-08-14T09:37:24+01:00',
           _createdAt: '2023-09-01T13:32:36+01:00',
           locations: [
@@ -22,21 +24,26 @@ describe('eventsFormatter', () => {
             },
           ],
           persons: [{ id: 'some-id' }],
+          content: [],
         },
       ])
     ).toEqual([
       {
         id: 'some-id',
-        image: {
-          description: '',
-          height: undefined,
-          id: 'fallback-id',
-          title: '',
-          url: 'https://creaorkest.nl/fallback.jpeg',
-          width: undefined,
-        },
-        locations: [{ id: 'location-id', startTime: undefined }],
-        title: '',
+        image: undefined,
+        locations: [
+          {
+            id: 'location-id',
+            address: undefined,
+            lat: undefined,
+            lon: undefined,
+            startTime: undefined,
+            title: undefined,
+          },
+        ],
+        title: 'required title',
+        url: '/concerten/required-slug',
+        content: [],
         persons: [{ id: 'some-id', name: '', description: '' }],
       },
     ])

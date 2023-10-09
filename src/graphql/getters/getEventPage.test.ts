@@ -70,6 +70,7 @@ describe('getEventPage', () => {
       locations: [],
       persons: [],
       title: 'another concert',
+      url: '/concerten/another-concert',
     })
   })
 

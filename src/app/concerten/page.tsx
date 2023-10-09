@@ -1,4 +1,5 @@
 import { Event } from 'components/event'
+import { FutureEvents } from 'components/futureEvents'
 import { LoadMoreEvents } from 'components/loadMoreEvents'
 import { getEvents } from 'graphql/getters/getEvents'
 
@@ -7,10 +8,15 @@ const Page = async () => {
   const { data } = await getEvents({ skip: 0, first })
   return (
     <div>
-      <p>all concerts</p>
+      <h1>all future concerts</h1>
 
-      {data?.map((events) => {
-        return <Event key={events.id} id={events.id} />
+      <FutureEvents skip={0} first={10} />
+
+      <h1>all concerts</h1>
+
+      {data?.map((event) => {
+        if (!event?.id) return
+        return <Event key={event.id} id={event.id} />
       })}
 
       <LoadMoreEvents initialSkip={first} />

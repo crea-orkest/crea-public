@@ -1,24 +1,24 @@
 import type { ConcertDetailFragment } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
-import type { Image } from 'graphql/types/image'
 import { authorFormatter } from './authorFormatter'
 import { fileFormatter } from './fileFormatter'
 import { locationItemFormatter } from './locationFormatter'
+import { slugFormatter } from 'utils/slugFormatter'
 
-// TODO: real fallback image
-const fallBack: Image = {
-  id: 'fallback-id',
-  title: '',
-  description: '',
-  url: 'https://creaorkest.nl/fallback.jpeg',
+export const eventFormatter = (
+  event: ConcertDetailFragment
+): Event | undefined => {
+  if (!event.title) return
+  if (!event.slug) return
+  return {
+    id: event.id,
+    title: event.title,
+    image: event.poster ? fileFormatter(event.poster) : undefined,
+    persons: event.persons.map((person) => authorFormatter(person)),
+    locations: event.locations
+      .map((location) => locationItemFormatter(location))
+      .filter(Boolean),
+    url: slugFormatter({ slug: event.slug, prefix: '/concerten' }),
+    content: event.content,
+  }
 }
-
-export const eventFormatter = (event: ConcertDetailFragment): Event => ({
-  id: event.id,
-  title: event.title ?? '',
-  image: event.poster ? fileFormatter(event.poster) : fileFormatter(fallBack),
-  persons: event.persons.map((person) => authorFormatter(person)),
-  locations: event.locations
-    .map((location) => locationItemFormatter(location))
-    .filter(Boolean),
-})

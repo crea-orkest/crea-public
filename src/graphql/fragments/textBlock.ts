@@ -1,5 +1,5 @@
 import { concertLink } from './concertLink'
-import { events } from './events'
+import { eventBlock } from './eventBlock'
 import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 import { image } from './image'
@@ -19,7 +19,7 @@ export const textBlockContent = gql`
     }
     blocks {
       ... on ConcertListRecord {
-        ...events
+        ...eventBlock
       }
       ... on ImageRecord {
         ...image
@@ -33,7 +33,7 @@ export const textBlockContent = gql`
   ${pageLink}
   ${video}
   ${image}
-  ${events}
+  ${eventBlock}
 `
 
 export const leftContent = gql`
@@ -49,7 +49,7 @@ export const leftContent = gql`
     }
     blocks {
       ... on ConcertListRecord {
-        ...events
+        ...eventBlock
       }
       ... on ImageRecord {
         ...image
@@ -63,7 +63,7 @@ export const leftContent = gql`
   ${pageLink}
   ${video}
   ${image}
-  ${events}
+  ${eventBlock}
 `
 
 export const rightContent = gql`
@@ -79,7 +79,7 @@ export const rightContent = gql`
     }
     blocks {
       ... on ConcertListRecord {
-        ...events
+        ...eventBlock
       }
       ... on ImageRecord {
         ...image
@@ -91,7 +91,7 @@ export const rightContent = gql`
   }
   ${concertLink}
   ${pageLink}
-  ${events}
+  ${eventBlock}
   ${image}
   ${video}
 `
