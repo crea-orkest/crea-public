@@ -1,5 +1,5 @@
+import { EventPage } from 'components/eventPage'
 import type { Metadata } from 'next'
-import { getEventPage } from 'graphql/getters/getEventPage'
 import { getEventPageSeo } from 'graphql/getters/getEventPageSeo'
 
 interface PageProps {
@@ -14,13 +14,8 @@ export async function generateMetadata({
   return data
 }
 
-const Page = async ({ params: { slug } }: PageProps) => {
-  const { data } = await getEventPage({ slug })
-  return (
-    <code>
-      <pre>{JSON.stringify(data, undefined, 2)}</pre>
-    </code>
-  )
+const Page = ({ params: { slug } }: PageProps) => {
+  return <EventPage slug={slug} />
 }
 
 export default Page

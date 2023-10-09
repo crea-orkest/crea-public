@@ -1,10 +1,11 @@
 import { author } from './author'
 import { file } from './file'
-import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
+import { type TypedDocumentNode, gql } from '@urql/core'
+import { textBlock, twoColum } from './textBlock'
 
-export const concertDetail = gql`
+export const concertDetail: TypedDocumentNode = gql`
   fragment concertDetail on ConcertRecord {
     ...identifiable
     title
@@ -18,9 +19,19 @@ export const concertDetail = gql`
     persons {
       ...author
     }
+    content {
+      ... on TextBlockRecord {
+        ...textBlock
+      }
+      ... on TwoColumnRecord {
+        ...twoColum
+      }
+    }
   }
-  ${author}
   ${identifiable}
-  ${file}
   ${locationItem}
+  ${file}
+  ${author}
+  ${textBlock}
+  ${twoColum}
 `

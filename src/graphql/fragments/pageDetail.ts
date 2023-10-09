@@ -1,4 +1,4 @@
-import { events } from './events'
+import { eventBlock } from './eventBlock'
 import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 import { textBlock, twoColum } from './textBlock'
@@ -9,9 +9,6 @@ export const pageDetail = gql`
     title
     slug
     content {
-      ... on ConcertListRecord {
-        ...events
-      }
       ... on TextBlockRecord {
         ...textBlock
       }
@@ -21,7 +18,7 @@ export const pageDetail = gql`
     }
   }
   ${identifiable}
-  ${events}
+  ${eventBlock}
   ${textBlock}
   ${twoColum}
 `

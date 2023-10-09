@@ -8,6 +8,7 @@ describe('eventFormatter', () => {
         _createdAt: 'some date time string',
         _updatedAt: 'some date time string',
         id: 'some-id',
+        title: 'required title',
         locations: [
           {
             id: 'ignore-this-id',
@@ -17,17 +18,12 @@ describe('eventFormatter', () => {
           },
         ],
         persons: [{ id: 'person-id' }],
+        content: [],
+        slug: 'some-slug',
       })
     ).toEqual({
       id: 'some-id',
-      image: {
-        description: '',
-        height: undefined,
-        id: 'fallback-id',
-        title: '',
-        url: 'https://creaorkest.nl/fallback.jpeg',
-        width: undefined,
-      },
+      image: undefined,
       locations: [
         {
           address: undefined,
@@ -38,7 +34,9 @@ describe('eventFormatter', () => {
           title: undefined,
         },
       ],
-      title: '',
+      title: 'required title',
+      url: '/concerten/some-slug',
+      content: [],
       persons: [{ id: 'person-id', name: '', description: '' }],
     })
   })

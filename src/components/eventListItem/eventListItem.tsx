@@ -1,5 +1,6 @@
 import type { Event } from 'graphql/types/event'
 import Image from 'next/image'
+import Link from 'next/link'
 import { LocationView } from 'components/location/locationView'
 import React from 'react'
 import classNames from 'classnames'
@@ -7,21 +8,24 @@ import styles from './styles.module.scss'
 
 export interface Props {
   data: Event
-  priority?: boolean
 }
 
-export const EventView: React.FC<Props> = ({ data, priority }: Props) => {
+export const EventListItem: React.FC<Props> = ({ data }: Props) => {
   return (
     <div className={classNames(styles.card)}>
-      <Image
-        priority={priority}
-        className={classNames(styles.card__image)}
-        src={data.image?.url ?? ''} // TODO: fallback
-        alt={data.image?.description ?? ''}
-        width={data.image?.width ?? 100}
-        height={data.image?.height ?? 100}
-      />
-      <h2>{data.title}</h2>
+      {data.image?.url && (
+        <Image
+          priority={true} // TODO: only for the first item
+          className={classNames(styles.card__image)}
+          src={data.image.url}
+          alt={data.image.description}
+          width={data.image.width ?? 100}
+          height={data.image.height ?? 100}
+        />
+      )}
+      <h2>
+        <Link href={data.url}>{data.title}</Link>
+      </h2>
       {data.persons && data.persons.length > 0 && (
         <ul>
           {data.persons.map((person) => {

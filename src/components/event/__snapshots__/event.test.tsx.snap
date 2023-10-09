@@ -18,7 +18,11 @@ exports[`Concert component shows all the data 1`] = `
       width="100"
     />
     <h2>
-      name
+      <a
+        href="some-slug"
+      >
+        name
+      </a>
     </h2>
     <address>
       <h2 />

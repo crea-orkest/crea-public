@@ -73,6 +73,7 @@ describe('getEvents', () => {
         locations: [],
         persons: [],
         title: 'another concert',
+        url: '/concerten/another-concert',
       },
     ])
   })

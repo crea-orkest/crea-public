@@ -1,6 +1,6 @@
 'use client'
+import { EventListItem } from 'components/eventListItem'
 import type { Event as EventType } from 'graphql/types/event'
-import { EventView } from 'components/event/eventView'
 import React from 'react'
 import { getEvents } from 'graphql/getters/getEvents'
 import { useEventsMeta } from 'hooks/useEventsMeta'
@@ -13,7 +13,7 @@ export interface Props {
 export const LoadMoreEvents = ({ initialSkip }: Props) => {
   const [skip, setSkip] = React.useState(initialSkip)
   const [loading, setLoading] = React.useState(false)
-  const [events, setEvents] = React.useState<EventType[]>([])
+  const [events, setEvents] = React.useState<(EventType | undefined)[]>([])
   const ref = React.useRef<HTMLButtonElement>(null)
   const { numberOfEvents } = useEventsMeta()
   const [entry] = useIntersectionObserver({
@@ -55,7 +55,8 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
   return (
     <div>
       {events.map((event) => {
-        return <EventView key={event.id} data={event} />
+        if (!event?.id) return
+        return <EventListItem key={event.id} data={event} />
       })}
 
       {numberOfEvents && (

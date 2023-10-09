@@ -14,9 +14,10 @@ export const Events = async ({ skip, first }: Props) => {
   return (
     <section>
       <h2>EVENTS</h2>
-      {data.map((event) => (
-        <Event key={event.id} id={event.id} />
-      ))}
+      {data.map((event) => {
+        if (!event?.id) return
+        return <Event key={event.id} id={event.id} />
+      })}
     </section>
   )
 }
