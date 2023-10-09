@@ -28,6 +28,7 @@ jobs:
           # https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#adding-a-system-path
           echo "$HOME/.rover/bin" >> $GITHUB_PATH
       - name: Validating subgraph schema changes
+        if: ${{ env.APOLLO_KEY != '' }}
         run: |
           rover subgraph check crea-orkest-p7nmyh@main \
           --schema - --name datocms
@@ -37,5 +38,6 @@ jobs:
           rover graph introspect https://graphql.datocms.com --header "Authorization: Bearer ${{ secrets.DATOCMS_ACCESS_TOKEN }}" \
           > ./datocms.graphql
       - name: Publishing datocms schema
+        if: ${{ env.APOLLO_KEY != '' }}
         run: |
           rover subgraph publish crea-orkest-p7nmyh@main --name datocms --schema ./datocms.graphql
