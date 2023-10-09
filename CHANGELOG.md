@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.1.4](https://github.com/crea-orkest/crea-public/compare/v0.1.3...v0.1.4) (2023-10-09)
+
+
+### Features
+
+* **defaultPage.test.tsx.snap:** update snapshot ([c90b74f](https://github.com/crea-orkest/crea-public/commit/c90b74f774c992f2b7fd03cb0d2400558df3c5ec))
+* **defaultPage:** implement first layout styling as a test ([0b3e82d](https://github.com/crea-orkest/crea-public/commit/0b3e82dd94aa722fdfd7dc2ce30b1b2ef563ffcf))
+* **fonts:** add fonts from the design ([1dc46a4](https://github.com/crea-orkest/crea-public/commit/1dc46a40be087368e0ad99825241457e7b873f4c))
+* future events ([0b261bf](https://github.com/crea-orkest/crea-public/commit/0b261bf2a5bc877055fcdd58fe8ac0c06f1cbfcd))
+* **layout.tsx:** implement global styling ([cf7dae1](https://github.com/crea-orkest/crea-public/commit/cf7dae1b2ba9e2be6085a47d88d2156a4a7266dc))
+* required concert image with fallback ([a8b4631](https://github.com/crea-orkest/crea-public/commit/a8b46312ba0e8084921b8a8c7ff65eeb43091544))
+* schema check publish step ([3f25668](https://github.com/crea-orkest/crea-public/commit/3f25668d9fe86802746f2641ac83c225615270b2))
+* style-guide-page ([bb24a8f](https://github.com/crea-orkest/crea-public/commit/bb24a8f3df6e6c668414772b08c1440107546925))
+* **styles:** add global styling and all tokens that are needed for the styling ([9671aa5](https://github.com/crea-orkest/crea-public/commit/9671aa5ff03e4806132eed389c870c97addec4cb))
+
+
+### Bug Fixes
+
+* defaults ([5a2fa23](https://github.com/crea-orkest/crea-public/commit/5a2fa2390126c64645a8cbf96b50826f8e8951cd))
+* layout shift ([b4bbf27](https://github.com/crea-orkest/crea-public/commit/b4bbf27b3a0eafc2c7deaacb8077012bcf2722a3))
+
 ## [0.1.3](https://github.com/crea-orkest/crea-public/compare/v0.1.2...v0.1.3) (2023-10-04)
 
 
