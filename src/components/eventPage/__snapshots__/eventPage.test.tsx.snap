@@ -8,6 +8,18 @@ exports[`Concert component shows all the data 1`] = `
     <h1>
       title
     </h1>
+    <code>
+      <pre>
+        {
+  "id": "unique-id",
+  "title": "title",
+  "locations": [],
+  "persons": [],
+  "url": "/some-slug",
+  "content": []
+}
+      </pre>
+    </code>
   </article>
 </div>
 `;
