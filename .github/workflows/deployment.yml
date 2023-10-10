@@ -5,8 +5,6 @@ on:
     tags:
       - v*
   workflow_dispatch:
-    branches:
-      - main
 
 jobs:
   Deploy:
@@ -15,15 +13,16 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --token=${{ env.VERCEL_TOKEN }}
       - name: Build Project Artifacts
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --token=${{ env.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --token=${{ env.VERCEL_TOKEN }}
       - name: Deploy to production
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel --prod --token=${{ env.VERCEL_TOKEN }}
