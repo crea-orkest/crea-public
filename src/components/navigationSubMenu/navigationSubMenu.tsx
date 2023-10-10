@@ -3,6 +3,8 @@
 import { NavigationItem } from '../navigationItem'
 import React from 'react'
 import type { SubmenuItemFragment } from 'graphql/generated/graphql'
+import classNames from 'classnames'
+import styles from './styles.module.scss'
 
 export interface SubMenuProps {
   label?: string | null
@@ -29,7 +31,7 @@ export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
         {label}
       </button>
       {visible && (
-        <ul>
+        <ul className={classNames(styles.list)}>
           {submenu?.map((item) => (
             <NavigationItem
               key={item.id}

@@ -7,10 +7,10 @@ const Page = async () => {
   const first = 2
   const { data } = await getEvents({ skip: 0, first })
   return (
-    <div>
+    <main>
       <h1>all future concerts</h1>
 
-      <FutureEvents skip={0} first={10} />
+      <FutureEvents skip={0} first={99} />
 
       <h1>all concerts</h1>
 
@@ -20,7 +20,7 @@ const Page = async () => {
       })}
 
       <LoadMoreEvents initialSkip={first} />
-    </div>
+    </main>
   )
 }
 
