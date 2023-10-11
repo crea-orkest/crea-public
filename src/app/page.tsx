@@ -38,7 +38,6 @@ const Page = async () => {
   const siteInfo = await getSiteInfo()
   return (
     <main>
-      <h1>Navigation</h1>
       <Navigation />
       <h1>Page</h1>
       <p>hello world</p>

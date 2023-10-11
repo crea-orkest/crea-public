@@ -1,15 +1,19 @@
 import { NavigationItem } from 'components/navigationItem'
 import { NavigationSubMenu } from 'components/navigationSubMenu'
 import React from 'react'
+import classNames from 'classnames'
 import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
+import styles from './styles.module.scss'
 
 export const Navigation: React.FC = async () => {
   const { data } = await getGeneralInfo()
   if (!data?.general) return null
 
   return (
-    <nav>
-      <ul>
+    <nav className={classNames(styles.wrapper)}>
+      <ul className={classNames(styles.list)}>
+        <NavigationItem slug="homepage" label="Homepage" />
+        <NavigationItem slug="/concerten" label="Concerten" />
         {data.general.menu.map((item) => {
           if ('link' in item) {
             return (

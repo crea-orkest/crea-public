@@ -2,7 +2,9 @@
 
 exports[`NavigationItem should render a link 1`] = `
 <div>
-  <li>
+  <li
+    class="navItem"
+  >
     <a
       href="/url"
     >

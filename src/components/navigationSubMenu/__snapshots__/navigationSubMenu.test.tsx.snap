@@ -20,22 +20,30 @@ exports[`navigationSubMenu should render a button 2`] = `
     >
       root label
     </button>
-    <ul>
-      <li>
+    <ul
+      class="list"
+    >
+      <li
+        class="navItem"
+      >
         <a
           href="/specific/page"
         >
           specific page
         </a>
       </li>
-      <li>
+      <li
+        class="navItem"
+      >
         <a
           href="/"
         >
           homepage
         </a>
       </li>
-      <li>
+      <li
+        class="navItem"
+      >
         <a
           href="https://example.com"
         >
