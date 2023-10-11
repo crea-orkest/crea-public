@@ -12,14 +12,8 @@ export const Navigation: React.FC = async () => {
   return (
     <nav className={classNames(styles.wrapper)}>
       <ul className={classNames(styles.list)}>
-        <NavigationItem
-          slug="homepage"
-          label="Homepage"
-        />
-        <NavigationItem
-          slug="/concerten"
-          label="Concerten"
-        />
+        <NavigationItem slug="homepage" label="Homepage" />
+        <NavigationItem slug="/concerten" label="Concerten" />
         {data.general.menu.map((item) => {
           if ('link' in item) {
             return (

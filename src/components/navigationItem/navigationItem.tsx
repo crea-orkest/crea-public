@@ -13,8 +13,10 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
   slug,
   label,
 }) => {
-  if (!slug) return <li className={classNames(styles.navItem)}>No link specified</li>
-  if (!label) return <li className={classNames(styles.navItem)}>No label specified</li>
+  if (!slug)
+    return <li className={classNames(styles.navItem)}>No link specified</li>
+  if (!label)
+    return <li className={classNames(styles.navItem)}>No label specified</li>
 
   return (
     <li className={classNames(styles.navItem)}>
