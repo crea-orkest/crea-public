@@ -8,9 +8,9 @@ exports[`Default layout shows all the data 1`] = `
     <nav>
       [Navigation]
     </nav>
-    <p>
-      test
-    </p>
+    <main>
+      main content
+    </main>
     <footer>
       [Footer]
     </footer>
