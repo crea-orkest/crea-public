@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.5](https://github.com/crea-orkest/crea-public/compare/v0.1.4...v0.1.5) (2023-10-11)
+
+
+### Features
+
+* default layout ([4662db9](https://github.com/crea-orkest/crea-public/commit/4662db9894d32f1e0270ffd5d9f0c23b622bbfd5))
+* menu improvements ([ee5afae](https://github.com/crea-orkest/crea-public/commit/ee5afae289ef749f6b2b344ee4d11f3f2f748e96))
+* menu styling and defaults ([712e662](https://github.com/crea-orkest/crea-public/commit/712e66289ea6eff99200c672e72fef190bbfb2e5))
+
 ## [0.1.4](https://github.com/crea-orkest/crea-public/compare/v0.1.3...v0.1.4) (2023-10-09)
 
 
