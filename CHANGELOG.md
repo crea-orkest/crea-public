@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/crea-orkest/crea-public/compare/v0.1.5...v0.1.6) (2023-10-11)
+
+
+### Features
+
+* api endpoint ([2f5b340](https://github.com/crea-orkest/crea-public/commit/2f5b340d6019e4a724592d529b4012be63381904))
+
 ## [0.1.5](https://github.com/crea-orkest/crea-public/compare/v0.1.4...v0.1.5) (2023-10-11)
 
 
