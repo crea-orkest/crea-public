@@ -1,14 +1,9 @@
-import { Navigation } from 'components/navigation'
+import { DefaultLayout } from 'components/defaultLayout'
 
 export default function PageLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <>
-      <Navigation />
-      {children}
-    </>
-  )
+  return <DefaultLayout>{children}</DefaultLayout>
 }
