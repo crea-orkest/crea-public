@@ -12,24 +12,6 @@ exports[`Concert component shows all the data 1`] = `
         class="navItem"
       >
         <a
-          href="/"
-        >
-          Homepage
-        </a>
-      </li>
-      <li
-        class="navItem"
-      >
-        <a
-          href="/concerten"
-        >
-          Concerten
-        </a>
-      </li>
-      <li
-        class="navItem"
-      >
-        <a
           href="/contact"
         >
           contact
