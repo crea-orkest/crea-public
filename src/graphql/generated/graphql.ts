@@ -92,7 +92,7 @@ export type ConcertListRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -183,7 +183,7 @@ export type ConcertRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -415,7 +415,7 @@ export type GeneralRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -451,7 +451,7 @@ export type ImageRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -1903,6 +1903,12 @@ export enum ItemStatus {
   Updated = 'updated',
 }
 
+/** Specifies how to filter JSON fields */
+export type JsonFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars['BooleanType']['input']>
+}
+
 export type LatLonField = {
   __typename?: 'LatLonField'
   latitude: Scalars['FloatType']['output']
@@ -1992,7 +1998,7 @@ export type LinkRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2041,7 +2047,7 @@ export type LocationItemRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2109,7 +2115,7 @@ export type LocationRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2178,7 +2184,7 @@ export type MediaItemRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2205,7 +2211,7 @@ export type MenuItemRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2287,7 +2293,7 @@ export type PageRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2316,6 +2322,7 @@ export type PersonModelFilter = {
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
   _updatedAt?: InputMaybe<UpdatedAtFilter>
   id?: InputMaybe<ItemIdFilter>
+  image?: InputMaybe<JsonFilter>
   name?: InputMaybe<StringFilter>
   role?: InputMaybe<StringFilter>
 }
@@ -2356,12 +2363,13 @@ export type PersonRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
   id: Scalars['ItemId']['output']
+  image?: Maybe<Scalars['JsonField']['output']>
   name?: Maybe<Scalars['String']['output']>
   role?: Maybe<Scalars['String']['output']>
 }
@@ -2629,7 +2637,7 @@ export type RecordInterface = {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2774,7 +2782,7 @@ export type SubmenuItemRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2821,7 +2829,7 @@ export type TextBlockRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -2874,7 +2882,7 @@ export type TwoColumnRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -3275,7 +3283,7 @@ export type VideoRecord = RecordInterface & {
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** SEO meta tags */
+  /** Generates SEO and Social card meta tags to be used in your frontend */
   _seoMetaTags: Array<Tag>
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
@@ -3302,6 +3310,7 @@ export type AuthorFragment = {
   id: string
   name?: string | null
   role?: string | null
+  image?: unknown | null
 }
 
 export type ColorsFragment = {
@@ -3361,6 +3370,7 @@ export type ConcertDetailFragment = {
     id: string
     name?: string | null
     role?: string | null
+    image?: unknown | null
   }>
   content: Array<
     | {
@@ -3898,6 +3908,7 @@ export type EventsFragment = {
       id: string
       name?: string | null
       role?: string | null
+      image?: unknown | null
     }>
     content: Array<
       | {
@@ -6486,6 +6497,7 @@ export type GetAuthorQuery = {
     id: string
     name?: string | null
     role?: string | null
+    image?: unknown | null
   } | null
 }
 
@@ -6504,6 +6516,7 @@ export type GetAuthorsQuery = {
     id: string
     name?: string | null
     role?: string | null
+    image?: unknown | null
   }>
 }
 
@@ -6567,6 +6580,7 @@ export type GetEventQuery = {
       id: string
       name?: string | null
       role?: string | null
+      image?: unknown | null
     }>
     content: Array<
       | {
@@ -7023,6 +7037,7 @@ export type GetEventPageQuery = {
       id: string
       name?: string | null
       role?: string | null
+      image?: unknown | null
     }>
     content: Array<
       | {
@@ -7545,6 +7560,7 @@ export type GetEventsQuery = {
       id: string
       name?: string | null
       role?: string | null
+      image?: unknown | null
     }>
     content: Array<
       | {
@@ -8013,6 +8029,7 @@ export type GetFutureEventsQuery = {
       id: string
       name?: string | null
       role?: string | null
+      image?: unknown | null
     }>
     content: Array<
       | {
@@ -9656,6 +9673,7 @@ export const AuthorFragmentDoc = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -13128,6 +13146,7 @@ export const ConcertDetailFragmentDoc = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -13394,6 +13413,7 @@ export const EventsFragmentDoc = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -16335,7 +16355,7 @@ export const SeoSettingsFragmentDoc = {
   ],
 } as unknown as DocumentNode<SeoSettingsFragment, unknown>
 export const GetAuthorDocument = {
-  __meta__: { hash: '69626f7356ee243d0a13a9401b5f6cf5612460c0' },
+  __meta__: { hash: 'c9a976474f08062a643efaa51b184f01a2979c98' },
   kind: 'Document',
   definitions: [
     {
@@ -16415,13 +16435,14 @@ export const GetAuthorDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
   ],
 } as unknown as DocumentNode<GetAuthorQuery, GetAuthorQueryVariables>
 export const GetAuthorsDocument = {
-  __meta__: { hash: '7be73ead65e34e702ae1a288a1c5a6ce402d81b9' },
+  __meta__: { hash: '5e89f34e86b132b8cd6ed728b30d6c9e81d99ce7' },
   kind: 'Document',
   definitions: [
     {
@@ -16527,6 +16548,7 @@ export const GetAuthorsDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -16559,7 +16581,7 @@ export const GetAuthorsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetAuthorsMetaQuery, GetAuthorsMetaQueryVariables>
 export const GetEventDocument = {
-  __meta__: { hash: 'f71937bb1d3c3dcfea3e2fd573c8edc57bbaa6e9' },
+  __meta__: { hash: '4985d596d9f747317f440b0659f09f175761c6b6' },
   kind: 'Document',
   definitions: [
     {
@@ -16780,6 +16802,7 @@ export const GetEventDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -17488,7 +17511,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '9d26de723932c8fe96b6be3bbe511db4d2938b67' },
+  __meta__: { hash: 'c45bdbc4d7e1b0ac2e138b385b521e66239ddf78' },
   kind: 'Document',
   definitions: [
     {
@@ -17709,6 +17732,7 @@ export const GetEventPageDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -18755,7 +18779,7 @@ export const GetEventsUrlsDocument = {
   ],
 } as unknown as DocumentNode<GetEventsUrlsQuery, GetEventsUrlsQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: 'ff6b97a1e11286f4b40598a4154d3f88beeb68fc' },
+  __meta__: { hash: '389d23259b4ba8c24b390e9274b5a6d2395e90f8' },
   kind: 'Document',
   definitions: [
     {
@@ -19002,6 +19026,7 @@ export const GetEventsDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -19736,7 +19761,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '7ce06ef2c3e09c07dc9bdb478d77eb13331f39d8' },
+  __meta__: { hash: '97096bd45e8ed4dcce488380bee13122a1f0f417' },
   kind: 'Document',
   definitions: [
     {
@@ -20002,6 +20027,7 @@ export const GetFutureEventsDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },

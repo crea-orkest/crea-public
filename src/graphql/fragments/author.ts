@@ -5,5 +5,6 @@ export const author = gql`
     id
     name
     role
+    image
   }
 `

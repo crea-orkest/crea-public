@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n  }\n':
+  '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n    image\n  }\n':
     types.AuthorFragmentDoc,
   '\n  fragment colors on ColorField {\n    alpha\n    blue\n    cssRgb\n    green\n    hex\n    red\n  }\n':
     types.ColorsFragmentDoc,
@@ -143,8 +143,8 @@ export function gql(source: string): unknown
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n  }\n'
-): (typeof documents)['\n  fragment author on PersonRecord {\n    id\n    name\n    role\n  }\n']
+  source: '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n    image\n  }\n'
+): (typeof documents)['\n  fragment author on PersonRecord {\n    id\n    name\n    role\n    image\n  }\n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
