@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.7](https://github.com/crea-orkest/crea-public/compare/v0.1.6...v0.1.7) (2023-10-12)
+
+
+### Features
+
+* cloudinary image ([d54bea9](https://github.com/crea-orkest/crea-public/commit/d54bea9497691ef2d30886ae2df2a71a81eed8cc))
+* implement cloudinary inside author component ([54a8d07](https://github.com/crea-orkest/crea-public/commit/54a8d0760c3c82842b5d29926ad6d0f560f19cf0))
+* revalidate datocms ([7a0451c](https://github.com/crea-orkest/crea-public/commit/7a0451c26c2e1191e5b25d51b21ccb1de770bbe9))
+
 ## [0.1.6](https://github.com/crea-orkest/crea-public/compare/v0.1.5...v0.1.6) (2023-10-11)
 
 
