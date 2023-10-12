@@ -55,7 +55,7 @@
     "dotenv": "16.3.1",
     "eslint": "8.51.0",
     "eslint-config-next": "13.5.4",
-    "eslint-plugin-testing-library": "6.0.2",
+    "eslint-plugin-testing-library": "6.1.0",
     "husky": "8.0.3",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
