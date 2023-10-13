@@ -33,18 +33,20 @@ export async function POST(request: NextRequest) {
       body: JSON.parse(successStatus),
     })
 
+    if (!res.ok) throw new Error('failed response')
+
     revalidateTag(tag)
 
     return Response.json({
       revalidated: true,
       now: Date.now(),
       status: successStatus,
-      data: await res.json(),
     })
-  } catch {
+  } catch (error) {
     return Response.json({
       revalidated: false,
       status: errorStatus,
+      message: error instanceof Error ? error.message : 'no idea',
     })
   }
 }
