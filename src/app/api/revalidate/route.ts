@@ -11,6 +11,13 @@ export async function POST(request: NextRequest) {
   const successStatus = 'success'
 
   if (secret !== process.env.SECRET_TOKEN) {
+    await fetch(CMS_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ status: errorStatus }),
+    })
     return Response.json(
       { status: errorStatus, message: 'Missing secret' },
       { status: 401 }
@@ -18,6 +25,13 @@ export async function POST(request: NextRequest) {
   }
 
   if (!tag) {
+    await fetch(CMS_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ status: errorStatus }),
+    })
     return Response.json(
       { status: errorStatus, message: 'Missing tag' },
       { status: 400 }
@@ -25,17 +39,16 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    revalidateTag(tag)
     const res = await fetch(CMS_WEBHOOK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.parse(successStatus),
+      body: JSON.stringify({ status: successStatus }),
     })
 
     if (!res.ok) throw new Error('failed response')
-
-    revalidateTag(tag)
 
     return Response.json({
       revalidated: true,
