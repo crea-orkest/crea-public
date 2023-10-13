@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.9](https://github.com/crea-orkest/crea-public/compare/v0.1.8...v0.1.9) (2023-10-13)
+
+
+### Bug Fixes
+
+* debug ([26330ac](https://github.com/crea-orkest/crea-public/commit/26330ace76486066d181a205ddaa9016995360e2))
+
 ## [0.1.8](https://github.com/crea-orkest/crea-public/compare/v0.1.7...v0.1.8) (2023-10-13)
 
 
