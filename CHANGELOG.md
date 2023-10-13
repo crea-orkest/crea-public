@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.8](https://github.com/crea-orkest/crea-public/compare/v0.1.7...v0.1.8) (2023-10-13)
+
+
+### Bug Fixes
+
+* cloudinary types ([b023946](https://github.com/crea-orkest/crea-public/commit/b02394672bad72a17d703418cdcc5a59a3e8af4a))
+* revalidate fixes ([09d83a4](https://github.com/crea-orkest/crea-public/commit/09d83a416b15c39cdf093275c1c1ecf6e1925f3f))
+
 ## [0.1.7](https://github.com/crea-orkest/crea-public/compare/v0.1.6...v0.1.7) (2023-10-12)
 
 
