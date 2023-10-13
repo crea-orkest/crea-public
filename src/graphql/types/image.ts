@@ -1,9 +1,18 @@
 import type { Scalars } from 'graphql/generated/graphql'
 
+interface CloudinaryUser {
+  type?: 'string' | null
+  id?: 'string' | null
+}
+
+interface CloudinaryDescription {
+  en?: string | null
+}
+
 export interface CloudinaryImage {
   bytes?: number
   created_at?: Scalars['DateTime'] | null
-  created_by?: string | null
+  created_by?: CloudinaryUser | null
   duration?: string | null
   format?: string
   width?: number
@@ -18,9 +27,7 @@ export interface CloudinaryImage {
   uploaded_by?: null
   url?: string
   version?: number
-  alt?: {
-    en?: string
-  }
+  alt?: CloudinaryDescription
 }
 
 export interface Image {
