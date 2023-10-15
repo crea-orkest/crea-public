@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.12](https://github.com/crea-orkest/crea-public/compare/v0.1.11...v0.1.12) (2023-10-15)
+
+
+### Features
+
+* delay ([8816507](https://github.com/crea-orkest/crea-public/commit/881650777d9ca75e3d70a0288eabfef17e176131))
+
 ## [0.1.11](https://github.com/crea-orkest/crea-public/compare/v0.1.10...v0.1.11) (2023-10-15)
 
 
