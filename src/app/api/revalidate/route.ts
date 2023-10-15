@@ -10,35 +10,35 @@ export async function POST(request: NextRequest) {
   const errorStatus = 'error'
   const successStatus = 'success'
 
-  if (secret !== process.env.SECRET_TOKEN) {
-    await fetch(CMS_WEBHOOK_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ status: errorStatus }),
-    })
-    return Response.json(
-      { status: errorStatus, message: 'Missing secret' },
-      { status: 401 }
-    )
-  }
-
-  if (!tag) {
-    await fetch(CMS_WEBHOOK_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ status: errorStatus }),
-    })
-    return Response.json(
-      { status: errorStatus, message: 'Missing tag' },
-      { status: 400 }
-    )
-  }
-
   try {
+    if (secret !== process.env.SECRET_TOKEN) {
+      await fetch(CMS_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: errorStatus }),
+      })
+      return Response.json(
+        { status: errorStatus, message: 'Missing secret' },
+        { status: 401 }
+      )
+    }
+
+    if (!tag) {
+      await fetch(CMS_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: errorStatus }),
+      })
+      return Response.json(
+        { status: errorStatus, message: 'Missing tag' },
+        { status: 400 }
+      )
+    }
+
     revalidateTag(tag)
     const res = await fetch(CMS_WEBHOOK_URL, {
       method: 'POST',
