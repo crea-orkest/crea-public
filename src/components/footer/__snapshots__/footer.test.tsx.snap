@@ -5,19 +5,23 @@ exports[`Footer component shows all the data 1`] = `
   <footer
     class="wrapper"
   >
-    <ul>
-      <li>
-        Concerten
-      </li>
-    </ul>
-    <ul>
-      <li>
-        Instagram
-      </li>
-      <li>
-        Facebook
-      </li>
-    </ul>
+    <div
+      class="content"
+    >
+      <ul>
+        <li>
+          Concerten
+        </li>
+      </ul>
+      <ul>
+        <li>
+          Instagram
+        </li>
+        <li>
+          Facebook
+        </li>
+      </ul>
+    </div>
   </footer>
 </div>
 `;

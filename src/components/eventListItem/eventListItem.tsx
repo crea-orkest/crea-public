@@ -1,3 +1,4 @@
+import { AuthorView } from 'components/author'
 import type { Event } from 'graphql/types/event'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -27,11 +28,11 @@ export const EventListItem: React.FC<Props> = ({ data }: Props) => {
         <Link href={data.url}>{data.title}</Link>
       </h2>
       {data.persons && data.persons.length > 0 && (
-        <ul>
+        <ul className={classNames(styles.people)}>
           {data.persons.map((person) => {
             return (
-              <li key={person.id}>
-                {person.name} | {person.description}
+              <li className={classNames(styles.person)} key={person.id}>
+                <AuthorView data={person} />
               </li>
             )
           })}

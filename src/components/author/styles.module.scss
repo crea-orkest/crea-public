@@ -1,0 +1,31 @@
+.author {
+  display: grid;
+  grid-template-columns: 4rem 10rem;
+  grid-template-rows: 2rem 2rem;
+
+  gap: 0 1rem;
+
+  &__metadata {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+
+    list-style: none;
+    padding: 0;
+  }
+
+  &__name {
+  }
+
+  &__description {
+  }
+
+  &__profilePicture {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}

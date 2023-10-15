@@ -1,5 +1,14 @@
+@use '../../styles/tokens/layout.scss' as layout;
+
 .wrapper {
   background-color: seagreen;
+  padding: 4rem 0;
+  align-self: end;
+}
+
+.content {
+  max-width: layout.$default-width;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
