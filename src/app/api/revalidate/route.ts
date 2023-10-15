@@ -1,7 +1,7 @@
 import { type NextRequest } from 'next/server'
 import { revalidateTag } from 'next/cache'
 
-const CMS_WEBHOOK_URL = 'https://webhooks.datocms.com/Vt1R8r6BD5/deploy-results'
+const CMS_WEBHOOK_URL = 'https://webhooks.datocms.com/RnZkqX0wNG/deploy-results'
 
 // e.g a webhook to `your-website.com/api/revalidate?tag=content&secret=super-secret
 export async function POST(request: NextRequest) {
