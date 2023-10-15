@@ -1,6 +1,6 @@
 {
   "name": "crea-public",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "The public Crea Orkest website",
   "type": "module",
   "scripts": {
