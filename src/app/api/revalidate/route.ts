@@ -3,6 +3,22 @@ import { revalidateTag } from 'next/cache'
 
 const CMS_WEBHOOK_URL = 'https://webhooks.datocms.com/RnZkqX0wNG/deploy-results'
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+const slowRequest = async (payload: string) => {
+  await sleep(5000)
+
+  return await fetch(CMS_WEBHOOK_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ status: payload }),
+  })
+}
+
 // e.g a webhook to `your-website.com/api/revalidate?tag=content&secret=super-secret
 export async function POST(request: NextRequest) {
   const secret = request.nextUrl.searchParams.get('secret')
@@ -12,13 +28,7 @@ export async function POST(request: NextRequest) {
 
   try {
     if (secret !== process.env.SECRET_TOKEN) {
-      await fetch(CMS_WEBHOOK_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ status: errorStatus }),
-      })
+      await slowRequest(errorStatus)
       return Response.json(
         { status: errorStatus, message: 'Missing secret' },
         { status: 401 }
@@ -26,13 +36,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!tag) {
-      await fetch(CMS_WEBHOOK_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ status: errorStatus }),
-      })
+      await slowRequest(errorStatus)
       return Response.json(
         { status: errorStatus, message: 'Missing tag' },
         { status: 400 }
@@ -40,13 +44,7 @@ export async function POST(request: NextRequest) {
     }
 
     revalidateTag(tag)
-    const res = await fetch(CMS_WEBHOOK_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ status: successStatus }),
-    })
+    const res = await slowRequest(successStatus)
 
     if (!res.ok) throw new Error('failed response')
 
