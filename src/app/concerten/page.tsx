@@ -9,7 +9,6 @@ const Page = async () => {
   return (
     <main>
       <h1>all future concerts</h1>
-
       <FutureEvents skip={0} first={99} />
 
       <h1>all concerts</h1>
