@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.11](https://github.com/crea-orkest/crea-public/compare/v0.1.10...v0.1.11) (2023-10-15)
+
+
+### Bug Fixes
+
+* try ([cc1299d](https://github.com/crea-orkest/crea-public/commit/cc1299dd10b2667ba387a315c60b3f30943206af))
+* webhook url ([997b736](https://github.com/crea-orkest/crea-public/commit/997b736e2e6f234ac0a43cd323b1d54187be1994))
+
 ## [0.1.10](https://github.com/crea-orkest/crea-public/compare/v0.1.9...v0.1.10) (2023-10-15)
 
 
