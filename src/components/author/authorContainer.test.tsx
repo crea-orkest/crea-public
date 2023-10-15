@@ -1,5 +1,5 @@
-import { Author } from './author'
-import type { Props } from './author'
+import { AuthorContainer } from './authorContainer'
+import type { Props } from './authorContainer'
 import React from 'react'
 import { getAuthor } from '../../graphql/getters/getAuthor'
 import { resolvedComponent } from 'utils/testHelpers/resolvedComponent'
@@ -27,7 +27,9 @@ describe('Author component', () => {
       error: undefined,
     })
 
-    const Resolved = await resolvedComponent<Props>(Author, { id: 'some id' })
+    const Resolved = await resolvedComponent<Props>(AuthorContainer, {
+      id: 'some id',
+    })
 
     const { container } = render(<Resolved />)
 

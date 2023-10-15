@@ -33,5 +33,5 @@ export const renderInlineRecord = ({
     )
   }
   // TODO: maybe return null
-  return <p>renderInlineRecord todo: {record.__typename}</p>
+  return <span>renderInlineRecord todo: {record.__typename}</span>
 }
