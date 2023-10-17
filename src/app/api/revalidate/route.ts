@@ -8,7 +8,7 @@ function sleep(ms: number) {
 }
 
 const slowRequest = async (payload: string) => {
-  await sleep(5000)
+  await sleep(10000)
 
   return await fetch(CMS_WEBHOOK_URL, {
     method: 'POST',
