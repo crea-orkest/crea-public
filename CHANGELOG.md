@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.14](https://github.com/crea-orkest/crea-public/compare/v0.1.13...v0.1.14) (2023-10-17)
+
+
+### Bug Fixes
+
+* an error occurred with your deployment ([4e54706](https://github.com/crea-orkest/crea-public/commit/4e54706b53db430ddb389884f3ecdb0c91ba2fb1))
+* max time ([663b52f](https://github.com/crea-orkest/crea-public/commit/663b52f93f2b5bdfe4a1110a848bb59445a5e5ec))
+
 ## [0.1.13](https://github.com/crea-orkest/crea-public/compare/v0.1.12...v0.1.13) (2023-10-17)
 
 
