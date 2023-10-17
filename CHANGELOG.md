@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.13](https://github.com/crea-orkest/crea-public/compare/v0.1.12...v0.1.13) (2023-10-17)
+
+
+### Bug Fixes
+
+* dato slow build ([ad26488](https://github.com/crea-orkest/crea-public/commit/ad2648856a512b0f01afa327e769f96adb57f64f))
+
 ## [0.1.12](https://github.com/crea-orkest/crea-public/compare/v0.1.11...v0.1.12) (2023-10-15)
 
 
