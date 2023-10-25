@@ -116,6 +116,13 @@ dist
 # DynamoDB Local files
 .dynamodb/
 
+# Terraform
+*.tfstate
+*.tfstate.*
+**/.terraform/* 
+*.tfvars
+*.tfvars.*
+
 # TernJS port file
 .tern-port
 
