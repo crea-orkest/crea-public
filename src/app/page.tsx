@@ -1,8 +1,8 @@
 import { Author } from 'components/author'
+import { DefaultPage } from 'components/defaultPage'
 import { Event } from 'components/event'
 import { Events } from 'components/events'
 import type { Metadata } from 'next'
-import { Navigation } from 'components/navigation'
 import React from 'react'
 import { getAuthor } from 'graphql/getters/getAuthor'
 import { getAuthors } from 'graphql/getters/getAuthors'
@@ -26,7 +26,7 @@ const Page = async () => {
   const author = await getAuthor({ id: '186234305' })
   const data = await getAuthors({ first: 10, skip: 0 })
   const pages = await getPages({ first: 10, skip: 0 })
-  const page = await getPage({ slug: 'contact' })
+  const page = await getPage({ slug: 'homepage' })
   const events = await getEvents({
     first: 10,
     skip: 0,
@@ -38,9 +38,8 @@ const Page = async () => {
   const siteInfo = await getSiteInfo()
   return (
     <main>
-      <Navigation />
-      <h1>Page</h1>
-      <p>hello world</p>
+      <DefaultPage slug={'homepage'} />
+      <hr />
       <p>author</p>
       <code>
         <pre>{JSON.stringify(author, undefined, 2)}</pre>

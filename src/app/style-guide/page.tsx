@@ -1,11 +1,13 @@
 const Page = () => {
   return (
-    <main>
+    <main className="content-layout">
       <h1>style guide</h1>
 
       <h2>headings</h2>
       <h3>h3 heading</h3>
       <h4>h4 heading</h4>
+      <h5>h5 heading</h5>
+      <h6>h6 heading</h6>
 
       <hr />
 
