@@ -1,10 +1,8 @@
 import { ContentField } from 'components/contentField'
 import React from 'react'
 import { TwoColumContentField } from 'components/twoColumContentField'
-import classNames from 'classnames'
 import { getPage } from 'graphql/getters/getPage'
 import { notFound } from 'next/navigation'
-import styles from './styles.module.scss'
 
 export interface Props {
   slug: string
@@ -15,7 +13,7 @@ export const DefaultPage = async ({ slug }: Props) => {
   if (!data) return notFound()
 
   return (
-    <article className={classNames(styles.article)}>
+    <article className="content-layout">
       <h2>{data.title}</h2>
 
       {data.content.map((item) => {
