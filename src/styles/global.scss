@@ -1,6 +1,9 @@
-@use '../styles/tokens/colors.scss' as colors;
-@use '../styles/tokens/spacing.scss' as spacings;
-@use '../styles/tokens/typography.scss' as typography;
+@use 'sass:map';
+@use './tokens/colors.scss' as colors;
+@use './tokens/spacing.scss' as spacings;
+@use './tokens/typography.scss' as typography;
+@use './tokens/breakpoints.scss' as breakpoints;
+@use './tokens/layout.scss' as layout;
 
 @import './reset.scss';
 @import './fonts.scss';
@@ -9,11 +12,21 @@ body {
   font-family: typography.$dm-sans;
   background-color: colors.$background;
   color: colors.$dark;
-  font-size: calc(spacings.$base-font-size * 1px);
+  font-size: 1rem;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    font-size: 1.125rem;
+  }
 }
 
 a {
   text-decoration: none;
+  color: colors.$secondary;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 .sr-only {
@@ -26,4 +39,23 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.with-background {
+  background-image: url('/img/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-layout {
+  width: 100%;
+  margin: 0 auto;
+  max-width: layout.$default-width;
+  padding-left: map.get(spacings.$rem, 24);
+  padding-right: map.get(spacings.$rem, 24);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    padding-left: map.get(spacings.$rem, 64);
+    padding-right: map.get(spacings.$rem, 64);
+  }
 }
