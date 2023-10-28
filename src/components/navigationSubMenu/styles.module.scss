@@ -1,9 +1,38 @@
+@use 'sass:map';
+@use '../../styles/tokens/colors.scss' as colors;
+@use '../../styles/tokens/spacing.scss' as spacing;
+@use '../../styles/tokens/breakpoints.scss' as breakpoints;
+@use '../../styles/tokens/typography.scss' as typography;
+
+.listItem {
+  position: relative;
+}
+
+.button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: typography.$dm-serif;
+  color: colors.$dark;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: colors.$secondary;
+  }
+}
+
 .list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: max-content;
   display: flex;
   flex-direction: column;
-  background-color: aliceblue;
-  padding: 0;
-
+  background-color: colors.$background;
   list-style: none;
-  position: absolute;
+  padding: map.get(spacing.$rem, 16);
+  margin-top: map.get(spacing.$rem, 16);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }

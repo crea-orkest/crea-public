@@ -22,8 +22,9 @@ export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
   if (!label) return null
 
   return (
-    <li>
+    <li className={classNames(styles.listItem)}>
       <button
+        className={classNames(styles.button, 'text-large')}
         disabled={Boolean(submenu?.length === 0)}
         type="button"
         onClick={handleClick}

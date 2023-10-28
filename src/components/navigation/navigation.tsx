@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import { NavigationItem } from 'components/navigationItem'
 import { NavigationSubMenu } from 'components/navigationSubMenu'
 import React from 'react'
@@ -11,31 +13,43 @@ export const Navigation: React.FC = async () => {
 
   return (
     <nav className={classNames(styles.wrapper)}>
-      <ul className={classNames(styles.list)}>
-        {data.general.menu.map((item) => {
-          if ('link' in item) {
-            return (
-              <NavigationItem
-                key={item.id}
-                slug={item?.link?.slug}
-                label={item.label}
-              />
-            )
-          }
+      <div className={classNames(styles.content, 'content-layout')}>
+        <ul className={classNames(styles.list)}>
+          {data.general.menu.map((item) => {
+            if ('link' in item) {
+              return (
+                <NavigationItem
+                  key={item.id}
+                  slug={item?.link?.slug}
+                  label={item.label}
+                />
+              )
+            }
 
-          if ('menu' in item) {
-            return (
-              <NavigationSubMenu
-                key={item.id}
-                label={item.label}
-                item={JSON.stringify(item.menu)}
-              />
-            )
-          }
+            if ('menu' in item) {
+              return (
+                <NavigationSubMenu
+                  key={item.id}
+                  label={item.label}
+                  item={JSON.stringify(item.menu)}
+                />
+              )
+            }
 
-          return <NavigationItem key={item.id} slug={'/'} label={'Error'} />
-        })}
-      </ul>
+            return <NavigationItem key={item.id} slug={'/'} label={'Error'} />
+          })}
+        </ul>
+
+        <Link href="/" className={classNames(styles.logoLink)}>
+          <Image
+            className={classNames(styles.logo)}
+            src="/img/logo-crea-orkest.png"
+            alt="CREA Orkest"
+            fill
+            sizes="(min-width: 500px) 50vw, 100vw"
+          />
+        </Link>
+      </div>
     </nav>
   )
 }
