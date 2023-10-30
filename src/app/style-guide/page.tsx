@@ -1,6 +1,6 @@
 const Page = () => {
   return (
-    <main className="content-layout">
+    <div className="content-layout">
       <h1>style guide</h1>
 
       <h2>headings</h2>
@@ -21,7 +21,7 @@ const Page = () => {
         nulla pariatur. Excepteur sint occaecat <mark>cupidatat</mark> non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-    </main>
+    </div>
   )
 }
 

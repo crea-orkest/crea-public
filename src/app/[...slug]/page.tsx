@@ -15,11 +15,7 @@ export async function generateMetadata({
 }
 
 const Page = ({ params: { slug } }: PageProps) => {
-  return (
-    <main>
-      <DefaultPage slug={slug.join('/')} />
-    </main>
-  )
+  return <DefaultPage slug={slug.join('/')} />
 }
 
 export default Page

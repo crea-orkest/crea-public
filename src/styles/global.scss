@@ -29,6 +29,11 @@ a {
   }
 }
 
+hr {
+  border-color: colors.$secondary-light;
+  margin: map.get(spacings.$rem, 16) 0;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

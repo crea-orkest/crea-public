@@ -13,7 +13,7 @@ export const FutureEvents = async ({ skip, first }: Props) => {
 
   return (
     <section>
-      <h2>EVENTS</h2>
+      <h2>Toekomstige concerten</h2>
       {data.map((event) => {
         if (!event?.id) return
         return <EventListItem key={event.id} data={event} />

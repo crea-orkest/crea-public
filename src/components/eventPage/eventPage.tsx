@@ -1,6 +1,5 @@
-import { ContentField } from 'components/contentField'
+import { PageContent } from 'components/pageContent'
 import React from 'react'
-import { TwoColumContentField } from 'components/twoColumContentField'
 import { getEventPage } from 'graphql/getters/getEventPage'
 import { notFound } from 'next/navigation'
 
@@ -14,21 +13,8 @@ export const EventPage = async ({ slug }: Props) => {
 
   return (
     <article className="content-layout">
-      <h1>{data.title}</h1>
-
-      {data.content?.map((item) => {
-        if ('leftContent' in item || 'rightContent' in item) {
-          return <TwoColumContentField key={item.id} item={item} />
-        }
-        if ('content' in item) {
-          return <ContentField key={item.id} data={item.content} />
-        }
-        return null
-      })}
-
-      <code>
-        <pre>{JSON.stringify(data, undefined, 2)}</pre>
-      </code>
+      <h1 className="sr-only">{data.title}</h1>
+      <PageContent items={data.content} />
     </article>
   )
 }

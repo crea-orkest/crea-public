@@ -1,12 +1,14 @@
+@use 'sass:map';
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
+@use '../../styles/tokens/spacing.scss' as spacing;
 
 .wrapper {
-  margin: 4rem 0 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: map.get(spacing.$rem, 16);
 
   @media screen and (min-width: breakpoints.$sm) {
+    gap: map.get(spacing.$rem, 32);
     grid-template-columns: 1fr 1fr;
   }
 }
