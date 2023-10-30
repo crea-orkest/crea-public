@@ -2,8 +2,11 @@
 
 exports[`navigationSubMenu should render a button 1`] = `
 <div>
-  <li>
+  <li
+    class="listItem"
+  >
     <button
+      class="button text-large"
       type="button"
     >
       root label
@@ -14,8 +17,11 @@ exports[`navigationSubMenu should render a button 1`] = `
 
 exports[`navigationSubMenu should render a button 2`] = `
 <div>
-  <li>
+  <li
+    class="listItem"
+  >
     <button
+      class="button text-large"
       type="button"
     >
       root label
@@ -27,6 +33,7 @@ exports[`navigationSubMenu should render a button 2`] = `
         class="navItem"
       >
         <a
+          class="link text-large"
           href="/specific/page"
         >
           specific page
@@ -36,6 +43,7 @@ exports[`navigationSubMenu should render a button 2`] = `
         class="navItem"
       >
         <a
+          class="link text-large"
           href="/"
         >
           homepage
@@ -45,6 +53,7 @@ exports[`navigationSubMenu should render a button 2`] = `
         class="navItem"
       >
         <a
+          class="link text-large"
           href="https://example.com"
         >
           external

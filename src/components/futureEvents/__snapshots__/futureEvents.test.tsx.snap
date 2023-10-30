@@ -4,7 +4,7 @@ exports[`FutureEvents component shows all the data 1`] = `
 <div>
   <section>
     <h2>
-      EVENTS
+      Toekomstige concerten
     </h2>
     <div>
       [Event]: 
