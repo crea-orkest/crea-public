@@ -1,0 +1,18 @@
+@use '../../styles/tokens/colors.scss' as colors;
+@use '../../styles/tokens/typography.scss' as typography;
+
+.navItem {
+  font-family: typography.$dm-serif;
+  color: colors.$dark;
+}
+
+.link {
+  display: block;
+  padding: 0.5rem 1rem;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: colors.$secondary;
+  }
+}
