@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.1.15](https://github.com/crea-orkest/crea-public/compare/v0.1.14...v0.1.15) (2023-10-30)
+
+
+### Features
+
+* **app:** make sure layout is default for all pages and return correct data and components ([c8df403](https://github.com/crea-orkest/crea-public/commit/c8df403086c84aa6132f69311b08ceca4e01dfe8))
+* **components:** use content-layout helper class ([d8dcfdb](https://github.com/crea-orkest/crea-public/commit/d8dcfdb0b29c9f35d4f330e96b01cf9dc0e581fb))
+* **footer:** add footer styling ([740b9c3](https://github.com/crea-orkest/crea-public/commit/740b9c321a5d0837aec90e01356d07bc951bbc68))
+* **img:** add public images ([a095f30](https://github.com/crea-orkest/crea-public/commit/a095f3094bee26d6f2260248a6e46a41c99594db))
+* **navigation:** add navigation styling ([539ab97](https://github.com/crea-orkest/crea-public/commit/539ab9757ecbc95d372a6b500d45aae9e3e83aa0))
+* **pageContent:** implement page content rendering all content fields ([e21998d](https://github.com/crea-orkest/crea-public/commit/e21998df90fd8cc4317e09ec4726bc8760563aef))
+* sqs ([c2fa3eb](https://github.com/crea-orkest/crea-public/commit/c2fa3eb136bdb91ed5619e29e4525c3dc2019b83))
+* **styles:** add some default styling ([20a240c](https://github.com/crea-orkest/crea-public/commit/20a240cf4a0a972f42eb661f85c3029ba1dc2e89))
+* terraform init ([a46ab4c](https://github.com/crea-orkest/crea-public/commit/a46ab4c4f59c6c3bd2bf3f2c75f76195a2101bbb))
+* workflow_dispatch ([34bf8f2](https://github.com/crea-orkest/crea-public/commit/34bf8f242fffa108d334eccd52c8970f830641ef))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/core to v4.1.4 ([50282d7](https://github.com/crea-orkest/crea-public/commit/50282d725efdb6e63eb4662c680ce5ee759e1628))
+* snapshots ([d5c116a](https://github.com/crea-orkest/crea-public/commit/d5c116ac7a388f7fa0004cf93e5f1bfcba908c76))
+
 ## [0.1.14](https://github.com/crea-orkest/crea-public/compare/v0.1.13...v0.1.14) (2023-10-17)
 
 
