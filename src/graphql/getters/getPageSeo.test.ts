@@ -64,25 +64,11 @@ describe('getPageSeo', () => {
         type: 'article',
         url: 'https://creaorkest.nl/',
       },
-      themeColor: [
-        {
-          color: 'cyan',
-          media: '(prefers-color-scheme: light)',
-        },
-        {
-          color: 'black',
-          media: '(prefers-color-scheme: dark)',
-        },
-      ],
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
         title: 'Het Crea Orkest',
-      },
-      viewport: {
-        initialScale: 1,
-        width: 'device-width',
       },
     })
   })
@@ -112,10 +98,6 @@ describe('getPageSeo', () => {
         type: 'article',
         url: 'https://creaorkest.nl/',
       },
-      themeColor: [
-        { color: 'cyan', media: '(prefers-color-scheme: light)' },
-        { color: 'black', media: '(prefers-color-scheme: dark)' },
-      ],
       title: 'Het Crea Orkest',
       twitter: {
         card: 'summary_large_image',
@@ -123,7 +105,6 @@ describe('getPageSeo', () => {
         images: [''],
         title: 'Het Crea Orkest',
       },
-      viewport: { initialScale: 1, width: 'device-width' },
     })
     expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
