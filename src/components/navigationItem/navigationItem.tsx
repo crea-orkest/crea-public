@@ -20,7 +20,12 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
 
   return (
     <li className={classNames(styles.navItem)}>
-      <Link href={slugFormatter({ slug })}>{label}</Link>
+      <Link
+        className={classNames(styles.link, 'text-large')}
+        href={slugFormatter({ slug })}
+      >
+        {label}
+      </Link>
     </li>
   )
 }

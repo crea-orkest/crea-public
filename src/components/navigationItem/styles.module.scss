@@ -1,7 +1,14 @@
-.navItem {
-  padding: 0.5rem 1rem;
+@use '../../styles/tokens/colors.scss' as colors;
+@use '../../styles/tokens/typography.scss' as typography;
 
-  &:hover {
-    background-color: rgb(61, 109, 109);
+.navItem,
+.link {
+  font-family: typography.$dm-serif;
+  color: colors.$dark;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: colors.$secondary;
   }
 }

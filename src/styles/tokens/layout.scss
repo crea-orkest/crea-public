@@ -1,7 +1,9 @@
 @use 'sass:map';
-@use './spacing' as spacing;
+@use './spacing.scss' as spacings;
 
 $full-width: 100%;
 $default-width: 1278px;
 $sm-width: 688px;
 $xsm-width: 380px;
+
+$content-padding: map.get(spacings.$px, 24);

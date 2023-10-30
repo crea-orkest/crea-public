@@ -6,6 +6,7 @@ exports[`NavigationItem should render a link 1`] = `
     class="navItem"
   >
     <a
+      class="link text-large"
       href="/url"
     >
       homepage
