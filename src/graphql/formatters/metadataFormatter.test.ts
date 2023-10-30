@@ -33,26 +33,12 @@ describe('metadataFormatter', () => {
         type: 'article',
         url: 'https://creaorkest.nl/some-page',
       },
-      themeColor: [
-        {
-          color: 'cyan',
-          media: '(prefers-color-scheme: light)',
-        },
-        {
-          color: 'black',
-          media: '(prefers-color-scheme: dark)',
-        },
-      ],
       title: 'Het Crea Orkest',
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
         title: 'Het Crea Orkest',
-      },
-      viewport: {
-        initialScale: 1,
-        width: 'device-width',
       },
     })
   })
@@ -200,26 +186,12 @@ describe('metadataFormatter', () => {
         type: 'article',
         url: 'https://creaorkest.nl/some-page',
       },
-      themeColor: [
-        {
-          color: 'cyan',
-          media: '(prefers-color-scheme: light)',
-        },
-        {
-          color: 'black',
-          media: '(prefers-color-scheme: dark)',
-        },
-      ],
       title: 'Contact',
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
         title: 'Het Crea Orkest',
-      },
-      viewport: {
-        initialScale: 1,
-        width: 'device-width',
       },
     })
   })

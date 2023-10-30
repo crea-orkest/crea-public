@@ -15,10 +15,6 @@ export const metadataFormatter = (
 ): Metadata => ({
   title: data?.seo?.title ?? defaultTitle, // TODO: default title formatters
   description: data?.seo?.description ?? defaultDescription,
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
   metadataBase: new URL(base),
   alternates: {
     canonical: slug === 'homepage' ? base : `${base}/${slug}`,
@@ -27,10 +23,6 @@ export const metadataFormatter = (
     //   'de-DE': '/de-DE',
     // },
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'cyan' }, // TODO
-    { media: '(prefers-color-scheme: dark)', color: 'black' }, // TODO
-  ],
   manifest: `${base}/manifest.json`, // TODO
   openGraph: {
     title:
