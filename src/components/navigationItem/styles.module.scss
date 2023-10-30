@@ -1,10 +1,14 @@
 @use '../../styles/tokens/colors.scss' as colors;
 @use '../../styles/tokens/typography.scss' as typography;
 
-.navItem,
-.link {
+.navItem {
   font-family: typography.$dm-serif;
   color: colors.$dark;
+}
+
+.link {
+  display: block;
+  padding: 0.5rem 0rem;
 
   &:hover,
   &:focus {

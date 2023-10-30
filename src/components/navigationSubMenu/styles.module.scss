@@ -11,7 +11,7 @@
 .button {
   background: none;
   border: none;
-  padding: 0;
+  padding: 0.5rem 0rem;
   font-family: typography.$dm-serif;
   color: colors.$dark;
   cursor: pointer;
@@ -25,14 +25,12 @@
 
 .list {
   position: absolute;
-  top: 100%;
-  left: 0;
   width: max-content;
   display: flex;
   flex-direction: column;
   background-color: colors.$background;
   list-style: none;
-  padding: map.get(spacing.$rem, 16);
-  margin-top: map.get(spacing.$rem, 16);
+  transform: translatex(-1rem) translateY(1rem);
+  padding: 0;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
