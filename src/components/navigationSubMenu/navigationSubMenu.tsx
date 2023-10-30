@@ -1,6 +1,6 @@
 'use client'
 
-import { NavigationItem } from '../navigationItem'
+import { NavigationSubMenuItem } from '../navigationSubMenuItem'
 import React from 'react'
 import type { SubmenuItemFragment } from 'graphql/generated/graphql'
 import classNames from 'classnames'
@@ -19,6 +19,17 @@ export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
     setVisible(!visible)
   }
 
+  React.useEffect(() => {
+    function checkKeyPress(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setVisible(false)
+      }
+    }
+    document.addEventListener('keydown', checkKeyPress)
+
+    return document.removeEventListener('keydown', checkKeyPress)
+  })
+
   if (!label) return null
 
   return (
@@ -34,10 +45,11 @@ export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
       {visible && (
         <ul className={classNames(styles.list)}>
           {submenu?.map((item) => (
-            <NavigationItem
+            <NavigationSubMenuItem
               key={item.id}
               slug={item?.link?.slug}
               label={item.label}
+              onClick={handleClick}
             />
           ))}
         </ul>
