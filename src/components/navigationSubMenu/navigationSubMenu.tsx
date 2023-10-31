@@ -19,17 +19,6 @@ export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
     setVisible(!visible)
   }
 
-  React.useEffect(() => {
-    function checkKeyPress(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
-        setVisible(false)
-      }
-    }
-    document.addEventListener('keydown', checkKeyPress)
-
-    return document.removeEventListener('keydown', checkKeyPress)
-  })
-
   if (!label) return null
 
   return (
