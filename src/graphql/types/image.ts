@@ -39,11 +39,11 @@ export interface Image {
   url: string
 }
 
-export const isCloudinaryImage = (
+export const isOfTypeCloudinaryImage = (
   cloudinaryImage?: unknown
-): CloudinaryImage | undefined => {
-  if (!cloudinaryImage) return
-  if (typeof cloudinaryImage !== 'object') return
+): cloudinaryImage is CloudinaryImage => {
+  if (!cloudinaryImage) return false
+  if (typeof cloudinaryImage !== 'object') return false
 
   if (
     'resource_type' in cloudinaryImage &&
@@ -51,9 +51,11 @@ export const isCloudinaryImage = (
     'width' in cloudinaryImage &&
     'height' in cloudinaryImage &&
     'id' in cloudinaryImage &&
+    'format' in cloudinaryImage &&
+    'secure_url' in cloudinaryImage &&
     'version' in cloudinaryImage
   )
-    return cloudinaryImage as CloudinaryImage
+    return true
 
-  return
+  return false
 }
