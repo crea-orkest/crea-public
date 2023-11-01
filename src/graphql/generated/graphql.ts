@@ -107,7 +107,10 @@ export type ConcertListRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
 }
 
-export type ConcertModelContentField = TextBlockRecord | TwoColumnRecord
+export type ConcertModelContentField =
+  | HeaderRecord
+  | TextBlockRecord
+  | TwoColumnRecord
 
 export type ConcertModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<ConcertModelFilter>>>
@@ -248,7 +251,7 @@ export enum FaviconType {
 export type FileField = FileFieldInterface & {
   __typename?: 'FileField'
   _createdAt: Scalars['DateTime']['output']
-  /** Editing URL */
+  /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
   _editingUrl?: Maybe<Scalars['String']['output']>
   _updatedAt: Scalars['DateTime']['output']
   alt?: Maybe<Scalars['String']['output']>
@@ -319,7 +322,7 @@ export type FileFieldUrlArgs = {
 
 export type FileFieldInterface = {
   _createdAt: Scalars['DateTime']['output']
-  /** Editing URL */
+  /** The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request */
   _editingUrl?: Maybe<Scalars['String']['output']>
   _updatedAt: Scalars['DateTime']['output']
   alt?: Maybe<Scalars['String']['output']>
@@ -438,6 +441,41 @@ export type GlobalSeoField = {
   siteName?: Maybe<Scalars['String']['output']>
   titleSuffix?: Maybe<Scalars['String']['output']>
   twitterAccount?: Maybe<Scalars['String']['output']>
+}
+
+export type HeaderModelBodyField = {
+  __typename?: 'HeaderModelBodyField'
+  blocks: Array<Scalars['String']['output']>
+  links: Array<HeaderModelBodyLinksField>
+  value: Scalars['JsonField']['output']
+}
+
+export type HeaderModelBodyLinksField = ConcertRecord | PageRecord
+
+/** Block of type Header (header) */
+export type HeaderRecord = RecordInterface & {
+  __typename?: 'HeaderRecord'
+  _createdAt: Scalars['DateTime']['output']
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
+  _isValid: Scalars['BooleanType']['output']
+  _modelApiKey: Scalars['String']['output']
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>
+  _status: ItemStatus
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _updatedAt: Scalars['DateTime']['output']
+  body?: Maybe<HeaderModelBodyField>
+  cover?: Maybe<MediaItemRecord>
+  id: Scalars['ItemId']['output']
+}
+
+/** Block of type Header (header) */
+export type HeaderRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>
 }
 
 /** Block of type Afbeelding (image) */
@@ -2240,7 +2278,10 @@ export type OrientationFilter = {
   neq?: InputMaybe<UploadOrientation>
 }
 
-export type PageModelContentField = TextBlockRecord | TwoColumnRecord
+export type PageModelContentField =
+  | HeaderRecord
+  | TextBlockRecord
+  | TwoColumnRecord
 
 export type PageModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<PageModelFilter>>>
@@ -3374,6 +3415,68 @@ export type ConcertDetailFragment = {
   }>
   content: Array<
     | {
+        __typename: 'HeaderRecord'
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+        body?: {
+          __typename?: 'HeaderModelBodyField'
+          value: unknown
+          blocks: Array<string>
+          links: Array<
+            | {
+                __typename: 'ConcertRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'PageRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+          >
+        } | null
+        cover?: {
+          __typename: 'MediaItemRecord'
+          title?: string | null
+          itemUrl?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          item?: {
+            __typename?: 'FileField'
+            id: string
+            alt?: string | null
+            width?: number | null
+            height?: number | null
+            title?: string | null
+            url: string
+            video?: {
+              __typename?: 'UploadVideoField'
+              mp4Url?: string | null
+              muxAssetId: string
+              muxPlaybackId: string
+              streamingUrl: string
+              thumbnailUrl: string
+            } | null
+          } | null
+        } | null
+      }
+    | {
         __typename: 'TextBlockRecord'
         _createdAt: string
         _firstPublishedAt?: string | null
@@ -3912,6 +4015,68 @@ export type EventsFragment = {
     }>
     content: Array<
       | {
+          __typename: 'HeaderRecord'
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          body?: {
+            __typename?: 'HeaderModelBodyField'
+            value: unknown
+            blocks: Array<string>
+            links: Array<
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+            >
+          } | null
+          cover?: {
+            __typename: 'MediaItemRecord'
+            title?: string | null
+            itemUrl?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            item?: {
+              __typename?: 'FileField'
+              id: string
+              alt?: string | null
+              width?: number | null
+              height?: number | null
+              title?: string | null
+              url: string
+              video?: {
+                __typename?: 'UploadVideoField'
+                mp4Url?: string | null
+                muxAssetId: string
+                muxPlaybackId: string
+                streamingUrl: string
+                thumbnailUrl: string
+              } | null
+            } | null
+          } | null
+        }
+      | {
           __typename: 'TextBlockRecord'
           _createdAt: string
           _firstPublishedAt?: string | null
@@ -4396,6 +4561,97 @@ export type GeneralInfoFragment = {
   } | null
 }
 
+export type HeaderFragment = {
+  __typename: 'HeaderRecord'
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
+  body?: {
+    __typename?: 'HeaderModelBodyField'
+    value: unknown
+    blocks: Array<string>
+    links: Array<
+      | {
+          __typename: 'ConcertRecord'
+          title?: string | null
+          slug?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+        }
+      | {
+          __typename: 'PageRecord'
+          title?: string | null
+          slug?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+        }
+    >
+  } | null
+  cover?: {
+    __typename: 'MediaItemRecord'
+    title?: string | null
+    itemUrl?: string | null
+    _createdAt: string
+    _firstPublishedAt?: string | null
+    _publishedAt?: string | null
+    _updatedAt: string
+    id: string
+    item?: {
+      __typename?: 'FileField'
+      id: string
+      alt?: string | null
+      width?: number | null
+      height?: number | null
+      title?: string | null
+      url: string
+      video?: {
+        __typename?: 'UploadVideoField'
+        mp4Url?: string | null
+        muxAssetId: string
+        muxPlaybackId: string
+        streamingUrl: string
+        thumbnailUrl: string
+      } | null
+    } | null
+  } | null
+}
+
+export type HeaderBodyFragment = {
+  __typename?: 'HeaderModelBodyField'
+  value: unknown
+  blocks: Array<string>
+  links: Array<
+    | {
+        __typename: 'ConcertRecord'
+        title?: string | null
+        slug?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+      }
+    | {
+        __typename: 'PageRecord'
+        title?: string | null
+        slug?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+      }
+  >
+}
+
 type Identifiable_ConcertListRecord_Fragment = {
   __typename: 'ConcertListRecord'
   _createdAt: string
@@ -4416,6 +4672,15 @@ type Identifiable_ConcertRecord_Fragment = {
 
 type Identifiable_GeneralRecord_Fragment = {
   __typename: 'GeneralRecord'
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
+}
+
+type Identifiable_HeaderRecord_Fragment = {
+  __typename: 'HeaderRecord'
   _createdAt: string
   _firstPublishedAt?: string | null
   _publishedAt?: string | null
@@ -4535,6 +4800,7 @@ export type IdentifiableFragment =
   | Identifiable_ConcertListRecord_Fragment
   | Identifiable_ConcertRecord_Fragment
   | Identifiable_GeneralRecord_Fragment
+  | Identifiable_HeaderRecord_Fragment
   | Identifiable_ImageRecord_Fragment
   | Identifiable_LinkRecord_Fragment
   | Identifiable_LocationItemRecord_Fragment
@@ -4699,6 +4965,68 @@ export type PageFragment = {
   _updatedAt: string
   id: string
   content: Array<
+    | {
+        __typename: 'HeaderRecord'
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+        body?: {
+          __typename?: 'HeaderModelBodyField'
+          value: unknown
+          blocks: Array<string>
+          links: Array<
+            | {
+                __typename: 'ConcertRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'PageRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+          >
+        } | null
+        cover?: {
+          __typename: 'MediaItemRecord'
+          title?: string | null
+          itemUrl?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          item?: {
+            __typename?: 'FileField'
+            id: string
+            alt?: string | null
+            width?: number | null
+            height?: number | null
+            title?: string | null
+            url: string
+            video?: {
+              __typename?: 'UploadVideoField'
+              mp4Url?: string | null
+              muxAssetId: string
+              muxPlaybackId: string
+              streamingUrl: string
+              thumbnailUrl: string
+            } | null
+          } | null
+        } | null
+      }
     | {
         __typename: 'TextBlockRecord'
         _createdAt: string
@@ -5109,6 +5437,68 @@ export type PageDetailFragment = {
   _updatedAt: string
   id: string
   content: Array<
+    | {
+        __typename: 'HeaderRecord'
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+        body?: {
+          __typename?: 'HeaderModelBodyField'
+          value: unknown
+          blocks: Array<string>
+          links: Array<
+            | {
+                __typename: 'ConcertRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'PageRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+          >
+        } | null
+        cover?: {
+          __typename: 'MediaItemRecord'
+          title?: string | null
+          itemUrl?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          item?: {
+            __typename?: 'FileField'
+            id: string
+            alt?: string | null
+            width?: number | null
+            height?: number | null
+            title?: string | null
+            url: string
+            video?: {
+              __typename?: 'UploadVideoField'
+              mp4Url?: string | null
+              muxAssetId: string
+              muxPlaybackId: string
+              streamingUrl: string
+              thumbnailUrl: string
+            } | null
+          } | null
+        } | null
+      }
     | {
         __typename: 'TextBlockRecord'
         _createdAt: string
@@ -6584,6 +6974,68 @@ export type GetEventQuery = {
     }>
     content: Array<
       | {
+          __typename: 'HeaderRecord'
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          body?: {
+            __typename?: 'HeaderModelBodyField'
+            value: unknown
+            blocks: Array<string>
+            links: Array<
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+            >
+          } | null
+          cover?: {
+            __typename: 'MediaItemRecord'
+            title?: string | null
+            itemUrl?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            item?: {
+              __typename?: 'FileField'
+              id: string
+              alt?: string | null
+              width?: number | null
+              height?: number | null
+              title?: string | null
+              url: string
+              video?: {
+                __typename?: 'UploadVideoField'
+                mp4Url?: string | null
+                muxAssetId: string
+                muxPlaybackId: string
+                streamingUrl: string
+                thumbnailUrl: string
+              } | null
+            } | null
+          } | null
+        }
+      | {
           __typename: 'TextBlockRecord'
           _createdAt: string
           _firstPublishedAt?: string | null
@@ -7040,6 +7492,68 @@ export type GetEventPageQuery = {
       image?: unknown | null
     }>
     content: Array<
+      | {
+          __typename: 'HeaderRecord'
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          body?: {
+            __typename?: 'HeaderModelBodyField'
+            value: unknown
+            blocks: Array<string>
+            links: Array<
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+            >
+          } | null
+          cover?: {
+            __typename: 'MediaItemRecord'
+            title?: string | null
+            itemUrl?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            item?: {
+              __typename?: 'FileField'
+              id: string
+              alt?: string | null
+              width?: number | null
+              height?: number | null
+              title?: string | null
+              url: string
+              video?: {
+                __typename?: 'UploadVideoField'
+                mp4Url?: string | null
+                muxAssetId: string
+                muxPlaybackId: string
+                streamingUrl: string
+                thumbnailUrl: string
+              } | null
+            } | null
+          } | null
+        }
       | {
           __typename: 'TextBlockRecord'
           _createdAt: string
@@ -7564,6 +8078,68 @@ export type GetEventsQuery = {
     }>
     content: Array<
       | {
+          __typename: 'HeaderRecord'
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          body?: {
+            __typename?: 'HeaderModelBodyField'
+            value: unknown
+            blocks: Array<string>
+            links: Array<
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+            >
+          } | null
+          cover?: {
+            __typename: 'MediaItemRecord'
+            title?: string | null
+            itemUrl?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            item?: {
+              __typename?: 'FileField'
+              id: string
+              alt?: string | null
+              width?: number | null
+              height?: number | null
+              title?: string | null
+              url: string
+              video?: {
+                __typename?: 'UploadVideoField'
+                mp4Url?: string | null
+                muxAssetId: string
+                muxPlaybackId: string
+                streamingUrl: string
+                thumbnailUrl: string
+              } | null
+            } | null
+          } | null
+        }
+      | {
           __typename: 'TextBlockRecord'
           _createdAt: string
           _firstPublishedAt?: string | null
@@ -8032,6 +8608,68 @@ export type GetFutureEventsQuery = {
       image?: unknown | null
     }>
     content: Array<
+      | {
+          __typename: 'HeaderRecord'
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          body?: {
+            __typename?: 'HeaderModelBodyField'
+            value: unknown
+            blocks: Array<string>
+            links: Array<
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+            >
+          } | null
+          cover?: {
+            __typename: 'MediaItemRecord'
+            title?: string | null
+            itemUrl?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            item?: {
+              __typename?: 'FileField'
+              id: string
+              alt?: string | null
+              width?: number | null
+              height?: number | null
+              title?: string | null
+              url: string
+              video?: {
+                __typename?: 'UploadVideoField'
+                mp4Url?: string | null
+                muxAssetId: string
+                muxPlaybackId: string
+                streamingUrl: string
+                thumbnailUrl: string
+              } | null
+            } | null
+          } | null
+        }
       | {
           __typename: 'TextBlockRecord'
           _createdAt: string
@@ -8556,6 +9194,68 @@ export type GetPageQuery = {
     _updatedAt: string
     id: string
     content: Array<
+      | {
+          __typename: 'HeaderRecord'
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          body?: {
+            __typename?: 'HeaderModelBodyField'
+            value: unknown
+            blocks: Array<string>
+            links: Array<
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+            >
+          } | null
+          cover?: {
+            __typename: 'MediaItemRecord'
+            title?: string | null
+            itemUrl?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            item?: {
+              __typename?: 'FileField'
+              id: string
+              alt?: string | null
+              width?: number | null
+              height?: number | null
+              title?: string | null
+              url: string
+              video?: {
+                __typename?: 'UploadVideoField'
+                mp4Url?: string | null
+                muxAssetId: string
+                muxPlaybackId: string
+                streamingUrl: string
+                thumbnailUrl: string
+              } | null
+            } | null
+          } | null
+        }
       | {
           __typename: 'TextBlockRecord'
           _createdAt: string
@@ -9765,36 +10465,62 @@ export const PageLinkFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<PageLinkFragment, unknown>
-export const EventBlockFragmentDoc = {
+export const HeaderBodyFragmentDoc = {
   kind: 'Document',
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -9836,8 +10562,27 @@ export const EventBlockFragmentDoc = {
         ],
       },
     },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'pageLink' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'PageRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+        ],
+      },
+    },
   ],
-} as unknown as DocumentNode<EventBlockFragment, unknown>
+} as unknown as DocumentNode<HeaderBodyFragment, unknown>
 export const MediaItemFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -9944,6 +10689,322 @@ export const MediaItemFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<MediaItemFragment, unknown>
+export const HeaderFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'concertLink' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'pageLink' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'PageRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'videoUpload' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'UploadVideoField' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'file' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'FileField' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'video' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'videoUpload' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'headerBody' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'links' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mediaItem' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MediaItemRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'item' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'file' },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<HeaderFragment, unknown>
+export const EventBlockFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'concertLink' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<EventBlockFragment, unknown>
 export const ImageFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -12428,6 +13489,22 @@ export const ConcertDetailFragmentDoc = {
                   kind: 'InlineFragment',
                   typeCondition: {
                     kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
                     name: { kind: 'Name', value: 'TextBlockRecord' },
                   },
                   selectionSet: {
@@ -12583,31 +13660,57 @@ export const ConcertDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -12672,6 +13775,36 @@ export const ConcertDetailFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -13152,6 +14285,49 @@ export const ConcertDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlock' },
       typeCondition: {
         kind: 'NamedType',
@@ -13457,31 +14633,57 @@ export const EventsFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -13514,6 +14716,79 @@ export const EventsFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -14081,6 +15356,22 @@ export const EventsFragmentDoc = {
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
                 {
                   kind: 'InlineFragment',
                   typeCondition: {
@@ -14656,6 +15947,22 @@ export const PageFragmentDoc = {
                   kind: 'InlineFragment',
                   typeCondition: {
                     kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
                     name: { kind: 'Name', value: 'TextBlockRecord' },
                   },
                   selectionSet: {
@@ -14749,31 +16056,57 @@ export const PageFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -14856,6 +16189,36 @@ export const PageFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -15282,6 +16645,49 @@ export const PageFragmentDoc = {
                       },
                     ],
                   },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
                 },
               ],
             },
@@ -15393,6 +16799,22 @@ export const PageDetailFragmentDoc = {
                   kind: 'InlineFragment',
                   typeCondition: {
                     kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
                     name: { kind: 'Name', value: 'TextBlockRecord' },
                   },
                   selectionSet: {
@@ -15486,31 +16908,57 @@ export const PageDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -15593,6 +17041,36 @@ export const PageDetailFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -16019,6 +17497,49 @@ export const PageDetailFragmentDoc = {
                       },
                     ],
                   },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
                 },
               ],
             },
@@ -16581,7 +18102,7 @@ export const GetAuthorsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetAuthorsMetaQuery, GetAuthorsMetaQueryVariables>
 export const GetEventDocument = {
-  __meta__: { hash: '4985d596d9f747317f440b0659f09f175761c6b6' },
+  __meta__: { hash: '12ba74a72fc9e7e35796eec1b7324634228b83c0' },
   kind: 'Document',
   definitions: [
     {
@@ -16846,31 +18367,57 @@ export const GetEventDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -16903,6 +18450,79 @@ export const GetEventDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -17474,6 +19094,22 @@ export const GetEventDocument = {
                   kind: 'InlineFragment',
                   typeCondition: {
                     kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
                     name: { kind: 'Name', value: 'TextBlockRecord' },
                   },
                   selectionSet: {
@@ -17511,7 +19147,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: 'c45bdbc4d7e1b0ac2e138b385b521e66239ddf78' },
+  __meta__: { hash: 'ccb89560d3bc99a299992feaad0a167e4768320c' },
   kind: 'Document',
   definitions: [
     {
@@ -17776,31 +19412,57 @@ export const GetEventPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -17833,6 +19495,79 @@ export const GetEventPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -18400,6 +20135,22 @@ export const GetEventPageDocument = {
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
                 {
                   kind: 'InlineFragment',
                   typeCondition: {
@@ -18779,7 +20530,7 @@ export const GetEventsUrlsDocument = {
   ],
 } as unknown as DocumentNode<GetEventsUrlsQuery, GetEventsUrlsQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '389d23259b4ba8c24b390e9274b5a6d2395e90f8' },
+  __meta__: { hash: '2defc71fe6565fb848f5b9c4e2972f6239d7c216' },
   kind: 'Document',
   definitions: [
     {
@@ -19070,31 +20821,57 @@ export const GetEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -19127,6 +20904,79 @@ export const GetEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -19698,6 +21548,22 @@ export const GetEventsDocument = {
                   kind: 'InlineFragment',
                   typeCondition: {
                     kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
                     name: { kind: 'Name', value: 'TextBlockRecord' },
                   },
                   selectionSet: {
@@ -19761,7 +21627,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '97096bd45e8ed4dcce488380bee13122a1f0f417' },
+  __meta__: { hash: '06ad1f41427f58bc2053664738c28d21019ee529' },
   kind: 'Document',
   definitions: [
     {
@@ -20071,31 +21937,57 @@ export const GetFutureEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -20128,6 +22020,79 @@ export const GetFutureEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -20695,6 +22660,22 @@ export const GetFutureEventsDocument = {
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
                 {
                   kind: 'InlineFragment',
                   typeCondition: {
@@ -21217,7 +23198,7 @@ export const GetLocationsDocument = {
   ],
 } as unknown as DocumentNode<GetLocationsQuery, GetLocationsQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: 'fb9eece118f57cc3d62da0abb09fdd0d7178dbad' },
+  __meta__: { hash: '0452bb3a53669775b6e66e82a0ea12b42415d04e' },
   kind: 'Document',
   definitions: [
     {
@@ -21343,31 +23324,57 @@ export const GetPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'eventBlock' },
+      name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ConcertListRecord' },
+        name: { kind: 'Name', value: 'HeaderModelBodyField' },
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'value' } },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pinnedConcerts' },
+            name: { kind: 'Name', value: 'links' },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'concertLink' },
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
                 },
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
         ],
       },
     },
@@ -21450,6 +23457,79 @@ export const GetPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'itemUrl' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'header' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'HeaderRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'body' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'headerBody' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'cover' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'eventBlock' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertListRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pinnedConcerts' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'concertLink' },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -21978,6 +24058,22 @@ export const GetPageDocument = {
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'HeaderRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'header' },
+                      },
+                    ],
+                  },
+                },
                 {
                   kind: 'InlineFragment',
                   typeCondition: {

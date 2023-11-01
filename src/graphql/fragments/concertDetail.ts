@@ -1,9 +1,11 @@
+import { type TypedDocumentNode, gql } from '@urql/core'
+
 import { author } from './author'
 import { file } from './file'
 import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
-import { type TypedDocumentNode, gql } from '@urql/core'
 import { textBlock, twoColum } from './textBlock'
+import { header } from './header'
 
 export const concertDetail: TypedDocumentNode = gql`
   fragment concertDetail on ConcertRecord {
@@ -20,6 +22,9 @@ export const concertDetail: TypedDocumentNode = gql`
       ...author
     }
     content {
+      ... on HeaderRecord {
+        ...header
+      }
       ... on TextBlockRecord {
         ...textBlock
       }
@@ -28,6 +33,7 @@ export const concertDetail: TypedDocumentNode = gql`
       }
     }
   }
+  ${header}
   ${identifiable}
   ${locationItem}
   ${file}

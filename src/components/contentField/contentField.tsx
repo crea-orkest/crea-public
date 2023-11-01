@@ -4,12 +4,14 @@ import { renderBlock } from './renderBlock'
 import { renderInlineRecord } from './renderInlineRecord'
 import { renderLinkToRecord } from './renderLinkToRecord'
 import type {
+  HeaderFragment,
   TextBlockFragment,
   TwoColumFragment,
 } from 'graphql/generated/graphql'
 
 interface Props {
   data:
+    | HeaderFragment['body']
     | TextBlockFragment['content']
     | TwoColumFragment['leftContent']
     | TwoColumFragment['rightContent']

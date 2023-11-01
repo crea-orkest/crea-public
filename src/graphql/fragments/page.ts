@@ -2,6 +2,7 @@ import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 import { tag } from './tag'
 import { textBlock, twoColum } from './textBlock'
+import { header } from './header'
 
 export const page = gql`
   fragment page on PageRecord {
@@ -9,6 +10,9 @@ export const page = gql`
     title
     slug
     content {
+      ... on HeaderRecord {
+        ...header
+      }
       ... on TextBlockRecord {
         ...textBlock
       }
@@ -17,6 +21,7 @@ export const page = gql`
       }
     }
   }
+  ${header}
   ${identifiable}
   ${textBlock}
   ${twoColum}
