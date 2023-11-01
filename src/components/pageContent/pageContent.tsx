@@ -5,6 +5,7 @@ import React from 'react'
 import { TwoColumContentField } from 'components/twoColumContentField'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
+import { Header } from 'components/header'
 
 export interface Props {
   items: Event['content'] | PageDetailFragment['content']
@@ -12,19 +13,22 @@ export interface Props {
 
 export const PageContent = ({ items }: Props) => {
   return items?.map((item) => {
-    if ('leftContent' in item || 'rightContent' in item) {
+    if (item.__typename === 'TwoColumnRecord') {
       return (
         <section key={item.id} className={classNames(styles.defaultSpacing)}>
           <TwoColumContentField item={item} />
         </section>
       )
     }
-    if ('content' in item) {
+    if (item.__typename === 'TextBlockRecord') {
       return (
         <section key={item.id} className={classNames(styles.defaultSpacing)}>
           <ContentField data={item.content} />
         </section>
       )
+    }
+    if (item.__typename === 'HeaderRecord') {
+      return <Header key={item.id} data={item} />
     }
     return null
   })

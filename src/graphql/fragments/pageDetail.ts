@@ -2,6 +2,7 @@ import { eventBlock } from './eventBlock'
 import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 import { textBlock, twoColum } from './textBlock'
+import { header } from './header'
 
 export const pageDetail = gql`
   fragment pageDetail on PageRecord {
@@ -9,6 +10,9 @@ export const pageDetail = gql`
     title
     slug
     content {
+      ... on HeaderRecord {
+        ...header
+      }
       ... on TextBlockRecord {
         ...textBlock
       }
@@ -17,6 +21,7 @@ export const pageDetail = gql`
       }
     }
   }
+  ${header}
   ${identifiable}
   ${eventBlock}
   ${textBlock}
