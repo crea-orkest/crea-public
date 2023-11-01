@@ -1,7 +1,7 @@
 'use client'
 
 import { NavigationSubMenuItem } from '../navigationSubMenuItem'
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import type { SubmenuItemFragment } from 'graphql/generated/graphql'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
@@ -13,27 +13,35 @@ export interface SubMenuProps {
 
 export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
   const submenu: SubmenuItemFragment['menu'] = JSON.parse(item)
-  const [visible, setVisible] = React.useState(false)
+  const [visible, setVisible] = useState(false)
 
   const handleClick = () => {
     setVisible(!visible)
   }
 
-  React.useEffect(() => {
-    function checkKeyPress(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
+  const dropdown = useRef<HTMLLIElement>(null)
+
+  useEffect(() => {
+    // only add the event listener when the dropdown is opened
+    if (!visible) return
+    const handleClick = (event: MouseEvent) => {
+      if (
+        dropdown.current &&
+        event.target &&
+        !dropdown.current.contains(event.target as Node)
+      ) {
         setVisible(false)
       }
     }
-    document.addEventListener('keydown', checkKeyPress)
-
-    return document.removeEventListener('keydown', checkKeyPress)
-  })
+    window.addEventListener('click', handleClick)
+    // clean up
+    return () => window.removeEventListener('click', handleClick)
+  }, [visible])
 
   if (!label) return null
 
   return (
-    <li className={classNames(styles.listItem)}>
+    <li className={classNames(styles.listItem)} ref={dropdown}>
       <button
         className={classNames(styles.button, 'text-large')}
         disabled={Boolean(submenu?.length === 0)}

@@ -3,6 +3,7 @@
 @use '../../styles/tokens/spacing.scss' as spacing;
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/typography.scss' as typography;
+@use '../../styles/tokens/z-indices.scss' as z;
 @use '../../styles/mixins/navigation.scss' as navigation;
 
 .listItem {
@@ -19,12 +20,18 @@
 
 .list {
   position: absolute;
-  width: max-content;
+  top: calc(100% + map.get(spacing.$rem, 8));
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: colors.$background;
   list-style: none;
-  transform: translatex(-1rem) translateY(1rem);
-  padding: 0;
+  padding: 0 map.get(spacing.$rem, 16);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: z.$low;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    width: max-content;
+  }
 }

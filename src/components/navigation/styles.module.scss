@@ -13,8 +13,9 @@
 .content {
   display: flex;
   flex-direction: column-reverse;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
+  gap: map.get(spacing.$rem, 8);
 
   @media screen and (min-width: breakpoints.$sm) {
     flex-direction: row;
