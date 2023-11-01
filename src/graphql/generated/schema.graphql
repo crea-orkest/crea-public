@@ -74,7 +74,10 @@ type ConcertListRecord implements RecordInterface {
   showAllConcerts: BooleanType
 }
 
-union ConcertModelContentField = TextBlockRecord | TwoColumnRecord
+union ConcertModelContentField =
+    HeaderRecord
+  | TextBlockRecord
+  | TwoColumnRecord
 
 input ConcertModelFilter {
   _createdAt: CreatedAtFilter
@@ -288,7 +291,7 @@ type FileField implements FileFieldInterface {
   _createdAt: DateTime!
 
   """
-  Editing URL
+  The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request
   """
   _editingUrl: String
   _updatedAt: DateTime!
@@ -409,7 +412,7 @@ interface FileFieldInterface {
   _createdAt: DateTime!
 
   """
-  Editing URL
+  The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request
   """
   _editingUrl: String
   _updatedAt: DateTime!
@@ -608,6 +611,47 @@ type GlobalSeoField {
   siteName: String
   titleSuffix: String
   twitterAccount: String
+}
+
+type HeaderModelBodyField {
+  blocks: [String!]!
+  links: [HeaderModelBodyLinksField!]!
+  value: JsonField!
+}
+
+union HeaderModelBodyLinksField = ConcertRecord | PageRecord
+
+"""
+Block of type Header (header)
+"""
+type HeaderRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """
+  Editing URL
+  """
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """
+  Generates SEO and Social card meta tags to be used in your frontend
+  """
+  _seoMetaTags(
+    """
+    The locale to use to fetch the field's content
+    """
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  body: HeaderModelBodyField
+  cover: MediaItemRecord
+  id: ItemId!
 }
 
 """
@@ -2666,7 +2710,7 @@ input OrientationFilter {
   neq: UploadOrientation
 }
 
-union PageModelContentField = TextBlockRecord | TwoColumnRecord
+union PageModelContentField = HeaderRecord | TextBlockRecord | TwoColumnRecord
 
 input PageModelFilter {
   _createdAt: CreatedAtFilter
