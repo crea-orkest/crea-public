@@ -12,7 +12,7 @@ export const DefaultPage = async ({ slug }: Props) => {
   if (!data) return notFound()
 
   return (
-    <article className="content-layout">
+    <article>
       <h1 className="sr-only">{data.title}</h1>
       <PageContent items={data.content} />
     </article>
