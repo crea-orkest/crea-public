@@ -45,8 +45,8 @@ export const Navigation: React.FC = async () => {
             className={classNames(styles.logo)}
             src="/img/logo-crea-orkest.png"
             alt="CREA Orkest"
-            fill
-            sizes="(min-width: 500px) 50vw, 100vw"
+            width={200}
+            height={50}
           />
         </Link>
       </div>

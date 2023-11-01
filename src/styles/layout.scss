@@ -1,0 +1,23 @@
+.content-layout {
+  width: 100%;
+  margin: 0 auto;
+  max-width: layout.$default-width;
+  padding-left: map.get(spacings.$rem, 24);
+  padding-right: map.get(spacings.$rem, 24);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    padding-left: map.get(spacings.$rem, 64);
+    padding-right: map.get(spacings.$rem, 64);
+  }
+}
+
+.with-background {
+  background-image: url('/img/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+hr {
+  border-color: colors.$secondary-light;
+  margin: map.get(spacings.$rem, 16) 0;
+}

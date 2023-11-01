@@ -1,9 +1,11 @@
 'use client'
 
-import { NavigationSubMenuItem } from '../navigationSubMenuItem'
-import React from 'react'
-import type { SubmenuItemFragment } from 'graphql/generated/graphql'
+import React, { useState } from 'react'
 import classNames from 'classnames'
+import type { SubmenuItemFragment } from 'graphql/generated/graphql'
+import { NavigationSubMenuItem } from '../navigationSubMenuItem'
+import { useOutsideClick } from 'hooks/useOutsideClick'
+import { useEscapeKey } from 'hooks/useEscapeKey'
 import styles from './styles.module.scss'
 
 export interface SubMenuProps {
@@ -13,27 +15,18 @@ export interface SubMenuProps {
 
 export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
   const submenu: SubmenuItemFragment['menu'] = JSON.parse(item)
-  const [visible, setVisible] = React.useState(false)
+  const [visible, setVisible] = useState(false)
+  const ref = useOutsideClick<HTMLLIElement>(() => setVisible(false))
+  useEscapeKey(() => setVisible(false))
 
   const handleClick = () => {
     setVisible(!visible)
   }
 
-  React.useEffect(() => {
-    function checkKeyPress(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
-        setVisible(false)
-      }
-    }
-    document.addEventListener('keydown', checkKeyPress)
-
-    return document.removeEventListener('keydown', checkKeyPress)
-  })
-
   if (!label) return null
 
   return (
-    <li className={classNames(styles.listItem)}>
+    <li className={classNames(styles.listItem)} ref={ref}>
       <button
         className={classNames(styles.button, 'text-large')}
         disabled={Boolean(submenu?.length === 0)}
@@ -43,16 +36,20 @@ export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
         {label}
       </button>
       {visible && (
-        <ul className={classNames(styles.list)}>
-          {submenu?.map((item) => (
-            <NavigationSubMenuItem
-              key={item.id}
-              slug={item?.link?.slug}
-              label={item.label}
-              onClick={handleClick}
-            />
-          ))}
-        </ul>
+        <>
+          <ul className={classNames(styles.list, 'with-background')}>
+            {submenu?.map((item) => (
+              <NavigationSubMenuItem
+                key={item.id}
+                slug={item?.link?.slug}
+                label={item.label}
+                onClick={handleClick}
+              />
+            ))}
+          </ul>
+
+          <div className={classNames(styles.arrow)} />
+        </>
       )}
     </li>
   )

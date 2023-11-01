@@ -3,34 +3,51 @@
 @use '../../styles/tokens/spacing.scss' as spacing;
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/typography.scss' as typography;
+@use '../../styles/tokens/z-indices.scss' as z;
+@use '../../styles/mixins/navigation.scss' as navigation;
 
 .listItem {
   position: relative;
 }
 
 .button {
+  padding: 0;
   background: none;
   border: none;
-  padding: 0.5rem 0rem;
-  font-family: typography.$dm-serif;
-  color: colors.$dark;
-  cursor: pointer;
 
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: colors.$secondary;
-  }
+  @include navigation.link;
+  cursor: pointer;
 }
 
 .list {
   position: absolute;
-  width: max-content;
+  top: calc(100% + map.get(spacing.$rem, 24));
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: colors.$background;
   list-style: none;
-  transform: translatex(-1rem) translateY(1rem);
-  padding: 0;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: map.get(spacing.$rem, 8) map.get(spacing.$rem, 16);
+  background-color: colors.$light;
+  z-index: z.$low;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: max-content;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: calc(100% + map.get(spacing.$rem, 16));
+  left: 50%;
+  transform: translate(-50%, 0) rotate(45deg);
+  width: 1rem;
+  height: 1rem;
+  background-color: colors.$light;
+  box-shadow: 1px 0 4px rgba(0, 0, 0, 0.15);
+  border-radius: 0.1rem;
 }
