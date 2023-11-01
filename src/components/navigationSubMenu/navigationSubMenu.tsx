@@ -5,6 +5,8 @@ import React from 'react'
 import type { SubmenuItemFragment } from 'graphql/generated/graphql'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
+import { useOutsideClick } from 'hooks/useOutsideClick'
+import { useEscapeKey } from 'hooks/useEscapeKey'
 
 export interface SubMenuProps {
   label?: string | null
@@ -14,26 +16,17 @@ export interface SubMenuProps {
 export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
   const submenu: SubmenuItemFragment['menu'] = JSON.parse(item)
   const [visible, setVisible] = React.useState(false)
+  const ref = useOutsideClick<HTMLLIElement>(() => setVisible(false))
+  useEscapeKey(() => setVisible(false))
 
   const handleClick = () => {
     setVisible(!visible)
   }
 
-  React.useEffect(() => {
-    function checkKeyPress(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
-        setVisible(false)
-      }
-    }
-    document.addEventListener('keydown', checkKeyPress)
-
-    return document.removeEventListener('keydown', checkKeyPress)
-  })
-
   if (!label) return null
 
   return (
-    <li className={classNames(styles.listItem)}>
+    <li ref={ref}>
       <button
         className={classNames(styles.button, 'text-large')}
         disabled={Boolean(submenu?.length === 0)}
