@@ -24,7 +24,7 @@ describe('Default layout', () => {
   it('shows all the data', () => {
     const { container } = render(
       <DefaultLayout>
-        <main>main content</main>
+        <div>main content</div>
       </DefaultLayout>
     )
     expect(container).toMatchSnapshot()
