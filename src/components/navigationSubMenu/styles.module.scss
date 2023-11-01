@@ -4,10 +4,6 @@
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/typography.scss' as typography;
 
-.listItem {
-  position: relative;
-}
-
 .button {
   background: none;
   border: none;
@@ -15,6 +11,7 @@
   font-family: typography.$dm-serif;
   color: colors.$dark;
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover,
   &:focus {
@@ -25,7 +22,6 @@
 
 .list {
   position: absolute;
-  width: max-content;
   display: flex;
   flex-direction: column;
   background-color: colors.$background;
@@ -33,4 +29,11 @@
   transform: translatex(-1rem) translateY(1rem);
   padding: 0;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: breakpoints.$sm) {
+    left: 0;
+    top: 10rem;
+    transform: none;
+    width: 100vw;
+  }
 }
