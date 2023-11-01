@@ -3,24 +3,18 @@
 @use '../../styles/tokens/spacing.scss' as spacing;
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/typography.scss' as typography;
+@use '../../styles/mixins/navigation.scss' as navigation;
 
 .listItem {
   position: relative;
 }
 
 .button {
+  @include navigation.link;
+
   background: none;
   border: none;
-  padding: 0.5rem 0rem;
-  font-family: typography.$dm-serif;
-  color: colors.$dark;
   cursor: pointer;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: colors.$secondary;
-  }
 }
 
 .list {
