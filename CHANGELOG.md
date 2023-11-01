@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.1.16](https://github.com/crea-orkest/crea-public/compare/v0.1.15...v0.1.16) (2023-11-01)
+
+
+### Features
+
+* **defaultLayout:** add main element ([020afef](https://github.com/crea-orkest/crea-public/commit/020afef461715b20e315feb4c6e60d703589e9e8))
+* **generated:** update schema ([da3ab67](https://github.com/crea-orkest/crea-public/commit/da3ab67eb152ffdd4aa4fa9f9e3f4e53c51f664e))
+* header ([56931bd](https://github.com/crea-orkest/crea-public/commit/56931bd0da70ae4c6ab84f8d097a5a30fd03c150))
+* **hooks:** add and use hooks ([070a20a](https://github.com/crea-orkest/crea-public/commit/070a20a928eee70d718ad168bcb868af7be407e8))
+* **navigationItem:** make mixin for nav-link styling ([33ab833](https://github.com/crea-orkest/crea-public/commit/33ab8332156e458e22bfcfa20384e25b0f20e7ab))
+* **navigationSubMenu:** implement styling ([b1e330b](https://github.com/crea-orkest/crea-public/commit/b1e330b8494f4a9b5a572737e7ec873226374ec0))
+* **navigationSubMenu:** update submenu styling ([491b9c8](https://github.com/crea-orkest/crea-public/commit/491b9c8c5f4115d25328f82258869d871abe8e14))
+* **navigation:** update navigation logo ([9483486](https://github.com/crea-orkest/crea-public/commit/948348614b946f17321f369a55a5ed1712526a85))
+* rules of hooks as 1st dep ([75d0eb6](https://github.com/crea-orkest/crea-public/commit/75d0eb666cdd986593250e8ac27195c2241e24f3))
+* **snapshots:** update snapshots ([8afc262](https://github.com/crea-orkest/crea-public/commit/8afc26229f72d1936a04856d5275339bf38c8391))
+* **snapshots:** update test snapshot ([ce2de91](https://github.com/crea-orkest/crea-public/commit/ce2de919241144bc09b40312dfd826ad086b1762))
+* **styles:** update global styling ([7926578](https://github.com/crea-orkest/crea-public/commit/7926578093332927df0cd6bcf896c173ab40e343))
+
+
+### Bug Fixes
+
+* cloudinary image helper ([60f9398](https://github.com/crea-orkest/crea-public/commit/60f93983afff9268803a54ddbe994f4cdd2922e4))
+* disable import sort ([2f2397d](https://github.com/crea-orkest/crea-public/commit/2f2397db702ebf6a0a9b811cfb7e003eccacf585))
+* sort imports off ([a474700](https://github.com/crea-orkest/crea-public/commit/a474700c4bd852c76a861996f9e7134ff8e00543))
+
 ## [0.1.15](https://github.com/crea-orkest/crea-public/compare/v0.1.14...v0.1.15) (2023-10-30)
 
 
