@@ -28,17 +28,17 @@ describe('metadataFormatter', () => {
           },
         ],
         locale: 'nl-NL',
-        siteName: 'Het Crea Orkest',
-        title: 'Het Crea Orkest',
+        siteName: 'Het CREA Orkest',
+        title: 'Het CREA Orkest',
         type: 'article',
         url: 'https://creaorkest.nl/some-page',
       },
-      title: 'Het Crea Orkest',
+      title: 'Het CREA Orkest',
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het Crea Orkest',
+        title: 'Het CREA Orkest',
       },
     })
   })
@@ -77,7 +77,7 @@ describe('metadataFormatter', () => {
       {
         attributes: {
           name: 'description',
-          content: 'Kom in contact met het Crea Orkest',
+          content: 'Kom in contact met het CREA Orkest',
         },
         content: null,
         tag: 'meta',
@@ -85,7 +85,7 @@ describe('metadataFormatter', () => {
       {
         attributes: {
           property: 'og:description',
-          content: 'Kom in contact met het Crea Orkest',
+          content: 'Kom in contact met het CREA Orkest',
         },
         content: null,
         tag: 'meta',
@@ -93,7 +93,7 @@ describe('metadataFormatter', () => {
       {
         attributes: {
           name: 'twitter:description',
-          content: 'Kom in contact met het Crea Orkest',
+          content: 'Kom in contact met het CREA Orkest',
         },
         content: null,
         tag: 'meta',
@@ -141,7 +141,7 @@ describe('metadataFormatter', () => {
       },
     ],
     seo: {
-      description: 'Kom in contact met het Crea Orkest',
+      description: 'Kom in contact met het CREA Orkest',
       image: {
         id: '65318740',
         alt: null,
@@ -161,7 +161,7 @@ describe('metadataFormatter', () => {
       alternates: {
         canonical: 'https://creaorkest.nl/some-page',
       },
-      description: 'Kom in contact met het Crea Orkest',
+      description: 'Kom in contact met het CREA Orkest',
       manifest: 'https://creaorkest.nl/manifest.json',
       metadataBase: expect.objectContaining({
         host: 'creaorkest.nl',
@@ -181,8 +181,8 @@ describe('metadataFormatter', () => {
           },
         ],
         locale: 'nl-NL',
-        siteName: 'Het Crea Orkest',
-        title: 'Het Crea Orkest',
+        siteName: 'Het CREA Orkest',
+        title: 'Het CREA Orkest',
         type: 'article',
         url: 'https://creaorkest.nl/some-page',
       },
@@ -191,7 +191,7 @@ describe('metadataFormatter', () => {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het Crea Orkest',
+        title: 'Het CREA Orkest',
       },
     })
   })

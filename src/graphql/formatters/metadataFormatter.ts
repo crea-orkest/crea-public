@@ -1,3 +1,4 @@
+import { metaTitleFormatter } from './metaTitleFormatter'
 import type { Metadata } from 'next'
 import type {
   EventPageSeoFragment,
@@ -5,7 +6,7 @@ import type {
 } from 'graphql/generated/graphql'
 
 const base = 'https://creaorkest.nl' // TODO: runtime variable
-const defaultTitle = 'Het Crea Orkest'
+const defaultTitle = 'Het CREA Orkest'
 const defaultDescription =
   'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.'
 const defaultLocale = 'nl-NL'
@@ -13,7 +14,7 @@ export const metadataFormatter = (
   data: PageDetailSeoFragment | EventPageSeoFragment | undefined,
   slug: string
 ): Metadata => ({
-  title: data?.seo?.title ?? defaultTitle, // TODO: default title formatters
+  title: metaTitleFormatter(data),
   description: data?.seo?.description ?? defaultDescription,
   metadataBase: new URL(base),
   alternates: {

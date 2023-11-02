@@ -38,7 +38,7 @@ describe('getPageSeo', () => {
       alternates: {
         canonical: 'https://creaorkest.nl/',
       },
-      title: 'Het Crea Orkest',
+      title: 'Het CREA Orkest',
       description:
         'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
       manifest: 'https://creaorkest.nl/manifest.json',
@@ -59,8 +59,8 @@ describe('getPageSeo', () => {
           },
         ],
         locale: 'nl-NL',
-        siteName: 'Het Crea Orkest',
-        title: 'Het Crea Orkest',
+        siteName: 'Het CREA Orkest',
+        title: 'Het CREA Orkest',
         type: 'article',
         url: 'https://creaorkest.nl/',
       },
@@ -68,7 +68,7 @@ describe('getPageSeo', () => {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het Crea Orkest',
+        title: 'Het CREA Orkest',
       },
     })
   })
@@ -93,17 +93,17 @@ describe('getPageSeo', () => {
           'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
         images: [{ height: 900, url: '', width: 1200 }],
         locale: 'nl-NL',
-        siteName: 'Het Crea Orkest',
-        title: 'Het Crea Orkest',
+        siteName: 'Het CREA Orkest',
+        title: 'Het CREA Orkest',
         type: 'article',
         url: 'https://creaorkest.nl/',
       },
-      title: 'Het Crea Orkest',
+      title: 'Het CREA Orkest',
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het Crea Orkest',
+        title: 'Het CREA Orkest',
       },
     })
     expect(error).toBeInstanceOf(Error)

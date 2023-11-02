@@ -1,7 +1,7 @@
 {
   "name": "crea-public",
   "version": "0.1.16",
-  "description": "The public Crea Orkest website",
+  "description": "The public CREA Orkest website",
   "type": "module",
   "scripts": {
     "dev": "next dev --turbo",
