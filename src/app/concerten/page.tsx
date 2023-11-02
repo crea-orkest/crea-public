@@ -43,7 +43,13 @@ const Page = async () => {
 
   return (
     <>
-      {header && <Header data={header} />}
+      {header && (
+        <Header
+          body={header.body}
+          cover={header.cover}
+          title={pageData.title || ''}
+        />
+      )}
       {events}
       <PageContent items={pageContent} />
     </>

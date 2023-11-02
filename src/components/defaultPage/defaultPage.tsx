@@ -13,8 +13,7 @@ export const DefaultPage = async ({ slug }: Props) => {
 
   return (
     <article>
-      <h1 className="sr-only">{data.title}</h1>
-      <PageContent items={data.content} />
+      <PageContent items={data.content} pageTitle={data.title || ''} />
     </article>
   )
 }

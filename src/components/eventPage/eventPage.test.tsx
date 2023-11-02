@@ -3,7 +3,7 @@ import type { Props } from './eventPage'
 import React from 'react'
 import { getEventPage } from 'graphql/getters/getEventPage'
 import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 jest.mock('../navigation', () => {
   const originalModule = jest.requireActual('../navigation')
@@ -49,6 +49,5 @@ describe('Concert component', () => {
     const { container } = render(<Resolved />)
 
     expect(container).toMatchSnapshot()
-    expect(screen.getByText('title')).toBeTruthy()
   })
 })

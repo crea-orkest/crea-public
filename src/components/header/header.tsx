@@ -9,33 +9,38 @@ import Image from 'next/image'
 interface Props {
   className?: string
   tag?: ElementType
-  data: HeaderFragment
+  title?: string
+  body?: HeaderFragment['body']
+  cover?: HeaderFragment['cover']
 }
 
 export const Header: React.FC<Props> = ({
+  title,
   className,
   tag = 'header',
-  data,
+  body,
+  cover,
 }: Props) => {
   const HeaderTag = tag
 
   return (
     <HeaderTag
       className={classNames(className, styles.header, 'with-background', {
-        [`${styles.withImage}`]: data.cover?.item?.url,
+        [`${styles.withImage}`]: cover?.item?.url,
       })}
     >
       <div className={classNames(styles.headerContent, 'content-layout')}>
-        <ContentField data={data.body} />
+        {title && <h1 className={classNames({ 'sr-only': body })}>{title}</h1>}
+        <ContentField data={body} />
       </div>
-      {data.cover?.item?.url && (
+      {cover?.item?.url && (
         <div className={classNames(styles.headerImageWrapper)}>
           <Image
             className={classNames(styles.headerImage)}
-            alt={data.cover.item?.alt || data.cover.item?.title || ''}
-            src={data.cover?.item?.url}
-            width={data.cover?.item.width || 100}
-            height={data.cover?.item.height || 100}
+            alt={cover.item?.alt || cover.item?.title || ''}
+            src={cover?.item?.url}
+            width={cover?.item.width || 100}
+            height={cover?.item.height || 100}
           />
           <div className={classNames(styles.background)} />
         </div>
