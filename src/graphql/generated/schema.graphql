@@ -83,6 +83,7 @@ input ConcertModelFilter {
   _createdAt: CreatedAtFilter
   id: ItemIdFilter
   _firstPublishedAt: PublishedAtFilter
+  position: PositionFilter
   _publicationScheduledAt: PublishedAtFilter
   _unpublishingScheduledAt: PublishedAtFilter
   _publishedAt: PublishedAtFilter
@@ -140,6 +141,8 @@ enum ConcertModelOrderBy {
   id_DESC
   _firstPublishedAt_ASC
   _firstPublishedAt_DESC
+  position_ASC
+  position_DESC
   _publicationScheduledAt_ASC
   _publicationScheduledAt_DESC
   _unpublishingScheduledAt_ASC
@@ -188,6 +191,7 @@ type ConcertRecord implements RecordInterface {
   id: ItemId!
   locations: [LocationItemRecord!]!
   persons: [PersonRecord!]!
+  position: IntType
   poster: FileField
   seo: SeoField
   slug: String
@@ -2864,6 +2868,41 @@ type PersonRecord implements RecordInterface {
 }
 
 """
+Specifies how to filter by position (sorted and tree-like collections)
+"""
+input PositionFilter {
+  """
+  Filter records with a value that's strictly greater than the one specified
+  """
+  gt: IntType
+
+  """
+  Filter records with a value that's less than the one specified
+  """
+  lt: IntType
+
+  """
+  Filter records with a value that's greater than or equal to the one specified
+  """
+  gte: IntType
+
+  """
+  Filter records with a value that's less or equal than the one specified
+  """
+  lte: IntType
+
+  """
+  Search for records with an exact match
+  """
+  eq: IntType
+
+  """
+  Exclude records with an exact match
+  """
+  neq: IntType
+}
+
+"""
 Specifies how to filter by publication datetime
 """
 input PublishedAtFilter {
@@ -3023,7 +3062,7 @@ type Query {
     """
     first: IntType = 20
     filter: ConcertModelFilter
-    orderBy: [ConcertModelOrderBy] = [_updatedAt_DESC]
+    orderBy: [ConcertModelOrderBy] = [position_ASC]
   ): [ConcertRecord!]!
 
   """
@@ -3202,7 +3241,7 @@ type Query {
     """
     fallbackLocales: [SiteLocale!]
     filter: ConcertModelFilter
-    orderBy: [ConcertModelOrderBy] = [_updatedAt_DESC]
+    orderBy: [ConcertModelOrderBy] = [position_ASC]
   ): ConcertRecord
 
   """

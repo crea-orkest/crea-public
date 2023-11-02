@@ -37,7 +37,7 @@ const documents = {
     types.FocalPointFragmentDoc,
   '\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n    logo {\n      ...file\n    }\n  }\n  \n  \n  \n':
     types.GeneralInfoFragmentDoc,
-  '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n  \n':
+  '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n':
     types.HeaderFragmentDoc,
   '\n  fragment headerBody on HeaderModelBodyField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks\n  }\n  \n  \n  \n  \n  \n':
     types.HeaderBodyFragmentDoc,
@@ -219,8 +219,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n  \n']
+  source: '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n'
+): (typeof documents)['\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

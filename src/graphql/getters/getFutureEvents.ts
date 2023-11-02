@@ -31,7 +31,7 @@ const defaultFilter: ConcertModelFilter = {
 export const getFutureEvents = async ({
   skip,
   first,
-  order = ConcertModelOrderBy.UpdatedAtDesc,
+  order = ConcertModelOrderBy.PositionAsc,
   filter = defaultFilter,
 }: Props) => {
   try {
