@@ -1,3 +1,9 @@
+@use 'sass:map';
+@use './tokens/colors.scss' as colors;
+@use './tokens/spacing.scss' as spacings;
+@use './tokens/breakpoints.scss' as breakpoints;
+@use './tokens/layout.scss' as layout;
+
 .content-layout {
   width: 100%;
   margin: 0 auto;

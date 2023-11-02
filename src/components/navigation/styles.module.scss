@@ -2,12 +2,14 @@
 @use '../../styles/tokens/colors.scss' as colors;
 @use '../../styles/tokens/spacing.scss' as spacing;
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
+@use '../../styles/tokens/z-indices.scss' as z;
 
 .wrapper {
   background-color: colors.$background;
   padding-top: map.get(spacing.$rem, 16);
   padding-bottom: map.get(spacing.$rem, 16);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: z.$high;
 }
 
 .content {

@@ -1,2 +1,72 @@
+@use 'sass:map';
+@use '../../styles/tokens/breakpoints.scss' as breakpoints;
+@use '../../styles/tokens/colors.scss' as colors;
+@use '../../styles/tokens/spacing.scss' as spacings;
+@use '../../styles/tokens/z-indices.scss' as z;
+
 .header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: colors.$primary;
+  padding: map.get(spacings.$rem, 64) 0;
+}
+
+header.header.withImage {
+  min-height: 30vh;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    min-height: 75vh;
+  }
+}
+
+.headerContent {
+  position: relative;
+  height: 100%;
+  color: colors.$background;
+  text-align: center;
+  z-index: z.$low;
+
+  h2,
+  h1 {
+    font-size: 2.875rem;
+    color: colors.$secondary-light;
+
+    @media screen and (min-width: breakpoints.$sm) {
+      font-size: 3.375rem;
+    }
+  }
+}
+
+.header.withImage {
+  h2 {
+    color: colors.$background;
+  }
+}
+
+.headerImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.headerImage {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: colors.$primary;
+  opacity: 0.5;
 }
