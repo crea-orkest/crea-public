@@ -3,7 +3,6 @@
 @use '../../styles/tokens/colors.scss' as colors;
 @use '../../styles/tokens/spacing.scss' as spacings;
 @use '../../styles/tokens/z-indices.scss' as z;
-@import '../../styles/text.scss';
 
 .header {
   position: relative;
@@ -31,8 +30,12 @@ header.header.withImage {
 
   h2,
   h1 {
-    @extend .h1;
+    font-size: 2.875rem;
     color: colors.$secondary-light;
+
+    @media screen and (min-width: breakpoints.$sm) {
+      font-size: 3.375rem;
+    }
   }
 }
 
