@@ -8,7 +8,7 @@ export const useEscapeKey = (callback: () => void) => {
     }
     document.addEventListener('keydown', checkKeyPress)
     return () => document.removeEventListener('keydown', checkKeyPress)
-  }, [])
+  }, [callback])
 
   return
 }
