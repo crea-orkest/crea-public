@@ -11,3 +11,21 @@
     padding-bottom: map.get(spacing.$rem, 64);
   }
 }
+
+.headerSpacing {
+  margin-top: map.get(spacing.$rem, 32);
+  margin-bottom: map.get(spacing.$rem, 32);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    margin-top: map.get(spacing.$rem, 64);
+    margin-bottom: map.get(spacing.$rem, 64);
+  }
+}
+
+.headerSpacing + .headerSpacing {
+  margin-top: map.get(spacing.$rem, 64);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    margin-top: map.get(spacing.$rem, 128);
+  }
+}
