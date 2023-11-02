@@ -126,6 +126,7 @@ export type ConcertModelFilter = {
   id?: InputMaybe<ItemIdFilter>
   locations?: InputMaybe<ConcertModelLocationsFieldFilter>
   persons?: InputMaybe<LinksFilter>
+  position?: InputMaybe<PositionFilter>
   poster?: InputMaybe<FileFilter>
   seo?: InputMaybe<SeoFilter>
   slug?: InputMaybe<SlugFilter>
@@ -171,6 +172,8 @@ export enum ConcertModelOrderBy {
   UpdatedAtDesc = '_updatedAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  PositionAsc = 'position_ASC',
+  PositionDesc = 'position_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
 }
@@ -195,6 +198,7 @@ export type ConcertRecord = RecordInterface & {
   id: Scalars['ItemId']['output']
   locations: Array<LocationItemRecord>
   persons: Array<PersonRecord>
+  position?: Maybe<Scalars['IntType']['output']>
   poster?: Maybe<FileField>
   seo?: Maybe<SeoField>
   slug?: Maybe<Scalars['String']['output']>
@@ -2418,6 +2422,22 @@ export type PersonRecord = RecordInterface & {
 /** Record of type Personen (person) */
 export type PersonRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
+}
+
+/** Specifies how to filter by position (sorted and tree-like collections) */
+export type PositionFilter = {
+  /** Search for records with an exact match */
+  eq?: InputMaybe<Scalars['IntType']['input']>
+  /** Filter records with a value that's strictly greater than the one specified */
+  gt?: InputMaybe<Scalars['IntType']['input']>
+  /** Filter records with a value that's greater than or equal to the one specified */
+  gte?: InputMaybe<Scalars['IntType']['input']>
+  /** Filter records with a value that's less than the one specified */
+  lt?: InputMaybe<Scalars['IntType']['input']>
+  /** Filter records with a value that's less or equal than the one specified */
+  lte?: InputMaybe<Scalars['IntType']['input']>
+  /** Exclude records with an exact match */
+  neq?: InputMaybe<Scalars['IntType']['input']>
 }
 
 /** Specifies how to filter by publication datetime */

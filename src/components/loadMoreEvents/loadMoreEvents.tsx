@@ -22,6 +22,7 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
   })
 
   React.useEffect(() => {
+    const interval = 10
     if (!numberOfEvents) return
     if (events.length === numberOfEvents - initialSkip) return
     if (!entry?.isIntersecting) return
@@ -29,12 +30,12 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
     if (skip > numberOfEvents) return
     setLoading(true)
     // TODO: abort signal to stop fetching
-    getEvents({ skip, first: 1 })
+    getEvents({ skip, first: interval })
       .then(({ data }) => {
         if (!data) return
         setEvents((prev) => [...prev, ...data])
         setSkip((prev) => {
-          return prev + 1
+          return prev + interval
         })
       })
       .catch(() => {

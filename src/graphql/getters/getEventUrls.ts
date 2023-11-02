@@ -14,7 +14,7 @@ interface Props extends GetEventsUrlsQueryVariables {
 export const getEventUrls = async ({
   skip,
   first,
-  order = ConcertModelOrderBy.UpdatedAtDesc,
+  order = ConcertModelOrderBy.PositionAsc,
 }: Props) => {
   try {
     const { data, error } = await client.query<
