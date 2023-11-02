@@ -4,6 +4,7 @@ import { tag } from './tag'
 
 export const eventPageSeo = gql`
   fragment eventPageSeo on ConcertRecord {
+    title
     _seoMetaTags {
       ...tag
     }

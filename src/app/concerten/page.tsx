@@ -1,8 +1,24 @@
+import React from 'react'
+import type { Metadata, Viewport } from 'next'
 import { DefaultPage } from 'components/defaultPage'
 import { Event } from 'components/event'
 import { FutureEvents } from 'components/futureEvents'
 import { LoadMoreEvents } from 'components/loadMoreEvents'
 import { getEvents } from 'graphql/getters/getEvents'
+import { getPageSeo } from 'graphql/getters/getPageSeo'
+
+const pageSlug = 'concerten'
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await getPageSeo({ slug: pageSlug })
+  return data
+}
+
+export function generateViewport(): Viewport {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+  }
+}
 
 const Page = async () => {
   const first = 2

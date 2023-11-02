@@ -3945,6 +3945,7 @@ export type EventLinkFragment = {
 
 export type EventPageSeoFragment = {
   __typename?: 'ConcertRecord'
+  title?: string | null
   _seoMetaTags: Array<{
     __typename?: 'Tag'
     attributes?: Record<string, string> | null
@@ -5921,6 +5922,7 @@ export type PageDetailFragment = {
 
 export type PageDetailSeoFragment = {
   __typename?: 'PageRecord'
+  title?: string | null
   _seoMetaTags: Array<{
     __typename?: 'Tag'
     attributes?: Record<string, string> | null
@@ -7983,6 +7985,7 @@ export type GetEventSeoQuery = {
   __typename?: 'Query'
   concert?: {
     __typename?: 'ConcertRecord'
+    title?: string | null
     _seoMetaTags: Array<{
       __typename?: 'Tag'
       attributes?: Record<string, string> | null
@@ -9685,6 +9688,7 @@ export type GetPageSeoQuery = {
   __typename?: 'Query'
   page?: {
     __typename?: 'PageRecord'
+    title?: string | null
     _seoMetaTags: Array<{
       __typename?: 'Tag'
       attributes?: Record<string, string> | null
@@ -10105,6 +10109,7 @@ export const EventPageSeoFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: '_seoMetaTags' },
@@ -17655,6 +17660,7 @@ export const PageDetailSeoFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: '_seoMetaTags' },
@@ -20212,7 +20218,7 @@ export const GetEventPageDocument = {
   ],
 } as unknown as DocumentNode<GetEventPageQuery, GetEventPageQueryVariables>
 export const GetEventSeoDocument = {
-  __meta__: { hash: 'df10ade5fbc31a2d19c1a853c851242cbaca91ec' },
+  __meta__: { hash: '7429dcc50724204a08ce85f6561d84fb9cca5a0d' },
   kind: 'Document',
   definitions: [
     {
@@ -20384,6 +20390,7 @@ export const GetEventSeoDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: '_seoMetaTags' },
@@ -24135,7 +24142,7 @@ export const GetPageDocument = {
   ],
 } as unknown as DocumentNode<GetPageQuery, GetPageQueryVariables>
 export const GetPageSeoDocument = {
-  __meta__: { hash: 'f3ebdc913869932a3dd47479b7746bd55ea675a2' },
+  __meta__: { hash: '9c6427efd26466f573b687b35e6e7a9ffdf340a2' },
   kind: 'Document',
   definitions: [
     {
@@ -24307,6 +24314,7 @@ export const GetPageSeoDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: '_seoMetaTags' },
