@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.19](https://github.com/crea-orkest/crea-public/compare/v0.1.18...v0.1.19) (2023-11-03)
+
+
+### Bug Fixes
+
+* get request graphql support ([cc920c5](https://github.com/crea-orkest/crea-public/commit/cc920c5e9c2b2dc8c9a87e8e315a89fa5a1381cd))
+* prevent preview deployments on release please branches ([4e39e3e](https://github.com/crea-orkest/crea-public/commit/4e39e3e4d56dc1c5d7920fc7a44f782703efeb4b))
+* type error ([2aec925](https://github.com/crea-orkest/crea-public/commit/2aec925f54bd88e53e1ef8289ebbdde8152d277f))
+
 ## [0.1.18](https://github.com/crea-orkest/crea-public/compare/v0.1.17...v0.1.18) (2023-11-03)
 
 
