@@ -5,10 +5,12 @@ on:
     branches-ignore:
       - main
       - gh-readonly-queue/**
+      - release-please--**
   push:
     branches-ignore:
       - main
       - gh-readonly-queue/**
+      - release-please--**
 jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest
