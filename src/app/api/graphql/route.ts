@@ -1,3 +1,4 @@
+import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { GraphQLError, graphql } from 'graphql'
@@ -27,8 +28,27 @@ const resolvers = {
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 
+export async function GET(request: NextRequest) {
+  const query = request.nextUrl.searchParams.get('query')
+
+  if (!query) return NextResponse.json(new GraphQLError('empty request'))
+  try {
+    const result = await graphql({
+      schema,
+      source: query,
+    })
+    return NextResponse.json(result)
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return NextResponse.json(new GraphQLError(error.message))
+    }
+    return NextResponse.json(new GraphQLError('random error'))
+  }
+}
+
 export async function POST(request: Request) {
   const data = await request.json()
+
   try {
     const result = await graphql({
       schema,
