@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.1.17](https://github.com/crea-orkest/crea-public/compare/v0.1.16...v0.1.17) (2023-11-03)
+
+
+### Features
+
+* concert order ([01016ee](https://github.com/crea-orkest/crea-public/commit/01016ee4a634cce29fec2fcfe4a5fe61223e1b89))
+* **concerten/page.tsx:** add concerts page data with correct data from Dato ([bf3e6d7](https://github.com/crea-orkest/crea-public/commit/bf3e6d7a7215636bbd1ad4f594587947a7f58d73))
+* **header:** use header styling and make sure image renders correctly ([d196b7d](https://github.com/crea-orkest/crea-public/commit/d196b7d9019b35818f8ecbcb5bfefd691c91319f))
+* **metaTitleFormatter.ts:** generateMetadata for pages correctly ([f56c375](https://github.com/crea-orkest/crea-public/commit/f56c3756893131cc4d8bc02a4578b06b125e3f19))
+* **pageContent:** render header if there is no header in Dato ([a2fc51d](https://github.com/crea-orkest/crea-public/commit/a2fc51d69cd326a89e31b705baa733f9c5fc8ad4))
+* **pageContent:** use content-layout in page content and set correct spacing ([c7a3d8c](https://github.com/crea-orkest/crea-public/commit/c7a3d8c7fa28265e47016299597116ebec478dfe))
+* **README.md:** use CREA instead of Crea ([4275eb8](https://github.com/crea-orkest/crea-public/commit/4275eb8968dc5a2db8b5c5d36750096420f1efca))
+* **snapshots:** update snapshots ([eefb3eb](https://github.com/crea-orkest/crea-public/commit/eefb3ebab2549f4d11131dd1b21d6d4305d92055))
+
+
+### Bug Fixes
+
+* **header/styles:** use different oppacity ([029a0fc](https://github.com/crea-orkest/crea-public/commit/029a0fc0b21fe53690b9613db406993076f4d2ec))
+* rules of hooks ([fd433b1](https://github.com/crea-orkest/crea-public/commit/fd433b1f14dba7c5db19ed88abcdae161166e7dd))
+* **styles:** fix style import ([5eb6a55](https://github.com/crea-orkest/crea-public/commit/5eb6a553131c2028ce9951aedace25740c14ec5f))
+
 ## [0.1.16](https://github.com/crea-orkest/crea-public/compare/v0.1.15...v0.1.16) (2023-11-01)
 
 
