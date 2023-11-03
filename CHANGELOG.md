@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.18](https://github.com/crea-orkest/crea-public/compare/v0.1.17...v0.1.18) (2023-11-03)
+
+
+### Features
+
+* graphql server ([b3a5623](https://github.com/crea-orkest/crea-public/commit/b3a5623e6ffb7534b3c7e015ec5757462358f3c7))
+
 ## [0.1.17](https://github.com/crea-orkest/crea-public/compare/v0.1.16...v0.1.17) (2023-11-03)
 
 
