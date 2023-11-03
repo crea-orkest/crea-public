@@ -1,6 +1,6 @@
 # crea-public
 
-The Crea Orkest front end.
+The CREA Orkest front end.
 
 # Graphql
 

@@ -1,3 +1,5 @@
+import React from 'react'
+import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
 import { Event } from 'components/event'
 import { FutureEvents } from 'components/futureEvents'
@@ -5,7 +7,21 @@ import { Header } from 'components/header'
 import { LoadMoreEvents } from 'components/loadMoreEvents'
 import { PageContent } from 'components/pageContent'
 import { getEvents } from 'graphql/getters/getEvents'
+import { getPageSeo } from 'graphql/getters/getPageSeo'
 import { getPage } from 'graphql/getters/getPage'
+
+const pageSlug = 'concerten'
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await getPageSeo({ slug: pageSlug })
+  return data
+}
+
+export function generateViewport(): Viewport {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+  }
+}
 
 const Page = async () => {
   // TODO put this in a separate component (like ConcertsPage)
