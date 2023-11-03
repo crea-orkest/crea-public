@@ -1,54 +1,39 @@
 import { NextResponse } from 'next/server'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { GraphQLError, graphql } from 'graphql'
+import getConfig from 'next/config'
 
-// TODO: create a labels solution
+const { publicRuntimeConfig } = getConfig()
+
 const typeDefs = `
   type Query {
-    users: [User]
+    publicRuntimeConfig: [PublicRuntimeConfig]
   }
 
-  type User {
-    username: String!
-    avatar: String!
+  type PublicRuntimeConfig {
+    googleMapsApiKey: String!
   }
 `
 
 const resolvers = {
   Query: {
-    users: () => [
+    publicRuntimeConfig: () => [
       {
-        username: 'notrab',
-      },
-      {
-        username: 'rauchg',
+        googleMapsApiKey: String(publicRuntimeConfig.googleMapsApiKey),
       },
     ],
-  },
-  User: {
-    avatar: (root: { username: string }) =>
-      `https://github.com/${root.username}.png`,
   },
 }
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 
-export function GET(request: Request) {
-  NextResponse.json({ name: 'test' })
-  return NextResponse.json({
-    name: `Hello, from ${request.url} I'm an Edge Function!`,
-  })
-}
-
 export async function POST(request: Request) {
   const data = await request.json()
-
   try {
     const result = await graphql({
       schema,
       source: data.query,
     })
-
     return NextResponse.json(result)
   } catch (error: unknown) {
     if (error instanceof Error) {
