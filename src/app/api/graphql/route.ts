@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { GraphQLError, graphql } from 'graphql'
 import getConfig from 'next/config'
