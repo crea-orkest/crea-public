@@ -9,7 +9,7 @@ export const locationFormatter = (location: LocationFragment): Location => ({
   title: location?.title ?? undefined,
   address: location?.addressTitle ?? undefined,
   lat: location?.address?.latitude,
-  lon: location?.address?.longitude,
+  lng: location?.address?.longitude,
 })
 
 export const locationItemFormatter = (

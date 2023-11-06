@@ -29,7 +29,7 @@ describe('eventFormatter', () => {
           address: undefined,
           id: 'location-id',
           lat: undefined,
-          lon: undefined,
+          lng: undefined,
           startTime: undefined,
           title: undefined,
         },

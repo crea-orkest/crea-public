@@ -10,7 +10,7 @@ describe('locationsFormatter', () => {
         address: '',
         id: 'location-id',
         lat: undefined,
-        lon: undefined,
+        lng: undefined,
         title: '',
       },
     ])

@@ -6,6 +6,6 @@ export const locationsFormatter = (locations: LocationFragment[]): Location[] =>
     title: location?.title ?? '',
     address: location.addressTitle ?? '',
     lat: location?.address?.latitude,
-    lon: location?.address?.longitude,
+    lng: location?.address?.longitude,
     id: location?.id ?? '',
   }))
