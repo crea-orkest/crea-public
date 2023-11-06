@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.20](https://github.com/crea-orkest/crea-public/compare/v0.1.19...v0.1.20) (2023-11-06)
+
+
+### Features
+
+* googlemaps ([9e8a974](https://github.com/crea-orkest/crea-public/commit/9e8a97412e456014d55e7ef74125d75e992e4c3c))
+
 ## [0.1.19](https://github.com/crea-orkest/crea-public/compare/v0.1.18...v0.1.19) (2023-11-03)
 
 
