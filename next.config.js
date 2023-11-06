@@ -45,12 +45,6 @@ const nextConfig = {
       ],
     }
   },
-  publicRuntimeConfig: {
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY ?? '',
-  },
-  serverRuntimeConfig: {
-    // Will only be available on the server side
-  },
   headers: () => [
     {
       source: '/:path*',

@@ -35,7 +35,7 @@ describe('getLocations', () => {
     })
     const { data } = await getLocations({ skip: 0, first: 1 })
     expect(data).toEqual([
-      { address: '', id: '', lat: undefined, lon: undefined, title: '' },
+      { address: '', id: '', lat: undefined, lng: undefined, title: '' },
     ])
   })
 

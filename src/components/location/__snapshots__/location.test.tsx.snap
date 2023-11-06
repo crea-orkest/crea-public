@@ -9,11 +9,6 @@ exports[`Concert component shows all the data 1`] = `
     <p>
       some address lines
     </p>
-    <p>
-      5
-       
-      42
-    </p>
   </address>
 </div>
 `;

@@ -36,7 +36,7 @@ describe('eventsFormatter', () => {
             id: 'location-id',
             address: undefined,
             lat: undefined,
-            lon: undefined,
+            lng: undefined,
             startTime: undefined,
             title: undefined,
           },

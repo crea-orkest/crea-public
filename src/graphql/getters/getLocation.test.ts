@@ -40,7 +40,7 @@ describe('getLocation', () => {
       id: 'some-id',
       address: undefined,
       lat: undefined,
-      lon: undefined,
+      lng: undefined,
       title: undefined,
     })
   })
