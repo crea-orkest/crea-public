@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound component shows all the data 1`] = `
+<div>
+  <div>
+    <h2>
+      Not Found
+    </h2>
+    <p>
+      Could not find requested resource
+    </p>
+    <a
+      href="/"
+    >
+      Return Home
+    </a>
+  </div>
+</div>
+`;
