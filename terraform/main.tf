@@ -12,6 +12,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "5.24.0"
     }
+    hcp = {
+      source  = "hashicorp/hcp"
+      version = "0.76.0"
+    }
     cloudflare = {
       source  = "cloudflare/cloudflare"
       version = "4.18.0"
