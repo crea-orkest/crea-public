@@ -13,3 +13,9 @@ resource "vercel_project_environment_variable" "crea-public-2" {
   value      = "bar"
   target     = ["production"]
 }
+
+resource "vercel_project_domain" "crea-public-2" {
+  project_id = vercel_project.crea-public-2.id
+  domain     = "crea-public-2.vercel.app"
+}
+
