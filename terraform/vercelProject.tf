@@ -1,6 +1,10 @@
 
 resource "vercel_project" "crea-public-2" {
   name                       = "crea-public-2"
+  serverless_function_region = "iad1"
+  vercel_authentication = {
+    protect_production = false
+  }
 }
 
 resource "vercel_project_environment_variable" "crea-public-2" {
