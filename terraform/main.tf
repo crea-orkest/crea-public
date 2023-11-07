@@ -12,6 +12,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "5.24.0"
     }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "4.18.0"
+    }
   }
 }
 
@@ -19,10 +23,10 @@ resource "aws_s3_bucket" "crea-orkest" {
   bucket = "crea-orkest"
 }
 
-resource "aws_sqs_queue" "datocms_deploy_queue" {
-  name                       = "datocms_deploy_queue"
-  delay_seconds              = 10
-  max_message_size           = 1024
-  message_retention_seconds  = 3600
-  sqs_managed_sse_enabled    = true
+resource "aws_sqs_queue" "eventQueue" {
+  name                      = "eventQueue"
+  delay_seconds             = 10
+  max_message_size          = 1024
+  message_retention_seconds = 3600
+  sqs_managed_sse_enabled   = true
 }

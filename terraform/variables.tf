@@ -1,4 +1,30 @@
 variable "aws_region" {
-  default = "eu-central-1"
+  sensitive = false
+  type      = string
+  default   = "eu-central-1"
+}
+
+variable "cloudflare_api_token" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
+
+variable "cloudflare_zone_id" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
+
+variable "cloudflare_account_id" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
+
+variable "cloudflare_domain" {
+  sensitive = false
+  type      = string
+  default   = ""
 }
 
