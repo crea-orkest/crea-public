@@ -4,12 +4,6 @@ variable "aws_region" {
   default   = "eu-central-1"
 }
 
-variable "cloudflare_api_token" {
-  sensitive = true
-  type      = string
-  default   = ""
-}
-
 variable "cloudflare_zone_id" {
   sensitive = true
   type      = string
@@ -22,14 +16,8 @@ variable "cloudflare_account_id" {
   default   = ""
 }
 
-variable "cloudflare_domain" {
+variable "hcp_project_id" {
   sensitive = false
-  type      = string
-  default   = ""
-}
-
-variable "vercel_api_token" {
-  sensitive = true
   type      = string
   default   = ""
 }
