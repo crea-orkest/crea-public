@@ -2,6 +2,7 @@ import { DefaultPage } from 'components/defaultPage'
 import React from 'react'
 import { getPageSeo } from 'graphql/getters/getPageSeo'
 import type { Metadata, Viewport } from 'next'
+import { viewport } from 'utils/viewport'
 
 const homepageSlug = 'homepage'
 export async function generateMetadata(): Promise<Metadata> {
@@ -10,10 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export function generateViewport(): Viewport {
-  return {
-    width: 'device-width',
-    initialScale: 1,
-  }
+  return viewport
 }
 
 const Page = () => {
