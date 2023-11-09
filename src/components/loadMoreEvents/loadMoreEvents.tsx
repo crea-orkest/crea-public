@@ -14,7 +14,7 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
   const [skip, setSkip] = React.useState(initialSkip)
   const [loading, setLoading] = React.useState(false)
   const [events, setEvents] = React.useState<(EventType | undefined)[]>([])
-  const ref = React.useRef<HTMLButtonElement>(null)
+  const ref = React.useRef<HTMLDivElement>(null)
   const { numberOfEvents } = useEventsMeta()
   const [entry] = useIntersectionObserver({
     enabled: Boolean(numberOfEvents),
@@ -23,10 +23,10 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
 
   React.useEffect(() => {
     const interval = 10
+    if (loading) return
+    if (!entry?.isIntersecting) return
     if (!numberOfEvents) return
     if (events.length === numberOfEvents - initialSkip) return
-    if (!entry?.isIntersecting) return
-    if (loading) return
     if (skip > numberOfEvents) return
     setLoading(true)
     // TODO: abort signal to stop fetching
@@ -61,23 +61,12 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
       })}
 
       {numberOfEvents && (
-        <button
-          type="button"
-          ref={ref}
-          disabled={events.length === numberOfEvents - initialSkip}
-          onClick={() =>
-            console.log('TODO: fetch if no IntersectionObserver support')
-          }
-        >
-          load more elements
-        </button>
-      )}
-
-      {numberOfEvents && (
-        <p>
-          {/* TODO: fix this logic */}
-          {events.length + initialSkip} van {numberOfEvents} concerten
-        </p>
+        <div ref={ref}>
+          <p>
+            {/* TODO: simplify/fix this logic */}
+            {events.length + initialSkip} van {numberOfEvents} concerten
+          </p>
+        </div>
       )}
     </div>
   )

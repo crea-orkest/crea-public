@@ -9,8 +9,8 @@ interface Pin {
 }
 
 interface Dimensions {
-  width: string | number
-  height: string | number
+  width: string // css unit
+  height: string // css unit
 }
 
 export interface Props {
@@ -53,9 +53,16 @@ export const Map: React.FC<Props> = ({
     [pin.lat, pin.lng, pin.title]
   )
 
-  // const onUnmount = React.useCallback(() => { }, [])
-
-  if (!isLoaded) return null
+  if (!isLoaded)
+    return (
+      <div
+        style={{
+          width: dimensions.width,
+          height: dimensions.height,
+          background: 'lightgray',
+        }}
+      />
+    )
 
   return (
     <GoogleMap
@@ -64,7 +71,6 @@ export const Map: React.FC<Props> = ({
         height: dimensions.height,
       }}
       onLoad={onLoad}
-      // onUnmount={onUnmount}
       center={{
         lat: pin.lat,
         lng: pin.lng,

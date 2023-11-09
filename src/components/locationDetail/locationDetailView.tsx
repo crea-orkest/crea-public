@@ -3,7 +3,7 @@ import React from 'react'
 import { Map } from 'components/map'
 import type { Location } from 'graphql/types/location'
 import { useEnv } from 'hooks/useEnv'
-import { useDimensions } from 'hooks/useDimensions'
+import styles from './styles.module.scss'
 
 export interface Props {
   data: Location
@@ -11,14 +11,16 @@ export interface Props {
 
 export const LocationDetailView: React.FC<Props> = ({ data }) => {
   const googleMapsApiKey = useEnv('GOOGLE_MAPS_API_KEY')
-  const dimentions = useDimensions()
-
   const { title, address, lat, lng, startTime } = data
+
   return (
-    <address>
-      <h2>{title}</h2>
-      {address && <p>{address}</p>}
-      {lat && lng && googleMapsApiKey && (
+    <address className={styles.address__container}>
+      <div className={styles.address__details}>
+        <h2>{title}</h2>
+        {address && <p>{address}</p>}
+        {startTime && <p>{new Date(startTime).toDateString()}</p>}
+      </div>
+      {lat && lng && googleMapsApiKey ? (
         <Map
           id="concert-location"
           pin={{
@@ -29,11 +31,18 @@ export const LocationDetailView: React.FC<Props> = ({ data }) => {
           googleMapsApiKey={googleMapsApiKey}
           dimensions={{
             width: '100%',
-            height: dimentions.width > 800 ? '400px' : dimentions.height / 2,
+            height: '400px',
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            width: '100%',
+            height: '400px',
+            background: 'lightgray',
           }}
         />
       )}
-      {startTime && <p>{new Date(startTime).toDateString()}</p>}
     </address>
   )
 }

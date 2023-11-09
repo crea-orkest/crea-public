@@ -1,0 +1,12 @@
+.address {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__details {
+    margin: 1rem;
+    max-width: 25rem;
+  }
+}
