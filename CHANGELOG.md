@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.21](https://github.com/crea-orkest/crea-public/compare/v0.1.20...v0.1.21) (2023-11-09)
+
+
+### Features
+
+* cloudflare terraform ([7e0fb09](https://github.com/crea-orkest/crea-public/commit/7e0fb09f8bb29037278ade4227cf05c7b14c1e09))
+* not found abstraction ([ae36b1e](https://github.com/crea-orkest/crea-public/commit/ae36b1e1a5b3bb84959df05963c9d32e4718e4bd))
+* remove vercel terraform ([91d1133](https://github.com/crea-orkest/crea-public/commit/91d11331e0405b29d6264f17cb2c7cd1c7ba3560))
+* revalidate use env hook one day ([0f0e92d](https://github.com/crea-orkest/crea-public/commit/0f0e92d69160997364960dfb6a898d9b114c6404))
+* vault ([dc27eca](https://github.com/crea-orkest/crea-public/commit/dc27eca82a0efd1f47b347926259082500cee0a7))
+* vercel project domain ([2669e03](https://github.com/crea-orkest/crea-public/commit/2669e03df9c984bb34cf648cff066b36a3c1db11))
+* vercel project domain ([f520ce2](https://github.com/crea-orkest/crea-public/commit/f520ce21ffea7a66f2544fea47eb6a01e5035625))
+* vercel terraform ([f2178d6](https://github.com/crea-orkest/crea-public/commit/f2178d6f1a9ee3f0c3bf2cfae20f096c00a26d42))
+
 ## [0.1.20](https://github.com/crea-orkest/crea-public/compare/v0.1.19...v0.1.20) (2023-11-06)
 
 
