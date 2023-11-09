@@ -1,6 +1,7 @@
 import { DefaultPage } from 'components/defaultPage'
 import { getPageSeo } from 'graphql/getters/getPageSeo'
 import type { Metadata, Viewport } from 'next'
+import { viewport } from 'utils/viewport'
 
 interface PageProps {
   params: { slug: string[] }
@@ -15,10 +16,7 @@ export async function generateMetadata({
 }
 
 export function generateViewport(): Viewport {
-  return {
-    width: 'device-width',
-    initialScale: 1,
-  }
+  return viewport
 }
 
 const Page = ({ params: { slug } }: PageProps) => {

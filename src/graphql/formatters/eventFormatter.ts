@@ -2,7 +2,7 @@ import type { ConcertDetailFragment } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
 import { authorFormatter } from './authorFormatter'
 import { fileFormatter } from './fileFormatter'
-import { locationItemFormatter } from './locationFormatter'
+import { locationItemFormatter } from './locationItemFormatter'
 import { slugFormatter } from 'utils/slugFormatter'
 
 export const eventFormatter = (

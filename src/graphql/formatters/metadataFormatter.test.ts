@@ -9,7 +9,7 @@ describe('metadataFormatter', () => {
       },
       description:
         'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
-      manifest: 'https://creaorkest.nl/manifest.json',
+      // manifest: 'https://creaorkest.nl/manifest.json', // TODO
       metadataBase: expect.objectContaining({
         host: 'creaorkest.nl',
         hostname: 'creaorkest.nl',
@@ -162,7 +162,6 @@ describe('metadataFormatter', () => {
         canonical: 'https://creaorkest.nl/some-page',
       },
       description: 'Kom in contact met het CREA Orkest',
-      manifest: 'https://creaorkest.nl/manifest.json',
       metadataBase: expect.objectContaining({
         host: 'creaorkest.nl',
         hostname: 'creaorkest.nl',

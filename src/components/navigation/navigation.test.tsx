@@ -14,6 +14,12 @@ jest.mock('../../graphql/getters/getGeneralInfo', () => {
   }
 })
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}))
+
 const getGeneralInfoMock = jest.mocked(getGeneralInfo)
 
 describe('Concert component', () => {

@@ -1,8 +1,5 @@
 import type { Location } from 'graphql/types/location'
-import type {
-  LocationFragment,
-  LocationItemFragment,
-} from 'graphql/generated/graphql'
+import type { LocationFragment } from 'graphql/generated/graphql'
 
 export const locationFormatter = (location: LocationFragment): Location => ({
   id: location.id,
@@ -11,13 +8,3 @@ export const locationFormatter = (location: LocationFragment): Location => ({
   lat: location?.address?.latitude,
   lng: location?.address?.longitude,
 })
-
-export const locationItemFormatter = (
-  location: LocationItemFragment
-): Location | undefined => {
-  if (!location.location?.id) return
-  return {
-    ...locationFormatter(location.location),
-    startTime: location.dateTime ?? undefined,
-  }
-}

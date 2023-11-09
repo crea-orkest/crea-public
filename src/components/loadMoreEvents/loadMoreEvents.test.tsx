@@ -34,7 +34,6 @@ describe('Events component', () => {
     const { container } = render(<LoadMoreEvents initialSkip={1} />)
 
     expect(screen.getByText('1 van 10 concerten')).toBeInTheDocument()
-    expect(screen.getByText('load more elements')).toBeInTheDocument()
     expect(container).toMatchSnapshot()
   })
 })

@@ -1,6 +1,9 @@
-export const mockEvent = {
+import { type Event } from 'graphql/types/event'
+
+export const mockEvent: Event = {
   id: 'mock-id',
   title: 'title',
+  url: '/url',
   image: undefined,
   locations: [],
   persons: [],

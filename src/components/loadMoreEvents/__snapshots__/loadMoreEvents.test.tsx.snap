@@ -3,17 +3,14 @@
 exports[`Events component shows all the data 1`] = `
 <div>
   <div>
-    <button
-      type="button"
-    >
-      load more elements
-    </button>
-    <p>
-      1
-       van 
-      10
-       concerten
-    </p>
+    <div>
+      <p>
+        1
+         van 
+        10
+         concerten
+      </p>
+    </div>
   </div>
 </div>
 `;
