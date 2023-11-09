@@ -24,7 +24,7 @@ export const metadataFormatter = (
     //   'de-DE': '/de-DE',
     // },
   },
-  manifest: `${base}/manifest.json`, // TODO
+  // manifest: `${base}/manifest.json`, // TODO
   openGraph: {
     title:
       data?._seoMetaTags.find(
