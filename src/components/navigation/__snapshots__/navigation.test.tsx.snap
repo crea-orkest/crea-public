@@ -3,11 +3,59 @@
 exports[`Concert component shows all the data 1`] = `
 <div>
   <nav
-    class="wrapper"
+    class="wrapper content-layout"
   >
     <div
-      class="content content-layout"
+      class="content"
     >
+      <a
+        class="logoLink content__logo"
+        href="/"
+      >
+        <img
+          alt="CREA Orkest"
+          class="logo"
+          data-nimg="1"
+          decoding="async"
+          fetchpriority="high"
+          height="50"
+          src="/_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=640&q=75"
+          srcset="/_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=256&q=75 1x, /_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=640&q=75 2x"
+          style="color: transparent;"
+          width="200"
+        />
+      </a>
+      <div
+        class="hamburgerMenu"
+      >
+        <button
+          class="hamburgerMenu__hamburger"
+          type="button"
+        >
+          <svg
+            height="40"
+            viewBox="0 0 100 80"
+            width="50"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              height="6"
+              width="100"
+              y="0"
+            />
+            <rect
+              height="6"
+              width="100"
+              y="37"
+            />
+            <rect
+              height="6"
+              width="100"
+              y="74"
+            />
+          </svg>
+        </button>
+      </div>
       <ul
         class="list"
       >
@@ -42,23 +90,6 @@ exports[`Concert component shows all the data 1`] = `
           </button>
         </li>
       </ul>
-      <a
-        class="logoLink"
-        href="/"
-      >
-        <img
-          alt="CREA Orkest"
-          class="logo"
-          data-nimg="1"
-          decoding="async"
-          height="50"
-          loading="lazy"
-          src="/_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=640&q=75"
-          srcset="/_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=256&q=75 1x, /_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=640&q=75 2x"
-          style="color: transparent;"
-          width="200"
-        />
-      </a>
     </div>
   </nav>
 </div>

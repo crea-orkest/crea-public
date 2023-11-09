@@ -6,26 +6,22 @@
 
 .wrapper {
   background-color: colors.$background;
-  padding-top: map.get(spacing.$rem, 16);
-  padding-bottom: map.get(spacing.$rem, 16);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   z-index: z.$high;
 }
 
 .content {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  width: 100%;
-  gap: map.get(spacing.$rem, 8);
+  gap: 1rem;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
 
-  @media screen and (min-width: breakpoints.$sm) {
-    flex-direction: row;
+  &__logo {
+    margin: 1rem 0 1rem auto;
   }
 }
 
 .list {
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: colors.$background;
   list-style: none;
@@ -33,6 +29,7 @@
   margin: 0;
 
   @media screen and (min-width: breakpoints.$sm) {
+    display: flex;
     flex-direction: row;
     align-items: center;
     gap: map.get(spacing.$rem, 32);

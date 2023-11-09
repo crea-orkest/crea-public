@@ -6,14 +6,29 @@ import React from 'react'
 import classNames from 'classnames'
 import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
 import styles from './styles.module.scss'
+import { HamburgerMenu } from 'components/hamburgerMenu'
 
 export const Navigation: React.FC = async () => {
   const { data } = await getGeneralInfo()
   if (!data?.general) return null
 
   return (
-    <nav className={classNames(styles.wrapper)}>
-      <div className={classNames(styles.content, 'content-layout')}>
+    <nav className={classNames(styles.wrapper, 'content-layout')}>
+      <div className={classNames(styles.content)}>
+        <Link
+          href="/"
+          className={classNames(styles.logoLink, styles.content__logo)}
+        >
+          <Image
+            className={classNames(styles.logo)}
+            priority={true}
+            src="/img/logo-crea-orkest.png"
+            alt="CREA Orkest"
+            width={200}
+            height={50}
+          />
+        </Link>
+        <HamburgerMenu />
         <ul className={classNames(styles.list)}>
           {data.general.menu.map((item) => {
             if ('link' in item) {
@@ -39,16 +54,6 @@ export const Navigation: React.FC = async () => {
             return <NavigationItem key={item.id} slug={'/'} label={'Error'} />
           })}
         </ul>
-
-        <Link href="/" className={classNames(styles.logoLink)}>
-          <Image
-            className={classNames(styles.logo)}
-            src="/img/logo-crea-orkest.png"
-            alt="CREA Orkest"
-            width={200}
-            height={50}
-          />
-        </Link>
       </div>
     </nav>
   )
