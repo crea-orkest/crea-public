@@ -24,8 +24,14 @@ export const EventPage = async ({ slug }: Props) => {
         })}
       >
         {data.locations.map((location) => {
-          if (!location?.id) return null
-          return <LocationDetail key={location?.id} id={location.id} />
+          if (!location?.id || !location.startTime) return null
+          return (
+            <LocationDetail
+              key={location?.id}
+              id={location.id}
+              startTime={location.startTime}
+            />
+          )
         })}
       </div>
     </article>

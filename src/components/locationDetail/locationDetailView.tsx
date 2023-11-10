@@ -18,7 +18,16 @@ export const LocationDetailView: React.FC<Props> = ({ data }) => {
       <div className={styles.address__details}>
         <h2>{title}</h2>
         {address && <p>{address}</p>}
-        {startTime && <p>{new Date(startTime).toDateString()}</p>}
+        {startTime && (
+          <p>
+            {new Date(startTime).toLocaleDateString('nl-NL', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </p>
+        )}
       </div>
       {lat && lng && googleMapsApiKey ? (
         <Map
