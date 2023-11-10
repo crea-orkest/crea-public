@@ -5,15 +5,17 @@ import type { RenderBlockContext } from 'react-datocms/structured-text'
 import { isOfType } from './isOfType'
 
 import type {
+  DocumentFragment,
   EventsFragment,
   ImageFragment,
   VideoFragment,
 } from 'graphql/generated/graphql'
+import { Document } from 'components/document'
 
 export const renderBlock = ({
   record,
 }: RenderBlockContext<
-  EventsFragment | ImageFragment | VideoFragment | Record
+  EventsFragment | ImageFragment | VideoFragment | DocumentFragment | Record
 >) => {
   if (isOfType<EventsFragment>(record, 'ConcertListRecord')) {
     return (
@@ -27,10 +29,6 @@ export const renderBlock = ({
 
   if (isOfType<ImageFragment>(record, 'ImageRecord')) {
     if (!record.item?.item?.url) return null
-
-    // TODO: record.item.itemUrl could be valid,
-    // but it is also not a best practice to serve
-    // images that are not from your own domain
     return (
       <Image
         src={record.item.item.url}
@@ -47,7 +45,12 @@ export const renderBlock = ({
 
   if (isOfType<VideoFragment>(record, 'VideoRecord')) {
     if (!record.media?.url) return null
+    // TODO: video component
     return <p>some video component</p>
+  }
+
+  if (isOfType<DocumentFragment>(record, 'DocumentRecord')) {
+    return <Document record={record} />
   }
 
   return <p>not supported: {record.__typename}</p>

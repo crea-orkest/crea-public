@@ -9,7 +9,7 @@ interface CloudinaryDescription {
   en?: string | null
 }
 
-export interface CloudinaryImage {
+export interface CloudinaryAsset {
   bytes?: number
   created_at?: Scalars['DateTime'] | null
   created_by?: CloudinaryUser | null
@@ -39,21 +39,21 @@ export interface Image {
   url: string
 }
 
-export const isOfTypeCloudinaryImage = (
-  cloudinaryImage?: unknown
-): cloudinaryImage is CloudinaryImage => {
-  if (!cloudinaryImage) return false
-  if (typeof cloudinaryImage !== 'object') return false
+export const isOfTypeCloudinaryAsset = (
+  asset?: unknown
+): asset is CloudinaryAsset => {
+  if (!asset) return false
+  if (typeof asset !== 'object') return false
 
   if (
-    'resource_type' in cloudinaryImage &&
-    'type' in cloudinaryImage &&
-    'width' in cloudinaryImage &&
-    'height' in cloudinaryImage &&
-    'id' in cloudinaryImage &&
-    'format' in cloudinaryImage &&
-    'secure_url' in cloudinaryImage &&
-    'version' in cloudinaryImage
+    'resource_type' in asset &&
+    'type' in asset &&
+    'width' in asset &&
+    'height' in asset &&
+    'id' in asset &&
+    'format' in asset &&
+    'secure_url' in asset &&
+    'version' in asset
   )
     return true
 

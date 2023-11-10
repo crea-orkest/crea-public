@@ -90,12 +90,12 @@ input ConcertModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  locations: ConcertModelLocationsFieldFilter
   persons: LinksFilter
   poster: FileFilter
-  seo: SeoFilter
   slug: SlugFilter
+  seo: SeoFilter
   title: StringFilter
+  locations: ConcertModelLocationsFieldFilter
   OR: [ConcertModelFilter]
   AND: [ConcertModelFilter]
 }
@@ -283,6 +283,38 @@ input DateTimeFilter {
   Filter records with the specified field defined (i.e. with any value) or not
   """
   exists: BooleanType
+}
+
+"""
+Block of type Document (document)
+"""
+type DocumentRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """
+  Editing URL
+  """
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """
+  Generates SEO and Social card meta tags to be used in your frontend
+  """
+  _seoMetaTags(
+    """
+    The locale to use to fetch the field's content
+    """
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  document: MediaItemRecord
+  id: ItemId!
 }
 
 enum FaviconType {
@@ -2367,8 +2399,8 @@ input LinkModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  externalUrl: StringFilter
   internalTitle: StringFilter
+  externalUrl: StringFilter
   page: LinkFilter
   OR: [LinkModelFilter]
   AND: [LinkModelFilter]
@@ -2393,10 +2425,10 @@ enum LinkModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  externalUrl_ASC
-  externalUrl_DESC
   internalTitle_ASC
   internalTitle_DESC
+  externalUrl_ASC
+  externalUrl_DESC
 }
 
 union LinkModelPageField = ConcertRecord | PageRecord
@@ -2516,9 +2548,9 @@ input LocationModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  address: LatLonFilter
-  addressTitle: StringFilter
   title: StringFilter
+  addressTitle: StringFilter
+  address: LatLonFilter
   OR: [LocationModelFilter]
   AND: [LocationModelFilter]
 }
@@ -2542,10 +2574,10 @@ enum LocationModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  addressTitle_ASC
-  addressTitle_DESC
   title_ASC
   title_DESC
+  addressTitle_ASC
+  addressTitle_DESC
 }
 
 """
@@ -2592,6 +2624,7 @@ input MediaItemModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
+  asset: JsonFilter
   item: FileFilter
   itemUrl: StringFilter
   title: StringFilter
@@ -2652,6 +2685,7 @@ type MediaItemRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  asset: JsonField
   id: ItemId!
   item: FileField
   itemUrl: String
@@ -2726,8 +2760,8 @@ input PageModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  seo: SeoFilter
   slug: SlugFilter
+  seo: SeoFilter
   title: StringFilter
   OR: [PageModelFilter]
   AND: [PageModelFilter]
@@ -3627,6 +3661,7 @@ type Tag {
 
 union TextBlockModelContentBlocksField =
     ConcertListRecord
+  | DocumentRecord
   | ImageRecord
   | VideoRecord
 

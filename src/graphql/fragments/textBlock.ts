@@ -2,7 +2,7 @@ import { concertLink } from './concertLink'
 import { eventBlock } from './eventBlock'
 import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
-import { image } from './image'
+import { document, image } from './image'
 import { pageLink } from './pageLink'
 import { video } from './video'
 
@@ -21,6 +21,9 @@ export const textBlockContent = gql`
       ... on ConcertListRecord {
         ...eventBlock
       }
+      ... on DocumentRecord {
+        ...document
+      }
       ... on ImageRecord {
         ...image
       }
@@ -31,9 +34,10 @@ export const textBlockContent = gql`
   }
   ${concertLink}
   ${pageLink}
-  ${video}
-  ${image}
   ${eventBlock}
+  ${document}
+  ${image}
+  ${video}
 `
 
 export const leftContent = gql`
