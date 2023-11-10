@@ -1,7 +1,7 @@
-import type { CloudinaryImage, Image } from 'graphql/types/image'
+import type { CloudinaryAsset, Image } from 'graphql/types/image'
 
 export const formatCloudinaryImage = (
-  image: CloudinaryImage | undefined
+  image: CloudinaryAsset | undefined
 ): Image | undefined => {
   if (!image?.id) return
   if (!image.version) return

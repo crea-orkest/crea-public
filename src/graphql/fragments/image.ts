@@ -15,6 +15,7 @@ export const responsiveImage = gql`
   }
 `
 
+// TODO: depricate item, file
 export const mediaItem = gql`
   fragment mediaItem on MediaItemRecord {
     ...identifiable
@@ -22,7 +23,7 @@ export const mediaItem = gql`
     item {
       ...file
     }
-    itemUrl
+    asset
   }
   ${identifiable}
   ${file}
@@ -37,4 +38,15 @@ export const image = gql`
   }
   ${mediaItem}
   ${identifiable}
+`
+
+export const document = gql`
+  fragment document on DocumentRecord {
+    ...identifiable
+    document {
+      ...mediaItem
+    }
+  }
+  ${identifiable}
+  ${mediaItem}
 `
