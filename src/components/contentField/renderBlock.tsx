@@ -50,7 +50,7 @@ export const renderBlock = ({
   }
 
   if (isOfType<DocumentFragment>(record, 'DocumentRecord')) {
-    ;<Document record={record} />
+    return <Document record={record} />
   }
 
   return <p>not supported: {record.__typename}</p>
