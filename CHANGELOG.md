@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.22](https://github.com/crea-orkest/crea-public/compare/v0.1.21...v0.1.22) (2023-11-10)
+
+
+### Features
+
+* pdf document ([83ae2cd](https://github.com/crea-orkest/crea-public/commit/83ae2cdec6c73ecaf04783690b9c81907d7c7b5d))
+* start time ([718b53a](https://github.com/crea-orkest/crea-public/commit/718b53a1640356e276b56001ebce49118039471a))
+
+
+### Bug Fixes
+
+* typo ([22720f5](https://github.com/crea-orkest/crea-public/commit/22720f54d59423398b9d5ada7fa023ab03a952b4))
+* typo for good ([445f43c](https://github.com/crea-orkest/crea-public/commit/445f43c6e9b1f7914a6474d860aa25624c6478a2))
+
 ## [0.1.21](https://github.com/crea-orkest/crea-public/compare/v0.1.20...v0.1.21) (2023-11-09)
 
 
