@@ -36,6 +36,10 @@
 .address {
   font-style: normal;
   margin-bottom: map.get(spacing.$rem, 32);
+
+  p {
+    margin: 0;
+  }
 }
 
 .link {

@@ -6,17 +6,19 @@
 
 .wrapper {
   background-color: colors.$background;
+  padding-top: map.get(spacing.$rem, 4);
+  padding-bottom: map.get(spacing.$rem, 4);
   z-index: z.$high;
 }
 
 .content {
   display: flex;
-  gap: 1rem;
-  flex-direction: row-reverse;
+  gap: map.get(spacing.$rem, 16);
+  flex-direction: row;
   flex-wrap: wrap;
 
-  &__logo {
-    margin: 1rem 0 1rem auto;
+  @media screen and (min-width: breakpoints.$sm) {
+    flex-direction: row-reverse;
   }
 }
 
@@ -34,10 +36,26 @@
     align-items: center;
     gap: map.get(spacing.$rem, 32);
     flex-shrink: 0;
+    margin-right: auto;
+  }
+}
+
+.logoLink {
+  margin: map.get(spacing.$rem, 16) 0;
+  margin-right: auto;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    margin-left: auto;
+    margin-right: 0;
   }
 }
 
 .logo {
   position: relative;
   object-fit: contain;
+  max-width: 150px;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    max-width: 200px;
+  }
 }

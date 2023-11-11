@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '../../styles/tokens/colors.scss' as colors;
+@use '../../styles/tokens/spacing.scss' as spacing;
+@use '../../styles/tokens/typography.scss' as typography;
+
+.container {
+  list-style: none;
+  padding: 0 map.get(spacing.$rem, 32);
+  overflow: scroll;
+  height: calc(100% - map.get(spacing.$rem, 96));
+}
+
+.subList {
+  list-style: none;
+  padding-left: map.get(spacing.$rem, 24);
+}
+
+.subItem {
+  display: block;
+  margin-top: map.get(spacing.$rem, 24);
+  font-family: typography.$dm-serif;
+  color: colors.$primary;
+}

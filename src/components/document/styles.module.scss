@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../../styles/tokens/colors.scss' as colors;
+@use '../../styles/tokens/spacing.scss' as spacing;
+@use '../../styles/tokens/breakpoints.scss' as breakpoints;
+@use '../../styles/tokens/radius.scss' as radius;
+@use '../../styles/tokens/typography.scss' as typography;
+@use '../../styles/tokens/layout.scss' as layout;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get(spacing.$rem, 16);
+  justify-content: space-between;
+  padding: map.get(spacing.$rem, 24);
+  background-color: colors.$light;
+  border-radius: radius.$lg;
+  max-width: layout.$max-content-width;
+}
+
+.title {
+  font-family: typography.$dm-serif;
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  gap: map.get(spacing.$rem, 8);
+  justify-content: center;
+}

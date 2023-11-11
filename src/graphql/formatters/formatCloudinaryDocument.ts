@@ -3,6 +3,7 @@ import type { CloudinaryAsset } from 'graphql/types/image'
 interface Document {
   id: string
   url: string
+  bytes?: number
 }
 
 export const formatCloudinaryDocument = (
@@ -15,5 +16,6 @@ export const formatCloudinaryDocument = (
   return {
     id: `v${document.version}/${document.id}`,
     url: document.secure_url,
+    bytes: document.bytes,
   }
 }

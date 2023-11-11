@@ -6,7 +6,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
 import styles from './styles.module.scss'
-import { HamburgerMenu } from 'components/hamburgerMenu'
+import { MobileMenu } from 'components/mobileMenu'
 
 export const Navigation: React.FC = async () => {
   const { data } = await getGeneralInfo()
@@ -15,10 +15,7 @@ export const Navigation: React.FC = async () => {
   return (
     <nav className={classNames(styles.wrapper, 'content-layout')}>
       <div className={classNames(styles.content)}>
-        <Link
-          href="/"
-          className={classNames(styles.logoLink, styles.content__logo)}
-        >
+        <Link href="/" className={classNames(styles.logoLink)}>
           <Image
             className={classNames(styles.logo)}
             priority={true}
@@ -28,7 +25,7 @@ export const Navigation: React.FC = async () => {
             height={50}
           />
         </Link>
-        <HamburgerMenu />
+        <MobileMenu />
         <ul className={classNames(styles.list)}>
           {data.general.menu.map((item) => {
             if ('link' in item) {

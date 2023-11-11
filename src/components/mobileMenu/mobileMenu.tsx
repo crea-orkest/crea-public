@@ -1,17 +1,19 @@
 'use client'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { Provider } from 'urql'
-import styles from './styles.module.scss'
 import { useDimensions } from 'hooks/useDimensions'
 import { client } from 'graphql/gqlClient'
 import { Hamburger } from 'components/icons/hamburger'
 import { Cross } from 'components/icons/cross'
 import { useHrefClick } from 'hooks/useHrefClick'
-import { HamburgerMenuItems } from 'components/hamburgerMenuItems'
+import { MobileMenuItems } from 'components/mobileMenuItems'
+import { cssToJs } from 'utils/cssToJs'
 
-export const HamburgerMenu: React.FC = () => {
-  const [open, setOpen] = React.useState(false)
+import styles from './styles.module.scss'
+
+export const MobileMenu: React.FC = () => {
+  const [open, setOpen] = useState(false)
   useHrefClick(() => setOpen(false))
   const { width } = useDimensions()
 
@@ -19,9 +21,8 @@ export const HamburgerMenu: React.FC = () => {
     setOpen(!open)
   }
 
-  React.useEffect(() => {
-    // TODO: use breakpoint css variable
-    if (width < 800) {
+  useEffect(() => {
+    if (width < cssToJs(styles.mobileBreakpoint)) {
       document.body.classList.toggle('noscroll', open)
     } else {
       document.body.classList.remove('noscroll')
@@ -30,26 +31,28 @@ export const HamburgerMenu: React.FC = () => {
 
   return (
     <Provider value={client}>
-      <div className={classNames(styles.hamburgerMenu)}>
+      <div className={classNames(styles.container)}>
         <button
-          className={classNames(styles.hamburgerMenu__hamburger)}
+          className={classNames(styles.menuButton)}
           type="button"
           onClick={handleClick}
         >
-          <Hamburger />
+          <span className="sr-only">Menu</span>
+          <Hamburger className={classNames(styles.menuIcon)} />
         </button>
         {open && (
-          <div className={classNames(styles.hamburgerMenu__overlay)}>
-            <div className={classNames(styles.hamburgerMenu__heading)}>
+          <div className={classNames(styles.overlay)}>
+            <div className={classNames(styles.heading)}>
               <button
-                className={classNames(styles.hamburgerMenu__close)}
+                className={classNames(styles.menuButton)}
                 type="button"
                 onClick={handleClick}
               >
-                <Cross />
+                <span className="sr-only">Sluit menu</span>
+                <Cross className={classNames(styles.menuIcon)} />
               </button>
             </div>
-            <HamburgerMenuItems />
+            <MobileMenuItems />
           </div>
         )}
       </div>
