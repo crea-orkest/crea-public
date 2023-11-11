@@ -15,6 +15,10 @@
     padding-left: map.get(spacings.$rem, 64);
     padding-right: map.get(spacings.$rem, 64);
   }
+
+  p {
+    max-width: layout.$max-content-width;
+  }
 }
 
 .with-background {
