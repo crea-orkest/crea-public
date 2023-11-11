@@ -3,17 +3,16 @@
 // import Image from 'next/image'
 // import Link from 'next/link'
 import { NavigationItem } from 'components/navigationItem'
-import { NavigationSubMenu } from 'components/navigationSubMenu'
 import React from 'react'
 import { useQuery } from 'urql'
 import { GetGeneralInfoDocument } from 'graphql/generated/graphql'
 import styles from './styles.module.scss'
 
-export const HamburgerMenuItems: React.FC = () => {
+export const MobileMenuItems: React.FC = () => {
   const [result] = useQuery({ query: GetGeneralInfoDocument })
 
   return (
-    <ul className={styles.hamburgerMenuItems}>
+    <ul className={styles.container}>
       {result?.data?.general?.menu.map((item) => {
         if ('link' in item) {
           return (
@@ -27,11 +26,20 @@ export const HamburgerMenuItems: React.FC = () => {
 
         if ('menu' in item) {
           return (
-            <NavigationSubMenu
-              key={item.id}
-              label={item.label}
-              item={JSON.stringify(item.menu)}
-            />
+            <li key={item.id}>
+              <span className={styles.subItem}>{item.label}</span>
+              <ul className={styles.subList}>
+                {item?.menu?.map((subItem) => {
+                  return (
+                    <NavigationItem
+                      key={subItem.id}
+                      slug={subItem?.link?.slug}
+                      label={subItem.label}
+                    />
+                  )
+                })}
+              </ul>
+            </li>
           )
         }
         return <NavigationItem key={item.id} slug={'/'} label={'Error'} />
