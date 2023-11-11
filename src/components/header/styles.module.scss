@@ -37,6 +37,11 @@ header.header.withImage {
       font-size: 3.375rem;
     }
   }
+
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .header.withImage {
