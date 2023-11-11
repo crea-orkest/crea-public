@@ -54,7 +54,7 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
   ])
 
   return (
-    <div>
+    <>
       {events.map((event) => {
         if (!event?.id) return
         return <EventListItem key={event.id} data={event} />
@@ -62,12 +62,12 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
 
       {numberOfEvents && (
         <div ref={ref}>
-          <p>
+          <p className="text-small">
             {/* TODO: simplify/fix this logic */}
             {events.length + initialSkip} van {numberOfEvents} concerten
           </p>
         </div>
       )}
-    </div>
+    </>
   )
 }
