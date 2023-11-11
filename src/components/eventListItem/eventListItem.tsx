@@ -1,11 +1,11 @@
-import { AuthorView } from 'components/author'
-import type { Event } from 'graphql/types/event'
-import Image from 'next/image'
-import Link from 'next/link'
-import { LocationView } from 'components/location'
 import React from 'react'
 import classNames from 'classnames'
+import Image from 'next/image'
+import Link from 'next/link'
+import type { Event } from 'graphql/types/event'
+
 import styles from './styles.module.scss'
+import { formatDate } from 'utils/formatDate'
 
 export interface Props {
   data: Event
@@ -13,35 +13,42 @@ export interface Props {
 
 export const EventListItem: React.FC<Props> = ({ data }: Props) => {
   return (
-    <div className={classNames(styles.card)}>
-      {data.image?.url && (
-        <Image
-          priority={true} // TODO: only for the first item
-          className={classNames(styles.card__image)}
-          src={data.image.url}
-          alt={data.image.description}
-          width={data.image.width ?? 100}
-          height={data.image.height ?? 100}
-        />
-      )}
-      <h2>
+    <div>
+      <h2 className={classNames(styles.title, 'h3')}>
         <Link href={data.url}>{data.title}</Link>
       </h2>
-      {data.persons && data.persons.length > 0 && (
-        <ul className={classNames(styles.people)}>
-          {data.persons.map((person) => {
+      <div className={styles.content}>
+        <ul className={styles.locations}>
+          {data?.locations?.map((item) => {
+            if (!item?.id) return null
             return (
-              <li className={classNames(styles.person)} key={person.id}>
-                <AuthorView data={person} />
+              <li key={item.id} className={styles.location}>
+                <h3 className={classNames(styles.locationTitle, 'h5')}>
+                  {item.title}
+                </h3>
+                {item.startTime && (
+                  <p className={classNames(styles.locationSubtitle)}>
+                    {formatDate(item.startTime)}
+                  </p>
+                )}
               </li>
             )
           })}
         </ul>
-      )}
-      {data?.locations?.map((item) => {
-        if (!item?.id) return
-        return <LocationView key={item.id} data={item} />
-      })}
+
+        {data.image?.url && (
+          <div className={classNames(styles.imageContainer)}>
+            <Image
+              priority={true} // TODO: only for the first item
+              className={classNames(styles.image)}
+              src={data.image.url}
+              alt={data.image.description}
+              width={data.image.width ?? 100}
+              height={data.image.height ?? 100}
+            />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
