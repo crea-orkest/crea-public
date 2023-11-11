@@ -1,8 +1,12 @@
-import { Pdf } from 'components/icons/pdf'
+import React from 'react'
+import classNames from 'classnames'
 import type { DocumentFragment } from 'graphql/generated/graphql'
 import { formatCloudinaryDocument } from 'graphql/formatters/formatCloudinaryDocument'
 import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
-import React from 'react'
+import { Pdf } from 'components/icons/pdf'
+import { formatBytes } from 'utils/formatBytes'
+
+import styles from './styles.module.scss'
 
 interface Props {
   record: DocumentFragment
@@ -17,9 +21,16 @@ export const Document: React.FC<Props> = ({ record }: Props) => {
   )
   if (!asset?.url) return null
   return (
-    <p>
-      <Pdf />
-      <a href={asset.url}>{record.document.title}</a>
-    </p>
+    <div className={styles.container}>
+      <span className={classNames(styles.title, 'h4')}>
+        {record.document.title}
+      </span>
+      <span className={styles.download}>
+        <Pdf />
+        <a href={asset.url}>
+          Download document {asset.bytes && `(${formatBytes(asset.bytes, 0)})`}
+        </a>
+      </span>
+    </div>
   )
 }
