@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.1.23](https://github.com/crea-orkest/crea-public/compare/v0.1.22...v0.1.23) (2023-11-11)
+
+
+### Features
+
+* **concertsPage:** add styling ([8de40e3](https://github.com/crea-orkest/crea-public/commit/8de40e30602324d928474dddbac0df5b0fcafa14))
+* **cssToJs.ts:** add util to make rem or px to number ([3f1a4ee](https://github.com/crea-orkest/crea-public/commit/3f1a4ee9bab483fcf2be1447990fc9a698f6ede3))
+* **document.tsx:** add styling and number of bytes to download button ([5072acb](https://github.com/crea-orkest/crea-public/commit/5072acba5766d737fa8edc08290d188d8c04681b))
+* **eventListItem:** make sure date is correct and show poster if any ([7da00a4](https://github.com/crea-orkest/crea-public/commit/7da00a4b5321edf30514fd279b81f10c7b1181b3))
+* **formatDate.ts:** add date formatter ([35fadd4](https://github.com/crea-orkest/crea-public/commit/35fadd4557ebabec18a5663d67b16cd3086250fa))
+* **layout.scss:** add max content width for paragraphs ([74cf381](https://github.com/crea-orkest/crea-public/commit/74cf38163fb41f0e0265340dadc3c4794c630891))
+* **mobileMenu:** rename and style hamburger menu with default styling ([78232d8](https://github.com/crea-orkest/crea-public/commit/78232d89e671641162f5c31ed8e741040dfe4342))
+
+
+### Bug Fixes
+
+* **components:** fix some styling issues ([49ac1a3](https://github.com/crea-orkest/crea-public/commit/49ac1a3f300cbe5708d181dc42a54bb3e5834161))
+
 ## [0.1.22](https://github.com/crea-orkest/crea-public/compare/v0.1.21...v0.1.22) (2023-11-10)
 
 
