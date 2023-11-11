@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { notFound } from 'next/navigation'
 import { Event } from 'components/event'
 import { Header } from 'components/header'
@@ -7,14 +8,15 @@ import { PageContent } from 'components/pageContent'
 import { getEvents } from 'graphql/getters/getEvents'
 import { getPage } from 'graphql/getters/getPage'
 
+import styles from './styles.module.scss'
+
 export const ConcertsPage = async () => {
   const first = 2
   const { data: eventData } = await getEvents({ skip: 0, first })
   const { data: pageData } = await getPage({ slug: 'concerten' })
 
   const events = (
-    <div className="content-layout">
-      <h2>Alle concerten</h2>
+    <div className={classNames(styles.concerts, 'content-layout--small')}>
       {eventData?.map((event) => {
         if (!event?.id) return
         return <Event key={event.id} id={event.id} />

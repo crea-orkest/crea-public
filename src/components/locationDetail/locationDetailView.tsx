@@ -4,6 +4,7 @@ import { Map } from 'components/map'
 import type { Location } from 'graphql/types/location'
 import { useEnv } from 'hooks/useEnv'
 import styles from './styles.module.scss'
+import { formatDate } from 'utils/formatDate'
 
 export interface Props {
   data: Location
@@ -14,19 +15,12 @@ export const LocationDetailView: React.FC<Props> = ({ data }) => {
   const { title, address, lat, lng, startTime } = data
 
   return (
-    <address className={styles.address__container}>
-      <div className={styles.address__details}>
-        <h2>{title}</h2>
-        {address && <p>{address}</p>}
+    <address className={styles.container}>
+      <div className={styles.details}>
+        <h3 className="h4">{title}</h3>
+        {address && <p className={styles.detailsText}>{address}</p>}
         {startTime && (
-          <p>
-            {new Date(startTime).toLocaleDateString('nl-NL', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </p>
+          <p className={styles.detailsText}>{formatDate(startTime)}</p>
         )}
       </div>
       {lat && lng && googleMapsApiKey ? (

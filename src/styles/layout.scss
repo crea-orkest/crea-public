@@ -4,10 +4,9 @@
 @use './tokens/breakpoints.scss' as breakpoints;
 @use './tokens/layout.scss' as layout;
 
-.content-layout {
+%content-layout {
   width: 100%;
   margin: 0 auto;
-  max-width: layout.$default-width;
   padding-left: map.get(spacings.$rem, 24);
   padding-right: map.get(spacings.$rem, 24);
 
@@ -19,6 +18,16 @@
   p {
     max-width: layout.$max-content-width;
   }
+}
+
+.content-layout {
+  @extend %content-layout;
+  max-width: layout.$default-width;
+}
+
+.content-layout--small {
+  @extend %content-layout;
+  max-width: layout.$md-width;
 }
 
 .with-background {

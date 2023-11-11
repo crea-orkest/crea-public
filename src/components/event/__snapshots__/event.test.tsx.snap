@@ -2,34 +2,52 @@
 
 exports[`Concert component shows all the data 1`] = `
 <div>
-  <div
-    class="card"
-  >
-    <img
-      alt="desc"
-      class="card__image"
-      data-nimg="1"
-      decoding="async"
-      fetchpriority="high"
-      height="100"
-      src="/_next/image?url=https%3A%2F%2Fcreaorkest.nl%2Fsome-image.png&w=256&q=75"
-      srcset="/_next/image?url=https%3A%2F%2Fcreaorkest.nl%2Fsome-image.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcreaorkest.nl%2Fsome-image.png&w=256&q=75 2x"
-      style="color: transparent;"
-      width="100"
-    />
-    <h2>
+  <div>
+    <h2
+      class="title h3"
+    >
       <a
         href="some-slug"
       >
         name
       </a>
     </h2>
-    <address>
-      <h2 />
-      <p>
-        Fri Sep 01 2023
-      </p>
-    </address>
+    <div
+      class="content"
+    >
+      <ul
+        class="locations"
+      >
+        <li
+          class="location"
+        >
+          <h3
+            class="locationTitle h5"
+          />
+          <p
+            class="locationSubtitle"
+          >
+            Vrijdag 1 september — 14:32
+          </p>
+        </li>
+      </ul>
+      <div
+        class="imageContainer"
+      >
+        <img
+          alt="desc"
+          class="image"
+          data-nimg="1"
+          decoding="async"
+          fetchpriority="high"
+          height="100"
+          src="/_next/image?url=https%3A%2F%2Fcreaorkest.nl%2Fsome-image.png&w=256&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fcreaorkest.nl%2Fsome-image.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcreaorkest.nl%2Fsome-image.png&w=256&q=75 2x"
+          style="color: transparent;"
+          width="100"
+        />
+      </div>
+    </div>
   </div>
 </div>
 `;

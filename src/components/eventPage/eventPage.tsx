@@ -3,8 +3,8 @@ import React from 'react'
 import { getEventPage } from 'graphql/getters/getEventPage'
 import { notFound } from 'next/navigation'
 import { LocationDetail } from 'components/locationDetail'
+
 import styles from './styles.module.scss'
-import classNames from 'classnames'
 
 export interface Props {
   slug: string
@@ -17,12 +17,7 @@ export const EventPage = async ({ slug }: Props) => {
   return (
     <article>
       <PageContent items={data.content} pageTitle={data.title} />
-      <div
-        className={classNames(styles.locations, {
-          [`${styles.locations__odd}`]: data.locations.length % 2,
-          [`${styles.locations__one}`]: data.locations.length === 1,
-        })}
-      >
+      <div className={styles.locations}>
         {data.locations.map((location) => {
           if (!location?.id || !location.startTime) return null
           return (

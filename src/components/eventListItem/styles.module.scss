@@ -1,19 +1,53 @@
-.card {
-  margin: 3rem 0 0 0;
-  background-color: white;
+@use 'sass:map';
+@use '../../styles/tokens/colors.scss' as colors;
+@use '../../styles/tokens/spacing.scss' as spacing;
+@use '../../styles/tokens/breakpoints.scss' as breakpoints;
+@use '../../styles/tokens/radius.scss' as radius;
+@use '../../styles/tokens/typography.scss' as typography;
+@use '../../styles/tokens/layout.scss' as layout;
 
-  &__image {
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;
-  }
+.title {
+  margin-bottom: map.get(spacing.$rem, 16);
 }
 
-.people {
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get(spacing.$rem, 16);
+  justify-content: space-between;
+}
+
+.locations {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.person {
-  margin-top: 1rem;
+.imageContainer {
+  border-radius: radius.$md;
+  background-color: colors.$secondary-light;
+}
+
+$image-width: 15rem;
+
+.image {
+  width: $image-width;
+  max-width: 100%;
+  height: calc($image-width * 1.414);
+  border-radius: inherit;
+  object-fit: cover;
+  transform: translate(-5%, 2.5%);
+}
+
+.location {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.locationTitle {
+  margin: 0;
+}
+
+.locationSubtitle {
+  margin: 0;
 }
