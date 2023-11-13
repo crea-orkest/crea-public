@@ -27,7 +27,7 @@ export const MobileMenuItems: React.FC = () => {
         if ('menu' in item) {
           return (
             <li key={item.id}>
-              <span className={styles.subItem}>{item.label}</span>
+              <h3 className={styles.subItem}>{item.label}</h3>
               <ul className={styles.subList}>
                 {item?.menu?.map((subItem) => {
                   return (

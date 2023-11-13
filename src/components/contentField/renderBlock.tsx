@@ -1,5 +1,4 @@
 import { Event } from 'components/event'
-import Image from 'next/image'
 import type { Record } from 'datocms-structured-text-utils'
 import type { RenderBlockContext } from 'react-datocms/structured-text'
 import { isOfType } from './isOfType'
@@ -11,6 +10,7 @@ import type {
   VideoFragment,
 } from 'graphql/generated/graphql'
 import { Document } from 'components/document'
+import { ImageBlock } from 'components/imageBlock'
 
 export const renderBlock = ({
   record,
@@ -28,19 +28,7 @@ export const renderBlock = ({
   }
 
   if (isOfType<ImageFragment>(record, 'ImageRecord')) {
-    if (!record.item?.item?.url) return null
-    return (
-      <Image
-        src={record.item.item.url}
-        alt={record.item.item.alt || ''}
-        height={record.item.item.height || undefined}
-        width={record.item.item.width || undefined}
-        style={{
-          width: '100%',
-          height: 'auto',
-        }}
-      />
-    )
+    return <ImageBlock record={record} />
   }
 
   if (isOfType<VideoFragment>(record, 'VideoRecord')) {

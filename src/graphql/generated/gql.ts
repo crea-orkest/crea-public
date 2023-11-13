@@ -45,7 +45,7 @@ const documents = {
     types.IdentifiableFragmentDoc,
   '\n  fragment responsiveImage on ResponsiveImage {\n    title\n    alt\n    sizes\n    aspectRatio\n    bgColor\n    src\n    height\n    width\n  }\n':
     types.ResponsiveImageFragmentDoc,
-  '\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    item {\n      ...file\n    }\n    asset\n  }\n  \n  \n':
+  '\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    asset\n  }\n  \n':
     types.MediaItemFragmentDoc,
   '\n  fragment image on ImageRecord {\n    ...identifiable\n    item {\n      ...mediaItem\n    }\n  }\n  \n  \n':
     types.ImageFragmentDoc,
@@ -245,8 +245,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    item {\n      ...file\n    }\n    asset\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    item {\n      ...file\n    }\n    asset\n  }\n  \n  \n']
+  source: '\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    asset\n  }\n  \n'
+): (typeof documents)['\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    asset\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

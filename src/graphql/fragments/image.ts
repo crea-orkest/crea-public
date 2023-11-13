@@ -1,4 +1,3 @@
-import { file } from './file'
 import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 
@@ -15,18 +14,13 @@ export const responsiveImage = gql`
   }
 `
 
-// TODO: depricate item, file
 export const mediaItem = gql`
   fragment mediaItem on MediaItemRecord {
     ...identifiable
     title
-    item {
-      ...file
-    }
     asset
   }
   ${identifiable}
-  ${file}
 `
 
 export const image = gql`
