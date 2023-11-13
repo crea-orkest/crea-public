@@ -56,14 +56,5 @@ export const mockMenuData: GetGeneralInfoQuery = {
         ],
       },
     ],
-    logo: {
-      id: '65318740',
-      alt: null,
-      width: 4032,
-      height: 3024,
-      title: null,
-      url: 'https://www.datocms-assets.com/103931/1692002208-pxl_20230324_183549112.jpg',
-      video: null,
-    },
   },
 }
