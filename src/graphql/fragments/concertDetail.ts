@@ -1,7 +1,6 @@
 import { type TypedDocumentNode, gql } from '@urql/core'
 
 import { author } from './author'
-import { file } from './file'
 import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
 import { textBlock, twoColum } from './textBlock'
@@ -14,9 +13,6 @@ export const concertDetail: TypedDocumentNode = gql`
     slug
     locations {
       ...locationItem
-    }
-    poster {
-      ...file
     }
     persons {
       ...author
@@ -36,7 +32,6 @@ export const concertDetail: TypedDocumentNode = gql`
   ${header}
   ${identifiable}
   ${locationItem}
-  ${file}
   ${author}
   ${textBlock}
   ${twoColum}

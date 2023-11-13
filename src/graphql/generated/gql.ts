@@ -17,29 +17,27 @@ const documents = {
     types.AuthorFragmentDoc,
   '\n  fragment colors on ColorField {\n    alpha\n    blue\n    cssRgb\n    green\n    hex\n    red\n  }\n':
     types.ColorsFragmentDoc,
-  '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...file\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n':
+  '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n':
     types.ConcertDetailFragmentDoc,
   '\n  fragment concertLink on ConcertRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.ConcertLinkFragmentDoc,
   '\n  fragment coordinates on LatLonField {\n    latitude\n    longitude\n  }\n':
     types.CoordinatesFragmentDoc,
-  '\n  fragment eventBlock on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertLink\n    }\n  }\n  \n  \n':
+  '\n  fragment eventBlock on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertLink\n    }\n    futureConcerts\n  }\n  \n  \n':
     types.EventBlockFragmentDoc,
   '\n  fragment eventLink on ConcertRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.EventLinkFragmentDoc,
   '\n  fragment eventPageSeo on ConcertRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n':
     types.EventPageSeoFragmentDoc,
-  '\n  fragment events on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertDetail\n    }\n    showAllConcerts\n  }\n  \n  \n':
-    types.EventsFragmentDoc,
   '\n  fragment file on FileField {\n    id\n    alt\n    width\n    height\n    title\n    url\n    video {\n      ...videoUpload\n    }\n  }\n  \n  \n  \n  \n':
     types.FileFragmentDoc,
   '\n  fragment focalPoint on focalPoint {\n    x\n    y\n  }\n':
     types.FocalPointFragmentDoc,
-  '\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n    logo {\n      ...file\n    }\n  }\n  \n  \n  \n':
+  '\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n  }\n  \n  \n':
     types.GeneralInfoFragmentDoc,
   '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n':
     types.HeaderFragmentDoc,
-  '\n  fragment headerBody on HeaderModelBodyField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks\n  }\n  \n  \n  \n  \n  \n':
+  '\n  fragment headerBody on HeaderModelBodyField {\n    blocks\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    value\n  }\n  \n  \n':
     types.HeaderBodyFragmentDoc,
   '\n  fragment identifiable on RecordInterface {\n    __typename\n    _createdAt\n    _firstPublishedAt\n    _publishedAt\n    _updatedAt\n    id\n  }\n':
     types.IdentifiableFragmentDoc,
@@ -61,13 +59,13 @@ const documents = {
     types.MenuItemFragmentDoc,
   '\n  fragment page on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n':
     types.PageFragmentDoc,
-  '\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n':
+  '\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n':
     types.PageDetailFragmentDoc,
   '\n  fragment pageDetailSeo on PageRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n':
     types.PageDetailSeoFragmentDoc,
   '\n  fragment pageLink on PageRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.PageLinkFragmentDoc,
-  '\n  fragment seoField on SeoField {\n    description\n    image {\n      ...file\n    }\n    title\n    twitterCard\n  }\n  \n':
+  '\n  fragment seoField on SeoField {\n    description\n    title\n    twitterCard\n  }\n':
     types.SeoFieldFragmentDoc,
   '\n  fragment seoSettings on GlobalSeoField {\n    facebookPageUrl\n    siteName\n    titleSuffix\n    twitterAccount\n    fallbackSeo {\n      ...seoField\n    }\n  }\n  \n':
     types.SeoSettingsFragmentDoc,
@@ -161,8 +159,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...file\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...file\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n']
+  source: '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n'
+): (typeof documents)['\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -179,8 +177,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment eventBlock on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertLink\n    }\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment eventBlock on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertLink\n    }\n  }\n  \n  \n']
+  source: '\n  fragment eventBlock on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertLink\n    }\n    futureConcerts\n  }\n  \n  \n'
+): (typeof documents)['\n  fragment eventBlock on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertLink\n    }\n    futureConcerts\n  }\n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -197,12 +195,6 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment events on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertDetail\n    }\n    showAllConcerts\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment events on ConcertListRecord {\n    ...identifiable\n    pinnedConcerts {\n      ...concertDetail\n    }\n    showAllConcerts\n  }\n  \n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
   source: '\n  fragment file on FileField {\n    id\n    alt\n    width\n    height\n    title\n    url\n    video {\n      ...videoUpload\n    }\n  }\n  \n  \n  \n  \n'
 ): (typeof documents)['\n  fragment file on FileField {\n    id\n    alt\n    width\n    height\n    title\n    url\n    video {\n      ...videoUpload\n    }\n  }\n  \n  \n  \n  \n']
 /**
@@ -215,8 +207,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n    logo {\n      ...file\n    }\n  }\n  \n  \n  \n'
-): (typeof documents)['\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n    logo {\n      ...file\n    }\n  }\n  \n  \n  \n']
+  source: '\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n  }\n  \n  \n'
+): (typeof documents)['\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n  }\n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -227,8 +219,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment headerBody on HeaderModelBodyField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks\n  }\n  \n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment headerBody on HeaderModelBodyField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks\n  }\n  \n  \n  \n  \n  \n']
+  source: '\n  fragment headerBody on HeaderModelBodyField {\n    blocks\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    value\n  }\n  \n  \n'
+): (typeof documents)['\n  fragment headerBody on HeaderModelBodyField {\n    blocks\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    value\n  }\n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -293,8 +285,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n']
+  source: '\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n'
+): (typeof documents)['\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -311,8 +303,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment seoField on SeoField {\n    description\n    image {\n      ...file\n    }\n    title\n    twitterCard\n  }\n  \n'
-): (typeof documents)['\n  fragment seoField on SeoField {\n    description\n    image {\n      ...file\n    }\n    title\n    twitterCard\n  }\n  \n']
+  source: '\n  fragment seoField on SeoField {\n    description\n    title\n    twitterCard\n  }\n'
+): (typeof documents)['\n  fragment seoField on SeoField {\n    description\n    title\n    twitterCard\n  }\n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

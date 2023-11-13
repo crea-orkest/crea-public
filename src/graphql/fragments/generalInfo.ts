@@ -1,4 +1,3 @@
-import { file } from './file'
 import { gql } from '@urql/core'
 import { menuItem } from './menuItem'
 import { submenuItem } from './subMenuItem'
@@ -15,11 +14,7 @@ export const generalInfo = gql`
         ...submenuItem
       }
     }
-    logo {
-      ...file
-    }
   }
-  ${file}
   ${menuItem}
   ${submenuItem}
 `

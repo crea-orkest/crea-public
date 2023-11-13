@@ -8,6 +8,7 @@ export const eventBlock = gql`
     pinnedConcerts {
       ...concertLink
     }
+    futureConcerts
   }
   ${concertLink}
   ${identifiable}

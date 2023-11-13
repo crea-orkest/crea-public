@@ -1,13 +1,10 @@
 import { gql } from '@urql/core'
-import { image } from './image'
 import { concertLink } from './concertLink'
 import { pageLink } from './pageLink'
-import { eventBlock } from './eventBlock'
-import { video } from './video'
 
 export const headerBody = gql`
   fragment headerBody on HeaderModelBodyField {
-    value
+    blocks
     links {
       ... on ConcertRecord {
         ...concertLink
@@ -16,11 +13,8 @@ export const headerBody = gql`
         ...pageLink
       }
     }
-    blocks
+    value
   }
   ${concertLink}
   ${pageLink}
-  ${eventBlock}
-  ${image}
-  ${video}
 `
