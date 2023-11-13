@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.24](https://github.com/crea-orkest/crea-public/compare/v0.1.23...v0.1.24) (2023-11-13)
+
+
+### Features
+
+* imageblock ([4195a4e](https://github.com/crea-orkest/crea-public/commit/4195a4ec125e17e3955a2ac5ac101b9ee0b55ca6))
+
+
+### Bug Fixes
+
+* css ([bcecc4b](https://github.com/crea-orkest/crea-public/commit/bcecc4b050a1632d6a5eca68e7fb7e4396163328))
+* download styling ([f306ecd](https://github.com/crea-orkest/crea-public/commit/f306ecdaf11be745ece5ff6b92224ca897efefe7))
+* header fix ([dc22d2f](https://github.com/crea-orkest/crea-public/commit/dc22d2f307181289a149d6a9c3359f09ad3aa836))
+* mobile menu ([bb5c2d0](https://github.com/crea-orkest/crea-public/commit/bb5c2d071616696c2292a8e163df3e58bd706f12))
+* remove external url ([0855949](https://github.com/crea-orkest/crea-public/commit/0855949c2511608b62fe4f95513d359d8c545926))
+
 ## [0.1.23](https://github.com/crea-orkest/crea-public/compare/v0.1.22...v0.1.23) (2023-11-11)
 
 
