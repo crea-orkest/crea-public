@@ -3501,23 +3501,6 @@ export type ConcertDetailFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
     | {
@@ -3587,23 +3570,6 @@ export type ConcertDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -3622,23 +3588,6 @@ export type ConcertDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -3668,23 +3617,6 @@ export type ConcertDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -3757,23 +3689,6 @@ export type ConcertDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -3803,23 +3718,6 @@ export type ConcertDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -3884,23 +3782,6 @@ export type ConcertDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -3930,23 +3811,6 @@ export type ConcertDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -4137,23 +4001,6 @@ export type EventsFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -4223,23 +4070,6 @@ export type EventsFragment = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -4258,23 +4088,6 @@ export type EventsFragment = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -4304,23 +4117,6 @@ export type EventsFragment = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -4393,23 +4189,6 @@ export type EventsFragment = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -4439,23 +4218,6 @@ export type EventsFragment = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -4520,23 +4282,6 @@ export type EventsFragment = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -4566,23 +4311,6 @@ export type EventsFragment = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -4719,23 +4447,6 @@ export type HeaderFragment = {
     _publishedAt?: string | null
     _updatedAt: string
     id: string
-    item?: {
-      __typename?: 'FileField'
-      id: string
-      alt?: string | null
-      width?: number | null
-      height?: number | null
-      title?: string | null
-      url: string
-      video?: {
-        __typename?: 'UploadVideoField'
-        mp4Url?: string | null
-        muxAssetId: string
-        muxPlaybackId: string
-        streamingUrl: string
-        thumbnailUrl: string
-      } | null
-    } | null
   } | null
 }
 
@@ -4960,23 +4671,6 @@ export type MediaItemFragment = {
   _publishedAt?: string | null
   _updatedAt: string
   id: string
-  item?: {
-    __typename?: 'FileField'
-    id: string
-    alt?: string | null
-    width?: number | null
-    height?: number | null
-    title?: string | null
-    url: string
-    video?: {
-      __typename?: 'UploadVideoField'
-      mp4Url?: string | null
-      muxAssetId: string
-      muxPlaybackId: string
-      streamingUrl: string
-      thumbnailUrl: string
-    } | null
-  } | null
 }
 
 export type ImageFragment = {
@@ -4995,23 +4689,6 @@ export type ImageFragment = {
     _publishedAt?: string | null
     _updatedAt: string
     id: string
-    item?: {
-      __typename?: 'FileField'
-      id: string
-      alt?: string | null
-      width?: number | null
-      height?: number | null
-      title?: string | null
-      url: string
-      video?: {
-        __typename?: 'UploadVideoField'
-        mp4Url?: string | null
-        muxAssetId: string
-        muxPlaybackId: string
-        streamingUrl: string
-        thumbnailUrl: string
-      } | null
-    } | null
   } | null
 }
 
@@ -5031,23 +4708,6 @@ export type DocumentFragment = {
     _publishedAt?: string | null
     _updatedAt: string
     id: string
-    item?: {
-      __typename?: 'FileField'
-      id: string
-      alt?: string | null
-      width?: number | null
-      height?: number | null
-      title?: string | null
-      url: string
-      video?: {
-        __typename?: 'UploadVideoField'
-        mp4Url?: string | null
-        muxAssetId: string
-        muxPlaybackId: string
-        streamingUrl: string
-        thumbnailUrl: string
-      } | null
-    } | null
   } | null
 }
 
@@ -5168,23 +4828,6 @@ export type PageFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
     | {
@@ -5254,23 +4897,6 @@ export type PageFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -5289,23 +4915,6 @@ export type PageFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -5335,23 +4944,6 @@ export type PageFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -5424,23 +5016,6 @@ export type PageFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -5470,23 +5045,6 @@ export type PageFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -5551,23 +5109,6 @@ export type PageFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -5597,23 +5138,6 @@ export type PageFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -5675,23 +5199,6 @@ export type PageDetailFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
     | {
@@ -5761,23 +5268,6 @@ export type PageDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -5796,23 +5286,6 @@ export type PageDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -5842,23 +5315,6 @@ export type PageDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -5931,23 +5387,6 @@ export type PageDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -5977,23 +5416,6 @@ export type PageDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -6058,23 +5480,6 @@ export type PageDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
             | {
@@ -6104,23 +5509,6 @@ export type PageDetailFragment = {
                   _publishedAt?: string | null
                   _updatedAt: string
                   id: string
-                  item?: {
-                    __typename?: 'FileField'
-                    id: string
-                    alt?: string | null
-                    width?: number | null
-                    height?: number | null
-                    title?: string | null
-                    url: string
-                    video?: {
-                      __typename?: 'UploadVideoField'
-                      mp4Url?: string | null
-                      muxAssetId: string
-                      muxPlaybackId: string
-                      streamingUrl: string
-                      thumbnailUrl: string
-                    } | null
-                  } | null
                 } | null
               }
           >
@@ -6317,23 +5705,6 @@ export type TextBlockContentFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
     | {
@@ -6352,23 +5723,6 @@ export type TextBlockContentFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
     | {
@@ -6398,23 +5752,6 @@ export type TextBlockContentFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
   >
@@ -6480,23 +5817,6 @@ export type LeftContentFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
     | {
@@ -6526,23 +5846,6 @@ export type LeftContentFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
   >
@@ -6608,23 +5911,6 @@ export type RightContentFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
     | {
@@ -6654,23 +5940,6 @@ export type RightContentFragment = {
           _publishedAt?: string | null
           _updatedAt: string
           id: string
-          item?: {
-            __typename?: 'FileField'
-            id: string
-            alt?: string | null
-            width?: number | null
-            height?: number | null
-            title?: string | null
-            url: string
-            video?: {
-              __typename?: 'UploadVideoField'
-              mp4Url?: string | null
-              muxAssetId: string
-              muxPlaybackId: string
-              streamingUrl: string
-              thumbnailUrl: string
-            } | null
-          } | null
         } | null
       }
   >
@@ -6743,23 +6012,6 @@ export type TextBlockFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -6778,23 +6030,6 @@ export type TextBlockFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -6824,23 +6059,6 @@ export type TextBlockFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
     >
@@ -6914,23 +6132,6 @@ export type TwoColumFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -6960,23 +6161,6 @@ export type TwoColumFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
     >
@@ -7041,23 +6225,6 @@ export type TwoColumFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -7087,23 +6254,6 @@ export type TwoColumFragment = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
     >
@@ -7146,23 +6296,6 @@ export type VideoFragment = {
     _publishedAt?: string | null
     _updatedAt: string
     id: string
-    item?: {
-      __typename?: 'FileField'
-      id: string
-      alt?: string | null
-      width?: number | null
-      height?: number | null
-      title?: string | null
-      url: string
-      video?: {
-        __typename?: 'UploadVideoField'
-        mp4Url?: string | null
-        muxAssetId: string
-        muxPlaybackId: string
-        streamingUrl: string
-        thumbnailUrl: string
-      } | null
-    } | null
   } | null
 }
 
@@ -7317,23 +6450,6 @@ export type GetEventQuery = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -7403,23 +6519,6 @@ export type GetEventQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -7438,23 +6537,6 @@ export type GetEventQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -7484,23 +6566,6 @@ export type GetEventQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -7573,23 +6638,6 @@ export type GetEventQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -7619,23 +6667,6 @@ export type GetEventQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -7700,23 +6731,6 @@ export type GetEventQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -7746,23 +6760,6 @@ export type GetEventQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -7871,23 +6868,6 @@ export type GetEventPageQuery = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -7957,23 +6937,6 @@ export type GetEventPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -7992,23 +6955,6 @@ export type GetEventPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -8038,23 +6984,6 @@ export type GetEventPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -8127,23 +7056,6 @@ export type GetEventPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -8173,23 +7085,6 @@ export type GetEventPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -8254,23 +7149,6 @@ export type GetEventPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -8300,23 +7178,6 @@ export type GetEventPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -8492,23 +7353,6 @@ export type GetEventsQuery = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -8578,23 +7422,6 @@ export type GetEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -8613,23 +7440,6 @@ export type GetEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -8659,23 +7469,6 @@ export type GetEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -8748,23 +7541,6 @@ export type GetEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -8794,23 +7570,6 @@ export type GetEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -8875,23 +7634,6 @@ export type GetEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -8921,23 +7663,6 @@ export type GetEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -9058,23 +7783,6 @@ export type GetFutureEventsQuery = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -9144,23 +7852,6 @@ export type GetFutureEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -9179,23 +7870,6 @@ export type GetFutureEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -9225,23 +7899,6 @@ export type GetFutureEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -9314,23 +7971,6 @@ export type GetFutureEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -9360,23 +8000,6 @@ export type GetFutureEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -9441,23 +8064,6 @@ export type GetFutureEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -9487,23 +8093,6 @@ export type GetFutureEventsQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -9679,23 +8268,6 @@ export type GetPageQuery = {
             _publishedAt?: string | null
             _updatedAt: string
             id: string
-            item?: {
-              __typename?: 'FileField'
-              id: string
-              alt?: string | null
-              width?: number | null
-              height?: number | null
-              title?: string | null
-              url: string
-              video?: {
-                __typename?: 'UploadVideoField'
-                mp4Url?: string | null
-                muxAssetId: string
-                muxPlaybackId: string
-                streamingUrl: string
-                thumbnailUrl: string
-              } | null
-            } | null
           } | null
         }
       | {
@@ -9765,23 +8337,6 @@ export type GetPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -9800,23 +8355,6 @@ export type GetPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -9846,23 +8384,6 @@ export type GetPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -9935,23 +8456,6 @@ export type GetPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -9981,23 +8485,6 @@ export type GetPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -10062,23 +8549,6 @@ export type GetPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
               | {
@@ -10108,23 +8578,6 @@ export type GetPageQuery = {
                     _publishedAt?: string | null
                     _updatedAt: string
                     id: string
-                    item?: {
-                      __typename?: 'FileField'
-                      id: string
-                      alt?: string | null
-                      width?: number | null
-                      height?: number | null
-                      title?: string | null
-                      url: string
-                      video?: {
-                        __typename?: 'UploadVideoField'
-                        mp4Url?: string | null
-                        muxAssetId: string
-                        muxPlaybackId: string
-                        streamingUrl: string
-                        thumbnailUrl: string
-                      } | null
-                    } | null
                   } | null
                 }
             >
@@ -11080,38 +9533,7 @@ export const MediaItemFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
         ],
       },
     },
@@ -11131,38 +9553,6 @@ export const MediaItemFragmentDoc = {
           { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
           { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
         ],
       },
     },
@@ -11273,56 +9663,6 @@ export const HeaderFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -11392,19 +9732,6 @@ export const HeaderFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -11538,56 +9865,6 @@ export const DocumentFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -11601,19 +9878,6 @@ export const DocumentFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -11674,56 +9938,6 @@ export const ImageFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -11737,19 +9951,6 @@ export const ImageFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -11849,56 +10050,6 @@ export const VideoFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'videoField' },
       typeCondition: {
         kind: 'NamedType',
@@ -11932,19 +10083,6 @@ export const VideoFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -12122,56 +10260,6 @@ export const TextBlockContentFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -12185,19 +10273,6 @@ export const TextBlockContentFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -12499,56 +10574,6 @@ export const TextBlockFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -12562,19 +10587,6 @@ export const TextBlockFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -12988,56 +11000,6 @@ export const LeftContentFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -13051,19 +11013,6 @@ export const LeftContentFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -13368,56 +11317,6 @@ export const RightContentFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -13431,19 +11330,6 @@ export const RightContentFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -13728,56 +11614,6 @@ export const TwoColumFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -13791,19 +11627,6 @@ export const TwoColumFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -14423,38 +12246,6 @@ export const ConcertDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -14468,19 +12259,6 @@ export const ConcertDetailFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -15021,6 +12799,38 @@ export const ConcertDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'file' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'FileField' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'video' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'videoUpload' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'author' },
       typeCondition: {
         kind: 'NamedType',
@@ -15455,19 +13265,6 @@ export const EventsFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -16910,56 +14707,6 @@ export const PageFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -16973,19 +14720,6 @@ export const PageFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -17808,56 +15542,6 @@ export const PageDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -17871,19 +15555,6 @@ export const PageDetailFragmentDoc = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -18993,7 +16664,7 @@ export const GetAuthorsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetAuthorsMetaQuery, GetAuthorsMetaQueryVariables>
 export const GetEventDocument = {
-  __meta__: { hash: '14798b51e88350353d96d275a17362cdd3dead01' },
+  __meta__: { hash: '312618f9ff3fe2c9fa0c35c6d0c594f0ff3e6d34' },
   kind: 'Document',
   definitions: [
     {
@@ -19327,19 +16998,6 @@ export const GetEventDocument = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -20084,7 +17742,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: 'fde5a3bdd4362f33a6996f0c4c34641acfc88da1' },
+  __meta__: { hash: '17f07511ff4d18cee5c91545b52c8e22ba5058fa' },
   kind: 'Document',
   definitions: [
     {
@@ -20418,19 +18076,6 @@ export const GetEventPageDocument = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -21514,7 +19159,7 @@ export const GetEventsUrlsDocument = {
   ],
 } as unknown as DocumentNode<GetEventsUrlsQuery, GetEventsUrlsQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '50081510e1b19372b5dc6dd7da58173998f660cc' },
+  __meta__: { hash: '8992e46672da8a96e9cfa9fb72a628fb990c561c' },
   kind: 'Document',
   definitions: [
     {
@@ -21874,19 +19519,6 @@ export const GetEventsDocument = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -22657,7 +20289,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '61814287aac242251b19d9261a28442dcd1d50b0' },
+  __meta__: { hash: '30154d93302a1ea2f871fd09bef0b28d93ef5927' },
   kind: 'Document',
   definitions: [
     {
@@ -23036,19 +20668,6 @@ export const GetFutureEventsDocument = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
@@ -24274,7 +21893,7 @@ export const GetLocationsDocument = {
   ],
 } as unknown as DocumentNode<GetLocationsQuery, GetLocationsQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: '820178bbb231faef2da63ec594a11ab9b4f17900' },
+  __meta__: { hash: '1a80af30c0adafacb0aa496618f0c1abb968ef38' },
   kind: 'Document',
   definitions: [
     {
@@ -24456,56 +22075,6 @@ export const GetPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'videoUpload' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'UploadVideoField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'mp4Url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxAssetId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'muxPlaybackId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'streamingUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'thumbnailUrl' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'file' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'FileField' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'alt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'video' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'videoUpload' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'mediaItem' },
       typeCondition: {
         kind: 'NamedType',
@@ -24519,19 +22088,6 @@ export const GetPageDocument = {
             name: { kind: 'Name', value: 'identifiable' },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'item' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'file' },
-                },
-              ],
-            },
-          },
           { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
