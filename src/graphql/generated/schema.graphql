@@ -2400,7 +2400,6 @@ input LinkModelFilter {
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
   internalTitle: StringFilter
-  externalUrl: StringFilter
   page: LinkFilter
   OR: [LinkModelFilter]
   AND: [LinkModelFilter]
@@ -2427,8 +2426,6 @@ enum LinkModelOrderBy {
   _isValid_DESC
   internalTitle_ASC
   internalTitle_DESC
-  externalUrl_ASC
-  externalUrl_DESC
 }
 
 union LinkModelPageField = ConcertRecord | PageRecord
@@ -2461,7 +2458,6 @@ type LinkRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
-  externalUrl: String
   id: ItemId!
   internalTitle: String
   page: LinkModelPageField
