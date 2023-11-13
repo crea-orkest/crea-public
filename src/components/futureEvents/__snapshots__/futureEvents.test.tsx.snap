@@ -2,16 +2,13 @@
 
 exports[`FutureEvents component shows all the data 1`] = `
 <div>
-  <section>
-    <h2>
-      Toekomstige concerten
-    </h2>
+  <div>
     <div>
       [Event]: 
       <span>
         mock-id
       </span>
     </div>
-  </section>
+  </div>
 </div>
 `;
