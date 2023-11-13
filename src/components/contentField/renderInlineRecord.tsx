@@ -32,6 +32,6 @@ export const renderInlineRecord = ({
       </Link>
     )
   }
-  // TODO: maybe return null
-  return <span>renderInlineRecord todo: {record.__typename}</span>
+  // TODO: error logging
+  return null
 }
