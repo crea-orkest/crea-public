@@ -2021,7 +2021,6 @@ export type LinkModelFilter = {
   _status?: InputMaybe<StatusFilter>
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
   _updatedAt?: InputMaybe<UpdatedAtFilter>
-  externalUrl?: InputMaybe<StringFilter>
   id?: InputMaybe<ItemIdFilter>
   internalTitle?: InputMaybe<StringFilter>
   page?: InputMaybe<LinkFilter>
@@ -2044,8 +2043,6 @@ export enum LinkModelOrderBy {
   UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
   UpdatedAtAsc = '_updatedAt_ASC',
   UpdatedAtDesc = '_updatedAt_DESC',
-  ExternalUrlAsc = 'externalUrl_ASC',
-  ExternalUrlDesc = 'externalUrl_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   InternalTitleAsc = 'internalTitle_ASC',
@@ -2070,7 +2067,6 @@ export type LinkRecord = RecordInterface & {
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
-  externalUrl?: Maybe<Scalars['String']['output']>
   id: Scalars['ItemId']['output']
   internalTitle?: Maybe<Scalars['String']['output']>
   page?: Maybe<LinkModelPageField>
@@ -5059,7 +5055,6 @@ export type LinkFragment = {
   __typename?: 'LinkRecord'
   id: string
   internalTitle?: string | null
-  externalUrl?: string | null
   page?:
     | { __typename?: 'ConcertRecord' }
     | {
@@ -16665,7 +16660,6 @@ export const LinkFragmentDoc = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'internalTitle' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'page' },
