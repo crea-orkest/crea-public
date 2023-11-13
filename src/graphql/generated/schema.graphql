@@ -90,8 +90,8 @@ input ConcertModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
+  poster: LinkFilter
   persons: LinksFilter
-  poster: FileFilter
   slug: SlugFilter
   seo: SeoFilter
   title: StringFilter
@@ -192,7 +192,7 @@ type ConcertRecord implements RecordInterface {
   locations: [LocationItemRecord!]!
   persons: [PersonRecord!]!
   position: IntType
-  poster: FileField
+  poster: MediaItemRecord
   seo: SeoField
   slug: String
   title: String
@@ -566,36 +566,6 @@ interface FileFieldInterface {
 }
 
 """
-Specifies how to filter Single-file/image fields
-"""
-input FileFilter {
-  """
-  Search for records with an exact match. The specified value must be an Upload ID
-  """
-  eq: UploadId
-
-  """
-  Exclude records with an exact match. The specified value must be an Upload ID
-  """
-  neq: UploadId
-
-  """
-  Filter records that have one of the specified uploads
-  """
-  in: [UploadId]
-
-  """
-  Filter records that do not have one of the specified uploads
-  """
-  notIn: [UploadId]
-
-  """
-  Filter records with the specified field defined (i.e. with any value) or not
-  """
-  exists: BooleanType
-}
-
-"""
 Represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).
 """
 scalar FloatType
@@ -636,7 +606,6 @@ type GeneralRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   id: ItemId!
-  logo: FileField
   menu: [GeneralModelMenuField!]!
   title: String
 }
@@ -2621,7 +2590,6 @@ input MediaItemModelFilter {
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
   asset: JsonFilter
-  item: FileFilter
   title: StringFilter
   OR: [MediaItemModelFilter]
   AND: [MediaItemModelFilter]
@@ -2680,7 +2648,6 @@ type MediaItemRecord implements RecordInterface {
   _updatedAt: DateTime!
   asset: JsonField
   id: ItemId!
-  item: FileField
   title: String
 }
 

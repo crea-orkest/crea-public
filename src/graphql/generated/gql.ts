@@ -17,7 +17,7 @@ const documents = {
     types.AuthorFragmentDoc,
   '\n  fragment colors on ColorField {\n    alpha\n    blue\n    cssRgb\n    green\n    hex\n    red\n  }\n':
     types.ColorsFragmentDoc,
-  '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n':
+  '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n':
     types.ConcertDetailFragmentDoc,
   '\n  fragment concertLink on ConcertRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.ConcertLinkFragmentDoc,
@@ -159,8 +159,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n']
+  source: '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n'
+): (typeof documents)['\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    persons {\n      ...author\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
