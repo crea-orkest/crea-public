@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.2.0](https://github.com/crea-orkest/crea-public/compare/v0.1.24...v0.2.0) (2023-11-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* images
+
+### Features
+
+* poster cloudinary ([973ef38](https://github.com/crea-orkest/crea-public/commit/973ef38924197cdba70b73bbb8ccd52b3129313d))
+
+
+### Bug Fixes
+
+* debug statements ([a591658](https://github.com/crea-orkest/crea-public/commit/a5916586d8659efe48f3b7de67f4f7f8ff8d6422))
+* images ([40cc7bc](https://github.com/crea-orkest/crea-public/commit/40cc7bcbd8f2dcf4d259a088d456b9aacf3650d7))
+* tests ([1b55e0a](https://github.com/crea-orkest/crea-public/commit/1b55e0a697ba6f2858397407c460ab78bbff546f))
+* types ([2bf7736](https://github.com/crea-orkest/crea-public/commit/2bf7736b1f24b784f24bfff6e8e34f17623b6bdb))
+
 ## [0.1.24](https://github.com/crea-orkest/crea-public/compare/v0.1.23...v0.1.24) (2023-11-13)
 
 
