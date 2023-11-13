@@ -3,6 +3,8 @@ import type { Event } from 'graphql/types/event'
 import { authorFormatter } from './authorFormatter'
 import { locationItemFormatter } from './locationItemFormatter'
 import { slugFormatter } from 'utils/slugFormatter'
+import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
+import { formatCloudinaryImage } from './formatCloudinaryImage'
 
 export const eventFormatter = (
   event: ConcertDetailFragment
@@ -12,7 +14,11 @@ export const eventFormatter = (
   return {
     id: event.id,
     title: event.title,
-    image: undefined,
+    image: formatCloudinaryImage(
+      isOfTypeCloudinaryAsset(event.poster?.asset)
+        ? event.poster?.asset
+        : undefined
+    ),
     persons: event.persons.map((person) => authorFormatter(person)),
     locations: event.locations
       .map((location) => locationItemFormatter(location))

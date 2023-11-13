@@ -127,7 +127,7 @@ export type ConcertModelFilter = {
   locations?: InputMaybe<ConcertModelLocationsFieldFilter>
   persons?: InputMaybe<LinksFilter>
   position?: InputMaybe<PositionFilter>
-  poster?: InputMaybe<FileFilter>
+  poster?: InputMaybe<LinkFilter>
   seo?: InputMaybe<SeoFilter>
   slug?: InputMaybe<SlugFilter>
   title?: InputMaybe<StringFilter>
@@ -199,7 +199,7 @@ export type ConcertRecord = RecordInterface & {
   locations: Array<LocationItemRecord>
   persons: Array<PersonRecord>
   position?: Maybe<Scalars['IntType']['output']>
-  poster?: Maybe<FileField>
+  poster?: Maybe<MediaItemRecord>
   seo?: Maybe<SeoField>
   slug?: Maybe<Scalars['String']['output']>
   title?: Maybe<Scalars['String']['output']>
@@ -420,20 +420,6 @@ export type FileFieldInterfaceUrlArgs = {
   imgixParams?: InputMaybe<ImgixParams>
 }
 
-/** Specifies how to filter Single-file/image fields */
-export type FileFilter = {
-  /** Search for records with an exact match. The specified value must be an Upload ID */
-  eq?: InputMaybe<Scalars['UploadId']['input']>
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: InputMaybe<Scalars['BooleanType']['input']>
-  /** Filter records that have one of the specified uploads */
-  in?: InputMaybe<Array<InputMaybe<Scalars['UploadId']['input']>>>
-  /** Exclude records with an exact match. The specified value must be an Upload ID */
-  neq?: InputMaybe<Scalars['UploadId']['input']>
-  /** Filter records that do not have one of the specified uploads */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']['input']>>>
-}
-
 export type GeneralModelMenuField = MenuItemRecord | SubmenuItemRecord
 
 /** Record of type Algemene info (general) */
@@ -453,7 +439,6 @@ export type GeneralRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
   id: Scalars['ItemId']['output']
-  logo?: Maybe<FileField>
   menu: Array<GeneralModelMenuField>
   title?: Maybe<Scalars['String']['output']>
 }
@@ -2207,7 +2192,6 @@ export type MediaItemModelFilter = {
   _updatedAt?: InputMaybe<UpdatedAtFilter>
   asset?: InputMaybe<JsonFilter>
   id?: InputMaybe<ItemIdFilter>
-  item?: InputMaybe<FileFilter>
   title?: InputMaybe<StringFilter>
 }
 
@@ -2252,7 +2236,6 @@ export type MediaItemRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output']
   asset?: Maybe<Scalars['JsonField']['output']>
   id: Scalars['ItemId']['output']
-  item?: Maybe<FileField>
   title?: Maybe<Scalars['String']['output']>
 }
 
@@ -3429,6 +3412,16 @@ export type ConcertDetailFragment = {
       } | null
     } | null
   }>
+  poster?: {
+    __typename: 'MediaItemRecord'
+    title?: string | null
+    asset?: unknown | null
+    _createdAt: string
+    _firstPublishedAt?: string | null
+    _publishedAt?: string | null
+    _updatedAt: string
+    id: string
+  } | null
   persons: Array<{
     __typename?: 'PersonRecord'
     id: string
@@ -5872,6 +5865,16 @@ export type GetEventQuery = {
         } | null
       } | null
     }>
+    poster?: {
+      __typename: 'MediaItemRecord'
+      title?: string | null
+      asset?: unknown | null
+      _createdAt: string
+      _firstPublishedAt?: string | null
+      _publishedAt?: string | null
+      _updatedAt: string
+      id: string
+    } | null
     persons: Array<{
       __typename?: 'PersonRecord'
       id: string
@@ -6276,6 +6279,16 @@ export type GetEventPageQuery = {
         } | null
       } | null
     }>
+    poster?: {
+      __typename: 'MediaItemRecord'
+      title?: string | null
+      asset?: unknown | null
+      _createdAt: string
+      _firstPublishedAt?: string | null
+      _publishedAt?: string | null
+      _updatedAt: string
+      id: string
+    } | null
     persons: Array<{
       __typename?: 'PersonRecord'
       id: string
@@ -6730,6 +6743,16 @@ export type GetEventsQuery = {
         } | null
       } | null
     }>
+    poster?: {
+      __typename: 'MediaItemRecord'
+      title?: string | null
+      asset?: unknown | null
+      _createdAt: string
+      _firstPublishedAt?: string | null
+      _publishedAt?: string | null
+      _updatedAt: string
+      id: string
+    } | null
     persons: Array<{
       __typename?: 'PersonRecord'
       id: string
@@ -7146,6 +7169,16 @@ export type GetFutureEventsQuery = {
         } | null
       } | null
     }>
+    poster?: {
+      __typename: 'MediaItemRecord'
+      title?: string | null
+      asset?: unknown | null
+      _createdAt: string
+      _firstPublishedAt?: string | null
+      _publishedAt?: string | null
+      _updatedAt: string
+      id: string
+    } | null
     persons: Array<{
       __typename?: 'PersonRecord'
       id: string
@@ -8292,6 +8325,49 @@ export const LocationItemFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<LocationItemFragment, unknown>
+export const MediaItemFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mediaItem' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MediaItemRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<MediaItemFragment, unknown>
 export const AuthorFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -8518,49 +8594,6 @@ export const HeaderBodyFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<HeaderBodyFragment, unknown>
-export const MediaItemFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'mediaItem' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MediaItemRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'identifiable' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'RecordInterface' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<MediaItemFragment, unknown>
 export const HeaderFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -10988,6 +11021,19 @@ export const ConcertDetailFragmentDoc = {
                 {
                   kind: 'FragmentSpread',
                   name: { kind: 'Name', value: 'locationItem' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'poster' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
                 },
               ],
             },
@@ -14620,7 +14666,7 @@ export const GetAuthorsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetAuthorsMetaQuery, GetAuthorsMetaQueryVariables>
 export const GetEventDocument = {
-  __meta__: { hash: '5ace61dba6ecf49416c7ff33510f68f2924d7312' },
+  __meta__: { hash: '5bfc65be7a3f087b064657cc19a2b302e6c9236c' },
   kind: 'Document',
   definitions: [
     {
@@ -14780,6 +14826,25 @@ export const GetEventDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mediaItem' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MediaItemRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'author' },
       typeCondition: {
         kind: 'NamedType',
@@ -14886,25 +14951,6 @@ export const GetEventDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'value' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'mediaItem' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MediaItemRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
     },
@@ -15562,6 +15608,19 @@ export const GetEventDocument = {
           },
           {
             kind: 'Field',
+            name: { kind: 'Name', value: 'poster' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
             name: { kind: 'Name', value: 'persons' },
             selectionSet: {
               kind: 'SelectionSet',
@@ -15636,7 +15695,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '2bff43dbf6e96461f1edd282b4951dfed6e0b178' },
+  __meta__: { hash: '00b9e3b57de269d21292f43b7fec4d5216205eb2' },
   kind: 'Document',
   definitions: [
     {
@@ -15796,6 +15855,25 @@ export const GetEventPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mediaItem' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MediaItemRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'author' },
       typeCondition: {
         kind: 'NamedType',
@@ -15902,25 +15980,6 @@ export const GetEventPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'value' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'mediaItem' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MediaItemRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
     },
@@ -16572,6 +16631,19 @@ export const GetEventPageDocument = {
                 {
                   kind: 'FragmentSpread',
                   name: { kind: 'Name', value: 'locationItem' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'poster' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
                 },
               ],
             },
@@ -16928,7 +17000,7 @@ export const GetEventsUrlsDocument = {
   ],
 } as unknown as DocumentNode<GetEventsUrlsQuery, GetEventsUrlsQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: 'cf311e3b77e4e0d48ebbd0cfbbfab032e4a064d8' },
+  __meta__: { hash: '7a3c56acd8ced84c6e0df18dfd0e5d8336da23de' },
   kind: 'Document',
   definitions: [
     {
@@ -17114,6 +17186,25 @@ export const GetEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mediaItem' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MediaItemRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'author' },
       typeCondition: {
         kind: 'NamedType',
@@ -17220,25 +17311,6 @@ export const GetEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'value' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'mediaItem' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MediaItemRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
     },
@@ -17896,6 +17968,19 @@ export const GetEventsDocument = {
           },
           {
             kind: 'Field',
+            name: { kind: 'Name', value: 'poster' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
             name: { kind: 'Name', value: 'persons' },
             selectionSet: {
               kind: 'SelectionSet',
@@ -17996,7 +18081,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '2f764cfeeadaf715610d2fbcb0c5d63862e16993' },
+  __meta__: { hash: '66bdb5f265e75a709227f9b3503b25c6e5aa6fec' },
   kind: 'Document',
   definitions: [
     {
@@ -18201,6 +18286,25 @@ export const GetFutureEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mediaItem' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MediaItemRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'author' },
       typeCondition: {
         kind: 'NamedType',
@@ -18307,25 +18411,6 @@ export const GetFutureEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'value' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'mediaItem' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MediaItemRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'asset' } },
         ],
       },
     },
@@ -18977,6 +19062,19 @@ export const GetFutureEventsDocument = {
                 {
                   kind: 'FragmentSpread',
                   name: { kind: 'Name', value: 'locationItem' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'poster' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'mediaItem' },
                 },
               ],
             },

@@ -5,6 +5,7 @@ import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
 import { textBlock, twoColum } from './textBlock'
 import { header } from './header'
+import { mediaItem } from './image'
 
 export const concertDetail: TypedDocumentNode = gql`
   fragment concertDetail on ConcertRecord {
@@ -13,6 +14,9 @@ export const concertDetail: TypedDocumentNode = gql`
     slug
     locations {
       ...locationItem
+    }
+    poster {
+      ...mediaItem
     }
     persons {
       ...author
@@ -29,10 +33,11 @@ export const concertDetail: TypedDocumentNode = gql`
       }
     }
   }
-  ${header}
   ${identifiable}
   ${locationItem}
+  ${mediaItem}
   ${author}
+  ${header}
   ${textBlock}
   ${twoColum}
 `
