@@ -11,6 +11,10 @@
   justify-content: center;
   background-color: colors.$primary;
   padding: map.get(spacings.$rem, 64) 0;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    padding: 8rem 0 4rem;
+  }
 }
 
 header.header.withImage {
@@ -27,14 +31,18 @@ header.header.withImage {
   color: colors.$background;
   text-align: center;
   z-index: z.$low;
+  overflow: hidden;
 
   h2,
   h1 {
-    font-size: 2.875rem;
+    font-size: 2em;
     color: colors.$secondary-light;
+    text-overflow: ellipsis;
+    text-align: left;
 
     @media screen and (min-width: breakpoints.$sm) {
       font-size: 3.375rem;
+      text-align: center;
     }
   }
 
