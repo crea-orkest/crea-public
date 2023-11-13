@@ -1,4 +1,3 @@
-import { eventBlock } from './eventBlock'
 import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 import { textBlock, twoColum } from './textBlock'
@@ -23,7 +22,6 @@ export const pageDetail = gql`
   }
   ${header}
   ${identifiable}
-  ${eventBlock}
   ${textBlock}
   ${twoColum}
 `

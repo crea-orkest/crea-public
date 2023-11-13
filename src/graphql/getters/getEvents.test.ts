@@ -62,14 +62,7 @@ describe('getEvents', () => {
     expect(data).toEqual([
       {
         id: '186234305',
-        image: {
-          description: '',
-          height: 384,
-          id: '72577339',
-          title: '',
-          url: 'https://www.datocms-assets.com/screenshot.png',
-          width: 342,
-        },
+        image: undefined,
         locations: [],
         persons: [],
         title: 'another concert',

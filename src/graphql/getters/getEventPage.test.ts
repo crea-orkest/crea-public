@@ -58,15 +58,9 @@ describe('getEventPage', () => {
     })
     const { data } = await getEventPage({ slug: 'another-concert' })
     expect(data).toEqual({
+      content: undefined,
       id: '201835035',
-      image: {
-        description: '',
-        height: 384,
-        id: '72577339',
-        title: '',
-        url: 'https://www.datocms-assets.com/screenshot.png',
-        width: 342,
-      },
+      image: undefined,
       locations: [],
       persons: [],
       title: 'another concert',

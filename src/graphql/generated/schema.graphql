@@ -69,9 +69,9 @@ type ConcertListRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  futureConcerts: BooleanType
   id: ItemId!
   pinnedConcerts: [ConcertRecord!]!
-  showAllConcerts: BooleanType
 }
 
 union ConcertModelContentField =
@@ -2622,7 +2622,6 @@ input MediaItemModelFilter {
   _isValid: BooleanFilter
   asset: JsonFilter
   item: FileFilter
-  itemUrl: StringFilter
   title: StringFilter
   OR: [MediaItemModelFilter]
   AND: [MediaItemModelFilter]
@@ -2647,8 +2646,6 @@ enum MediaItemModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  itemUrl_ASC
-  itemUrl_DESC
   title_ASC
   title_DESC
 }
@@ -2684,7 +2681,6 @@ type MediaItemRecord implements RecordInterface {
   asset: JsonField
   id: ItemId!
   item: FileField
-  itemUrl: String
   title: String
 }
 

@@ -60,13 +60,15 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
         return <EventListItem key={event.id} data={event} />
       })}
 
-      {numberOfEvents && (
+      {numberOfEvents ? (
         <div ref={ref}>
           <p className="text-small">
             {/* TODO: simplify/fix this logic */}
             {events.length + initialSkip} van {numberOfEvents} concerten
           </p>
         </div>
+      ) : (
+        <p className="text-small">...</p>
       )}
     </>
   )
