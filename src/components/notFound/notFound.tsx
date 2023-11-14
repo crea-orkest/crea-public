@@ -6,9 +6,9 @@ export const NotFound: React.FC = () => {
   return (
     <section className={styles.notFound}>
       <div className={styles.notFound__content}>
-        <h2>Not Found</h2>
-        <p>Could not find requested resource</p>
-        <Link href="/">Return Home</Link>
+        <h2>Niet gevonden</h2>
+        <p>Kon de content niet vinden.</p>
+        <Link href="/">Ga terug naar de homepage</Link>
       </div>
     </section>
   )
