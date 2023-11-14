@@ -1,5 +1,3 @@
-'use client' // Error components must be Client Components
-
 import { useEffect } from 'react'
 
 export const ErrorMessage = ({
@@ -16,14 +14,14 @@ export const ErrorMessage = ({
 
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>Iets ging verkeerd!</h2>
       <button
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()
         }
       >
-        Try again
+        Probeer opnieuw
       </button>
     </div>
   )
