@@ -2,18 +2,24 @@
 
 exports[`NotFound component shows all the data 1`] = `
 <div>
-  <div>
-    <h2>
-      Not Found
-    </h2>
-    <p>
-      Could not find requested resource
-    </p>
-    <a
-      href="/"
+  <section
+    class="notFound"
+  >
+    <div
+      class="notFound__content"
     >
-      Return Home
-    </a>
-  </div>
+      <h2>
+        Niet gevonden
+      </h2>
+      <p>
+        Kon de content niet vinden.
+      </p>
+      <a
+        href="/"
+      >
+        Ga terug naar de homepage
+      </a>
+    </div>
+  </section>
 </div>
 `;
