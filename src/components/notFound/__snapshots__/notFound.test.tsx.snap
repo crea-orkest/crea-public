@@ -2,7 +2,9 @@
 
 exports[`NotFound component shows all the data 1`] = `
 <div>
-  <div>
+  <div
+    class="notFound"
+  >
     <h2>
       Not Found
     </h2>
