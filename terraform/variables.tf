@@ -27,3 +27,9 @@ variable "vercel_team_id" {
   type      = string
   default   = ""
 }
+
+variable "GOOGLE_CREDENTIALS" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
