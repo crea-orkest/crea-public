@@ -1,5 +1,5 @@
 module "project-services" {
-  source  = "terraform-google-modules/project-factory/google/modules/project_services"
+  source  = "terraform-google-modules/project-factory/google//modules/project_services"
   version = "14.4.0"
 
   project_id = "crea-orkest"
