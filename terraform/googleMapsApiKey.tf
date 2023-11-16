@@ -2,7 +2,7 @@
 resource "google_apikeys_key" "google-maps" {
   name         = "Google Maps api key"
   display_name = "google-maps-api-key"
-  project      = google_project.crea.name
+  project      = google_project.crea-orkest.name
 
   restrictions {
 
