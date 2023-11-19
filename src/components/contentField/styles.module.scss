@@ -1,0 +1,45 @@
+@use 'sass:map';
+@use '../../styles/tokens/spacing.scss' as spacing;
+
+.structuredText p,
+.structuredText ul,
+.structuredText .spacing {
+  margin: map.get(spacing.$rem, 16) 0;
+}
+
+.structuredText > p:first-child,
+.structuredText > ul:first-child,
+.structuredText > .spacing:first-child {
+  margin-top: 0;
+}
+
+.structuredText > p:last-child,
+.structuredText > ul:last-child,
+.structuredText > .spacing:last-child {
+  margin-bottom: 0;
+}
+
+.structuredText ul {
+  padding-left: map.get(spacing.$rem, 24);
+
+  li {
+    margin-bottom: map.get(spacing.$rem, 8);
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.structuredText p + h2,
+.structuredText p + h3,
+.structuredText p + h4,
+.structuredText p + h5,
+.structuredText p + h6,
+.structuredText ul + h2,
+.structuredText ul + h3,
+.structuredText ul + h4,
+.structuredText ul + h5,
+.structuredText ul + h6 {
+  margin-top: map.get(spacing.$rem, 48);
+}
