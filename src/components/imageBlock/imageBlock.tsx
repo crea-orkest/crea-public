@@ -4,6 +4,8 @@ import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
 import Image from 'next/image'
 import { formatCloudinaryImage } from 'graphql/formatters/formatCloudinaryImage'
 
+import styles from './styles.module.scss'
+
 interface Props {
   record: ImageFragment
 }
@@ -16,6 +18,7 @@ export const ImageBlock: React.FC<Props> = ({ record }: Props) => {
   if (!asset?.url) return null
   return (
     <Image
+      className={styles.image}
       src={asset.url}
       alt={record.item.title}
       height={asset.height}
