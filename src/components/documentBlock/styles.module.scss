@@ -7,13 +7,18 @@
 @use '../../styles/tokens/layout.scss' as layout;
 
 .container {
-  margin-top: 1rem;
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: map.get(spacing.$rem, 16);
   padding: map.get(spacing.$rem, 24);
   background-color: colors.$light;
   border-radius: radius.$lg;
   max-width: layout.$max-content-width;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    flex-direction: row;
+  }
 }
 
 .title {
@@ -23,6 +28,7 @@
 .download {
   display: flex;
   align-items: center;
-  gap: map.get(spacing.$rem, 8);
   justify-content: flex-start;
+  gap: map.get(spacing.$rem, 8);
+  flex-shrink: 0;
 }

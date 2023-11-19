@@ -12,7 +12,7 @@ interface Props {
   record: DocumentFragment
 }
 
-export const Document: React.FC<Props> = ({ record }: Props) => {
+export const DocumentBlock: React.FC<Props> = ({ record }: Props) => {
   if (!record.document?.title) return null
   const asset = formatCloudinaryDocument(
     isOfTypeCloudinaryAsset(record.document?.asset)
@@ -21,7 +21,7 @@ export const Document: React.FC<Props> = ({ record }: Props) => {
   )
   if (!asset?.url) return null
   return (
-    <div className={styles.container}>
+    <p className={styles.container}>
       <span className={classNames(styles.title, 'h4')}>
         {record.document.title}
       </span>
@@ -31,6 +31,6 @@ export const Document: React.FC<Props> = ({ record }: Props) => {
           Download document {asset.bytes && `(${formatBytes(asset.bytes, 0)})`}
         </a>
       </span>
-    </div>
+    </p>
   )
 }

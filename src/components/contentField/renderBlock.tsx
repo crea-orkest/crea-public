@@ -9,7 +9,7 @@ import type {
   ImageFragment,
   VideoFragment,
 } from 'graphql/generated/graphql'
-import { Document } from 'components/document'
+import { DocumentBlock } from 'components/documentBlock'
 import { ImageBlock } from 'components/imageBlock'
 import { FutureEvents } from 'components/futureEvents'
 import { VideoBlock } from 'components/videoBlock'
@@ -52,7 +52,7 @@ export const renderBlock = ({
   if (isOfType<DocumentFragment>(record, 'DocumentRecord')) {
     return (
       <div className={styles.spacing}>
-        <Document record={record} />
+        <DocumentBlock record={record} />
       </div>
     )
   }
