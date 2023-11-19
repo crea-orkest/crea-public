@@ -1,15 +1,21 @@
 @use 'sass:map';
 @use './tokens/colors.scss' as colors;
-@use './tokens/spacing.scss' as spacings;
 @use './tokens/breakpoints.scss' as breakpoints;
+@use './tokens/typography.scss' as typography;
 
 h1,
+.h1,
 h2,
+.h2,
 h3,
+.h3,
 h4,
+.h4,
 h5,
-h6 {
-  font-family: 'dm-serif', serif;
+.h5,
+h6,
+.h6 {
+  font-family: typography.$dm-serif;
 }
 
 h1,
@@ -63,23 +69,6 @@ h6,
 
   @media screen and (min-width: breakpoints.$sm) {
     font-size: 1rem;
-  }
-}
-
-p,
-main ul {
-  margin: map.get(spacings.$rem, 16) 0;
-}
-
-main ul {
-  padding-left: map.get(spacings.$rem, 24);
-
-  li {
-    margin-bottom: map.get(spacings.$rem, 8);
-
-    p {
-      margin: 0;
-    }
   }
 }
 

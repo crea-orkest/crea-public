@@ -9,9 +9,12 @@ import type {
   ImageFragment,
   VideoFragment,
 } from 'graphql/generated/graphql'
-import { Document } from 'components/document'
+import { DocumentBlock } from 'components/documentBlock'
 import { ImageBlock } from 'components/imageBlock'
 import { FutureEvents } from 'components/futureEvents'
+import { VideoBlock } from 'components/videoBlock'
+
+import styles from './styles.module.scss'
 
 export const renderBlock = ({
   record,
@@ -20,7 +23,7 @@ export const renderBlock = ({
 >) => {
   if (isOfType<EventBlockFragment>(record, 'ConcertListRecord')) {
     return (
-      <div>
+      <div className={styles.spacing}>
         {record.pinnedConcerts.map((item) => {
           return <Event key={item.id} id={item.id} />
         })}
@@ -30,17 +33,28 @@ export const renderBlock = ({
   }
 
   if (isOfType<ImageFragment>(record, 'ImageRecord')) {
-    return <ImageBlock record={record} />
+    return (
+      <div className={styles.spacing}>
+        <ImageBlock record={record} />
+      </div>
+    )
   }
 
   if (isOfType<VideoFragment>(record, 'VideoRecord')) {
     if (!record.media?.url) return null
-    // TODO: video component
-    return null
+    return (
+      <div className={styles.spacing}>
+        <VideoBlock record={record} />
+      </div>
+    )
   }
 
   if (isOfType<DocumentFragment>(record, 'DocumentRecord')) {
-    return <Document record={record} />
+    return (
+      <div className={styles.spacing}>
+        <DocumentBlock record={record} />
+      </div>
+    )
   }
 
   return <p>not supported: {record.__typename}</p>

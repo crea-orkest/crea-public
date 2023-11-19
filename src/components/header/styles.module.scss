@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/colors.scss' as colors;
-@use '../../styles/tokens/spacing.scss' as spacings;
+@use '../../styles/tokens/spacing.scss' as spacing;
 @use '../../styles/tokens/z-indices.scss' as z;
 
 .header {
@@ -10,10 +10,10 @@
   align-items: center;
   justify-content: center;
   background-color: colors.$primary;
-  padding: map.get(spacings.$rem, 64) 0;
+  padding: map.get(spacing.$rem, 64) 0;
 
   @media screen and (min-width: breakpoints.$sm) {
-    padding: 8rem 0 4rem;
+    padding: map.get(spacing.$rem, 96) 0;
   }
 }
 
@@ -35,7 +35,7 @@ header.header.withImage {
 
   h2,
   h1 {
-    font-size: 2em;
+    font-size: 2.875rem;
     color: colors.$secondary-light;
     text-overflow: ellipsis;
     text-align: left;

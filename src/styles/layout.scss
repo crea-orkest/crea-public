@@ -1,18 +1,18 @@
 @use 'sass:map';
 @use './tokens/colors.scss' as colors;
-@use './tokens/spacing.scss' as spacings;
+@use './tokens/spacing.scss' as spacing;
 @use './tokens/breakpoints.scss' as breakpoints;
 @use './tokens/layout.scss' as layout;
 
 %content-layout {
   width: 100%;
   margin: 0 auto;
-  padding-left: map.get(spacings.$rem, 24);
-  padding-right: map.get(spacings.$rem, 24);
+  padding-left: map.get(spacing.$rem, 24);
+  padding-right: map.get(spacing.$rem, 24);
 
   @media screen and (min-width: breakpoints.$sm) {
-    padding-left: map.get(spacings.$rem, 64);
-    padding-right: map.get(spacings.$rem, 64);
+    padding-left: map.get(spacing.$rem, 64);
+    padding-right: map.get(spacing.$rem, 64);
   }
 
   p {
@@ -26,7 +26,7 @@
 }
 
 .content-layout--small {
-  @extend %content-layout;
+  margin: 0 auto;
   max-width: layout.$md-width;
 }
 
@@ -38,5 +38,5 @@
 
 hr {
   border-color: colors.$secondary-light;
-  margin: map.get(spacings.$rem, 16) 0;
+  margin: map.get(spacing.$rem, 16) 0;
 }

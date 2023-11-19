@@ -1,9 +1,7 @@
 @use 'sass:map';
 @use './tokens/colors.scss' as colors;
-@use './tokens/spacing.scss' as spacings;
 @use './tokens/typography.scss' as typography;
 @use './tokens/breakpoints.scss' as breakpoints;
-@use './tokens/layout.scss' as layout;
 
 @import './reset.scss';
 @import './fonts.scss';
@@ -15,6 +13,9 @@ body {
   background-color: colors.$background;
   color: colors.$dark;
   font-size: 1rem;
+  hyphens: auto;
+  word-break: break-word;
+  word-wrap: break-word;
 
   @media screen and (min-width: breakpoints.$sm) {
     font-size: 1.125rem;

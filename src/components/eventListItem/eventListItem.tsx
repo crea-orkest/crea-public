@@ -13,7 +13,7 @@ export interface Props {
 
 export const EventListItem: React.FC<Props> = ({ data }: Props) => {
   return (
-    <div>
+    <div className="content-layout--small">
       <h2 className={classNames(styles.title, 'h3')}>
         <Link href={data.url}>{data.title}</Link>
       </h2>

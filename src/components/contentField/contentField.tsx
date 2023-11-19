@@ -9,6 +9,8 @@ import type {
   TwoColumFragment,
 } from 'graphql/generated/graphql'
 
+import styles from './styles.module.scss'
+
 interface Props {
   data:
     | HeaderFragment['body']
@@ -20,11 +22,13 @@ interface Props {
 export const ContentField = ({ data }: Props) => {
   if (!isStructuredText(data)) return
   return (
-    <StructuredText
-      renderInlineRecord={renderInlineRecord}
-      renderLinkToRecord={renderLinkToRecord}
-      renderBlock={renderBlock}
-      data={data}
-    />
+    <div className={styles.structuredText}>
+      <StructuredText
+        renderInlineRecord={renderInlineRecord}
+        renderLinkToRecord={renderLinkToRecord}
+        renderBlock={renderBlock}
+        data={data}
+      />
+    </div>
   )
 }

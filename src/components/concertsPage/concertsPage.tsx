@@ -16,7 +16,7 @@ export const ConcertsPage = async () => {
   const { data: pageData } = await getPage({ slug: 'concerten' })
 
   const events = (
-    <div className={classNames(styles.concerts, 'content-layout--small')}>
+    <div className={classNames(styles.concerts, 'content-layout')}>
       {eventData?.map((event) => {
         if (!event?.id) return
         return <Event key={event.id} id={event.id} />
