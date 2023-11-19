@@ -16,7 +16,7 @@ export const EventPage = async ({ slug }: Props) => {
 
   return (
     <article>
-      <PageContent items={data.content} pageTitle={data.title} />
+      <PageContent items={data.content} pageTitle={data.title || ''} />
       <div className={styles.locations}>
         {data.locations.map((location) => {
           if (!location?.id || !location.startTime) return null
