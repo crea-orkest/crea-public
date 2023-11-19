@@ -1,11 +1,11 @@
 'use client'
 
-// import Image from 'next/image'
-// import Link from 'next/link'
-import { NavigationItem } from 'components/navigationItem'
 import React from 'react'
 import { useQuery } from 'urql'
+import classNames from 'classnames'
 import { GetGeneralInfoDocument } from 'graphql/generated/graphql'
+import { NavigationItem } from 'components/navigationItem'
+
 import styles from './styles.module.scss'
 
 export const MobileMenuItems: React.FC = () => {
@@ -27,7 +27,9 @@ export const MobileMenuItems: React.FC = () => {
         if ('menu' in item) {
           return (
             <li key={item.id}>
-              <h3 className={styles.subItem}>{item.label}</h3>
+              <span className={classNames(styles.subItem, 'h3')}>
+                {item.label}
+              </span>
               <ul className={styles.subList}>
                 {item?.menu?.map((subItem) => {
                   return (
