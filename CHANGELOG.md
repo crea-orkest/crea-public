@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.2.1](https://github.com/crea-orkest/crea-public/compare/v0.2.0...v0.2.1) (2023-11-19)
+
+
+### Features
+
+* **eventListItem:** update styling ([32f5f58](https://github.com/crea-orkest/crea-public/commit/32f5f584fc0a6eedb206bc4c6fb44d9c5d7ac15e))
+* google maps api key terraform ([cbf31a7](https://github.com/crea-orkest/crea-public/commit/cbf31a7506339ba377c31b5050108b4985074344))
+* google terraform provider ([b8b35c6](https://github.com/crea-orkest/crea-public/commit/b8b35c62ccc33e26d3291d68992da5a701fe5d9d))
+* google terraform provider ([ca65493](https://github.com/crea-orkest/crea-public/commit/ca6549312daa8e816b2c150644589e7404c62563))
+* **imageBlock:** add radius styling ([32cefd5](https://github.com/crea-orkest/crea-public/commit/32cefd55fb6e85b797feffdfd1ddde04ac84eb15))
+* **renderLinkToRecord:** link uses children for text ([5964213](https://github.com/crea-orkest/crea-public/commit/59642136c5ed684f7feaf790f8c808aeafcf4794))
+* **VideoBlock:** add video block and implement in structured text ([0132a39](https://github.com/crea-orkest/crea-public/commit/0132a390f92d058bc8c11b9495749362213f678d))
+
+
+### Bug Fixes
+
+* 404 text ([ec2aff6](https://github.com/crea-orkest/crea-public/commit/ec2aff6512aa9d22b9cfa9c9b387f43cf47181b5))
+* cloudflare csp ([db10bdd](https://github.com/crea-orkest/crea-public/commit/db10bdd9384b75d9c98e90ff56b44a585f4dac29))
+* **deps:** update dependency @urql/core to v4.2.0 ([87a7731](https://github.com/crea-orkest/crea-public/commit/87a7731801f406579ff813ef774429ad2c313f3e))
+* **deps:** update dependency urql to v4.0.6 ([6be1759](https://github.com/crea-orkest/crea-public/commit/6be1759fd8903865e328ab42d615e36a08d1e825))
+* **document:** fix some document styling ([23dac1b](https://github.com/crea-orkest/crea-public/commit/23dac1be5dd3eb743a5f263bca6303d3e64e6f4d))
+* error in google modules ([7313c01](https://github.com/crea-orkest/crea-public/commit/7313c0181f6eef8ff611af8c7cd3ee72c2839fa7))
+* error message translation ([59bc81f](https://github.com/crea-orkest/crea-public/commit/59bc81fb86fb35a0bf490cf590b62fa6655bd5fa))
+* **header:** fix header styling ([2a832dd](https://github.com/crea-orkest/crea-public/commit/2a832dd7686a94b211c6f454fb7de824fcd98aba))
+* **mobileMenuItems:** fix semantic structure ([4fe10de](https://github.com/crea-orkest/crea-public/commit/4fe10de4e04ef35b6cabd6070465b792c6a7df99))
+* terraform typo ([8c0fd7e](https://github.com/crea-orkest/crea-public/commit/8c0fd7e73efb513f8db763c29541afb77d3bd796))
+* text 404 ([2e0c475](https://github.com/crea-orkest/crea-public/commit/2e0c4758c4d425fa9b6c02c85a8b9f7bdb3a15db))
+
 ## [0.2.0](https://github.com/crea-orkest/crea-public/compare/v0.1.24...v0.2.0) (2023-11-13)
 
 
