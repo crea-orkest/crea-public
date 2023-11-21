@@ -14,6 +14,24 @@ jest.mock('../../graphql/gqlClient', () => {
   }
 })
 
+jest.mock('../../graphql/getters/getSiteMetadata', () => {
+  const originalModule = jest.requireActual(
+    '../../graphql/getters/getSiteMetadata'
+  )
+  return {
+    __esModule: true,
+    ...originalModule,
+    getSiteMetadata: jest.fn(() => ({
+      metadata: {
+        title: 'Default title',
+        description: 'Default description',
+        base_url: 'https://example.com',
+      },
+      error: undefined,
+    })),
+  }
+})
+
 const mockedQuery = jest.mocked(client.query)
 
 describe('getPageSeo', () => {
@@ -36,20 +54,18 @@ describe('getPageSeo', () => {
     const { data } = await getPageSeo({ slug: '' })
     expect(data).toEqual({
       alternates: {
-        canonical: 'https://creaorkest.nl/',
+        canonical: 'https://example.com/',
       },
-      title: 'Het CREA Orkest',
-      description:
-        'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+      title: 'Default title',
+      description: 'Default description',
       metadataBase: expect.objectContaining({
-        host: 'creaorkest.nl',
-        hostname: 'creaorkest.nl',
-        href: 'https://creaorkest.nl/',
-        origin: 'https://creaorkest.nl',
+        host: 'example.com',
+        hostname: 'example.com',
+        href: 'https://example.com/',
+        origin: 'https://example.com',
       }),
       openGraph: {
-        description:
-          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+        description: 'Default description',
         images: [
           {
             height: 900,
@@ -58,16 +74,16 @@ describe('getPageSeo', () => {
           },
         ],
         locale: 'nl-NL',
-        siteName: 'Het CREA Orkest',
-        title: 'Het CREA Orkest',
+        siteName: 'Default title',
+        title: 'Default title',
         type: 'article',
-        url: 'https://creaorkest.nl/',
+        url: 'https://example.com/',
       },
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het CREA Orkest',
+        title: 'Default title',
       },
     })
   })
@@ -77,31 +93,29 @@ describe('getPageSeo', () => {
     mockedQuery.mockRejectedValue(new Error('error'))
     const { data, error } = await getPageSeo({ slug: '' })
     expect(data).toEqual({
-      alternates: { canonical: 'https://creaorkest.nl/' },
-      description:
-        'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+      alternates: { canonical: 'https://example.com/' },
+      description: 'Default description',
       metadataBase: expect.objectContaining({
-        host: 'creaorkest.nl',
-        hostname: 'creaorkest.nl',
-        href: 'https://creaorkest.nl/',
-        origin: 'https://creaorkest.nl',
+        host: 'example.com',
+        hostname: 'example.com',
+        href: 'https://example.com/',
+        origin: 'https://example.com',
       }),
       openGraph: {
-        description:
-          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+        description: 'Default description',
         images: [{ height: 900, url: '', width: 1200 }],
         locale: 'nl-NL',
-        siteName: 'Het CREA Orkest',
-        title: 'Het CREA Orkest',
+        siteName: 'Default title',
+        title: 'Default title',
         type: 'article',
-        url: 'https://creaorkest.nl/',
+        url: 'https://example.com/',
       },
-      title: 'Het CREA Orkest',
+      title: 'Default title',
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het CREA Orkest',
+        title: 'Default title',
       },
     })
     expect(error).toBeInstanceOf(Error)

@@ -1,24 +1,39 @@
 import type { GetPageSeoQuery } from 'graphql/generated/graphql'
 import { metadataFormatter } from './metadataFormatter'
 
-describe('metadataFormatter', () => {
-  it('should return defaults', () => {
-    expect(metadataFormatter(undefined, 'some-page')).toEqual({
-      alternates: {
-        canonical: 'https://creaorkest.nl/some-page',
+jest.mock('../getters/getSiteMetadata', () => {
+  const originalModule = jest.requireActual('../getters/getSiteMetadata')
+  return {
+    __esModule: true,
+    ...originalModule,
+    getSiteMetadata: jest.fn(() => ({
+      metadata: {
+        title: 'Default title',
+        description: 'Default description',
+        base_url: 'https://example.com',
       },
-      description:
-        'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
-      // manifest: 'https://creaorkest.nl/manifest.json', // TODO
+      error: undefined,
+    })),
+  }
+})
+
+describe('metadataFormatter', () => {
+  it('should return defaults', async () => {
+    const res = await metadataFormatter(undefined, 'some-page')
+    expect(res).toEqual({
+      alternates: {
+        canonical: 'https://example.com/some-page',
+      },
+      description: 'Default description',
+      // manifest: 'https://example.com/manifest.json', // TODO
       metadataBase: expect.objectContaining({
-        host: 'creaorkest.nl',
-        hostname: 'creaorkest.nl',
-        href: 'https://creaorkest.nl/',
-        origin: 'https://creaorkest.nl',
+        host: 'example.com',
+        hostname: 'example.com',
+        href: 'https://example.com/',
+        origin: 'https://example.com',
       }),
       openGraph: {
-        description:
-          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+        description: 'Default description',
 
         images: [
           {
@@ -28,34 +43,36 @@ describe('metadataFormatter', () => {
           },
         ],
         locale: 'nl-NL',
-        siteName: 'Het CREA Orkest',
-        title: 'Het CREA Orkest',
+        siteName: 'Default title',
+        title: 'Default title',
         type: 'article',
-        url: 'https://creaorkest.nl/some-page',
+        url: 'https://example.com/some-page',
       },
-      title: 'Het CREA Orkest',
+      title: 'Default title',
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het CREA Orkest',
+        title: 'Default title',
       },
     })
   })
-  it('should return correct homepage values', () => {
-    expect(metadataFormatter(undefined, 'homepage')).toEqual(
+
+  it('should return correct homepage values', async () => {
+    const res = await metadataFormatter(undefined, 'homepage')
+    expect(res).toEqual(
       expect.objectContaining({
         alternates: expect.objectContaining({
-          canonical: 'https://creaorkest.nl',
+          canonical: 'https://example.com',
         }),
         metadataBase: expect.objectContaining({
-          host: 'creaorkest.nl',
-          hostname: 'creaorkest.nl',
-          href: 'https://creaorkest.nl/',
-          origin: 'https://creaorkest.nl',
+          host: 'example.com',
+          hostname: 'example.com',
+          href: 'https://example.com/',
+          origin: 'https://example.com',
         }),
         openGraph: expect.objectContaining({
-          url: 'https://creaorkest.nl',
+          url: 'https://example.com',
         }),
       })
     )
@@ -77,7 +94,7 @@ describe('metadataFormatter', () => {
       {
         attributes: {
           name: 'description',
-          content: 'Kom in contact met het CREA Orkest',
+          content: 'Kom in contact met Default title',
         },
         content: null,
         tag: 'meta',
@@ -85,7 +102,7 @@ describe('metadataFormatter', () => {
       {
         attributes: {
           property: 'og:description',
-          content: 'Kom in contact met het CREA Orkest',
+          content: 'Kom in contact met Default title',
         },
         content: null,
         tag: 'meta',
@@ -93,7 +110,7 @@ describe('metadataFormatter', () => {
       {
         attributes: {
           name: 'twitter:description',
-          content: 'Kom in contact met het CREA Orkest',
+          content: 'Kom in contact met Default title',
         },
         content: null,
         tag: 'meta',
@@ -141,36 +158,36 @@ describe('metadataFormatter', () => {
       },
     ],
     seo: {
-      description: 'Kom in contact met het CREA Orkest',
-      image: {
-        id: '65318740',
-        alt: null,
-        width: 4032,
-        height: 3024,
-        title: null,
-        url: 'https://www.datocms-assets.com/103931/1692002208-pxl_20230324_183549112.jpg',
-        video: null,
-      },
+      description: 'Kom in contact met Default title',
+      // image: {
+      //   id: '65318740',
+      //   alt: null,
+      //   width: 4032,
+      //   height: 3024,
+      //   title: null,
+      //   url: 'https://www.datocms-assets.com/103931/1692002208-pxl_20230324_183549112.jpg',
+      //   video: null,
+      // },
       title: 'Contact',
       twitterCard: 'summary',
     },
   }
 
-  it('should return correct page values', () => {
-    expect(metadataFormatter(mockData, 'some-page')).toEqual({
+  it('should return correct page values', async () => {
+    const res = await metadataFormatter(mockData, 'some-page')
+    expect(res).toEqual({
       alternates: {
-        canonical: 'https://creaorkest.nl/some-page',
+        canonical: 'https://example.com/some-page',
       },
-      description: 'Kom in contact met het CREA Orkest',
+      description: 'Kom in contact met Default title',
       metadataBase: expect.objectContaining({
-        host: 'creaorkest.nl',
-        hostname: 'creaorkest.nl',
-        href: 'https://creaorkest.nl/',
-        origin: 'https://creaorkest.nl',
+        host: 'example.com',
+        hostname: 'example.com',
+        href: 'https://example.com/',
+        origin: 'https://example.com',
       }),
       openGraph: {
-        description:
-          'Het CREA Orkest is het bruisende studentenorkest van Stichting CREA, de culturele organisatie van de Universiteit en Hogeschool van Amsterdam.',
+        description: 'Default description',
 
         images: [
           {
@@ -180,17 +197,17 @@ describe('metadataFormatter', () => {
           },
         ],
         locale: 'nl-NL',
-        siteName: 'Het CREA Orkest',
-        title: 'Het CREA Orkest',
+        siteName: 'Default title',
+        title: 'Default title',
         type: 'article',
-        url: 'https://creaorkest.nl/some-page',
+        url: 'https://example.com/some-page',
       },
       title: 'Contact',
       twitter: {
         card: 'summary_large_image',
         description: '',
         images: [''],
-        title: 'Het CREA Orkest',
+        title: 'Default title',
       },
     })
   })

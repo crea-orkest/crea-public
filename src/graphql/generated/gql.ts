@@ -69,6 +69,8 @@ const documents = {
     types.SeoFieldFragmentDoc,
   '\n  fragment seoSettings on GlobalSeoField {\n    facebookPageUrl\n    siteName\n    titleSuffix\n    twitterAccount\n    fallbackSeo {\n      ...seoField\n    }\n  }\n  \n':
     types.SeoSettingsFragmentDoc,
+  '\n  fragment siteMetadata on GeneralRecord {\n    siteMetadata\n  }\n':
+    types.SiteMetadataFragmentDoc,
   '\n  fragment submenuItem on SubmenuItemRecord {\n    id\n    label\n    menu {\n      ...menuItem\n    }\n  }\n  \n':
     types.SubmenuItemFragmentDoc,
   '\n  fragment tag on Tag {\n    attributes\n    content\n    tag\n  }\n':
@@ -125,6 +127,8 @@ const documents = {
     types.GetPagesMetaDocument,
   '\n  query getSiteInfo {\n    _site {\n      locales\n      globalSeo {\n        ...seoSettings\n      }\n    }\n  }\n  \n':
     types.GetSiteInfoDocument,
+  '\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n  }\n  \n':
+    types.GetSiteMetadataDocument,
   '\n  query getSubmenu {\n    general {\n      menu {\n        ... on SubmenuItemRecord {\n          ...submenuItem\n        }\n      }\n    }\n  }\n  \n':
     types.GetSubmenuDocument,
 }
@@ -315,6 +319,12 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
+  source: '\n  fragment siteMetadata on GeneralRecord {\n    siteMetadata\n  }\n'
+): (typeof documents)['\n  fragment siteMetadata on GeneralRecord {\n    siteMetadata\n  }\n']
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
   source: '\n  fragment submenuItem on SubmenuItemRecord {\n    id\n    label\n    menu {\n      ...menuItem\n    }\n  }\n  \n'
 ): (typeof documents)['\n  fragment submenuItem on SubmenuItemRecord {\n    id\n    label\n    menu {\n      ...menuItem\n    }\n  }\n  \n']
 /**
@@ -479,6 +489,12 @@ export function gql(
 export function gql(
   source: '\n  query getSiteInfo {\n    _site {\n      locales\n      globalSeo {\n        ...seoSettings\n      }\n    }\n  }\n  \n'
 ): (typeof documents)['\n  query getSiteInfo {\n    _site {\n      locales\n      globalSeo {\n        ...seoSettings\n      }\n    }\n  }\n  \n']
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
+  source: '\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n  }\n  \n'
+): (typeof documents)['\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -425,11 +425,13 @@ export type GeneralModelMenuField = MenuItemRecord | SubmenuItemRecord
 /** Record of type Algemene info (general) */
 export type GeneralRecord = RecordInterface & {
   __typename?: 'GeneralRecord'
+  _allSiteMetadataLocales?: Maybe<Array<JsonFieldMultiLocaleField>>
   _createdAt: Scalars['DateTime']['output']
   /** Editing URL */
   _editingUrl?: Maybe<Scalars['String']['output']>
   _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
   _isValid: Scalars['BooleanType']['output']
+  _locales: Array<SiteLocale>
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
@@ -440,11 +442,23 @@ export type GeneralRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output']
   id: Scalars['ItemId']['output']
   menu: Array<GeneralModelMenuField>
+  siteMetadata?: Maybe<Scalars['JsonField']['output']>
   title?: Maybe<Scalars['String']['output']>
 }
 
 /** Record of type Algemene info (general) */
+export type GeneralRecord_AllSiteMetadataLocalesArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>
+}
+
+/** Record of type Algemene info (general) */
 export type GeneralRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>
+}
+
+/** Record of type Algemene info (general) */
+export type GeneralRecordSiteMetadataArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -1953,6 +1967,12 @@ export enum ItemStatus {
   Draft = 'draft',
   Published = 'published',
   Updated = 'updated',
+}
+
+export type JsonFieldMultiLocaleField = {
+  __typename?: 'JsonFieldMultiLocaleField'
+  locale?: Maybe<SiteLocale>
+  value?: Maybe<Scalars['JsonField']['output']>
 }
 
 /** Specifies how to filter JSON fields */
@@ -5094,6 +5114,11 @@ export type SeoSettingsFragment = {
   } | null
 }
 
+export type SiteMetadataFragment = {
+  __typename?: 'GeneralRecord'
+  siteMetadata?: unknown | null
+}
+
 export type SubmenuItemFragment = {
   __typename?: 'SubmenuItemRecord'
   id: string
@@ -8097,6 +8122,16 @@ export type GetSiteInfoQuery = {
       } | null
     } | null
   }
+}
+
+export type GetSiteMetadataQueryVariables = Exact<{ [key: string]: never }>
+
+export type GetSiteMetadataQuery = {
+  __typename?: 'Query'
+  general?: {
+    __typename?: 'GeneralRecord'
+    siteMetadata?: unknown | null
+  } | null
 }
 
 export type GetSubmenuQueryVariables = Exact<{ [key: string]: never }>
@@ -14439,6 +14474,25 @@ export const SeoSettingsFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<SeoSettingsFragment, unknown>
+export const SiteMetadataFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'siteMetadata' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'GeneralRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'siteMetadata' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SiteMetadataFragment, unknown>
 export const GetAuthorDocument = {
   __meta__: { hash: 'c9a976474f08062a643efaa51b184f01a2979c98' },
   kind: 'Document',
@@ -20848,6 +20902,52 @@ export const GetSiteInfoDocument = {
     },
   ],
 } as unknown as DocumentNode<GetSiteInfoQuery, GetSiteInfoQueryVariables>
+export const GetSiteMetadataDocument = {
+  __meta__: { hash: '868dcb1191ebd32f1d00068150e88ed51c641b87' },
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getSiteMetadata' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'general' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'siteMetadata' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'siteMetadata' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'GeneralRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'siteMetadata' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetSiteMetadataQuery,
+  GetSiteMetadataQueryVariables
+>
 export const GetSubmenuDocument = {
   __meta__: { hash: '241389efe065149421412a7f5dd5c8baf2a058c4' },
   kind: 'Document',

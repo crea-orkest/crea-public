@@ -581,6 +581,12 @@ union GeneralModelMenuField = MenuItemRecord | SubmenuItemRecord
 Record of type Algemene info (general)
 """
 type GeneralRecord implements RecordInterface {
+  _allSiteMetadataLocales(
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): [JsonFieldMultiLocaleField!]
   _createdAt: DateTime!
 
   """
@@ -589,6 +595,7 @@ type GeneralRecord implements RecordInterface {
   _editingUrl: String
   _firstPublishedAt: DateTime
   _isValid: BooleanType!
+  _locales: [SiteLocale!]!
   _modelApiKey: String!
   _publicationScheduledAt: DateTime
   _publishedAt: DateTime
@@ -607,6 +614,17 @@ type GeneralRecord implements RecordInterface {
   _updatedAt: DateTime!
   id: ItemId!
   menu: [GeneralModelMenuField!]!
+  siteMetadata(
+    """
+    The locale to use to fetch the field's content
+    """
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): JsonField
   title: String
 }
 
@@ -2291,6 +2309,11 @@ enum ItemStatus {
 }
 
 scalar JsonField
+
+type JsonFieldMultiLocaleField {
+  locale: SiteLocale
+  value: JsonField
+}
 
 """
 Specifies how to filter JSON fields

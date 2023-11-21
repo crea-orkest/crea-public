@@ -7,9 +7,11 @@ import classNames from 'classnames'
 import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
 import styles from './styles.module.scss'
 import { MobileMenu } from 'components/mobileMenu'
+import { getSiteMetadata } from 'graphql/getters/getSiteMetadata'
 
 export const Navigation: React.FC = async () => {
   const { data } = await getGeneralInfo()
+  const { metadata } = await getSiteMetadata()
   if (!data?.general) return null
 
   return (
@@ -20,7 +22,7 @@ export const Navigation: React.FC = async () => {
             className={classNames(styles.logo)}
             priority={true}
             src="/img/logo-crea-orkest.png"
-            alt="CREA Orkest"
+            alt={metadata?.title || ''}
             width={200}
             height={50}
           />

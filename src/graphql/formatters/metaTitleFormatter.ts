@@ -2,12 +2,14 @@ import type {
   EventPageSeoFragment,
   PageDetailSeoFragment,
 } from 'graphql/generated/graphql'
+import { getSiteMetadata } from 'graphql/getters/getSiteMetadata'
 
-const defaultTitle = 'Het CREA Orkest'
-
-export const metaTitleFormatter = (
+export const metaTitleFormatter = async (
   data: PageDetailSeoFragment | EventPageSeoFragment | undefined
 ) => {
+  const { metadata } = await getSiteMetadata()
+  const defaultTitle = metadata?.title || 'Default title'
+
   if (data?.seo?.title) return data.seo.title
   if (data?.title === 'homepage') return defaultTitle
   if (data?.title) return `${defaultTitle} | ${data.title}`
