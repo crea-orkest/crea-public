@@ -8154,8 +8154,13 @@ export type GetSiteMetadataQueryVariables = Exact<{ [key: string]: never }>
 export type GetSiteMetadataQuery = {
   __typename?: 'Query'
   general?: {
-    __typename?: 'GeneralRecord'
+    __typename: 'GeneralRecord'
     siteMetadata?: unknown | null
+    _createdAt: string
+    _firstPublishedAt?: string | null
+    _publishedAt?: string | null
+    _updatedAt: string
+    id: string
   } | null
 }
 
@@ -21043,7 +21048,7 @@ export const GetSiteInfoDocument = {
   ],
 } as unknown as DocumentNode<GetSiteInfoQuery, GetSiteInfoQueryVariables>
 export const GetSiteMetadataDocument = {
-  __meta__: { hash: '868dcb1191ebd32f1d00068150e88ed51c641b87' },
+  __meta__: { hash: 'e7c95902580eda8484dfd598f3b7131fdf13b763' },
   kind: 'Document',
   definitions: [
     {
@@ -21071,6 +21076,25 @@ export const GetSiteMetadataDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'siteMetadata' },
       typeCondition: {
         kind: 'NamedType',
@@ -21079,6 +21103,10 @@ export const GetSiteMetadataDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
           { kind: 'Field', name: { kind: 'Name', value: 'siteMetadata' } },
         ],
       },

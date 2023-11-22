@@ -79,6 +79,11 @@ describe('metadataFormatter', () => {
   })
 
   const mockData: GetPageSeoQuery['page'] = {
+    __typename: 'PageRecord',
+    title: 'some title',
+    _createdAt: 'some-date-time-string',
+    _updatedAt: 'some-date-time-string',
+    id: 'some-id',
     _seoMetaTags: [
       { attributes: null, content: 'Contact', tag: 'title' },
       {
@@ -159,15 +164,6 @@ describe('metadataFormatter', () => {
     ],
     seo: {
       description: 'Kom in contact met Default title',
-      // image: {
-      //   id: '65318740',
-      //   alt: null,
-      //   width: 4032,
-      //   height: 3024,
-      //   title: null,
-      //   url: 'https://www.datocms-assets.com/103931/1692002208-pxl_20230324_183549112.jpg',
-      //   video: null,
-      // },
       title: 'Contact',
       twitterCard: 'summary',
     },

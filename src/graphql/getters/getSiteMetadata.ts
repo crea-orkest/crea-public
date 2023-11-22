@@ -19,6 +19,6 @@ export const getSiteMetadata = async () => {
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { metadata: null, error }
+    return { metadata: formatSiteMetadata(), error }
   }
 }

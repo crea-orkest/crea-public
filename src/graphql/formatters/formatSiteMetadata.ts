@@ -4,7 +4,7 @@ export interface siteMetadata {
   description: string
 }
 
-export const formatSiteMetadata = (data: unknown): siteMetadata => {
+export const formatSiteMetadata = (data?: unknown): siteMetadata => {
   if (!data || typeof data !== 'object') {
     return { base_url: '', title: '', description: '' }
   }
