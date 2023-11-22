@@ -141,3 +141,4 @@ dist
 .swc
 .turbo
 certificates
+.DS_Store
