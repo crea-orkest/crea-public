@@ -27,6 +27,14 @@ const config: CodegenConfig = {
         fragmentMasking: false,
       },
     },
+    './src/graphql/generated/introspection.json': {
+      plugins: ['introspection'],
+      config: {
+        minify: false,
+        schemaDescription: true,
+        federation: true,
+      },
+    },
   },
   hooks: { afterAllFileWrite: ['prettier --write'] },
 }

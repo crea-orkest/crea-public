@@ -1,5 +1,6 @@
+import { cacheExchange } from './cacheExchange'
 import { linkConfig } from './linkConfig'
-import { Client, cacheExchange, fetchExchange } from '@urql/core'
+import { Client, fetchExchange } from '@urql/core'
 
 export const client = new Client({
   url: linkConfig.url,
