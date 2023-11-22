@@ -15,7 +15,7 @@ export const getEventPageSeo = async ({ slug }: GetEventSeoQueryVariables) => {
     >(GetEventSeoDocument, { slug })
 
     return {
-      data: metadataFormatter(
+      data: await metadataFormatter(
         data?.concert ?? undefined,
         slugFormatter({ slug, prefix: '/concerten' })
       ),
@@ -23,6 +23,6 @@ export const getEventPageSeo = async ({ slug }: GetEventSeoQueryVariables) => {
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: metadataFormatter(undefined, slug), error }
+    return { data: await metadataFormatter(undefined, slug), error }
   }
 }

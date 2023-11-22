@@ -22,6 +22,24 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
 
 const getGeneralInfoMock = jest.mocked(getGeneralInfo)
 
+jest.mock('../../graphql/getters/getSiteMetadata', () => {
+  const originalModule = jest.requireActual(
+    '../../graphql/getters/getSiteMetadata'
+  )
+  return {
+    __esModule: true,
+    ...originalModule,
+    getSiteMetadata: jest.fn(() => ({
+      metadata: {
+        title: 'Default title',
+        description: 'Default description',
+        base_url: 'https://example.com',
+      },
+      error: undefined,
+    })),
+  }
+})
+
 describe('Concert component', () => {
   it('shows all the data', async () => {
     getGeneralInfoMock.mockResolvedValueOnce({

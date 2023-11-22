@@ -14,11 +14,11 @@ export const getPageSeo = async ({ slug }: GetPageSeoQueryVariables) => {
     >(GetPageSeoDocument, { slug })
 
     return {
-      data: metadataFormatter(data?.page ?? undefined, slug),
+      data: await metadataFormatter(data?.page ?? undefined, slug),
       error,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: metadataFormatter(undefined, slug), error }
+    return { data: await metadataFormatter(undefined, slug), error }
   }
 }
