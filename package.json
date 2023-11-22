@@ -29,6 +29,7 @@
   "dependencies": {
     "@react-google-maps/api": "2.19.2",
     "@urql/core": "4.2.0",
+    "@urql/exchange-graphcache": "6.3.3",
     "classnames": "2.3.2",
     "datocms-structured-text-utils": "2.0.4",
     "graphql": "16.8.1",
@@ -44,6 +45,7 @@
     "@commitlint/config-conventional": "18.4.3",
     "@graphql-codegen/cli": "5.0.0",
     "@graphql-codegen/client-preset": "4.1.0",
+    "@graphql-codegen/introspection": "4.0.0",
     "@graphql-codegen/typescript": "4.0.1",
     "@graphql-codegen/typescript-operations": "4.0.1",
     "@testing-library/jest-dom": "6.1.4",

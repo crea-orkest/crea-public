@@ -27,7 +27,7 @@ const documents = {
     types.EventBlockFragmentDoc,
   '\n  fragment eventLink on ConcertRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.EventLinkFragmentDoc,
-  '\n  fragment eventPageSeo on ConcertRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n':
+  '\n  fragment eventPageSeo on ConcertRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n':
     types.EventPageSeoFragmentDoc,
   '\n  fragment file on FileField {\n    id\n    alt\n    width\n    height\n    title\n    url\n    video {\n      ...videoUpload\n    }\n  }\n  \n  \n  \n  \n':
     types.FileFragmentDoc,
@@ -61,7 +61,7 @@ const documents = {
     types.PageFragmentDoc,
   '\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n':
     types.PageDetailFragmentDoc,
-  '\n  fragment pageDetailSeo on PageRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n':
+  '\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n':
     types.PageDetailSeoFragmentDoc,
   '\n  fragment pageLink on PageRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.PageLinkFragmentDoc,
@@ -69,7 +69,7 @@ const documents = {
     types.SeoFieldFragmentDoc,
   '\n  fragment seoSettings on GlobalSeoField {\n    facebookPageUrl\n    siteName\n    titleSuffix\n    twitterAccount\n    fallbackSeo {\n      ...seoField\n    }\n  }\n  \n':
     types.SeoSettingsFragmentDoc,
-  '\n  fragment siteMetadata on GeneralRecord {\n    siteMetadata\n  }\n':
+  '\n  fragment siteMetadata on GeneralRecord {\n    ...identifiable\n    siteMetadata\n  }\n  \n':
     types.SiteMetadataFragmentDoc,
   '\n  fragment submenuItem on SubmenuItemRecord {\n    id\n    label\n    menu {\n      ...menuItem\n    }\n  }\n  \n':
     types.SubmenuItemFragmentDoc,
@@ -193,8 +193,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment eventPageSeo on ConcertRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment eventPageSeo on ConcertRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n']
+  source: '\n  fragment eventPageSeo on ConcertRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n'
+): (typeof documents)['\n  fragment eventPageSeo on ConcertRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -295,8 +295,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment pageDetailSeo on PageRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment pageDetailSeo on PageRecord {\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n']
+  source: '\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n'
+): (typeof documents)['\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -319,8 +319,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment siteMetadata on GeneralRecord {\n    siteMetadata\n  }\n'
-): (typeof documents)['\n  fragment siteMetadata on GeneralRecord {\n    siteMetadata\n  }\n']
+  source: '\n  fragment siteMetadata on GeneralRecord {\n    ...identifiable\n    siteMetadata\n  }\n  \n'
+): (typeof documents)['\n  fragment siteMetadata on GeneralRecord {\n    ...identifiable\n    siteMetadata\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

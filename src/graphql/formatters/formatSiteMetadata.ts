@@ -5,7 +5,9 @@ export interface siteMetadata {
 }
 
 export const formatSiteMetadata = (data: unknown): siteMetadata => {
-  if (!data || typeof data !== 'object') throw Error('no site metadata object')
+  if (!data || typeof data !== 'object') {
+    return { base_url: '', title: '', description: '' }
+  }
 
   return {
     base_url: 'base_url' in data ? String(data.base_url) : '',

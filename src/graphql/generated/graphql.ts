@@ -3863,8 +3863,13 @@ export type EventLinkFragment = {
 }
 
 export type EventPageSeoFragment = {
-  __typename?: 'ConcertRecord'
+  __typename: 'ConcertRecord'
   title?: string | null
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
   _seoMetaTags: Array<{
     __typename?: 'Tag'
     attributes?: Record<string, string> | null
@@ -5066,8 +5071,13 @@ export type PageDetailFragment = {
 }
 
 export type PageDetailSeoFragment = {
-  __typename?: 'PageRecord'
+  __typename: 'PageRecord'
   title?: string | null
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
   _seoMetaTags: Array<{
     __typename?: 'Tag'
     attributes?: Record<string, string> | null
@@ -5115,8 +5125,13 @@ export type SeoSettingsFragment = {
 }
 
 export type SiteMetadataFragment = {
-  __typename?: 'GeneralRecord'
+  __typename: 'GeneralRecord'
   siteMetadata?: unknown | null
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
 }
 
 export type SubmenuItemFragment = {
@@ -6694,8 +6709,13 @@ export type GetEventSeoQueryVariables = Exact<{
 export type GetEventSeoQuery = {
   __typename?: 'Query'
   concert?: {
-    __typename?: 'ConcertRecord'
+    __typename: 'ConcertRecord'
     title?: string | null
+    _createdAt: string
+    _firstPublishedAt?: string | null
+    _publishedAt?: string | null
+    _updatedAt: string
+    id: string
     _seoMetaTags: Array<{
       __typename?: 'Tag'
       attributes?: Record<string, string> | null
@@ -8055,8 +8075,13 @@ export type GetPageSeoQueryVariables = Exact<{
 export type GetPageSeoQuery = {
   __typename?: 'Query'
   page?: {
-    __typename?: 'PageRecord'
+    __typename: 'PageRecord'
     title?: string | null
+    _createdAt: string
+    _firstPublishedAt?: string | null
+    _publishedAt?: string | null
+    _updatedAt: string
+    id: string
     _seoMetaTags: Array<{
       __typename?: 'Tag'
       attributes?: Record<string, string> | null
@@ -12090,6 +12115,10 @@ export const EventPageSeoFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
@@ -12117,6 +12146,25 @@ export const EventPageSeoFragmentDoc = {
               ],
             },
           },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
         ],
       },
     },
@@ -14359,6 +14407,10 @@ export const PageDetailSeoFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
@@ -14386,6 +14438,25 @@ export const PageDetailSeoFragmentDoc = {
               ],
             },
           },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
         ],
       },
     },
@@ -14487,7 +14558,30 @@ export const SiteMetadataFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
           { kind: 'Field', name: { kind: 'Name', value: 'siteMetadata' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
         ],
       },
     },
@@ -16778,7 +16872,7 @@ export const GetEventPageDocument = {
   ],
 } as unknown as DocumentNode<GetEventPageQuery, GetEventPageQueryVariables>
 export const GetEventSeoDocument = {
-  __meta__: { hash: 'aecd0b84c15d63b66dedeca14bb5c6e4fe1cdf7d' },
+  __meta__: { hash: 'b9650c4e2497e00a27be98d51294c42d3a7560cd' },
   kind: 'Document',
   definitions: [
     {
@@ -16847,6 +16941,25 @@ export const GetEventSeoDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'tag' },
       typeCondition: {
         kind: 'NamedType',
@@ -16887,6 +17000,10 @@ export const GetEventSeoDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
@@ -20528,7 +20645,7 @@ export const GetPageDocument = {
   ],
 } as unknown as DocumentNode<GetPageQuery, GetPageQueryVariables>
 export const GetPageSeoDocument = {
-  __meta__: { hash: 'e8629f5af88b196504760e138f3b64828f0b29cf' },
+  __meta__: { hash: '55bf93684267f9682afdb0f44011be54dc504175' },
   kind: 'Document',
   definitions: [
     {
@@ -20597,6 +20714,25 @@ export const GetPageSeoDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'tag' },
       typeCondition: {
         kind: 'NamedType',
@@ -20637,6 +20773,10 @@ export const GetPageSeoDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
