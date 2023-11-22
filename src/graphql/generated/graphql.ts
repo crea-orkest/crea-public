@@ -8149,6 +8149,16 @@ export type GetSiteInfoQuery = {
   }
 }
 
+export type GetSiteMetadataQueryVariables = Exact<{ [key: string]: never }>
+
+export type GetSiteMetadataQuery = {
+  __typename?: 'Query'
+  general?: {
+    __typename?: 'GeneralRecord'
+    siteMetadata?: unknown | null
+  } | null
+}
+
 export type GetSubmenuQueryVariables = Exact<{ [key: string]: never }>
 
 export type GetSubmenuQuery = {
@@ -21032,6 +21042,52 @@ export const GetSiteInfoDocument = {
     },
   ],
 } as unknown as DocumentNode<GetSiteInfoQuery, GetSiteInfoQueryVariables>
+export const GetSiteMetadataDocument = {
+  __meta__: { hash: '868dcb1191ebd32f1d00068150e88ed51c641b87' },
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getSiteMetadata' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'general' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'siteMetadata' },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'siteMetadata' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'GeneralRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'siteMetadata' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetSiteMetadataQuery,
+  GetSiteMetadataQueryVariables
+>
 export const GetSubmenuDocument = {
   __meta__: { hash: '241389efe065149421412a7f5dd5c8baf2a058c4' },
   kind: 'Document',

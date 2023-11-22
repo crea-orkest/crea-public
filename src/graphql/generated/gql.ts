@@ -127,6 +127,8 @@ const documents = {
     types.GetPagesMetaDocument,
   '\n  query getSiteInfo {\n    _site {\n      locales\n      globalSeo {\n        ...seoSettings\n      }\n    }\n  }\n  \n':
     types.GetSiteInfoDocument,
+  '\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n  }\n  \n':
+    types.GetSiteMetadataDocument,
   '\n  query getSubmenu {\n    general {\n      menu {\n        ... on SubmenuItemRecord {\n          ...submenuItem\n        }\n      }\n    }\n  }\n  \n':
     types.GetSubmenuDocument,
 }
@@ -487,6 +489,12 @@ export function gql(
 export function gql(
   source: '\n  query getSiteInfo {\n    _site {\n      locales\n      globalSeo {\n        ...seoSettings\n      }\n    }\n  }\n  \n'
 ): (typeof documents)['\n  query getSiteInfo {\n    _site {\n      locales\n      globalSeo {\n        ...seoSettings\n      }\n    }\n  }\n  \n']
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
+  source: '\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n  }\n  \n'
+): (typeof documents)['\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

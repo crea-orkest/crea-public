@@ -3,11 +3,13 @@ import Link from 'next/link'
 import React from 'react'
 import classNames from 'classnames'
 import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
+import { getSiteMetadata } from 'graphql/getters/getSiteMetadata'
 import { slugFormatter } from 'utils/slugFormatter'
 import styles from './styles.module.scss'
 
 export const Footer = async () => {
   const { data } = await getGeneralInfo()
+  const { metadata } = await getSiteMetadata()
   if (!data?.general) return null
 
   return (
@@ -16,7 +18,7 @@ export const Footer = async () => {
         <div>
           <h2 className={classNames(styles.title)}>
             <span className="sr-only">Footer</span>
-            CREA Orkest
+            {metadata?.title}
           </h2>
 
           <address className={classNames(styles.address)}>

@@ -13,7 +13,7 @@ exports[`Concert component shows all the data 1`] = `
         href="/"
       >
         <img
-          alt="CREA Orkest"
+          alt="Default title"
           class="logo"
           data-nimg="1"
           decoding="async"
