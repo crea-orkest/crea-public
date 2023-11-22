@@ -20,11 +20,11 @@ describe('Concert component', () => {
   it('shows all the data', async () => {
     getLocationMock.mockResolvedValueOnce({
       data: {
+        id: 'mock-ids',
         title: 'title',
         address: 'some address lines',
         lat: 5,
-        lon: 42,
-        id: 'mock-ids',
+        lng: 42,
       },
       error: undefined,
     })
