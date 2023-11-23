@@ -10,23 +10,23 @@ interface CloudinaryDescription {
 }
 
 export interface CloudinaryAsset {
-  bytes?: number
+  bytes: number
   created_at?: Scalars['DateTime'] | null
   created_by?: CloudinaryUser | null
   duration?: string | null
-  format?: string
-  width?: number
-  height?: number
+  format: string
+  width: number
+  height: number
   metadata?: unknown[]
   public_id?: string
-  id?: string
-  resource_type?: string
-  secure_url?: string
-  tags?: []
-  type?: string
+  id: string
+  resource_type: string
+  secure_url: string
+  tags: []
+  type: string
   uploaded_by?: null
   url?: string
-  version?: number
+  version: number
   alt?: CloudinaryDescription
 }
 
@@ -42,20 +42,26 @@ export interface Image {
 export const isOfTypeCloudinaryAsset = (
   asset?: unknown
 ): asset is CloudinaryAsset => {
-  if (!asset) return false
-  if (typeof asset !== 'object') return false
+  const keys = [
+    'resource_type',
+    'type',
+    'width',
+    'height',
+    'id',
+    'format',
+    'secure_url',
+    'version',
+  ] as const satisfies Array<keyof CloudinaryAsset>
 
-  if (
-    'resource_type' in asset &&
-    'type' in asset &&
-    'width' in asset &&
-    'height' in asset &&
-    'id' in asset &&
-    'format' in asset &&
-    'secure_url' in asset &&
-    'version' in asset
-  )
-    return true
+  switch (true) {
+    case asset && typeof asset === 'object':
+      for (const key of keys) {
+        if (!(key in asset)) return false
+      }
 
-  return false
+      return true
+
+    default:
+      return false
+  }
 }

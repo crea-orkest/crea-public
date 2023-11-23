@@ -1,18 +1,15 @@
 import type { CloudinaryAsset, Image } from 'graphql/types/image'
 
 export const formatCloudinaryImage = (
-  image: CloudinaryAsset | undefined
+  asset: CloudinaryAsset | undefined
 ): Image | undefined => {
-  if (!image?.id) return
-  if (!image.version) return
-  if (!image?.secure_url) return
-
+  if (!asset) return
   return {
-    id: `v${image.version}/${image.id}`,
-    title: image.alt?.en ?? '',
-    description: image.alt?.en ?? '',
-    width: image.width,
-    height: image.height,
-    url: image.secure_url,
+    id: `v${asset.version}/${asset.id}`,
+    title: asset.alt?.en ?? '',
+    description: asset.alt?.en ?? '',
+    width: asset.width,
+    height: asset.height,
+    url: asset.secure_url,
   }
 }
