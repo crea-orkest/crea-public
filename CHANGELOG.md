@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.2](https://github.com/crea-orkest/crea-public/compare/v0.2.1...v0.2.2) (2023-11-22)
+
+
+### Features
+
+* caching optimization ([a065e60](https://github.com/crea-orkest/crea-public/commit/a065e60eed32a47f083a34c90720db6f8c98947c))
+* site-metadata ([86c191f](https://github.com/crea-orkest/crea-public/commit/86c191f78a6d76ee0e7aec2d2bf9cf2bddabf375))
+
+
+### Bug Fixes
+
+* typescript errors ([e49d8a5](https://github.com/crea-orkest/crea-public/commit/e49d8a5ee8763ff40f0351210245a78c458df057))
+* update lockfile ([5212da1](https://github.com/crea-orkest/crea-public/commit/5212da12b4f2a270197ca7a8ac8bde42d84c6d03))
+
 ## [0.2.1](https://github.com/crea-orkest/crea-public/compare/v0.2.0...v0.2.1) (2023-11-19)
 
 
