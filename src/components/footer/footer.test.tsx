@@ -1,7 +1,7 @@
 import { Footer } from './footer'
 import React from 'react'
 import { render } from '@testing-library/react'
-import { resolvedComponent } from 'utils/testHelpers/resolvedComponent'
+import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 
 jest.mock('../../graphql/getters/getSiteMetadata', () => {
   const originalModule = jest.requireActual(

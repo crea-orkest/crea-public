@@ -1,4 +1,4 @@
-import { getEventsMeta } from 'graphql/getters/getEventsMeta'
+import { getEventsMeta } from '../graphql/getters/getEventsMeta'
 import { useEventsMeta } from './useEventsMeta'
 import { renderHook, waitFor } from '@testing-library/react'
 

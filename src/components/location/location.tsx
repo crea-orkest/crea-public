@@ -1,6 +1,6 @@
 import { LocationView } from './locationView'
 import React from 'react'
-import { getLocation } from 'graphql/getters/getLocation'
+import { getLocation } from '../../graphql/getters/getLocation'
 
 export interface Props {
   id: string

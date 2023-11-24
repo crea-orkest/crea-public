@@ -1,4 +1,4 @@
-import { getLocation } from 'graphql/getters/getLocation'
+import { getLocation } from '../graphql/getters/getLocation'
 import { useLocation } from './useLocation'
 import { renderHook, waitFor } from '@testing-library/react'
 

@@ -1,4 +1,4 @@
-import type { CloudinaryAsset } from 'graphql/types/image'
+import type { CloudinaryAsset } from '../types/image'
 
 interface Document {
   id: string

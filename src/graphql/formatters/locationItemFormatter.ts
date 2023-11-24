@@ -1,5 +1,5 @@
-import type { Location } from 'graphql/types/location'
-import type { LocationItemFragment } from 'graphql/generated/graphql'
+import type { Location } from '../types/location'
+import type { LocationItemFragment } from '../generated/graphql'
 import { locationFormatter } from './locationFormatter'
 
 export const locationItemFormatter = (

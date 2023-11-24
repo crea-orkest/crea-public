@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import { notFound } from 'next/navigation'
 import { Event } from 'components/event'

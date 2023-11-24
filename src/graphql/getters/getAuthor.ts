@@ -1,10 +1,10 @@
-import { authorFormatter } from 'graphql/formatters/authorFormatter'
-import { client } from 'graphql/gqlClient'
+import { authorFormatter } from '../formatters/authorFormatter'
+import { client } from '../gqlClient'
 import {
   GetAuthorDocument,
   type GetAuthorQuery,
   type GetAuthorQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 export const getAuthor = async ({ id }: GetAuthorQueryVariables) => {
   try {

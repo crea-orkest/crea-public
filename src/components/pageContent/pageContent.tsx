@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import { type Event } from 'graphql/types/event'
 import { type PageDetailFragment } from 'graphql/generated/graphql'

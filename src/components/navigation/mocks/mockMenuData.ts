@@ -1,4 +1,4 @@
-import type { GetGeneralInfoQuery } from 'graphql/generated/graphql'
+import type { GetGeneralInfoQuery } from '../../../graphql/generated/graphql'
 
 export const mockMenuData: GetGeneralInfoQuery = {
   general: {

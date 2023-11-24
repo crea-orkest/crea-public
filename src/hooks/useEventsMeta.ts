@@ -1,5 +1,5 @@
 import React from 'react'
-import { getEventsMeta } from 'graphql/getters/getEventsMeta'
+import { getEventsMeta } from '../graphql/getters/getEventsMeta'
 
 export const useEventsMeta = () => {
   const [numberOfEvents, setNumberOfEvents] = React.useState<

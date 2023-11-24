@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPagesMeta } from 'graphql/getters/getPagesMeta'
+import { getPagesMeta } from '../graphql/getters/getPagesMeta'
 
 export const usePagesMeta = () => {
   const [numberOfPages, setNumberOfPages] = React.useState<number | undefined>()

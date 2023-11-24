@@ -3,7 +3,7 @@
 import React from 'react'
 import { useQuery } from 'urql'
 import classNames from 'classnames'
-import { GetGeneralInfoDocument } from 'graphql/generated/graphql'
+import { GetGeneralInfoDocument } from '../../graphql/generated/graphql'
 import { NavigationItem } from 'components/navigationItem'
 
 import styles from './styles.module.scss'

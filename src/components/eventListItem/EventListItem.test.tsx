@@ -1,6 +1,6 @@
 import { EventListItem } from './eventListItem'
 import React from 'react'
-import { getEvent } from 'graphql/getters/getEvent'
+import { getEvent } from '../../graphql/getters/getEvent'
 import { mockEvent } from './mocks/mockEvent'
 import { render, screen } from '@testing-library/react'
 

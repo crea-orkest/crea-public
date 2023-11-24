@@ -1,6 +1,5 @@
 import { EventListItem } from 'components/eventListItem'
-import React from 'react'
-import { getFutureEvents } from 'graphql/getters/getFutureEvents'
+import { getFutureEvents } from '../../graphql/getters/getFutureEvents'
 
 export interface Props {
   skip: number

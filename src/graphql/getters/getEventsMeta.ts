@@ -1,9 +1,9 @@
-import { client } from 'graphql/gqlClient'
+import { client } from '../gqlClient'
 import {
   GetEventsMetaDocument,
   type GetEventsMetaQuery,
   type GetEventsMetaQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 export const getEventsMeta = async () => {
   try {

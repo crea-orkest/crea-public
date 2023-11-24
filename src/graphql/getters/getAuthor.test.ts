@@ -1,9 +1,9 @@
-import { GetAuthorDocument } from 'graphql/generated/graphql'
-import { client } from 'graphql/gqlClient'
+import { GetAuthorDocument } from '../generated/graphql'
+import { client } from '../gqlClient'
 import { getAuthor } from './getAuthor'
 
-jest.mock('../../graphql/gqlClient', () => {
-  const originalModule = jest.requireActual('../../graphql/gqlClient')
+jest.mock('../gqlClient', () => {
+  const originalModule = jest.requireActual('../gqlClient')
   return {
     __esModule: true,
     ...originalModule,

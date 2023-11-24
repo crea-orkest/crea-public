@@ -1,5 +1,5 @@
-import { eventPageSeo } from 'graphql/fragments/eventPageSeo'
 import { gql } from '@urql/core'
+import { eventPageSeo } from '../fragments/eventPageSeo'
 
 export const GET_EVENT_SEO = gql`
   query getEventSeo($slug: String!) {

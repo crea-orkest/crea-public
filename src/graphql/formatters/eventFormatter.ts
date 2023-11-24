@@ -1,9 +1,9 @@
-import type { ConcertDetailFragment } from 'graphql/generated/graphql'
-import type { Event } from 'graphql/types/event'
+import type { ConcertDetailFragment } from '../generated/graphql'
+import type { Event } from '../types/event'
 import { authorFormatter } from './authorFormatter'
 import { locationItemFormatter } from './locationItemFormatter'
 import { slugFormatter } from 'utils/slugFormatter'
-import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
+import { isOfTypeCloudinaryAsset } from '../types/image'
 import { formatCloudinaryImage } from './formatCloudinaryImage'
 
 export const eventFormatter = (

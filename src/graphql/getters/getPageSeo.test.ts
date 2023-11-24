@@ -1,9 +1,9 @@
-import { GetPageSeoDocument } from 'graphql/generated/graphql'
-import { client } from 'graphql/gqlClient'
+import { GetPageSeoDocument } from '../generated/graphql'
+import { client } from '../gqlClient'
 import { getPageSeo } from './getPageSeo'
 
-jest.mock('../../graphql/gqlClient', () => {
-  const originalModule = jest.requireActual('../../graphql/gqlClient')
+jest.mock('../gqlClient', () => {
+  const originalModule = jest.requireActual('../gqlClient')
   return {
     __esModule: true,
     ...originalModule,

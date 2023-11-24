@@ -1,4 +1,4 @@
-import type { Scalars } from 'graphql/generated/graphql'
+import type { Scalars } from '../generated/graphql'
 
 interface CloudinaryUser {
   type?: 'string' | null

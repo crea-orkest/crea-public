@@ -1,9 +1,9 @@
-import { client } from 'graphql/gqlClient'
+import { client } from '../gqlClient'
 import {
   GetPageDocument,
   type GetPageQuery,
   type GetPageQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 export const getPage = async ({ slug }: GetPageQueryVariables) => {
   try {

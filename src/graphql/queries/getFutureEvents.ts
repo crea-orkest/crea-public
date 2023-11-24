@@ -1,5 +1,5 @@
-import { concertDetail } from 'graphql/fragments/concertDetail'
 import { gql } from '@urql/core'
+import { concertDetail } from '../fragments/concertDetail'
 
 export const GET_FUTURE_EVENTS = gql`
   query getFutureEvents(

@@ -1,7 +1,7 @@
 import type { Author } from '../types/author'
-import type { AuthorFragment } from 'graphql/generated/graphql'
+import type { AuthorFragment } from '../generated/graphql'
 import { formatCloudinaryImage } from './formatCloudinaryImage'
-import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
+import { isOfTypeCloudinaryAsset } from '../types/image'
 
 export const authorFormatter = (person: AuthorFragment): Author => ({
   id: person.id,

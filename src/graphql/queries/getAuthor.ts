@@ -1,5 +1,5 @@
-import { author } from 'graphql/fragments/author'
 import { gql } from '@urql/core'
+import { author } from '../fragments/author'
 
 export const GET_AUTHOR = gql`
   query getAuthor($id: ItemId!) {
