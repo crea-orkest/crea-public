@@ -6,5 +6,6 @@
     "target": "ESNext",
     "plugins": []
   },
-  "include": ["jest.config.js", "jest.setup.js"]
+  "include": ["jest.config.js", "jest.setup.js"],
+  "exclude": ["node_modules"]
 }
