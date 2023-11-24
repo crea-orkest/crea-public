@@ -18,7 +18,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [18.x, 20.x, 21.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
