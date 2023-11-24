@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0](https://github.com/crea-orkest/crea-public/compare/v0.2.2...v0.3.0) (2023-11-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* turbo
+
+### Features
+
+* turbo ([f85f92c](https://github.com/crea-orkest/crea-public/commit/f85f92c60a7f66aa0aef3c15e1b109fc742ea72c))
+
 ## [0.2.2](https://github.com/crea-orkest/crea-public/compare/v0.2.1...v0.2.2) (2023-11-22)
 
 
