@@ -1,6 +1,6 @@
-import { DefaultPage } from 'components/defaultPage'
 import React from 'react'
-import { getPageSeo } from 'graphql/getters/getPageSeo'
+import { DefaultPage } from 'components/defaultPage'
+import { getPageSeo } from '../graphql/getters/getPageSeo'
 import type { Metadata, Viewport } from 'next'
 import { viewport } from 'utils/viewport'
 

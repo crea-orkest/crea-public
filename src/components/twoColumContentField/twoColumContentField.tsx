@@ -1,5 +1,5 @@
 import { ContentField } from 'components/contentField'
-import type { TwoColumFragment } from 'graphql/generated/graphql'
+import type { TwoColumFragment } from '../../graphql/generated/graphql'
 import classNames from 'classnames'
 import { isStructuredText } from 'datocms-structured-text-utils'
 import styles from './styles.module.scss'

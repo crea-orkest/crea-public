@@ -7,7 +7,7 @@ import type {
   HeaderFragment,
   TextBlockFragment,
   TwoColumFragment,
-} from 'graphql/generated/graphql'
+} from '../../graphql/generated/graphql'
 
 import styles from './styles.module.scss'
 

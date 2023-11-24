@@ -2,10 +2,10 @@
 
 import { useCallback, useState } from 'react'
 import Image from 'next/image'
-import type { VideoFragment } from 'graphql/generated/graphql'
+import type { VideoFragment } from '../../graphql/generated/graphql'
 import { VideoPlaceholder } from '../videoPlaceholder'
-import { formatCloudinaryImage } from 'graphql/formatters/formatCloudinaryImage'
-import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
+import { formatCloudinaryImage } from '../../graphql/formatters/formatCloudinaryImage'
+import { isOfTypeCloudinaryAsset } from '../../graphql/types/image'
 
 import styles from './styles.module.scss'
 

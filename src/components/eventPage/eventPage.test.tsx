@@ -1,7 +1,7 @@
 import { EventPage } from './eventPage'
 import type { Props } from './eventPage'
 import React from 'react'
-import { getEventPage } from 'graphql/getters/getEventPage'
+import { getEventPage } from '../../graphql/getters/getEventPage'
 import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 import { render } from '@testing-library/react'
 

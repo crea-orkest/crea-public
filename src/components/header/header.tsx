@@ -2,11 +2,11 @@ import React from 'react'
 import type { ElementType } from 'react'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
-import { type HeaderFragment } from 'graphql/generated/graphql'
+import { type HeaderFragment } from '../../graphql/generated/graphql'
 import { ContentField } from 'components/contentField'
 import Image from 'next/image'
-import { formatCloudinaryImage } from 'graphql/formatters/formatCloudinaryImage'
-import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
+import { formatCloudinaryImage } from '../../graphql/formatters/formatCloudinaryImage'
+import { isOfTypeCloudinaryAsset } from '../../graphql/types/image'
 
 interface Props {
   className?: string

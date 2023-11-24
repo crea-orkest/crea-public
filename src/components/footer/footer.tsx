@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import classNames from 'classnames'
-import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
-import { getSiteMetadata } from 'graphql/getters/getSiteMetadata'
+import { getGeneralInfo } from '../../graphql/getters/getGeneralInfo'
+import { getSiteMetadata } from '../../graphql/getters/getSiteMetadata'
 import { slugFormatter } from 'utils/slugFormatter'
 import styles from './styles.module.scss'
 

@@ -1,9 +1,9 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { Provider } from 'urql'
 import { useDimensions } from 'hooks/useDimensions'
-import { client } from 'graphql/gqlClient'
+import { client } from '../../graphql/gqlClient'
 import { Hamburger } from 'components/icons/hamburger'
 import { Cross } from 'components/icons/cross'
 import { useHrefClick } from 'hooks/useHrefClick'
@@ -12,7 +12,7 @@ import { cssToJs } from 'utils/cssToJs'
 
 import styles from './styles.module.scss'
 
-export const MobileMenu: React.FC = () => {
+export const MobileMenu = () => {
   const [open, setOpen] = useState(false)
   useHrefClick(() => setOpen(false))
   const { width } = useDimensions()

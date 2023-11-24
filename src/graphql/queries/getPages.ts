@@ -1,5 +1,5 @@
 import { gql } from '@urql/core'
-import { pageLink } from 'graphql/fragments/pageLink'
+import { pageLink } from '../fragments/pageLink'
 
 export const GET_PAGES = gql`
   query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {

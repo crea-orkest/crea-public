@@ -1,12 +1,12 @@
-import { getEventUrls } from 'graphql/getters/getEventUrls'
-import { getEventsMeta } from 'graphql/getters/getEventsMeta'
-import { getPages } from 'graphql/getters/getPages'
-import { getPagesMeta } from 'graphql/getters/getPagesMeta'
+import { getEventUrls } from '../graphql/getters/getEventUrls'
+import { getEventsMeta } from '../graphql/getters/getEventsMeta'
+import { getPages } from '../graphql/getters/getPages'
+import { getPagesMeta } from '../graphql/getters/getPagesMeta'
 import { slugFormatter } from 'utils/slugFormatter'
 import type {
   EventLinkFragment,
   PageLinkFragment,
-} from 'graphql/generated/graphql'
+} from '../graphql/generated/graphql'
 
 const URL = 'https://creaorkest.nl'
 

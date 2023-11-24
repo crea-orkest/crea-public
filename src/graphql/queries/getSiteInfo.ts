@@ -1,5 +1,5 @@
 import { gql } from '@urql/core'
-import { seoSettings } from 'graphql/fragments/seoSettings'
+import { seoSettings } from '../fragments/seoSettings'
 
 export const GET_SITE_INFO = gql`
   query getSiteInfo {

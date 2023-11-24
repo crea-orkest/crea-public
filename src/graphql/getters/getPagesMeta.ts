@@ -1,9 +1,9 @@
-import { client } from 'graphql/gqlClient'
+import { client } from '../gqlClient'
 import {
   GetPagesMetaDocument,
   type GetPagesMetaQuery,
   type GetPagesMetaQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 export const getPagesMeta = async () => {
   try {

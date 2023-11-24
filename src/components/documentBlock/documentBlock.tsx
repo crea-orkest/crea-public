@@ -1,8 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
-import type { DocumentFragment } from 'graphql/generated/graphql'
-import { formatCloudinaryDocument } from 'graphql/formatters/formatCloudinaryDocument'
-import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
+import type { DocumentFragment } from '../../graphql/generated/graphql'
+import { formatCloudinaryDocument } from '../../graphql/formatters/formatCloudinaryDocument'
+import { isOfTypeCloudinaryAsset } from '../../graphql/types/image'
 import { Pdf } from 'components/icons/pdf'
 import { formatBytes } from 'utils/formatBytes'
 

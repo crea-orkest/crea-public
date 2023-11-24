@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import type {
   EventPageSeoFragment,
   PageDetailSeoFragment,
-} from 'graphql/generated/graphql'
-import { getSiteMetadata } from 'graphql/getters/getSiteMetadata'
+} from '../generated/graphql'
+import { getSiteMetadata } from '../getters/getSiteMetadata'
 
 export const metadataFormatter = async (
   data: PageDetailSeoFragment | EventPageSeoFragment | undefined,

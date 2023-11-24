@@ -1,10 +1,10 @@
-import { formatSiteMetadata } from 'graphql/formatters/formatSiteMetadata'
+import { formatSiteMetadata } from '../formatters/formatSiteMetadata'
 import {
   GetSiteMetadataDocument,
   type GetSiteMetadataQuery,
   type GetSiteMetadataQueryVariables,
-} from 'graphql/generated/graphql'
-import { client } from 'graphql/gqlClient'
+} from '../generated/graphql'
+import { client } from '../gqlClient'
 
 export const getSiteMetadata = async () => {
   try {

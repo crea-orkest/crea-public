@@ -1,10 +1,10 @@
-import { client } from 'graphql/gqlClient'
-import { eventFormatter } from 'graphql/formatters/eventFormatter'
+import { client } from '../gqlClient'
+import { eventFormatter } from '../formatters/eventFormatter'
 import {
   GetEventDocument,
   type GetEventQuery,
   type GetEventQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 export const getEvent = async ({ id }: GetEventQueryVariables) => {
   try {

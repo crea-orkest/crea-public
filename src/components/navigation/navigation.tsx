@@ -4,10 +4,10 @@ import { NavigationItem } from 'components/navigationItem'
 import { NavigationSubMenu } from 'components/navigationSubMenu'
 import React from 'react'
 import classNames from 'classnames'
-import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
+import { getGeneralInfo } from '../../graphql/getters/getGeneralInfo'
 import styles from './styles.module.scss'
 import { MobileMenu } from 'components/mobileMenu'
-import { getSiteMetadata } from 'graphql/getters/getSiteMetadata'
+import { getSiteMetadata } from '../../graphql/getters/getSiteMetadata'
 
 export const Navigation: React.FC = async () => {
   const { data } = await getGeneralInfo()

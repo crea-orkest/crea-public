@@ -1,5 +1,5 @@
 import React from 'react'
-import { getLocation } from 'graphql/getters/getLocation'
+import { getLocation } from '../../graphql/getters/getLocation'
 import { LocationDetailView } from './locationDetailView'
 
 export interface Props {

@@ -2,9 +2,9 @@ import type { Props as EventListItemProps } from 'components/eventListItem'
 import { FutureEvents } from './futureEvents'
 import type { Props } from './futureEvents'
 import React from 'react'
-import { getFutureEvents } from 'graphql/getters/getFutureEvents'
+import { getFutureEvents } from '../../graphql/getters/getFutureEvents'
 import { mockEvent } from './mocks/mockEvents'
-import { resolvedComponent } from 'utils/testHelpers/resolvedComponent'
+import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 import { render, screen } from '@testing-library/react'
 
 jest.mock('../../graphql/getters/getFutureEvents', () => {

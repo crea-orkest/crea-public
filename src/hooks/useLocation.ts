@@ -1,6 +1,6 @@
-import type { Location } from 'graphql/types/location'
 import React from 'react'
-import { getLocation } from 'graphql/getters/getLocation'
+import { getLocation } from '../graphql/getters/getLocation'
+import type { Location } from '../graphql/types/location'
 
 export interface LocationProps {
   id: string

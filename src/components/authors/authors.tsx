@@ -1,6 +1,6 @@
-import type { PersonModelOrderBy } from 'graphql/generated/graphql'
 import React from 'react'
-import { getAuthors } from 'graphql/getters/getAuthors'
+import { getAuthors } from '../../graphql/getters/getAuthors'
+import type { PersonModelOrderBy } from '../../graphql/generated/graphql'
 
 export interface Props {
   skip: number

@@ -1,6 +1,6 @@
 import { LoadMoreEvents } from './loadMoreEvents'
 import React from 'react'
-import { getEvents } from 'graphql/getters/getEvents'
+import { getEvents } from '../../graphql/getters/getEvents'
 import { mockEvent } from './mocks/mockEvents'
 import { render, screen } from '@testing-library/react'
 

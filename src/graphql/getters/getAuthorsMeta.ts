@@ -1,9 +1,9 @@
-import { client } from 'graphql/gqlClient'
+import { client } from '../gqlClient'
 import {
   GetAuthorsMetaDocument,
   type GetAuthorsMetaQuery,
   type GetAuthorsMetaQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 export const getAuthorsMeta = async () => {
   try {

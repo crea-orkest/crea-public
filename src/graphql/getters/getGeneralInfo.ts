@@ -1,9 +1,9 @@
-import { client } from 'graphql/gqlClient'
+import { client } from '../gqlClient'
 import {
   GetGeneralInfoDocument,
   type GetGeneralInfoQuery,
   type GetGeneralInfoQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 export const getGeneralInfo = async () => {
   try {

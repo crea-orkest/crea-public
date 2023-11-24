@@ -1,4 +1,4 @@
-import type { GetPageSeoQuery } from 'graphql/generated/graphql'
+import type { GetPageSeoQuery } from '../generated/graphql'
 import { metadataFormatter } from './metadataFormatter'
 
 jest.mock('../getters/getSiteMetadata', () => {

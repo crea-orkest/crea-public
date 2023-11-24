@@ -1,7 +1,7 @@
 import { DefaultPage } from './defaultPage'
 import type { Props } from './defaultPage'
 import React from 'react'
-import { getPage } from 'graphql/getters/getPage'
+import { getPage } from '../../graphql/getters/getPage'
 import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 import { render } from '@testing-library/react'
 

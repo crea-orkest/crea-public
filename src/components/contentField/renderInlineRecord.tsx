@@ -6,7 +6,7 @@ import { slugFormatter } from 'utils/slugFormatter'
 import type {
   ConcertLinkFragment,
   PageLinkFragment,
-} from 'graphql/generated/graphql'
+} from '../../graphql/generated/graphql'
 
 export const renderInlineRecord = ({
   record,

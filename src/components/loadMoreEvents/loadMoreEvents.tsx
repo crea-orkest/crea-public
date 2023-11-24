@@ -1,8 +1,8 @@
 'use client'
 import { EventListItem } from 'components/eventListItem'
-import type { Event as EventType } from 'graphql/types/event'
+import type { Event as EventType } from '../../graphql/types/event'
 import React from 'react'
-import { getEvents } from 'graphql/getters/getEvents'
+import { getEvents } from '../../graphql/getters/getEvents'
 import { useEventsMeta } from 'hooks/useEventsMeta'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
 

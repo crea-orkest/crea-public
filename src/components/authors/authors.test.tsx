@@ -1,8 +1,8 @@
 import { Authors } from './authors'
-import { PersonModelOrderBy } from 'graphql/generated/graphql'
+import { PersonModelOrderBy } from '../../graphql/generated/graphql'
 import type { Props } from './authors'
 import React from 'react'
-import { getAuthors } from 'graphql/getters/getAuthors'
+import { getAuthors } from '../../graphql/getters/getAuthors'
 import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 import { render, screen } from '@testing-library/react'
 

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import classNames from 'classnames'
-import type { SubmenuItemFragment } from 'graphql/generated/graphql'
+import type { SubmenuItemFragment } from '../../graphql/generated/graphql'
 import { NavigationSubMenuItem } from '../navigationSubMenuItem'
 import { useOutsideClick } from 'hooks/useOutsideClick'
 import { useEscapeKey } from 'hooks/useEscapeKey'

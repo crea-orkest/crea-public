@@ -1,8 +1,7 @@
-import React from 'react'
 import Link from 'next/link'
 import styles from './styles.module.scss'
 
-export const NotFound: React.FC = () => {
+export const NotFound = () => {
   return (
     <section className={styles.notFound}>
       <div className={styles.notFound__content}>

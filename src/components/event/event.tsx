@@ -1,6 +1,6 @@
 import { EventListItem } from 'components/eventListItem'
 import React from 'react'
-import { getEvent } from 'graphql/getters/getEvent'
+import { getEvent } from '../../graphql/getters/getEvent'
 
 export interface Props {
   id: string

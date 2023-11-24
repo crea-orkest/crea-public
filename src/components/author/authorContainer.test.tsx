@@ -2,7 +2,7 @@ import { AuthorContainer } from './authorContainer'
 import type { Props } from './authorContainer'
 import React from 'react'
 import { getAuthor } from '../../graphql/getters/getAuthor'
-import { resolvedComponent } from 'utils/testHelpers/resolvedComponent'
+import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 import { render, screen } from '@testing-library/react'
 
 jest.mock('../../graphql/getters/getAuthor', () => {

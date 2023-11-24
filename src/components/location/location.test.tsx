@@ -1,7 +1,7 @@
 import { Location } from './location'
 import type { Props } from './location'
 import React from 'react'
-import { getLocation } from 'graphql/getters/getLocation'
+import { getLocation } from '../../graphql/getters/getLocation'
 import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 import { render, screen } from '@testing-library/react'
 

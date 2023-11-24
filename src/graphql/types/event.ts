@@ -1,5 +1,5 @@
 import type { Author } from './author'
-import type { ConcertDetailFragment } from 'graphql/generated/graphql'
+import type { ConcertDetailFragment } from '../generated/graphql'
 import type { Image } from './image'
 import type { Location } from './location'
 

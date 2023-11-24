@@ -1,10 +1,10 @@
-import { client } from 'graphql/gqlClient'
+import { client } from '../gqlClient'
 import {
   ConcertModelOrderBy,
   GetEventsUrlsDocument,
   type GetEventsUrlsQuery,
   type GetEventsUrlsQueryVariables,
-} from 'graphql/generated/graphql'
+} from '../generated/graphql'
 
 interface Props extends GetEventsUrlsQueryVariables {
   skip: number

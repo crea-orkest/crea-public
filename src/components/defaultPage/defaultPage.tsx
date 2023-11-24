@@ -1,6 +1,5 @@
 import { PageContent } from 'components/pageContent'
-import React from 'react'
-import { getPage } from 'graphql/getters/getPage'
+import { getPage } from '../../graphql/getters/getPage'
 import { notFound } from 'next/navigation'
 
 export interface Props {

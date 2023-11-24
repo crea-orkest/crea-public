@@ -1,6 +1,5 @@
 import { PageContent } from 'components/pageContent'
-import React from 'react'
-import { getEventPage } from 'graphql/getters/getEventPage'
+import { getEventPage } from '../../graphql/getters/getEventPage'
 import { notFound } from 'next/navigation'
 import { LocationDetail } from 'components/locationDetail'
 

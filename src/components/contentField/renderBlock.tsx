@@ -8,7 +8,7 @@ import type {
   EventBlockFragment,
   ImageFragment,
   VideoFragment,
-} from 'graphql/generated/graphql'
+} from '../../graphql/generated/graphql'
 import { DocumentBlock } from 'components/documentBlock'
 import { ImageBlock } from 'components/imageBlock'
 import { FutureEvents } from 'components/futureEvents'

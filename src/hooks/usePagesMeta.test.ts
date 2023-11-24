@@ -1,6 +1,6 @@
-import { getPagesMeta } from 'graphql/getters/getPagesMeta'
-import { usePagesMeta } from './usePagesMeta'
 import { renderHook, waitFor } from '@testing-library/react'
+import { usePagesMeta } from './usePagesMeta'
+import { getPagesMeta } from '../graphql/getters/getPagesMeta'
 
 jest.mock('../graphql/getters/getPagesMeta', () => {
   const originalModule = jest.requireActual('../graphql/getters/getPagesMeta')

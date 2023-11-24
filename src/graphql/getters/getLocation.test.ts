@@ -1,5 +1,5 @@
-import { GetLocationDocument } from 'graphql/generated/graphql'
-import { client } from 'graphql/gqlClient'
+import { GetLocationDocument } from '../generated/graphql'
+import { client } from '../gqlClient'
 import { getLocation } from './getLocation'
 
 jest.mock('../../graphql/gqlClient', () => {
