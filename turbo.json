@@ -2,12 +2,15 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "dotEnv": [".env"]
     },
     "analyze": {
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "dotEnv": [".env"]
     },
-    "lint": {}
+    "lint": {},
+    "test": {}
   },
-  "globalDependencies": [".env", "tsconfig.json"]
+  "globalDependencies": ["tsconfig.json"]
 }
