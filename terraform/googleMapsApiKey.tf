@@ -2,12 +2,16 @@
 resource "google_apikeys_key" "google-maps" {
   name         = "Google Maps api key"
   display_name = "google-maps-api-key"
-  project      = google_project.crea-orkest.name
+  project      = google_project.crea-orkest.project_id
+  provider     = google
 
   restrictions {
 
     api_targets {
       service = "maps-backend.googleapis.com"
+    }
+    api_targets {
+      service = "places-backend.googleapis.com"
     }
 
     browser_key_restrictions {
