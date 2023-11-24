@@ -12,5 +12,8 @@
     "lint": {},
     "test": {}
   },
+  "remoteCache": {
+    "signature": false
+  },
   "globalDependencies": ["tsconfig.json"]
 }
