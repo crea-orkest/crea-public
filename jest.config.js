@@ -14,6 +14,11 @@ const config = {
   preset: 'ts-jest',
   collectCoverage: true,
   coverageDirectory: 'coverage',
+  globals: {
+    'ts-jest': {
+      tsConfig: 'tsconfig.test.json',
+    },
+  },
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

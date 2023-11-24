@@ -7,7 +7,7 @@
       "utils/*": ["utils/*"],
       "hooks/*": ["hooks/*"]
     },
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["ESNext", "DOM", "WebWorker", "DOM.Iterable"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,8 +15,8 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "target": "es2022",
+    "module": "ESNext",
+    "target": "ES2022",
     "moduleResolution": "node",
     "allowUnusedLabels": false,
     "noFallthroughCasesInSwitch": true,
@@ -32,6 +32,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "outDir": "tmp",
+    "types": ["node"],
     "plugins": [
       {
         "name": "next"
@@ -43,9 +45,12 @@
     ".next/types/**/*.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "jest.config.js",
-    "jest.setup.js",
     "next.config.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.snap"
+  ]
 }
