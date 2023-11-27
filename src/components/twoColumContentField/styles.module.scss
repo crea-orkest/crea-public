@@ -12,3 +12,9 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

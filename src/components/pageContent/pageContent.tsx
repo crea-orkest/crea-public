@@ -16,7 +16,7 @@ export const PageContent = ({ items, pageTitle }: Props) => {
     let header = null
     let pageContent = null
 
-    if (index === 0 && item.__typename !== 'HeaderRecord') {
+    if (index === 0 && item.__typename !== 'HeaderRecord' && pageTitle) {
       header = (
         <Header key={`${item.id}-header`} title={pageTitle} tag="header" />
       )
