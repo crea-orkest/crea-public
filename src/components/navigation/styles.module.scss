@@ -54,8 +54,4 @@
   position: relative;
   object-fit: contain;
   max-width: 150px;
-
-  @media screen and (min-width: breakpoints.$sm) {
-    max-width: 200px;
-  }
 }
