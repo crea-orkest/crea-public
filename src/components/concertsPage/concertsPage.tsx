@@ -18,8 +18,10 @@ export const ConcertsPage = async () => {
     <div className={classNames(styles.concerts, 'content-layout')}>
       {eventData?.map((event) => {
         if (!event?.id) return
+
         return <Event key={event.id} id={event.id} />
       })}
+
       <LoadMoreEvents initialSkip={first} />
     </div>
   )

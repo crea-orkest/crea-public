@@ -1,3 +1,9 @@
+export const dateIsInThePast = (date: string) => {
+  const dateObj = new Date(date)
+  const now = new Date()
+  return dateObj < now
+}
+
 export const formatDate = (date: string) => {
   const dateObj = new Date(date)
   const defaultOptions = {

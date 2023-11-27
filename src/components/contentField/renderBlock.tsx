@@ -1,14 +1,13 @@
-import { Event } from 'components/event'
 import type { Record } from 'datocms-structured-text-utils'
 import type { RenderBlockContext } from 'react-datocms/structured-text'
 import { isOfType } from './isOfType'
-
 import type {
   DocumentFragment,
   EventBlockFragment,
   ImageFragment,
   VideoFragment,
 } from '../../graphql/generated/graphql'
+import { Event } from 'components/event'
 import { DocumentBlock } from 'components/documentBlock'
 import { ImageBlock } from 'components/imageBlock'
 import { FutureEvents } from 'components/futureEvents'
@@ -24,8 +23,15 @@ export const renderBlock = ({
   if (isOfType<EventBlockFragment>(record, 'ConcertListRecord')) {
     return (
       <div className={styles.spacing}>
-        {record.pinnedConcerts.map((item) => {
-          return <Event key={item.id} id={item.id} />
+        {record.pinnedConcerts.map((item, index) => {
+          return (
+            <Event
+              key={item.id}
+              id={item.id}
+              size="large"
+              isLast={record.pinnedConcerts.length - 1 === index}
+            />
+          )
         })}
         {record.futureConcerts && <FutureEvents skip={0} first={3} />}
       </div>
