@@ -3,6 +3,19 @@
 exports[`Concert component shows all the data 1`] = `
 <div>
   <article>
+    <header
+      class="header with-background"
+    >
+      <div
+        class="headerContent content-layout"
+      >
+        <h1
+          class=""
+        >
+          title
+        </h1>
+      </div>
+    </header>
     <div
       class="locations"
     />
