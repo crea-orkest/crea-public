@@ -2,6 +2,8 @@ import { PageContent } from 'components/pageContent'
 import { getEventPage } from '../../graphql/getters/getEventPage'
 import { notFound } from 'next/navigation'
 import { LocationDetail } from 'components/locationDetail'
+// import { EventListItem } from 'components/eventListItem'
+import { Header } from 'components/header'
 
 import styles from './styles.module.scss'
 
@@ -15,7 +17,19 @@ export const EventPage = async ({ slug }: Props) => {
 
   return (
     <article>
-      <PageContent items={data.content} pageTitle={data.title || ''} />
+      <Header title={data.title} tag="header" />
+      {/* <div className={styles.calendar}>
+        <EventListItem
+          data={data}
+          size="large"
+          isLast={true}
+          title="Agenda"
+          showLink={false}
+          showImage={false}
+        />
+      </div> */}
+
+      <PageContent items={data.content} />
       <div className={styles.locations}>
         {data.locations.map((location) => {
           if (!location?.id || !location.startTime) return null

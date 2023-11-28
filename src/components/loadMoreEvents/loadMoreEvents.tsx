@@ -55,9 +55,15 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
 
   return (
     <>
-      {events.map((event) => {
+      {events.map((event, index) => {
         if (!event?.id) return
-        return <EventListItem key={event.id} data={event} />
+        return (
+          <EventListItem
+            key={event.id}
+            data={event}
+            isLast={events.length - 1 === index}
+          />
+        )
       })}
 
       {numberOfEvents ? (
