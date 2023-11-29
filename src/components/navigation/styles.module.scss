@@ -4,7 +4,7 @@
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/z-indices.scss' as z;
 
-.wrapper {
+.root {
   background-color: colors.$background;
   padding-top: map.get(spacing.$rem, 4);
   padding-bottom: map.get(spacing.$rem, 4);

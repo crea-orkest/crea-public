@@ -5,7 +5,7 @@
 
 $mobileBreakpoint: breakpoints.$sm;
 
-.container {
+.root {
   margin: auto 0;
 
   @media screen and (min-width: breakpoints.$sm) {

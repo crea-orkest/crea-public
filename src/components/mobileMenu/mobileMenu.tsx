@@ -31,7 +31,7 @@ export const MobileMenu = () => {
 
   return (
     <Provider value={client}>
-      <div className={classNames(styles.container)}>
+      <div className={classNames(styles.root)}>
         <button
           className={classNames(styles.menuButton)}
           type="button"

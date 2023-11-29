@@ -2,7 +2,7 @@
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/spacing.scss' as spacing;
 
-.wrapper {
+.root {
   display: grid;
   grid-template-columns: 1fr;
   gap: map.get(spacing.$rem, 16);

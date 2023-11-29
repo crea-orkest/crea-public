@@ -7,11 +7,12 @@ import { Header } from 'components/header'
 import styles from './styles.module.scss'
 
 export interface Props {
+  sectionClassName?: string
   pageTitle?: string
   items: Event['content'] | PageDetailFragment['content']
 }
 
-export const PageContent = ({ items, pageTitle }: Props) => {
+export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
   return items?.map((item, index) => {
     let header = null
     let pageContent = null
@@ -25,7 +26,7 @@ export const PageContent = ({ items, pageTitle }: Props) => {
       pageContent = (
         <section
           key={item.id}
-          className={classNames(styles.defaultSpacing, 'content-layout')}
+          className={classNames(styles.defaultSpacing, sectionClassName)}
         >
           <TwoColumContentField item={item} />
         </section>
@@ -35,7 +36,7 @@ export const PageContent = ({ items, pageTitle }: Props) => {
       pageContent = (
         <section
           key={item.id}
-          className={classNames(styles.defaultSpacing, 'content-layout')}
+          className={classNames(styles.defaultSpacing, sectionClassName)}
         >
           <ContentField data={item.content} />
         </section>

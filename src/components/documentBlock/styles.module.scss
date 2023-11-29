@@ -6,7 +6,7 @@
 @use '../../styles/tokens/typography.scss' as typography;
 @use '../../styles/tokens/layout.scss' as layout;
 
-.container {
+.root {
   display: flex;
   justify-content: space-between;
   flex-direction: column;

@@ -26,6 +26,7 @@ export const renderBlock = ({
         {record.pinnedConcerts.map((item, index) => {
           return (
             <Event
+              className="content-layout--small"
               key={item.id}
               id={item.id}
               size="large"

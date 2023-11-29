@@ -12,7 +12,7 @@ export const MobileMenuItems: React.FC = () => {
   const [result] = useQuery({ query: GetGeneralInfoDocument })
 
   return (
-    <ul className={styles.container}>
+    <ul className={styles.root}>
       {result?.data?.general?.menu.map((item) => {
         if ('link' in item) {
           return (

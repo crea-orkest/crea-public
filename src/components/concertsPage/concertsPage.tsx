@@ -19,7 +19,13 @@ export const ConcertsPage = async () => {
       {eventData?.map((event) => {
         if (!event?.id) return
 
-        return <Event key={event.id} id={event.id} />
+        return (
+          <Event
+            className="content-layout--small"
+            key={event.id}
+            id={event.id}
+          />
+        )
       })}
 
       <LoadMoreEvents initialSkip={first} />
@@ -49,7 +55,7 @@ export const ConcertsPage = async () => {
         />
       )}
       {events}
-      <PageContent items={pageContent} />
+      <PageContent sectionClassName="content-layout" items={pageContent} />
     </>
   )
 }

@@ -3,7 +3,7 @@
 @use '../../styles/tokens/colors' as colors;
 @use '../../styles/tokens/radius.scss' as radius;
 
-.container {
+.root {
   position: relative;
   width: 100%;
   height: 100%;

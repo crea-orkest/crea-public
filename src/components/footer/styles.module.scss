@@ -4,7 +4,7 @@
 @use '../../styles/tokens/spacing.scss' as spacing;
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 
-.wrapper {
+.root {
   background-color: colors.$primary;
   color: colors.$background;
   padding-top: map.get(spacing.$rem, 48);

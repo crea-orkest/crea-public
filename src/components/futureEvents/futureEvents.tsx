@@ -27,6 +27,7 @@ export const FutureEvents = async ({ skip, first }: Props) => {
         if (!event?.id) return null
         return (
           <EventListItem
+            className="content-layout--small"
             key={event.id}
             data={event}
             size="large"

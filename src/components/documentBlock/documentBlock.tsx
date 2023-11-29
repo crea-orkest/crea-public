@@ -21,7 +21,7 @@ export const DocumentBlock: React.FC<Props> = ({ record }: Props) => {
   )
   if (!asset?.url) return null
   return (
-    <p className={styles.container}>
+    <p className={styles.root}>
       <span className={classNames(styles.title, 'h4')}>
         {record.document.title}
       </span>

@@ -3,7 +3,7 @@
 @use '../../styles/tokens/spacing.scss' as spacing;
 @use '../../styles/tokens/typography.scss' as typography;
 
-.container {
+.root {
   list-style: none;
   padding: 0 map.get(spacing.$rem, 32);
   overflow: scroll;

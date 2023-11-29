@@ -12,7 +12,7 @@ export const Footer = async () => {
   if (!data?.general) return null
 
   return (
-    <footer className={classNames(styles.wrapper, 'with-background')}>
+    <footer className={classNames(styles.root, 'with-background')}>
       <div className={classNames(styles.content, 'content-layout')}>
         <div>
           <h2 className={classNames(styles.title)}>
