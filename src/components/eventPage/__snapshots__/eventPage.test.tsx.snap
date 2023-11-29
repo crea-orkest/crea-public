@@ -2,20 +2,34 @@
 
 exports[`Concert component shows all the data 1`] = `
 <div>
-  <article>
+  <article
+    class="root"
+  >
     <header
       class="header with-background"
     >
       <div
-        class="headerContent content-layout"
+        class="titleContainer content-layout"
       >
-        <h1
-          class=""
-        >
+        <h2>
           title
-        </h1>
+        </h2>
       </div>
     </header>
+    <div
+      class="container content-layout noGrid"
+    >
+      <aside
+        class="sidebar"
+      >
+        <div
+          class="sidebarContent"
+        />
+      </aside>
+      <div
+        class="content"
+      />
+    </div>
     <div
       class="locations"
     />

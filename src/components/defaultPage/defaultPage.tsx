@@ -12,7 +12,11 @@ export const DefaultPage = async ({ slug }: Props) => {
 
   return (
     <article>
-      <PageContent items={data.content} pageTitle={data.title || ''} />
+      <PageContent
+        sectionClassName="content-layout"
+        items={data.content}
+        pageTitle={data.title || ''}
+      />
     </article>
   )
 }

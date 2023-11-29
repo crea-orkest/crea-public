@@ -8,6 +8,7 @@ export const locationItem = gql`
     location {
       ...location
     }
+    ticketLink
   }
   ${location}
 `

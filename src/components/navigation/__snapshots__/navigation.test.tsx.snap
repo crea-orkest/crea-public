@@ -3,7 +3,7 @@
 exports[`Concert component shows all the data 1`] = `
 <div>
   <nav
-    class="wrapper content-layout"
+    class="root content-layout"
   >
     <div
       class="content"
@@ -26,7 +26,7 @@ exports[`Concert component shows all the data 1`] = `
         />
       </a>
       <div
-        class="container"
+        class="root"
       >
         <button
           class="menuButton"

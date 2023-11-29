@@ -1,13 +1,14 @@
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import classNames from 'classnames'
 import { NavigationItem } from 'components/navigationItem'
 import { NavigationSubMenu } from 'components/navigationSubMenu'
-import React from 'react'
-import classNames from 'classnames'
 import { getGeneralInfo } from '../../graphql/getters/getGeneralInfo'
-import styles from './styles.module.scss'
 import { MobileMenu } from 'components/mobileMenu'
 import { getSiteMetadata } from '../../graphql/getters/getSiteMetadata'
+
+import styles from './styles.module.scss'
 
 export const Navigation: React.FC = async () => {
   const { data } = await getGeneralInfo()
@@ -15,7 +16,7 @@ export const Navigation: React.FC = async () => {
   if (!data?.general) return null
 
   return (
-    <nav className={classNames(styles.wrapper, 'content-layout')}>
+    <nav className={classNames(styles.root, 'content-layout')}>
       <div className={classNames(styles.content)}>
         <Link href="/" className={classNames(styles.logoLink)}>
           <Image

@@ -4,7 +4,7 @@
 @use '../../styles/tokens/breakpoints.scss' as breakpoints;
 @use '../../styles/tokens/z-indices.scss' as z;
 
-.container {
+.root {
   width: 100%;
   display: flex;
   flex-direction: column;

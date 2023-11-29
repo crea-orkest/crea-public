@@ -59,6 +59,7 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
         if (!event?.id) return
         return (
           <EventListItem
+            className="content-layout--small"
             key={event.id}
             data={event}
             isLast={events.length - 1 === index}

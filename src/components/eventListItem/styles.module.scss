@@ -35,14 +35,10 @@ $padding-large-left: map.get(spacing.$rem, 40);
   }
 }
 
-.wrapper {
+.root {
   position: relative;
   padding-left: $padding-left;
   padding-bottom: map.get(spacing.$rem, layout.$default-mobile-spacing);
-
-  &::before {
-    @extend %line;
-  }
 
   @media screen and (min-width: breakpoints.$sm) {
     padding-bottom: map.get(spacing.$rem, layout.$default-desktop-spacing);
@@ -64,6 +60,22 @@ $padding-large-left: map.get(spacing.$rem, 40);
   @media screen and (min-width: breakpoints.$sm) {
     flex-direction: row;
   }
+
+  .locations {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .location {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: map.get(spacing.$rem, 12);
+
+      @media screen and (min-width: breakpoints.$sm) {
+        margin-bottom: map.get(spacing.$rem, 24);
+      }
+    }
+  }
 }
 
 .imageContainer {
@@ -82,39 +94,10 @@ $padding-large-left: map.get(spacing.$rem, 40);
   transform: translate(-5%, 2.5%);
 }
 
-.content {
-  .locations {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    .location {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: map.get(spacing.$rem, 12);
-
-      @media screen and (min-width: breakpoints.$sm) {
-        margin-bottom: map.get(spacing.$rem, 24);
-      }
-    }
-  }
-}
-
 .locationTitle {
   margin: 0;
   position: relative;
   order: 2;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: $dot-offset;
-    left: calc(($padding-left + ($dot-size / 2)) * -1);
-    width: $dot-size;
-    height: $dot-size;
-    border-radius: 50%;
-    background-color: colors.$secondary;
-  }
 }
 
 .locationSubtitle {
@@ -141,11 +124,6 @@ $padding-large-left: map.get(spacing.$rem, 40);
 .large {
   padding-left: $padding-large-left;
 
-  &::before {
-    border-left: $border-large-size solid colors.$secondary;
-    transform: translateX(calc($border-large-size / 2 * -1));
-  }
-
   .title {
     margin-bottom: map.get(spacing.$rem, 24);
 
@@ -164,8 +142,8 @@ $padding-large-left: map.get(spacing.$rem, 40);
     }
   }
 
-  @media screen and (min-width: breakpoints.$sm) {
-    .content {
+  .content {
+    @media screen and (min-width: breakpoints.$sm) {
       gap: map.get(spacing.$rem, 40);
     }
   }
@@ -177,17 +155,6 @@ $padding-large-left: map.get(spacing.$rem, 40);
       @media screen and (min-width: breakpoints.$sm) {
         margin-bottom: map.get(spacing.$rem, 48);
       }
-    }
-  }
-
-  .locationTitle::before {
-    top: $dot-large-mobile-offset;
-    left: calc(($padding-large-left + ($dot-large-size / 2)) * -1);
-    width: $dot-large-size;
-    height: $dot-large-size;
-
-    @media screen and (min-width: breakpoints.$sm) {
-      top: $dot-large-desktop-offset;
     }
   }
 
@@ -203,63 +170,84 @@ $padding-large-left: map.get(spacing.$rem, 40);
 
 .isLast {
   padding-bottom: 0;
+}
 
-  &::before {
-    height: 100%;
-  }
+// LocationTitle dots
+.locationTitle::before {
+  content: '';
+  position: absolute;
+  top: $dot-offset;
+  left: calc(($padding-left + ($dot-size / 2)) * -1);
+  width: $dot-size;
+  height: $dot-size;
+  border-radius: 50%;
+  background-color: colors.$secondary;
+}
 
-  .location:last-child .locationTitle::after {
-    @extend %line;
+.large .locationTitle::before {
+  top: $dot-large-mobile-offset;
+  left: calc(($padding-large-left + ($dot-large-size / 2)) * -1);
+  width: $dot-large-size;
+  height: $dot-large-size;
 
-    border-color: colors.$background;
-    border-width: $border-size * 2;
-    height: calc(
-      100% + map.get(spacing.$rem, layout.$default-mobile-spacing) +
-        $image-height
-    );
-    top: calc($dot-offset + $dot-size);
-    left: calc(($padding-left * -1) - ($border-size / 2));
-
-    @media screen and (min-width: breakpoints.$sm) {
-      height: calc(
-        100% + map.get(spacing.$rem, layout.$default-desktop-spacing)
-      );
-    }
+  @media screen and (min-width: breakpoints.$sm) {
+    top: $dot-large-desktop-offset;
   }
 }
 
-.isLast.oneLocation {
-  &::before {
-    height: 120%;
+// Root line
+.root::before {
+  @extend %line;
+}
+
+.large::before {
+  border-left: $border-large-size solid colors.$secondary;
+  transform: translateX(calc($border-large-size / 2 * -1));
+}
+
+.isLast:not(.large)::before {
+  height: 100%;
+}
+
+.isLast.oneLocation::before {
+  height: 120%;
+}
+
+// locationTitle line
+.isLast .location:last-child .locationTitle::after {
+  @extend %line;
+
+  border-color: colors.$background;
+  border-width: $border-size * 2;
+  height: calc(
+    100% + map.get(spacing.$rem, layout.$default-mobile-spacing) + $image-height
+  );
+  top: calc($dot-offset + $dot-size);
+  left: calc(($padding-left * -1) - ($border-size / 2));
+
+  @media screen and (min-width: breakpoints.$sm) {
+    height: calc(100% + map.get(spacing.$rem, layout.$default-desktop-spacing));
   }
 }
 
-.large.isLast {
-  .location:last-child .locationTitle::after {
-    border-width: $border-large-size * 2;
-    height: calc(
-      100% + map.get(spacing.$rem, layout.$default-mobile-spacing) +
-        $image-large-height
-    );
-    top: calc($dot-large-mobile-offset + $dot-large-size);
-    left: calc(($padding-large-left * -1) - ($border-large-size / 2));
+.large.isLast .location:last-child .locationTitle::after {
+  border-width: $border-large-size * 2;
+  height: calc(
+    100% + map.get(spacing.$rem, layout.$default-mobile-spacing) +
+      $image-large-height
+  );
+  top: calc($dot-large-mobile-offset + $dot-large-size);
+  left: calc(($padding-large-left * -1) - ($border-large-size / 2));
 
-    @media screen and (min-width: breakpoints.$sm) {
-      top: calc($dot-large-desktop-offset + $dot-large-size);
-      height: calc(
-        100% + map.get(spacing.$rem, layout.$default-desktop-spacing)
-      );
-    }
+  @media screen and (min-width: breakpoints.$sm) {
+    top: calc($dot-large-desktop-offset + $dot-large-size);
+    height: calc(100% + map.get(spacing.$rem, layout.$default-desktop-spacing));
   }
 }
 
-.isLast:not(.hasImage) {
-  .location:last-child .locationTitle::after {
-    height: calc(100% + map.get(spacing.$rem, layout.$default-mobile-spacing));
-    @media screen and (min-width: breakpoints.$sm) {
-      height: calc(
-        100% + map.get(spacing.$rem, layout.$default-desktop-spacing)
-      );
-    }
+.isLast:not(.hasImage) .location:last-child .locationTitle::after {
+  height: calc(100% + map.get(spacing.$rem, layout.$default-mobile-spacing));
+  @media screen and (min-width: breakpoints.$sm) {
+    height: calc(100% + map.get(spacing.$rem, layout.$default-desktop-spacing));
   }
 }

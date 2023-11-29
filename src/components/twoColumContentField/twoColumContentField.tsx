@@ -11,7 +11,7 @@ interface Props {
 
 export const TwoColumContentField = ({ item }: Props) => {
   return (
-    <div className={classNames(styles.wrapper)} key={item.id}>
+    <div className={classNames(styles.root)} key={item.id}>
       {isStructuredText(item.leftContent) && (
         <div className={styles.content}>
           <ContentField data={item.leftContent} />

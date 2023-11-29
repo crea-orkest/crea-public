@@ -9,5 +9,6 @@ export const locationItemFormatter = (
   return {
     ...locationFormatter(location.location),
     startTime: location.dateTime ?? undefined,
+    ticketLink: location.ticketLink ?? undefined,
   }
 }

@@ -425,13 +425,11 @@ export type GeneralModelMenuField = MenuItemRecord | SubmenuItemRecord
 /** Record of type Algemene info (general) */
 export type GeneralRecord = RecordInterface & {
   __typename?: 'GeneralRecord'
-  _allSiteMetadataLocales?: Maybe<Array<JsonFieldMultiLocaleField>>
   _createdAt: Scalars['DateTime']['output']
   /** Editing URL */
   _editingUrl?: Maybe<Scalars['String']['output']>
   _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
   _isValid: Scalars['BooleanType']['output']
-  _locales: Array<SiteLocale>
   _modelApiKey: Scalars['String']['output']
   _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _publishedAt?: Maybe<Scalars['DateTime']['output']>
@@ -447,18 +445,7 @@ export type GeneralRecord = RecordInterface & {
 }
 
 /** Record of type Algemene info (general) */
-export type GeneralRecord_AllSiteMetadataLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-}
-
-/** Record of type Algemene info (general) */
 export type GeneralRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>
-}
-
-/** Record of type Algemene info (general) */
-export type GeneralRecordSiteMetadataArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -1969,12 +1956,6 @@ export enum ItemStatus {
   Updated = 'updated',
 }
 
-export type JsonFieldMultiLocaleField = {
-  __typename?: 'JsonFieldMultiLocaleField'
-  locale?: Maybe<SiteLocale>
-  value?: Maybe<Scalars['JsonField']['output']>
-}
-
 /** Specifies how to filter JSON fields */
 export type JsonFilter = {
   /** Filter records with the specified field defined (i.e. with any value) or not */
@@ -2015,73 +1996,6 @@ export type LinkFilter = {
   notIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>
 }
 
-export type LinkModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<LinkModelFilter>>>
-  OR?: InputMaybe<Array<InputMaybe<LinkModelFilter>>>
-  _createdAt?: InputMaybe<CreatedAtFilter>
-  _firstPublishedAt?: InputMaybe<PublishedAtFilter>
-  _isValid?: InputMaybe<BooleanFilter>
-  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>
-  _publishedAt?: InputMaybe<PublishedAtFilter>
-  _status?: InputMaybe<StatusFilter>
-  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
-  _updatedAt?: InputMaybe<UpdatedAtFilter>
-  id?: InputMaybe<ItemIdFilter>
-  internalTitle?: InputMaybe<StringFilter>
-  page?: InputMaybe<LinkFilter>
-}
-
-export enum LinkModelOrderBy {
-  CreatedAtAsc = '_createdAt_ASC',
-  CreatedAtDesc = '_createdAt_DESC',
-  FirstPublishedAtAsc = '_firstPublishedAt_ASC',
-  FirstPublishedAtDesc = '_firstPublishedAt_DESC',
-  IsValidAsc = '_isValid_ASC',
-  IsValidDesc = '_isValid_DESC',
-  PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
-  PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
-  PublishedAtAsc = '_publishedAt_ASC',
-  PublishedAtDesc = '_publishedAt_DESC',
-  StatusAsc = '_status_ASC',
-  StatusDesc = '_status_DESC',
-  UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
-  UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
-  UpdatedAtAsc = '_updatedAt_ASC',
-  UpdatedAtDesc = '_updatedAt_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  InternalTitleAsc = 'internalTitle_ASC',
-  InternalTitleDesc = 'internalTitle_DESC',
-}
-
-export type LinkModelPageField = ConcertRecord | PageRecord
-
-/** Record of type Links (link) */
-export type LinkRecord = RecordInterface & {
-  __typename?: 'LinkRecord'
-  _createdAt: Scalars['DateTime']['output']
-  /** Editing URL */
-  _editingUrl?: Maybe<Scalars['String']['output']>
-  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
-  _isValid: Scalars['BooleanType']['output']
-  _modelApiKey: Scalars['String']['output']
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** Generates SEO and Social card meta tags to be used in your frontend */
-  _seoMetaTags: Array<Tag>
-  _status: ItemStatus
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _updatedAt: Scalars['DateTime']['output']
-  id: Scalars['ItemId']['output']
-  internalTitle?: Maybe<Scalars['String']['output']>
-  page?: Maybe<LinkModelPageField>
-}
-
-/** Record of type Links (link) */
-export type LinkRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>
-}
-
 /** Specifies how to filter Multiple-links fields */
 export type LinksFilter = {
   /** Filter records linked to all of the specified records. The specified values must be Record IDs */
@@ -2102,6 +2016,7 @@ export type LocationItemModelFilter = {
   dateTime?: InputMaybe<DateTimeFilter>
   id?: InputMaybe<ItemIdFilter>
   location?: InputMaybe<LinkFilter>
+  ticketLink?: InputMaybe<StringFilter>
 }
 
 /** Block of type Locatie item (location_item) */
@@ -2123,6 +2038,7 @@ export type LocationItemRecord = RecordInterface & {
   dateTime?: Maybe<Scalars['DateTime']['output']>
   id: Scalars['ItemId']['output']
   location?: Maybe<LocationRecord>
+  ticketLink?: Maybe<Scalars['String']['output']>
 }
 
 /** Block of type Locatie item (location_item) */
@@ -2389,7 +2305,6 @@ export type PersonModelFilter = {
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
   _updatedAt?: InputMaybe<UpdatedAtFilter>
   id?: InputMaybe<ItemIdFilter>
-  image?: InputMaybe<JsonFilter>
   name?: InputMaybe<StringFilter>
   role?: InputMaybe<StringFilter>
 }
@@ -2436,7 +2351,6 @@ export type PersonRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
   id: Scalars['ItemId']['output']
-  image?: Maybe<Scalars['JsonField']['output']>
   name?: Maybe<Scalars['String']['output']>
   role?: Maybe<Scalars['String']['output']>
 }
@@ -2486,8 +2400,6 @@ export type Query = {
   /** Returns meta information regarding a record collection */
   _allConcertsMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
-  _allLinksMeta: CollectionMetadata
-  /** Returns meta information regarding a record collection */
   _allLocationsMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
   _allMediaItemsMeta: CollectionMetadata
@@ -2501,8 +2413,6 @@ export type Query = {
   _site: Site
   /** Returns a collection of records */
   allConcerts: Array<ConcertRecord>
-  /** Returns a collection of records */
-  allLinks: Array<LinkRecord>
   /** Returns a collection of records */
   allLocations: Array<LocationRecord>
   /** Returns a collection of records */
@@ -2518,8 +2428,6 @@ export type Query = {
   /** Returns the single instance record */
   general?: Maybe<GeneralRecord>
   /** Returns a specific record */
-  link?: Maybe<LinkRecord>
-  /** Returns a specific record */
   location?: Maybe<LocationRecord>
   /** Returns a specific record */
   mediaItem?: Maybe<MediaItemRecord>
@@ -2534,12 +2442,6 @@ export type Query = {
 /** The query root for this schema */
 export type Query_AllConcertsMetaArgs = {
   filter?: InputMaybe<ConcertModelFilter>
-  locale?: InputMaybe<SiteLocale>
-}
-
-/** The query root for this schema */
-export type Query_AllLinksMetaArgs = {
-  filter?: InputMaybe<LinkModelFilter>
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -2586,16 +2488,6 @@ export type QueryAllConcertsArgs = {
   first?: InputMaybe<Scalars['IntType']['input']>
   locale?: InputMaybe<SiteLocale>
   orderBy?: InputMaybe<Array<InputMaybe<ConcertModelOrderBy>>>
-  skip?: InputMaybe<Scalars['IntType']['input']>
-}
-
-/** The query root for this schema */
-export type QueryAllLinksArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<LinkModelFilter>
-  first?: InputMaybe<Scalars['IntType']['input']>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<LinkModelOrderBy>>>
   skip?: InputMaybe<Scalars['IntType']['input']>
 }
 
@@ -2661,14 +2553,6 @@ export type QueryConcertArgs = {
 export type QueryGeneralArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>
   locale?: InputMaybe<SiteLocale>
-}
-
-/** The query root for this schema */
-export type QueryLinkArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<LinkModelFilter>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<LinkModelOrderBy>>>
 }
 
 /** The query root for this schema */
@@ -2798,7 +2682,6 @@ export type SiteGlobalSeoArgs = {
 }
 
 export enum SiteLocale {
-  En = 'en',
   NlNl = 'nl_NL',
 }
 
@@ -3394,7 +3277,6 @@ export type AuthorFragment = {
   id: string
   name?: string | null
   role?: string | null
-  image?: unknown | null
 }
 
 export type ColorsFragment = {
@@ -3420,6 +3302,7 @@ export type ConcertDetailFragment = {
     __typename?: 'LocationItemRecord'
     id: string
     dateTime?: string | null
+    ticketLink?: string | null
     location?: {
       __typename?: 'LocationRecord'
       id: string
@@ -3447,7 +3330,6 @@ export type ConcertDetailFragment = {
     id: string
     name?: string | null
     role?: string | null
-    image?: unknown | null
   }>
   content: Array<
     | {
@@ -4079,15 +3961,6 @@ type Identifiable_ImageRecord_Fragment = {
   id: string
 }
 
-type Identifiable_LinkRecord_Fragment = {
-  __typename: 'LinkRecord'
-  _createdAt: string
-  _firstPublishedAt?: string | null
-  _publishedAt?: string | null
-  _updatedAt: string
-  id: string
-}
-
 type Identifiable_LocationItemRecord_Fragment = {
   __typename: 'LocationItemRecord'
   _createdAt: string
@@ -4185,7 +4058,6 @@ export type IdentifiableFragment =
   | Identifiable_GeneralRecord_Fragment
   | Identifiable_HeaderRecord_Fragment
   | Identifiable_ImageRecord_Fragment
-  | Identifiable_LinkRecord_Fragment
   | Identifiable_LocationItemRecord_Fragment
   | Identifiable_LocationRecord_Fragment
   | Identifiable_MediaItemRecord_Fragment
@@ -4258,25 +4130,6 @@ export type DocumentFragment = {
   } | null
 }
 
-export type LinkFragment = {
-  __typename?: 'LinkRecord'
-  id: string
-  internalTitle?: string | null
-  page?:
-    | { __typename?: 'ConcertRecord' }
-    | {
-        __typename: 'PageRecord'
-        title?: string | null
-        slug?: string | null
-        _createdAt: string
-        _firstPublishedAt?: string | null
-        _publishedAt?: string | null
-        _updatedAt: string
-        id: string
-      }
-    | null
-}
-
 export type LocationFragment = {
   __typename?: 'LocationRecord'
   id: string
@@ -4293,6 +4146,7 @@ export type LocationItemFragment = {
   __typename?: 'LocationItemRecord'
   id: string
   dateTime?: string | null
+  ticketLink?: string | null
   location?: {
     __typename?: 'LocationRecord'
     id: string
@@ -5844,7 +5698,6 @@ export type GetAuthorQuery = {
     id: string
     name?: string | null
     role?: string | null
-    image?: unknown | null
   } | null
 }
 
@@ -5863,7 +5716,6 @@ export type GetAuthorsQuery = {
     id: string
     name?: string | null
     role?: string | null
-    image?: unknown | null
   }>
 }
 
@@ -5893,6 +5745,7 @@ export type GetEventQuery = {
       __typename?: 'LocationItemRecord'
       id: string
       dateTime?: string | null
+      ticketLink?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -5920,7 +5773,6 @@ export type GetEventQuery = {
       id: string
       name?: string | null
       role?: string | null
-      image?: unknown | null
     }>
     content: Array<
       | {
@@ -6307,6 +6159,7 @@ export type GetEventPageQuery = {
       __typename?: 'LocationItemRecord'
       id: string
       dateTime?: string | null
+      ticketLink?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -6334,7 +6187,6 @@ export type GetEventPageQuery = {
       id: string
       name?: string | null
       role?: string | null
-      image?: unknown | null
     }>
     content: Array<
       | {
@@ -6776,6 +6628,7 @@ export type GetEventsQuery = {
       __typename?: 'LocationItemRecord'
       id: string
       dateTime?: string | null
+      ticketLink?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -6803,7 +6656,6 @@ export type GetEventsQuery = {
       id: string
       name?: string | null
       role?: string | null
-      image?: unknown | null
     }>
     content: Array<
       | {
@@ -7202,6 +7054,7 @@ export type GetFutureEventsQuery = {
       __typename?: 'LocationItemRecord'
       id: string
       dateTime?: string | null
+      ticketLink?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -7229,7 +7082,6 @@ export type GetFutureEventsQuery = {
       id: string
       name?: string | null
       role?: string | null
-      image?: unknown | null
     }>
     content: Array<
       | {
@@ -8341,6 +8193,7 @@ export const LocationItemFragmentDoc = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
         ],
       },
     },
@@ -8449,7 +8302,6 @@ export const AuthorFragmentDoc = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -11884,6 +11736,7 @@ export const ConcertDetailFragmentDoc = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
         ],
       },
     },
@@ -11900,7 +11753,6 @@ export const ConcertDetailFragmentDoc = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -12656,77 +12508,6 @@ export const ResponsiveImageFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<ResponsiveImageFragment, unknown>
-export const LinkFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'link' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'LinkRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'internalTitle' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'page' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'pageLink' },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'identifiable' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'RecordInterface' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'pageLink' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'PageRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'FragmentSpread',
-            name: { kind: 'Name', value: 'identifiable' },
-          },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<LinkFragment, unknown>
 export const PageFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -14593,7 +14374,7 @@ export const SiteMetadataFragmentDoc = {
   ],
 } as unknown as DocumentNode<SiteMetadataFragment, unknown>
 export const GetAuthorDocument = {
-  __meta__: { hash: 'c9a976474f08062a643efaa51b184f01a2979c98' },
+  __meta__: { hash: '69626f7356ee243d0a13a9401b5f6cf5612460c0' },
   kind: 'Document',
   definitions: [
     {
@@ -14673,14 +14454,13 @@ export const GetAuthorDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
   ],
 } as unknown as DocumentNode<GetAuthorQuery, GetAuthorQueryVariables>
 export const GetAuthorsDocument = {
-  __meta__: { hash: '5e89f34e86b132b8cd6ed728b30d6c9e81d99ce7' },
+  __meta__: { hash: '7be73ead65e34e702ae1a288a1c5a6ce402d81b9' },
   kind: 'Document',
   definitions: [
     {
@@ -14786,7 +14566,6 @@ export const GetAuthorsDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -14819,7 +14598,7 @@ export const GetAuthorsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetAuthorsMetaQuery, GetAuthorsMetaQueryVariables>
 export const GetEventDocument = {
-  __meta__: { hash: '5bfc65be7a3f087b064657cc19a2b302e6c9236c' },
+  __meta__: { hash: 'be186e950ae1e6432349b3f5fd3ea0366ff74b94' },
   kind: 'Document',
   definitions: [
     {
@@ -14974,6 +14753,7 @@ export const GetEventDocument = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
         ],
       },
     },
@@ -15009,7 +14789,6 @@ export const GetEventDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -15848,7 +15627,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '00b9e3b57de269d21292f43b7fec4d5216205eb2' },
+  __meta__: { hash: '2512f5581f9ff6bd55f5ccaee536e48f7c298a2e' },
   kind: 'Document',
   definitions: [
     {
@@ -16003,6 +15782,7 @@ export const GetEventPageDocument = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
         ],
       },
     },
@@ -16038,7 +15818,6 @@ export const GetEventPageDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -17176,7 +16955,7 @@ export const GetEventsUrlsDocument = {
   ],
 } as unknown as DocumentNode<GetEventsUrlsQuery, GetEventsUrlsQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '7a3c56acd8ced84c6e0df18dfd0e5d8336da23de' },
+  __meta__: { hash: '28cc06fe8dc13ee5f2338ffce9df2fcf482ce5be' },
   kind: 'Document',
   definitions: [
     {
@@ -17357,6 +17136,7 @@ export const GetEventsDocument = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
         ],
       },
     },
@@ -17392,7 +17172,6 @@ export const GetEventsDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },
@@ -18257,7 +18036,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '66bdb5f265e75a709227f9b3503b25c6e5aa6fec' },
+  __meta__: { hash: 'ca59b244627f8972a20e88b1bc38b4b7ea52303f' },
   kind: 'Document',
   definitions: [
     {
@@ -18457,6 +18236,7 @@ export const GetFutureEventsDocument = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
         ],
       },
     },
@@ -18492,7 +18272,6 @@ export const GetFutureEventsDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'image' } },
         ],
       },
     },

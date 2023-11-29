@@ -36,11 +36,7 @@ export const VideoPlaceholder = ({
   }, [entry?.isIntersecting])
 
   return (
-    <div
-      ref={containerRef}
-      className={styles.container}
-      style={{ aspectRatio }}
-    >
+    <div ref={containerRef} className={styles.root} style={{ aspectRatio }}>
       {hasIntersected ? children : null}
 
       {renderPlayButton && (

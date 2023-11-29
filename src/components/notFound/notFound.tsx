@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import styles from './styles.module.scss'
 
 export const NotFound = () => {
   return (
-    <section className={styles.notFound}>
-      <div className={styles.notFound__content}>
-        <h2>Niet gevonden</h2>
-        <p>Kon de content niet vinden.</p>
+    <section className="content-layout">
+      <h2>Niet gevonden</h2>
+      <p>Deze pagina is niet gevonden.</p>
+      <p>
         <Link href="/">Ga terug naar de homepage</Link>
-      </div>
+      </p>
     </section>
   )
 }
