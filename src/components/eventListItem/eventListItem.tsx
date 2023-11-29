@@ -9,6 +9,7 @@ import { dateIsInThePast, formatDate } from 'utils/formatDate'
 import styles from './styles.module.scss'
 
 export interface Props {
+  className?: string
   data: Event
   size?: 'small' | 'large'
   isLast?: boolean
@@ -18,6 +19,7 @@ export interface Props {
 }
 
 export const EventListItem: React.FC<Props> = ({
+  className,
   data,
   size = 'small',
   isLast,
@@ -27,10 +29,10 @@ export const EventListItem: React.FC<Props> = ({
 }: Props) => {
   return (
     <div
-      className={classNames('content-layout--small', styles.wrapper, {
+      className={classNames(className, styles.root, {
         [`${styles.large}`]: size === 'large',
         [`${styles.isLast}`]: isLast,
-        [`${styles.hasImage}`]: data.image?.url,
+        [`${styles.hasImage}`]: data.image?.url && showImage,
         [`${styles.oneLocation}`]: data.locations?.length === 1,
       })}
     >
@@ -49,7 +51,7 @@ export const EventListItem: React.FC<Props> = ({
             <ul className={styles.locations}>
               {data.locations.map((item) => {
                 if (!item?.id) return null
-                const ticketLink = '' // TODO: add ticketLink to cms per location and put it here
+                const ticketLink = item.ticketLink
                 const concertPast =
                   item.startTime && dateIsInThePast(item.startTime)
 
@@ -78,7 +80,11 @@ export const EventListItem: React.FC<Props> = ({
                       ) : (
                         <>
                           {ticketLink ? (
-                            <Link href={ticketLink}>
+                            <Link
+                              href={ticketLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               <span className={styles.locationLink}>
                                 Koop nu tickets
                                 <ArrowRight

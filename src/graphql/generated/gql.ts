@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n    image\n  }\n':
+  '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n  }\n':
     types.AuthorFragmentDoc,
   '\n  fragment colors on ColorField {\n    alpha\n    blue\n    cssRgb\n    green\n    hex\n    red\n  }\n':
     types.ColorsFragmentDoc,
@@ -49,11 +49,9 @@ const documents = {
     types.ImageFragmentDoc,
   '\n  fragment document on DocumentRecord {\n    ...identifiable\n    document {\n      ...mediaItem\n    }\n  }\n  \n  \n':
     types.DocumentFragmentDoc,
-  '\n  fragment link on LinkRecord {\n    id\n    internalTitle\n    page {\n      ...pageLink\n    }\n  }\n  \n':
-    types.LinkFragmentDoc,
   '\n  fragment location on LocationRecord {\n    id\n    title\n    addressTitle\n    address {\n      ...coordinates\n    }\n  }\n  \n':
     types.LocationFragmentDoc,
-  '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n  }\n  \n':
+  '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n  }\n  \n':
     types.LocationItemFragmentDoc,
   '\n  fragment menuItem on MenuItemRecord {\n    id\n    label\n    link {\n      ...pageLink\n    }\n  }\n  \n':
     types.MenuItemFragmentDoc,
@@ -151,8 +149,8 @@ export function gql(source: string): unknown
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n    image\n  }\n'
-): (typeof documents)['\n  fragment author on PersonRecord {\n    id\n    name\n    role\n    image\n  }\n']
+  source: '\n  fragment author on PersonRecord {\n    id\n    name\n    role\n  }\n'
+): (typeof documents)['\n  fragment author on PersonRecord {\n    id\n    name\n    role\n  }\n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -259,20 +257,14 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment link on LinkRecord {\n    id\n    internalTitle\n    page {\n      ...pageLink\n    }\n  }\n  \n'
-): (typeof documents)['\n  fragment link on LinkRecord {\n    id\n    internalTitle\n    page {\n      ...pageLink\n    }\n  }\n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
   source: '\n  fragment location on LocationRecord {\n    id\n    title\n    addressTitle\n    address {\n      ...coordinates\n    }\n  }\n  \n'
 ): (typeof documents)['\n  fragment location on LocationRecord {\n    id\n    title\n    addressTitle\n    address {\n      ...coordinates\n    }\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n  }\n  \n'
-): (typeof documents)['\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n  }\n  \n']
+  source: '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n  }\n  \n'
+): (typeof documents)['\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

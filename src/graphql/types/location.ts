@@ -5,4 +5,5 @@ export interface Location {
   lat?: number
   lng?: number
   startTime?: string
+  ticketLink?: string
 }
