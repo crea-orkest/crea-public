@@ -3,23 +3,21 @@
 exports[`NotFound component shows all the data 1`] = `
 <div>
   <section
-    class="notFound"
+    class="content-layout"
   >
-    <div
-      class="notFound__content"
-    >
-      <h2>
-        Niet gevonden
-      </h2>
-      <p>
-        Kon de content niet vinden.
-      </p>
+    <h2>
+      Niet gevonden
+    </h2>
+    <p>
+      Deze pagina is niet gevonden.
+    </p>
+    <p>
       <a
         href="/"
       >
         Ga terug naar de homepage
       </a>
-    </div>
+    </p>
   </section>
 </div>
 `;
