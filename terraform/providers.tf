@@ -14,9 +14,3 @@ provider "vercel" {
   api_token = data.hcp_vault_secrets_app.crea.secrets.vercel_api_token
   team      = var.vercel_team_id
 }
-
-provider "google" {
-  project = "crea-orkest"
-  region  = "europe-west3"
-  zone    = "europe-west3-a"
-}

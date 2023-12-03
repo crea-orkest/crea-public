@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.3.1](https://github.com/crea-orkest/crea-public/compare/v0.3.0...v0.3.1) (2023-11-29)
+
+
+### Features
+
+* **components:** update snapshots ([1d65b75](https://github.com/crea-orkest/crea-public/commit/1d65b75e9583e8a9736c9c7581b426552459d0f9))
+* **EventListItem:** add link and change styling for line ([d27adbc](https://github.com/crea-orkest/crea-public/commit/d27adbc93554fad82070e6852fb3d9112030cb49))
+* **eventListItem:** add ticket link ([a25882a](https://github.com/crea-orkest/crea-public/commit/a25882a51942812ab7d327aafe22096258a4b4f3))
+* **eventPage:** add image and add styling ([ff4c97c](https://github.com/crea-orkest/crea-public/commit/ff4c97c677820e6ad2efa91e5e5e679602cc7323))
+* **eventPage:** add preperation for optimising eventPage ([2c397f6](https://github.com/crea-orkest/crea-public/commit/2c397f60f26e5e9e0d85cf5c7967cc71afc637a3))
+* **notFound:** make page consistent ([e6e0615](https://github.com/crea-orkest/crea-public/commit/e6e0615d9b750270bfe0084f82677271ba0e5bd6))
+
+
+### Bug Fixes
+
+* **authorFormatter:** remove image from person ([99314e4](https://github.com/crea-orkest/crea-public/commit/99314e4897b5746a196b23ebed7019247fa7c97f))
+* **components:** fix some component styling ([59e7d81](https://github.com/crea-orkest/crea-public/commit/59e7d81d9980338aa336bf4415dbe2e4c28e9482))
+* **navigation:** add bigger gap ([8447c49](https://github.com/crea-orkest/crea-public/commit/8447c495a6117974ed707f8e0835df574b026fdb))
+* **styles:** change spacing and logo size ([31b96de](https://github.com/crea-orkest/crea-public/commit/31b96de52dfee9aa299f92b57778111fc7c49065))
+
 ## [0.3.0](https://github.com/crea-orkest/crea-public/compare/v0.2.2...v0.3.0) (2023-11-24)
 
 
