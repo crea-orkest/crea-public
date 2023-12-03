@@ -48,7 +48,7 @@ $padding-large-left: map.get(spacing.$rem, 40);
 .title {
   display: flex;
   flex-direction: column;
-  margin-bottom: map.get(spacing.$rem, 16);
+  margin-bottom: map.get(spacing.$rem, 8);
 }
 
 .content {
@@ -59,6 +59,18 @@ $padding-large-left: map.get(spacing.$rem, 40);
 
   @media screen and (min-width: breakpoints.$sm) {
     flex-direction: row;
+  }
+
+  .program {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    margin-bottom: map.get(spacing.$rem, 24);
+
+    @media screen and (min-width: breakpoints.$sm) {
+      margin-bottom: map.get(spacing.$rem, 48);
+    }
   }
 
   .locations {
@@ -83,6 +95,11 @@ $padding-large-left: map.get(spacing.$rem, 40);
   background-color: colors.$secondary-light;
   flex-shrink: 0;
   max-width: fit-content;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    width: $image-width;
+    height: $image-height;
+  }
 }
 
 .image {
@@ -92,6 +109,10 @@ $padding-large-left: map.get(spacing.$rem, 40);
   border-radius: inherit;
   object-fit: cover;
   transform: translate(-5%, 2.5%);
+}
+
+.programTitle {
+  font-weight: bold;
 }
 
 .locationTitle {
@@ -125,10 +146,17 @@ $padding-large-left: map.get(spacing.$rem, 40);
   padding-left: $padding-large-left;
 
   .title {
-    margin-bottom: map.get(spacing.$rem, 24);
+    margin-bottom: map.get(spacing.$rem, 8);
 
     @media screen and (min-width: breakpoints.$sm) {
-      margin-bottom: map.get(spacing.$rem, 48);
+      margin-bottom: map.get(spacing.$rem, 16);
+    }
+  }
+
+  .imageContainer {
+    @media screen and (min-width: breakpoints.$sm) {
+      width: $image-large-width;
+      height: $image-large-height;
     }
   }
 
@@ -145,6 +173,14 @@ $padding-large-left: map.get(spacing.$rem, 40);
   .content {
     @media screen and (min-width: breakpoints.$sm) {
       gap: map.get(spacing.$rem, 40);
+    }
+  }
+
+  .program {
+    margin-bottom: map.get(spacing.$rem, 32);
+
+    @media screen and (min-width: breakpoints.$sm) {
+      margin-bottom: map.get(spacing.$rem, 64);
     }
   }
 
@@ -209,7 +245,8 @@ $padding-large-left: map.get(spacing.$rem, 40);
   height: 100%;
 }
 
-.isLast.oneLocation::before {
+.isLast.oneLocation::before,
+.isLast.hasTitle::before {
   height: 120%;
 }
 

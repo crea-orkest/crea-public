@@ -7,4 +7,5 @@ export const mockEvent: Event = {
   image: undefined,
   locations: [],
   persons: [],
+  program: [],
 }

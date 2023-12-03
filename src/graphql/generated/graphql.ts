@@ -128,6 +128,7 @@ export type ConcertModelFilter = {
   persons?: InputMaybe<LinksFilter>
   position?: InputMaybe<PositionFilter>
   poster?: InputMaybe<LinkFilter>
+  program?: InputMaybe<LinksFilter>
   seo?: InputMaybe<SeoFilter>
   slug?: InputMaybe<SlugFilter>
   title?: InputMaybe<StringFilter>
@@ -200,6 +201,7 @@ export type ConcertRecord = RecordInterface & {
   persons: Array<PersonRecord>
   position?: Maybe<Scalars['IntType']['output']>
   poster?: Maybe<MediaItemRecord>
+  program: Array<MusicRecord>
   seo?: Maybe<SeoField>
   slug?: Maybe<Scalars['String']['output']>
   title?: Maybe<Scalars['String']['output']>
@@ -2206,6 +2208,73 @@ export type MenuItemRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
 }
 
+export type MusicModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<MusicModelFilter>>>
+  OR?: InputMaybe<Array<InputMaybe<MusicModelFilter>>>
+  _createdAt?: InputMaybe<CreatedAtFilter>
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>
+  _isValid?: InputMaybe<BooleanFilter>
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>
+  _publishedAt?: InputMaybe<PublishedAtFilter>
+  _status?: InputMaybe<StatusFilter>
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
+  _updatedAt?: InputMaybe<UpdatedAtFilter>
+  composer?: InputMaybe<StringFilter>
+  id?: InputMaybe<ItemIdFilter>
+  title?: InputMaybe<StringFilter>
+}
+
+export enum MusicModelOrderBy {
+  CreatedAtAsc = '_createdAt_ASC',
+  CreatedAtDesc = '_createdAt_DESC',
+  FirstPublishedAtAsc = '_firstPublishedAt_ASC',
+  FirstPublishedAtDesc = '_firstPublishedAt_DESC',
+  IsValidAsc = '_isValid_ASC',
+  IsValidDesc = '_isValid_DESC',
+  PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
+  PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
+  PublishedAtAsc = '_publishedAt_ASC',
+  PublishedAtDesc = '_publishedAt_DESC',
+  StatusAsc = '_status_ASC',
+  StatusDesc = '_status_DESC',
+  UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
+  UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
+  UpdatedAtAsc = '_updatedAt_ASC',
+  UpdatedAtDesc = '_updatedAt_DESC',
+  ComposerAsc = 'composer_ASC',
+  ComposerDesc = 'composer_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+}
+
+/** Record of type Muziekstukken (music) */
+export type MusicRecord = RecordInterface & {
+  __typename?: 'MusicRecord'
+  _createdAt: Scalars['DateTime']['output']
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
+  _isValid: Scalars['BooleanType']['output']
+  _modelApiKey: Scalars['String']['output']
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>
+  _status: ItemStatus
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _updatedAt: Scalars['DateTime']['output']
+  composer?: Maybe<Scalars['String']['output']>
+  id: Scalars['ItemId']['output']
+  title?: Maybe<Scalars['String']['output']>
+}
+
+/** Record of type Muziekstukken (music) */
+export type MusicRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>
+}
+
 export enum MuxThumbnailFormatType {
   Gif = 'gif',
   Jpg = 'jpg',
@@ -2404,6 +2473,8 @@ export type Query = {
   /** Returns meta information regarding a record collection */
   _allMediaItemsMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
+  _allMusicsMeta: CollectionMetadata
+  /** Returns meta information regarding a record collection */
   _allPagesMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
   _allPeopleMeta: CollectionMetadata
@@ -2418,6 +2489,8 @@ export type Query = {
   /** Returns a collection of records */
   allMediaItems: Array<MediaItemRecord>
   /** Returns a collection of records */
+  allMusics: Array<MusicRecord>
+  /** Returns a collection of records */
   allPages: Array<PageRecord>
   /** Returns a collection of records */
   allPeople: Array<PersonRecord>
@@ -2431,6 +2504,8 @@ export type Query = {
   location?: Maybe<LocationRecord>
   /** Returns a specific record */
   mediaItem?: Maybe<MediaItemRecord>
+  /** Returns a specific record */
+  music?: Maybe<MusicRecord>
   /** Returns a specific record */
   page?: Maybe<PageRecord>
   /** Returns a specific record */
@@ -2454,6 +2529,12 @@ export type Query_AllLocationsMetaArgs = {
 /** The query root for this schema */
 export type Query_AllMediaItemsMetaArgs = {
   filter?: InputMaybe<MediaItemModelFilter>
+  locale?: InputMaybe<SiteLocale>
+}
+
+/** The query root for this schema */
+export type Query_AllMusicsMetaArgs = {
+  filter?: InputMaybe<MusicModelFilter>
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -2508,6 +2589,16 @@ export type QueryAllMediaItemsArgs = {
   first?: InputMaybe<Scalars['IntType']['input']>
   locale?: InputMaybe<SiteLocale>
   orderBy?: InputMaybe<Array<InputMaybe<MediaItemModelOrderBy>>>
+  skip?: InputMaybe<Scalars['IntType']['input']>
+}
+
+/** The query root for this schema */
+export type QueryAllMusicsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>
+  filter?: InputMaybe<MusicModelFilter>
+  first?: InputMaybe<Scalars['IntType']['input']>
+  locale?: InputMaybe<SiteLocale>
+  orderBy?: InputMaybe<Array<InputMaybe<MusicModelOrderBy>>>
   skip?: InputMaybe<Scalars['IntType']['input']>
 }
 
@@ -2569,6 +2660,14 @@ export type QueryMediaItemArgs = {
   filter?: InputMaybe<MediaItemModelFilter>
   locale?: InputMaybe<SiteLocale>
   orderBy?: InputMaybe<Array<InputMaybe<MediaItemModelOrderBy>>>
+}
+
+/** The query root for this schema */
+export type QueryMusicArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>
+  filter?: InputMaybe<MusicModelFilter>
+  locale?: InputMaybe<SiteLocale>
+  orderBy?: InputMaybe<Array<InputMaybe<MusicModelOrderBy>>>
 }
 
 /** The query root for this schema */
@@ -3331,6 +3430,12 @@ export type ConcertDetailFragment = {
     name?: string | null
     role?: string | null
   }>
+  program: Array<{
+    __typename?: 'MusicRecord'
+    id: string
+    title?: string | null
+    composer?: string | null
+  }>
   content: Array<
     | {
         __typename: 'HeaderRecord'
@@ -3997,6 +4102,15 @@ type Identifiable_MenuItemRecord_Fragment = {
   id: string
 }
 
+type Identifiable_MusicRecord_Fragment = {
+  __typename: 'MusicRecord'
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
+}
+
 type Identifiable_PageRecord_Fragment = {
   __typename: 'PageRecord'
   _createdAt: string
@@ -4062,6 +4176,7 @@ export type IdentifiableFragment =
   | Identifiable_LocationRecord_Fragment
   | Identifiable_MediaItemRecord_Fragment
   | Identifiable_MenuItemRecord_Fragment
+  | Identifiable_MusicRecord_Fragment
   | Identifiable_PageRecord_Fragment
   | Identifiable_PersonRecord_Fragment
   | Identifiable_SubmenuItemRecord_Fragment
@@ -4174,6 +4289,13 @@ export type MenuItemFragment = {
     _updatedAt: string
     id: string
   } | null
+}
+
+export type MusicFragment = {
+  __typename?: 'MusicRecord'
+  id: string
+  title?: string | null
+  composer?: string | null
 }
 
 export type PageFragment = {
@@ -5774,6 +5896,12 @@ export type GetEventQuery = {
       name?: string | null
       role?: string | null
     }>
+    program: Array<{
+      __typename?: 'MusicRecord'
+      id: string
+      title?: string | null
+      composer?: string | null
+    }>
     content: Array<
       | {
           __typename: 'HeaderRecord'
@@ -6187,6 +6315,12 @@ export type GetEventPageQuery = {
       id: string
       name?: string | null
       role?: string | null
+    }>
+    program: Array<{
+      __typename?: 'MusicRecord'
+      id: string
+      title?: string | null
+      composer?: string | null
     }>
     content: Array<
       | {
@@ -6657,6 +6791,12 @@ export type GetEventsQuery = {
       name?: string | null
       role?: string | null
     }>
+    program: Array<{
+      __typename?: 'MusicRecord'
+      id: string
+      title?: string | null
+      composer?: string | null
+    }>
     content: Array<
       | {
           __typename: 'HeaderRecord'
@@ -7082,6 +7222,12 @@ export type GetFutureEventsQuery = {
       id: string
       name?: string | null
       role?: string | null
+    }>
+    program: Array<{
+      __typename?: 'MusicRecord'
+      id: string
+      title?: string | null
+      composer?: string | null
     }>
     content: Array<
       | {
@@ -8307,6 +8453,27 @@ export const AuthorFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<AuthorFragment, unknown>
+export const MusicFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'music' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MusicRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<MusicFragment, unknown>
 export const ConcertLinkFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -10970,6 +11137,19 @@ export const ConcertDetailFragmentDoc = {
           },
           {
             kind: 'Field',
+            name: { kind: 'Name', value: 'program' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'music' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
             name: { kind: 'Name', value: 'content' },
             selectionSet: {
               kind: 'SelectionSet',
@@ -11753,6 +11933,22 @@ export const ConcertDetailFragmentDoc = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'music' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MusicRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
         ],
       },
     },
@@ -14598,7 +14794,7 @@ export const GetAuthorsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetAuthorsMetaQuery, GetAuthorsMetaQueryVariables>
 export const GetEventDocument = {
-  __meta__: { hash: 'be186e950ae1e6432349b3f5fd3ea0366ff74b94' },
+  __meta__: { hash: '3bb70db94ecad0e09d41932abef19da877ca54c7' },
   kind: 'Document',
   definitions: [
     {
@@ -14794,6 +14990,22 @@ export const GetEventDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'music' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MusicRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertLink' },
       typeCondition: {
         kind: 'NamedType',
@@ -15566,6 +15778,19 @@ export const GetEventDocument = {
           },
           {
             kind: 'Field',
+            name: { kind: 'Name', value: 'program' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'music' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
             name: { kind: 'Name', value: 'content' },
             selectionSet: {
               kind: 'SelectionSet',
@@ -15627,7 +15852,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '2512f5581f9ff6bd55f5ccaee536e48f7c298a2e' },
+  __meta__: { hash: 'b71f8916da9e5064b250036617896dd8a171bbdc' },
   kind: 'Document',
   definitions: [
     {
@@ -15823,6 +16048,22 @@ export const GetEventPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'music' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MusicRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertLink' },
       typeCondition: {
         kind: 'NamedType',
@@ -16589,6 +16830,19 @@ export const GetEventPageDocument = {
                 {
                   kind: 'FragmentSpread',
                   name: { kind: 'Name', value: 'author' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'program' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'music' },
                 },
               ],
             },
@@ -16955,7 +17209,7 @@ export const GetEventsUrlsDocument = {
   ],
 } as unknown as DocumentNode<GetEventsUrlsQuery, GetEventsUrlsQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '28cc06fe8dc13ee5f2338ffce9df2fcf482ce5be' },
+  __meta__: { hash: 'f33c038bac7e5f124b7bdec8ac1871a8d1c83af4' },
   kind: 'Document',
   definitions: [
     {
@@ -17172,6 +17426,22 @@ export const GetEventsDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'name' } },
           { kind: 'Field', name: { kind: 'Name', value: 'role' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'music' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MusicRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
         ],
       },
     },
@@ -17949,6 +18219,19 @@ export const GetEventsDocument = {
           },
           {
             kind: 'Field',
+            name: { kind: 'Name', value: 'program' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'music' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
             name: { kind: 'Name', value: 'content' },
             selectionSet: {
               kind: 'SelectionSet',
@@ -18036,7 +18319,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: 'ca59b244627f8972a20e88b1bc38b4b7ea52303f' },
+  __meta__: { hash: '8a447b4803b81b8f745aee8b5459398745e8e51a' },
   kind: 'Document',
   definitions: [
     {
@@ -18277,6 +18560,22 @@ export const GetFutureEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'music' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MusicRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertLink' },
       typeCondition: {
         kind: 'NamedType',
@@ -19043,6 +19342,19 @@ export const GetFutureEventsDocument = {
                 {
                   kind: 'FragmentSpread',
                   name: { kind: 'Name', value: 'author' },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'program' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'music' },
                 },
               ],
             },

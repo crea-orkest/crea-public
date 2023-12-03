@@ -13,4 +13,5 @@ export const mockEvent: Event = {
   persons: [],
   url: 'some-slug',
   content: [],
+  program: [],
 }
