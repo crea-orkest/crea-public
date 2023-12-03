@@ -7,8 +7,8 @@
   grid-template-columns: 1fr;
   gap: map.get(spacing.$rem, 16);
 
-  @media screen and (min-width: breakpoints.$sm) {
-    gap: map.get(spacing.$rem, 32);
+  @media screen and (min-width: breakpoints.$md) {
+    gap: map.get(spacing.$rem, 48);
     grid-template-columns: 1fr 1fr;
   }
 }
