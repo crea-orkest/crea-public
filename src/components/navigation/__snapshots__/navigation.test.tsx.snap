@@ -19,8 +19,7 @@ exports[`Concert component shows all the data 1`] = `
           decoding="async"
           fetchpriority="high"
           height="50"
-          src="/_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=640&q=75"
-          srcset="/_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=256&q=75 1x, /_next/image?url=%2Fimg%2Flogo-crea-orkest.png&w=640&q=75 2x"
+          src="/img/logo-crea-orkest.svg"
           style="color: transparent;"
           width="200"
         />

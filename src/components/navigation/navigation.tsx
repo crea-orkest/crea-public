@@ -22,7 +22,7 @@ export const Navigation: React.FC = async () => {
           <Image
             className={classNames(styles.logo)}
             priority={true}
-            src="/img/logo-crea-orkest.png"
+            src="/img/logo-crea-orkest.svg"
             alt={metadata?.title || ''}
             width={200}
             height={50}
