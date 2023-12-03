@@ -93,11 +93,10 @@ $sidebar-translate: 50px;
 }
 
 .eventListItem {
-  padding-left: map.get(spacing.$rem, 24);
-
   padding-top: map.get(spacing.$rem, layout.$default-mobile-spacing);
 
   @media screen and (min-width: breakpoints.$sm) {
+    padding-left: map.get(spacing.$rem, 24);
     padding-top: map.get(spacing.$rem, layout.$default-desktop-spacing);
   }
 }

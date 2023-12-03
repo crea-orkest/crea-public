@@ -25,6 +25,14 @@
   }
 }
 
+.header:not(.withBody) {
+  min-height: 25vh;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    min-height: 35vh;
+  }
+}
+
 header.header.withImage {
   min-height: 30vh;
   padding: map.get(spacing.$rem, 64) 0;
@@ -45,7 +53,6 @@ header.header.withImage {
 
   h2,
   h1 {
-    text-shadow: 0 0 4px colors.$primary;
     font-size: 2.375rem;
     color: colors.$secondary-light;
     text-overflow: ellipsis;
@@ -77,11 +84,19 @@ header.header.withImage {
   height: 100%;
 }
 
+.withBody .headerImageWrapper {
+  overflow: hidden;
+}
+
 .headerImage {
   position: relative;
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.withBody .headerImage {
+  filter: blur(3px);
 }
 
 .background {
