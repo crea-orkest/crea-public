@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.1.0](https://github.com/crea-orkest/crea-public/compare/v1.0.0...v1.1.0) (2023-12-03)
+
+
+### Features
+
+* **components:** add and implement program and music ([71c9028](https://github.com/crea-orkest/crea-public/commit/71c90288e122725aa7eb4cd51b551b851fc49153))
+* **components:** add correct styling ([f684173](https://github.com/crea-orkest/crea-public/commit/f6841732050a5ceab89e9f6978e7277c7f2a8fda))
+* **components:** add larger header image and correct logo size ([c8d4051](https://github.com/crea-orkest/crea-public/commit/c8d4051d5db5eb13d38f87511f23cd51a589a1de))
+* **components:** use svg as icon ([230c25c](https://github.com/crea-orkest/crea-public/commit/230c25c8408dc4a1e9a27724a5ce5cb42a6677d9))
+* **eventListItem:** add fallback if title is not available ([4616adb](https://github.com/crea-orkest/crea-public/commit/4616adbf8792b38379b3bd7f55a7b02eed5595cb))
+* **grahpql:** add new graphql and types for program and music ([ac5907b](https://github.com/crea-orkest/crea-public/commit/ac5907b1a28337e5624281489b18518a472ec42b))
+* **header:** add correct header styling ([d93b858](https://github.com/crea-orkest/crea-public/commit/d93b85834e8c520e6d7e4fb08e4a3168b48dae73))
+* **img:** add crea-orkest logo as svg and implement in navigation ([941073c](https://github.com/crea-orkest/crea-public/commit/941073c0bc70784544a5e32891df3e393498cb48))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/exchange-graphcache to v6.4.0 ([4340147](https://github.com/crea-orkest/crea-public/commit/43401470952bb0ecf84db945aaa5c01f3c6e0752))
+* **header/styles.module.scss:** make sure header styling is correct if there is no image ([da6f693](https://github.com/crea-orkest/crea-public/commit/da6f693207a6170df48d92919b9f362f74eb0570))
+* **twoColumnContentField:** make sure two columns are readable ([72237c8](https://github.com/crea-orkest/crea-public/commit/72237c8022fb512450c9a2ebbe1ef8c630c19ead))
+
 ## [0.3.1](https://github.com/crea-orkest/crea-public/compare/v0.3.0...v0.3.1) (2023-11-29)
 
 
