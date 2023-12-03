@@ -35,7 +35,6 @@ export const Header: React.FC<Props> = ({
       className={classNames(className, styles.header, 'with-background', {
         [`${styles.withImage}`]: asset?.url,
         [`${styles.withBody}`]: !isEmptyDocument(body),
-        [`${styles.withTitle}`]: title,
       })}
     >
       <div className={classNames(styles.headerContent, 'content-layout')}>
