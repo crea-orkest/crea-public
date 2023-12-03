@@ -35,10 +35,19 @@ export const Header: React.FC<Props> = ({
       className={classNames(className, styles.header, 'with-background', {
         [`${styles.withImage}`]: asset?.url,
         [`${styles.withBody}`]: !isEmptyDocument(body),
+        [`${styles.withTitle}`]: title,
       })}
     >
       <div className={classNames(styles.headerContent, 'content-layout')}>
-        {title && <h1 className={classNames({ 'sr-only': body })}>{title}</h1>}
+        {title && (
+          <h1
+            className={classNames({
+              'sr-only': body || (!body && asset?.url),
+            })}
+          >
+            {title}
+          </h1>
+        )}
         <ContentField data={body} />
       </div>
       {asset?.url && (

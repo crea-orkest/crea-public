@@ -26,15 +26,15 @@
 }
 
 .header:not(.withBody) {
-  min-height: 25vh;
+  min-height: 30vh;
 
   @media screen and (min-width: breakpoints.$sm) {
-    min-height: 35vh;
+    min-height: 50vh;
   }
 }
 
 header.header.withImage {
-  min-height: 30vh;
+  min-height: 50vh;
   padding: map.get(spacing.$rem, 64) 0;
 
   @media screen and (min-width: breakpoints.$sm) {
@@ -71,6 +71,7 @@ header.header.withImage {
 }
 
 .header.withImage {
+  h1,
   h2 {
     color: colors.$background;
   }
@@ -107,5 +108,9 @@ header.header.withImage {
   height: 100%;
   object-fit: cover;
   background: linear-gradient(0.25turn, colors.$secondary, colors.$primary);
+  opacity: 0;
+}
+
+.withBody .background {
   opacity: 0.5;
 }
