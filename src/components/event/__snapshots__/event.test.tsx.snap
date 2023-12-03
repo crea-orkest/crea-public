@@ -19,24 +19,26 @@ exports[`Concert component shows all the data 1`] = `
     <div
       class="content"
     >
-      <ul
-        class="locations"
-      >
-        <li
-          class="location"
+      <div>
+        <ul
+          class="locations"
         >
-          <h3
-            class="locationTitle h5"
+          <li
+            class="location"
           >
-            Vrijdag 1 september — 14:32
-          </h3>
-          <p
-            class="locationLinkContainer text-small"
-          >
-            Concert voorbij
-          </p>
-        </li>
-      </ul>
+            <h3
+              class="locationTitle h5"
+            >
+              Vrijdag 1 september — 14:32
+            </h3>
+            <p
+              class="locationLinkContainer text-small"
+            >
+              Concert voorbij
+            </p>
+          </li>
+        </ul>
+      </div>
       <div
         class="imageContainer"
       >
