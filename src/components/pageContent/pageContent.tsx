@@ -19,7 +19,12 @@ export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
 
     if (index === 0 && item.__typename !== 'HeaderRecord' && pageTitle) {
       header = (
-        <Header key={`${item.id}-header`} title={pageTitle} tag="header" />
+        <Header
+          key={`${item.id}-header`}
+          title={pageTitle}
+          tag="header"
+          className={styles.header}
+        />
       )
     }
     if (item.__typename === 'TwoColumnRecord') {
@@ -45,7 +50,10 @@ export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
     if (item.__typename === 'HeaderRecord') {
       pageContent = (
         <Header
-          className={classNames({ [`${styles.headerSpacing}`]: index > 0 })}
+          className={classNames({
+            [`${styles.headerSpacing}`]: index > 0,
+            [`${styles.header}`]: index === 0,
+          })}
           key={item.id}
           title={index === 0 ? pageTitle : undefined}
           body={item.body}

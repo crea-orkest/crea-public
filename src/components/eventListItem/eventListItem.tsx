@@ -54,6 +54,8 @@ export const EventListItem: React.FC<Props> = ({
                 const ticketLink = item.ticketLink
                 const concertPast =
                   item.startTime && dateIsInThePast(item.startTime)
+                const startTime = item.startTime && formatDate(item.startTime)
+                const itemTitle = item.title || startTime
 
                 return (
                   <li key={item.id} className={styles.location}>
@@ -63,11 +65,11 @@ export const EventListItem: React.FC<Props> = ({
                         h3: size === 'large',
                       })}
                     >
-                      {item.title}
+                      {itemTitle}
                     </h3>
-                    {item.startTime && (
+                    {item.title && startTime && (
                       <p className={classNames(styles.locationSubtitle)}>
-                        {formatDate(item.startTime)}
+                        {startTime}
                       </p>
                     )}
                     <p

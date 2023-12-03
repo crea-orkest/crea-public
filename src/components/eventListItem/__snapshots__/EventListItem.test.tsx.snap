@@ -27,12 +27,9 @@ exports[`Concert component shows all the data 1`] = `
         >
           <h3
             class="locationTitle h5"
-          />
-          <p
-            class="locationSubtitle"
           >
             Vrijdag 1 september — 14:32
-          </p>
+          </h3>
           <p
             class="locationLinkContainer text-small"
           >

@@ -1,12 +1,13 @@
 import React from 'react'
 import type { ElementType } from 'react'
-import classNames from 'classnames'
-import styles from './styles.module.scss'
-import { type HeaderFragment } from '../../graphql/generated/graphql'
-import { ContentField } from 'components/contentField'
 import Image from 'next/image'
+import classNames from 'classnames'
+import { type HeaderFragment } from '../../graphql/generated/graphql'
 import { formatCloudinaryImage } from '../../graphql/formatters/formatCloudinaryImage'
 import { isOfTypeCloudinaryAsset } from '../../graphql/types/image'
+import { ContentField } from 'components/contentField'
+import { isEmptyDocument } from 'datocms-structured-text-utils'
+import styles from './styles.module.scss'
 
 interface Props {
   className?: string
@@ -33,10 +34,19 @@ export const Header: React.FC<Props> = ({
     <HeaderTag
       className={classNames(className, styles.header, 'with-background', {
         [`${styles.withImage}`]: asset?.url,
+        [`${styles.withBody}`]: !isEmptyDocument(body),
       })}
     >
       <div className={classNames(styles.headerContent, 'content-layout')}>
-        {title && <h1 className={classNames({ 'sr-only': body })}>{title}</h1>}
+        {title && (
+          <h1
+            className={classNames({
+              'sr-only': body || (!body && asset?.url),
+            })}
+          >
+            {title}
+          </h1>
+        )}
         <ContentField data={body} />
       </div>
       {asset?.url && (

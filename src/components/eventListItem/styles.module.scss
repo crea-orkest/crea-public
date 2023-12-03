@@ -205,7 +205,7 @@ $padding-large-left: map.get(spacing.$rem, 40);
   transform: translateX(calc($border-large-size / 2 * -1));
 }
 
-.isLast:not(.large)::before {
+.isLast::before {
   height: 100%;
 }
 
@@ -247,6 +247,7 @@ $padding-large-left: map.get(spacing.$rem, 40);
 
 .isLast:not(.hasImage) .location:last-child .locationTitle::after {
   height: calc(100% + map.get(spacing.$rem, layout.$default-mobile-spacing));
+
   @media screen and (min-width: breakpoints.$sm) {
     height: calc(100% + map.get(spacing.$rem, layout.$default-desktop-spacing));
   }

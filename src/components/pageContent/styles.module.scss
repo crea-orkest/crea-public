@@ -27,7 +27,8 @@
   }
 }
 
-.headerSpacing + .headerSpacing {
+.headerSpacing + .headerSpacing,
+.header + .headerSpacing {
   margin-top: map.get(spacing.$rem, 64);
 
   @media screen and (min-width: breakpoints.$sm) {
