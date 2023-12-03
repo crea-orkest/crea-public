@@ -8,6 +8,7 @@
 $image-width: 100%;
 $image-height: calc($image-width * 1.414);
 $padding-left-sidebar: map.get(spacing.$rem, 48);
+$shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
 
 .container {
   display: grid;
@@ -47,6 +48,25 @@ $padding-left-sidebar: map.get(spacing.$rem, 48);
   }
 }
 
+.program {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: map.get(spacing.$rem, 16);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    text-align: center;
+  }
+}
+
+.programItem {
+  color: colors.$background;
+}
+
+.programTitle {
+  font-weight: bold;
+}
+
 .sidebar {
   grid-area: sidebar;
   padding-bottom: map.get(spacing.$rem, layout.$default-mobile-spacing);
@@ -80,7 +100,7 @@ $sidebar-translate: 50px;
   max-width: fit-content;
 
   @media screen and (min-width: breakpoints.$sm) {
-    box-shadow: 6px 6px 15px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: $shadow;
   }
 }
 
@@ -90,6 +110,39 @@ $sidebar-translate: 50px;
   max-width: 100%;
   border-radius: inherit;
   object-fit: cover;
+}
+
+.persons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: colors.$background;
+  border-radius: radius.$md;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    box-shadow: $shadow;
+    padding: map.get(spacing.$rem, 32) map.get(spacing.$rem, 32);
+  }
+}
+
+.person:not(:last-child) {
+  margin-bottom: map.get(spacing.$rem, 16);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    margin-bottom: map.get(spacing.$rem, 32);
+  }
+}
+
+.personTitle {
+  text-transform: uppercase;
+}
+
+.imageContainer + .persons {
+  margin-top: map.get(spacing.$rem, 16);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    margin-top: map.get(spacing.$rem, 48);
+  }
 }
 
 .eventListItem {
