@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { NavigationItem } from 'components/navigationItem'
@@ -9,6 +8,7 @@ import { MobileMenu } from 'components/mobileMenu'
 import { getSiteMetadata } from '../../graphql/getters/getSiteMetadata'
 
 import styles from './styles.module.scss'
+import { CreaOrkestLogo } from 'components/icons/crea-orkest-logo'
 
 export const Navigation: React.FC = async () => {
   const { data } = await getGeneralInfo()
@@ -19,14 +19,8 @@ export const Navigation: React.FC = async () => {
     <nav className={classNames(styles.root, 'content-layout')}>
       <div className={classNames(styles.content)}>
         <Link href="/" className={classNames(styles.logoLink)}>
-          <Image
-            className={classNames(styles.logo)}
-            priority={true}
-            src="/img/logo-crea-orkest.svg"
-            alt={metadata?.title || ''}
-            width={200}
-            height={50}
-          />
+          <CreaOrkestLogo className={classNames(styles.logo)} />
+          <span className="sr-only">{metadata?.title}: Ga naar home</span>
         </Link>
         <MobileMenu />
         <ul className={classNames(styles.list)}>
