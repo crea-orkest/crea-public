@@ -47,7 +47,7 @@ header.header.withImage {
   position: relative;
   height: 100%;
   color: colors.$background;
-  text-align: center;
+  text-align: left;
   z-index: z.$low;
   overflow: hidden;
 
@@ -56,12 +56,14 @@ header.header.withImage {
     font-size: 2.375rem;
     color: colors.$secondary-light;
     text-overflow: ellipsis;
-    text-align: left;
 
     @media screen and (min-width: breakpoints.$sm) {
       font-size: 2.875rem;
-      text-align: center;
     }
+  }
+
+  @media screen and (min-width: breakpoints.$sm) {
+    text-align: center;
   }
 
   > * {

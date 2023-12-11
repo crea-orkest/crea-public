@@ -152,11 +152,20 @@ $padding-large-left: map.get(spacing.$rem, 40);
 }
 
 .hasImage .eventLink {
-  justify-content: flex-start;
+  justify-content: flex-end;
+  max-width: $image-width;
   margin-top: map.get(spacing.$rem, 16);
 
   @media screen and (min-width: breakpoints.$sm) {
-    justify-content: flex-end;
+    max-width: initial;
+  }
+}
+
+.large.hasImage .eventLink {
+  max-width: $image-large-width;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    max-width: initial;
   }
 }
 
