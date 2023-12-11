@@ -5,7 +5,7 @@
 
 @mixin link {
   display: block;
-  color: colors.$dark;
+  color: colors.$primary-dark;
   font-family: typography.$dm-serif;
   padding-top: map.get(spacing.$rem, 8);
   padding-bottom: map.get(spacing.$rem, 8);

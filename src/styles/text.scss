@@ -100,10 +100,12 @@ p,
 a {
   text-decoration: none;
   color: colors.$secondary;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
   &:hover,
   &:focus {
     text-decoration: underline;
+    color: colors.$secondary-dark;
   }
 }
 
@@ -114,4 +116,8 @@ mark,
 
 pre {
   text-wrap: wrap;
+}
+
+.underline {
+  text-decoration: underline;
 }

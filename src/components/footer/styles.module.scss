@@ -44,6 +44,11 @@
 
 .link {
   color: colors.$background;
+
+  &:hover,
+  &:focus {
+    color: colors.$background;
+  }
 }
 
 .list {
