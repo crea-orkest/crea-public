@@ -142,6 +142,24 @@ $padding-large-left: map.get(spacing.$rem, 40);
   height: 1rem;
 }
 
+.eventLink {
+  width: 100%;
+  font-family: typography.$dm-sans;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: map.get(spacing.$rem, 8);
+}
+
+.hasImage .eventLink {
+  justify-content: flex-start;
+  margin-top: map.get(spacing.$rem, 16);
+
+  @media screen and (min-width: breakpoints.$sm) {
+    justify-content: flex-end;
+  }
+}
+
 .large {
   padding-left: $padding-large-left;
 
@@ -201,6 +219,14 @@ $padding-large-left: map.get(spacing.$rem, 40);
   .locationLinkIcon {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .eventLink {
+    margin-top: map.get(spacing.$rem, 24);
+
+    @media screen and (min-width: breakpoints.$sm) {
+      margin-top: 0;
+    }
   }
 }
 

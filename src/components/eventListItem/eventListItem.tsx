@@ -46,7 +46,11 @@ export const EventListItem: React.FC<Props> = ({
         })}
       >
         {title && <span className="h2">{title}</span>}
-        <span>{showLink && <Link href={data.url}>{data.title}</Link>}</span>
+        {showLink && (
+          <span>
+            <Link href={data.url}>{data.title}</Link>
+          </span>
+        )}
       </h2>
       {(data.locations.length > 0 ||
         data.image?.url ||
@@ -143,6 +147,17 @@ export const EventListItem: React.FC<Props> = ({
             </div>
           )}
         </div>
+      )}
+      {showLink && (
+        <Link
+          className={classNames(styles.eventLink, {
+            'text-small': size === 'small',
+          })}
+          href={data.url}
+        >
+          Bekijk concert
+          <ArrowRight />
+        </Link>
       )}
     </div>
   )
