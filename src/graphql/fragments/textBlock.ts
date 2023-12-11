@@ -1,6 +1,7 @@
+import { gql } from '@urql/core'
+import { callToAction } from './callToAction'
 import { concertLink } from './concertLink'
 import { eventBlock } from './eventBlock'
-import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
 import { document, image } from './image'
 import { pageLink } from './pageLink'
@@ -30,6 +31,9 @@ export const textBlockContent = gql`
       ... on VideoRecord {
         ...video
       }
+      ... on CallToActionRecord {
+        ...callToAction
+      }
     }
   }
   ${concertLink}
@@ -38,6 +42,7 @@ export const textBlockContent = gql`
   ${document}
   ${image}
   ${video}
+  ${callToAction}
 `
 
 export const leftContent = gql`
@@ -61,6 +66,9 @@ export const leftContent = gql`
       ... on VideoRecord {
         ...video
       }
+      ... on CallToActionRecord {
+        ...callToAction
+      }
     }
   }
   ${concertLink}
@@ -68,6 +76,7 @@ export const leftContent = gql`
   ${video}
   ${image}
   ${eventBlock}
+  ${callToAction}
 `
 
 export const rightContent = gql`
@@ -91,6 +100,9 @@ export const rightContent = gql`
       ... on VideoRecord {
         ...video
       }
+      ... on CallToActionRecord {
+        ...callToAction
+      }
     }
   }
   ${concertLink}
@@ -98,6 +110,7 @@ export const rightContent = gql`
   ${eventBlock}
   ${image}
   ${video}
+  ${callToAction}
 `
 
 export const textBlock = gql`
