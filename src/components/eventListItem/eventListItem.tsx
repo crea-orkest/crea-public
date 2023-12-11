@@ -113,7 +113,7 @@ export const EventListItem: React.FC<Props> = ({
                                 rel="noopener noreferrer"
                               >
                                 <span className={styles.locationLink}>
-                                  Koop nu tickets
+                                  Koop nu kaarten
                                   <ArrowRight
                                     className={styles.locationLinkIcon}
                                   />
