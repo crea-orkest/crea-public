@@ -2,13 +2,15 @@ import type { Record } from 'datocms-structured-text-utils'
 import type { RenderBlockContext } from 'react-datocms/structured-text'
 import { isOfType } from './isOfType'
 import type {
+  CallToActionFragment,
   DocumentFragment,
   EventBlockFragment,
   ImageFragment,
   VideoFragment,
 } from '../../graphql/generated/graphql'
-import { Event } from 'components/event'
+import { CallToAction } from 'components/callToAction'
 import { DocumentBlock } from 'components/documentBlock'
+import { Event } from 'components/event'
 import { ImageBlock } from 'components/imageBlock'
 import { FutureEvents } from 'components/futureEvents'
 import { VideoBlock } from 'components/videoBlock'
@@ -18,7 +20,12 @@ import styles from './styles.module.scss'
 export const renderBlock = ({
   record,
 }: RenderBlockContext<
-  EventBlockFragment | ImageFragment | VideoFragment | DocumentFragment | Record
+  | EventBlockFragment
+  | ImageFragment
+  | VideoFragment
+  | DocumentFragment
+  | CallToActionFragment
+  | Record
 >) => {
   if (isOfType<EventBlockFragment>(record, 'ConcertListRecord')) {
     return (
@@ -60,6 +67,14 @@ export const renderBlock = ({
     return (
       <div className={styles.spacing}>
         <DocumentBlock record={record} />
+      </div>
+    )
+  }
+
+  if (isOfType<CallToActionFragment>(record, 'CallToActionRecord')) {
+    return (
+      <div className={styles.spacing}>
+        <CallToAction record={record} />
       </div>
     )
   }
