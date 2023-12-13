@@ -5,6 +5,7 @@
 @use '../../styles/tokens/radius.scss' as radius;
 @use '../../styles/tokens/typography.scss' as typography;
 @use '../../styles/tokens/layout.scss' as layout;
+@use '../../styles/tokens/z-indices.scss' as z;
 
 $image-width: 15rem;
 $image-large-width: 20rem;
@@ -28,6 +29,7 @@ $padding-large-left: map.get(spacing.$rem, 40);
   height: calc(100% + map.get(spacing.$rem, layout.$default-mobile-spacing));
   border-left: $border-size solid colors.$secondary;
   transform: translateX(calc($border-size / 2 * -1));
+  z-index: z.$negative;
 
   @media screen and (min-width: breakpoints.$sm) {
     top: calc(map.get(spacing.$rem, layout.$default-desktop-spacing) * -1);
