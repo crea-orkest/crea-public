@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/crea-orkest/crea-public/compare/v1.1.0...v1.2.0) (2023-12-13)
+
+
+### Features
+
+* **button:** implement button in components ([3af476c](https://github.com/crea-orkest/crea-public/commit/3af476c9585318095a1e0ff8d0b368f7a3277f8f))
+* **callToAction:** implement call to action ([9ca1b20](https://github.com/crea-orkest/crea-public/commit/9ca1b201329676e939e689bf819596948f41e013))
+* **graphql:** add call to action to query ([927814a](https://github.com/crea-orkest/crea-public/commit/927814aa3dfe00c42ce0d9d813021477d72781b7))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/core to v4.2.1 ([068bb67](https://github.com/crea-orkest/crea-public/commit/068bb6705ffd73123f1b9e6bb9365f2e4120ca12))
+* **deps:** update dependency @urql/core to v4.2.2 ([083a05c](https://github.com/crea-orkest/crea-public/commit/083a05c55520496e928c9a75518d8eb7ada5e1bc))
+* **eventListItem:** set z-index of line ([c01fc4f](https://github.com/crea-orkest/crea-public/commit/c01fc4f0aef61d670140a0f4e7eaab8dac02bd9f))
+* **styles:** fix some styling issues ([391d191](https://github.com/crea-orkest/crea-public/commit/391d191ac55fabb995e7f614869ae6127a7ecb4e))
+
 ## [1.1.0](https://github.com/crea-orkest/crea-public/compare/v1.0.0...v1.1.0) (2023-12-03)
 
 
