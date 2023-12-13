@@ -13,6 +13,43 @@ Represents `true` or `false` values.
 """
 scalar BooleanType
 
+union CallToActionModelPageLinkField = ConcertRecord | PageRecord
+
+"""
+Block of type Call to action (call_to_action)
+"""
+type CallToActionRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """
+  Editing URL
+  """
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """
+  Generates SEO and Social card meta tags to be used in your frontend
+  """
+  _seoMetaTags(
+    """
+    The locale to use to fetch the field's content
+    """
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
+  externalUrl: String
+  id: ItemId!
+  label: String
+  pageLink: CallToActionModelPageLinkField
+  variant: String
+}
+
 type CollectionMetadata {
   count: IntType!
 }
@@ -622,7 +659,7 @@ type GlobalSeoField {
 }
 
 type HeaderModelBodyField {
-  blocks: [String!]!
+  blocks: [CallToActionRecord!]!
   links: [HeaderModelBodyLinksField!]!
   value: JsonField!
 }
@@ -3621,7 +3658,8 @@ type Tag {
 }
 
 union TextBlockModelContentBlocksField =
-    ConcertListRecord
+    CallToActionRecord
+  | ConcertListRecord
   | DocumentRecord
   | ImageRecord
   | VideoRecord
@@ -3667,7 +3705,8 @@ type TextBlockRecord implements RecordInterface {
 }
 
 union TwoColumnModelLeftContentBlocksField =
-    ConcertListRecord
+    CallToActionRecord
+  | ConcertListRecord
   | ImageRecord
   | VideoRecord
 
@@ -3680,7 +3719,8 @@ type TwoColumnModelLeftContentField {
 union TwoColumnModelLeftContentLinksField = ConcertRecord | PageRecord
 
 union TwoColumnModelRightContentBlocksField =
-    ConcertListRecord
+    CallToActionRecord
+  | ConcertListRecord
   | ImageRecord
   | VideoRecord
 

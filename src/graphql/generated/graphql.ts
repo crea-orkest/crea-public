@@ -51,6 +51,36 @@ export type BooleanFilter = {
   eq?: InputMaybe<Scalars['BooleanType']['input']>
 }
 
+export type CallToActionModelPageLinkField = ConcertRecord | PageRecord
+
+/** Block of type Call to action (call_to_action) */
+export type CallToActionRecord = RecordInterface & {
+  __typename?: 'CallToActionRecord'
+  _createdAt: Scalars['DateTime']['output']
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
+  _isValid: Scalars['BooleanType']['output']
+  _modelApiKey: Scalars['String']['output']
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>
+  _status: ItemStatus
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _updatedAt: Scalars['DateTime']['output']
+  externalUrl?: Maybe<Scalars['String']['output']>
+  id: Scalars['ItemId']['output']
+  label?: Maybe<Scalars['String']['output']>
+  pageLink?: Maybe<CallToActionModelPageLinkField>
+  variant?: Maybe<Scalars['String']['output']>
+}
+
+/** Block of type Call to action (call_to_action) */
+export type CallToActionRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>
+}
+
 export type CollectionMetadata = {
   __typename?: 'CollectionMetadata'
   count: Scalars['IntType']['output']
@@ -462,7 +492,7 @@ export type GlobalSeoField = {
 
 export type HeaderModelBodyField = {
   __typename?: 'HeaderModelBodyField'
-  blocks: Array<Scalars['String']['output']>
+  blocks: Array<CallToActionRecord>
   links: Array<HeaderModelBodyLinksField>
   value: Scalars['JsonField']['output']
 }
@@ -2870,6 +2900,7 @@ export type Tag = {
 }
 
 export type TextBlockModelContentBlocksField =
+  | CallToActionRecord
   | ConcertListRecord
   | DocumentRecord
   | ImageRecord
@@ -2910,6 +2941,7 @@ export type TextBlockRecord_SeoMetaTagsArgs = {
 }
 
 export type TwoColumnModelLeftContentBlocksField =
+  | CallToActionRecord
   | ConcertListRecord
   | ImageRecord
   | VideoRecord
@@ -2924,6 +2956,7 @@ export type TwoColumnModelLeftContentField = {
 export type TwoColumnModelLeftContentLinksField = ConcertRecord | PageRecord
 
 export type TwoColumnModelRightContentBlocksField =
+  | CallToActionRecord
   | ConcertListRecord
   | ImageRecord
   | VideoRecord
@@ -3378,6 +3411,40 @@ export type AuthorFragment = {
   role?: string | null
 }
 
+export type CallToActionFragment = {
+  __typename: 'CallToActionRecord'
+  label?: string | null
+  externalUrl?: string | null
+  variant?: string | null
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
+  pageLink?:
+    | {
+        __typename: 'ConcertRecord'
+        title?: string | null
+        slug?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+      }
+    | {
+        __typename: 'PageRecord'
+        title?: string | null
+        slug?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+      }
+    | null
+}
+
 export type ColorsFragment = {
   __typename?: 'ColorField'
   alpha: number
@@ -3446,8 +3513,40 @@ export type ConcertDetailFragment = {
         id: string
         body?: {
           __typename?: 'HeaderModelBodyField'
-          blocks: Array<string>
           value: unknown
+          blocks: Array<{
+            __typename: 'CallToActionRecord'
+            label?: string | null
+            externalUrl?: string | null
+            variant?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            pageLink?:
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | null
+          }>
           links: Array<
             | {
                 __typename: 'ConcertRecord'
@@ -3515,6 +3614,39 @@ export type ConcertDetailFragment = {
               }
           >
           blocks: Array<
+            | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
             | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
@@ -3636,6 +3768,39 @@ export type ConcertDetailFragment = {
           >
           blocks: Array<
             | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
+            | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
                 _createdAt: string
@@ -3729,6 +3894,39 @@ export type ConcertDetailFragment = {
               }
           >
           blocks: Array<
+            | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
             | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
@@ -3947,8 +4145,40 @@ export type HeaderFragment = {
   id: string
   body?: {
     __typename?: 'HeaderModelBodyField'
-    blocks: Array<string>
     value: unknown
+    blocks: Array<{
+      __typename: 'CallToActionRecord'
+      label?: string | null
+      externalUrl?: string | null
+      variant?: string | null
+      _createdAt: string
+      _firstPublishedAt?: string | null
+      _publishedAt?: string | null
+      _updatedAt: string
+      id: string
+      pageLink?:
+        | {
+            __typename: 'ConcertRecord'
+            title?: string | null
+            slug?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+          }
+        | {
+            __typename: 'PageRecord'
+            title?: string | null
+            slug?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+          }
+        | null
+    }>
     links: Array<
       | {
           __typename: 'ConcertRecord'
@@ -3986,8 +4216,40 @@ export type HeaderFragment = {
 
 export type HeaderBodyFragment = {
   __typename?: 'HeaderModelBodyField'
-  blocks: Array<string>
   value: unknown
+  blocks: Array<{
+    __typename: 'CallToActionRecord'
+    label?: string | null
+    externalUrl?: string | null
+    variant?: string | null
+    _createdAt: string
+    _firstPublishedAt?: string | null
+    _publishedAt?: string | null
+    _updatedAt: string
+    id: string
+    pageLink?:
+      | {
+          __typename: 'ConcertRecord'
+          title?: string | null
+          slug?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+        }
+      | {
+          __typename: 'PageRecord'
+          title?: string | null
+          slug?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+        }
+      | null
+  }>
   links: Array<
     | {
         __typename: 'ConcertRecord'
@@ -4010,6 +4272,15 @@ export type HeaderBodyFragment = {
         id: string
       }
   >
+}
+
+type Identifiable_CallToActionRecord_Fragment = {
+  __typename: 'CallToActionRecord'
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
 }
 
 type Identifiable_ConcertListRecord_Fragment = {
@@ -4166,6 +4437,7 @@ type Identifiable_VideoRecord_Fragment = {
 }
 
 export type IdentifiableFragment =
+  | Identifiable_CallToActionRecord_Fragment
   | Identifiable_ConcertListRecord_Fragment
   | Identifiable_ConcertRecord_Fragment
   | Identifiable_DocumentRecord_Fragment
@@ -4317,8 +4589,40 @@ export type PageFragment = {
         id: string
         body?: {
           __typename?: 'HeaderModelBodyField'
-          blocks: Array<string>
           value: unknown
+          blocks: Array<{
+            __typename: 'CallToActionRecord'
+            label?: string | null
+            externalUrl?: string | null
+            variant?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            pageLink?:
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | null
+          }>
           links: Array<
             | {
                 __typename: 'ConcertRecord'
@@ -4386,6 +4690,39 @@ export type PageFragment = {
               }
           >
           blocks: Array<
+            | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
             | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
@@ -4507,6 +4844,39 @@ export type PageFragment = {
           >
           blocks: Array<
             | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
+            | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
                 _createdAt: string
@@ -4600,6 +4970,39 @@ export type PageFragment = {
               }
           >
           blocks: Array<
+            | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
             | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
@@ -4691,8 +5094,40 @@ export type PageDetailFragment = {
         id: string
         body?: {
           __typename?: 'HeaderModelBodyField'
-          blocks: Array<string>
           value: unknown
+          blocks: Array<{
+            __typename: 'CallToActionRecord'
+            label?: string | null
+            externalUrl?: string | null
+            variant?: string | null
+            _createdAt: string
+            _firstPublishedAt?: string | null
+            _publishedAt?: string | null
+            _updatedAt: string
+            id: string
+            pageLink?:
+              | {
+                  __typename: 'ConcertRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'PageRecord'
+                  title?: string | null
+                  slug?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | null
+          }>
           links: Array<
             | {
                 __typename: 'ConcertRecord'
@@ -4760,6 +5195,39 @@ export type PageDetailFragment = {
               }
           >
           blocks: Array<
+            | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
             | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
@@ -4881,6 +5349,39 @@ export type PageDetailFragment = {
           >
           blocks: Array<
             | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
+            | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
                 _createdAt: string
@@ -4974,6 +5475,39 @@ export type PageDetailFragment = {
               }
           >
           blocks: Array<
+            | {
+                __typename: 'CallToActionRecord'
+                label?: string | null
+                externalUrl?: string | null
+                variant?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+                pageLink?:
+                  | {
+                      __typename: 'ConcertRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | {
+                      __typename: 'PageRecord'
+                      title?: string | null
+                      slug?: string | null
+                      _createdAt: string
+                      _firstPublishedAt?: string | null
+                      _publishedAt?: string | null
+                      _updatedAt: string
+                      id: string
+                    }
+                  | null
+              }
             | {
                 __typename: 'ConcertListRecord'
                 futureConcerts?: boolean | null
@@ -5165,6 +5699,39 @@ export type TextBlockContentFragment = {
   >
   blocks: Array<
     | {
+        __typename: 'CallToActionRecord'
+        label?: string | null
+        externalUrl?: string | null
+        variant?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+        pageLink?:
+          | {
+              __typename: 'ConcertRecord'
+              title?: string | null
+              slug?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+            }
+          | {
+              __typename: 'PageRecord'
+              title?: string | null
+              slug?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+            }
+          | null
+      }
+    | {
         __typename: 'ConcertListRecord'
         futureConcerts?: boolean | null
         _createdAt: string
@@ -5278,6 +5845,39 @@ export type LeftContentFragment = {
   >
   blocks: Array<
     | {
+        __typename: 'CallToActionRecord'
+        label?: string | null
+        externalUrl?: string | null
+        variant?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+        pageLink?:
+          | {
+              __typename: 'ConcertRecord'
+              title?: string | null
+              slug?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+            }
+          | {
+              __typename: 'PageRecord'
+              title?: string | null
+              slug?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+            }
+          | null
+      }
+    | {
         __typename: 'ConcertListRecord'
         futureConcerts?: boolean | null
         _createdAt: string
@@ -5372,6 +5972,39 @@ export type RightContentFragment = {
       }
   >
   blocks: Array<
+    | {
+        __typename: 'CallToActionRecord'
+        label?: string | null
+        externalUrl?: string | null
+        variant?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+        pageLink?:
+          | {
+              __typename: 'ConcertRecord'
+              title?: string | null
+              slug?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+            }
+          | {
+              __typename: 'PageRecord'
+              title?: string | null
+              slug?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+            }
+          | null
+      }
     | {
         __typename: 'ConcertListRecord'
         futureConcerts?: boolean | null
@@ -5474,6 +6107,39 @@ export type TextBlockFragment = {
         }
     >
     blocks: Array<
+      | {
+          __typename: 'CallToActionRecord'
+          label?: string | null
+          externalUrl?: string | null
+          variant?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          pageLink?:
+            | {
+                __typename: 'ConcertRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'PageRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | null
+        }
       | {
           __typename: 'ConcertListRecord'
           futureConcerts?: boolean | null
@@ -5596,6 +6262,39 @@ export type TwoColumFragment = {
     >
     blocks: Array<
       | {
+          __typename: 'CallToActionRecord'
+          label?: string | null
+          externalUrl?: string | null
+          variant?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          pageLink?:
+            | {
+                __typename: 'ConcertRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'PageRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | null
+        }
+      | {
           __typename: 'ConcertListRecord'
           futureConcerts?: boolean | null
           _createdAt: string
@@ -5689,6 +6388,39 @@ export type TwoColumFragment = {
         }
     >
     blocks: Array<
+      | {
+          __typename: 'CallToActionRecord'
+          label?: string | null
+          externalUrl?: string | null
+          variant?: string | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+          pageLink?:
+            | {
+                __typename: 'ConcertRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'PageRecord'
+                title?: string | null
+                slug?: string | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | null
+        }
       | {
           __typename: 'ConcertListRecord'
           futureConcerts?: boolean | null
@@ -5912,8 +6644,40 @@ export type GetEventQuery = {
           id: string
           body?: {
             __typename?: 'HeaderModelBodyField'
-            blocks: Array<string>
             value: unknown
+            blocks: Array<{
+              __typename: 'CallToActionRecord'
+              label?: string | null
+              externalUrl?: string | null
+              variant?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+              pageLink?:
+                | {
+                    __typename: 'ConcertRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | {
+                    __typename: 'PageRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | null
+            }>
             links: Array<
               | {
                   __typename: 'ConcertRecord'
@@ -5981,6 +6745,39 @@ export type GetEventQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -6102,6 +6899,39 @@ export type GetEventQuery = {
             >
             blocks: Array<
               | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
+              | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
                   _createdAt: string
@@ -6195,6 +7025,39 @@ export type GetEventQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -6332,8 +7195,40 @@ export type GetEventPageQuery = {
           id: string
           body?: {
             __typename?: 'HeaderModelBodyField'
-            blocks: Array<string>
             value: unknown
+            blocks: Array<{
+              __typename: 'CallToActionRecord'
+              label?: string | null
+              externalUrl?: string | null
+              variant?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+              pageLink?:
+                | {
+                    __typename: 'ConcertRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | {
+                    __typename: 'PageRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | null
+            }>
             links: Array<
               | {
                   __typename: 'ConcertRecord'
@@ -6401,6 +7296,39 @@ export type GetEventPageQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -6522,6 +7450,39 @@ export type GetEventPageQuery = {
             >
             blocks: Array<
               | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
+              | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
                   _createdAt: string
@@ -6615,6 +7576,39 @@ export type GetEventPageQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -6807,8 +7801,40 @@ export type GetEventsQuery = {
           id: string
           body?: {
             __typename?: 'HeaderModelBodyField'
-            blocks: Array<string>
             value: unknown
+            blocks: Array<{
+              __typename: 'CallToActionRecord'
+              label?: string | null
+              externalUrl?: string | null
+              variant?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+              pageLink?:
+                | {
+                    __typename: 'ConcertRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | {
+                    __typename: 'PageRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | null
+            }>
             links: Array<
               | {
                   __typename: 'ConcertRecord'
@@ -6876,6 +7902,39 @@ export type GetEventsQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -6997,6 +8056,39 @@ export type GetEventsQuery = {
             >
             blocks: Array<
               | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
+              | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
                   _createdAt: string
@@ -7090,6 +8182,39 @@ export type GetEventsQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -7239,8 +8364,40 @@ export type GetFutureEventsQuery = {
           id: string
           body?: {
             __typename?: 'HeaderModelBodyField'
-            blocks: Array<string>
             value: unknown
+            blocks: Array<{
+              __typename: 'CallToActionRecord'
+              label?: string | null
+              externalUrl?: string | null
+              variant?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+              pageLink?:
+                | {
+                    __typename: 'ConcertRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | {
+                    __typename: 'PageRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | null
+            }>
             links: Array<
               | {
                   __typename: 'ConcertRecord'
@@ -7308,6 +8465,39 @@ export type GetFutureEventsQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -7429,6 +8619,39 @@ export type GetFutureEventsQuery = {
             >
             blocks: Array<
               | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
+              | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
                   _createdAt: string
@@ -7522,6 +8745,39 @@ export type GetFutureEventsQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -7710,8 +8966,40 @@ export type GetPageQuery = {
           id: string
           body?: {
             __typename?: 'HeaderModelBodyField'
-            blocks: Array<string>
             value: unknown
+            blocks: Array<{
+              __typename: 'CallToActionRecord'
+              label?: string | null
+              externalUrl?: string | null
+              variant?: string | null
+              _createdAt: string
+              _firstPublishedAt?: string | null
+              _publishedAt?: string | null
+              _updatedAt: string
+              id: string
+              pageLink?:
+                | {
+                    __typename: 'ConcertRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | {
+                    __typename: 'PageRecord'
+                    title?: string | null
+                    slug?: string | null
+                    _createdAt: string
+                    _firstPublishedAt?: string | null
+                    _publishedAt?: string | null
+                    _updatedAt: string
+                    id: string
+                  }
+                | null
+            }>
             links: Array<
               | {
                   __typename: 'ConcertRecord'
@@ -7779,6 +9067,39 @@ export type GetPageQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -7900,6 +9221,39 @@ export type GetPageQuery = {
             >
             blocks: Array<
               | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
+              | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
                   _createdAt: string
@@ -7993,6 +9347,39 @@ export type GetPageQuery = {
                 }
             >
             blocks: Array<
+              | {
+                  __typename: 'CallToActionRecord'
+                  label?: string | null
+                  externalUrl?: string | null
+                  variant?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                  pageLink?:
+                    | {
+                        __typename: 'ConcertRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | {
+                        __typename: 'PageRecord'
+                        title?: string | null
+                        slug?: string | null
+                        _createdAt: string
+                        _firstPublishedAt?: string | null
+                        _publishedAt?: string | null
+                        _updatedAt: string
+                        id: string
+                      }
+                    | null
+                }
               | {
                   __typename: 'ConcertListRecord'
                   futureConcerts?: boolean | null
@@ -8560,6 +9947,129 @@ export const PageLinkFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<PageLinkFragment, unknown>
+export const CallToActionFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'concertLink' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'ConcertRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'pageLink' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'PageRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<CallToActionFragment, unknown>
 export const HeaderBodyFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -8573,7 +10083,31 @@ export const HeaderBodyFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -8673,6 +10207,67 @@ export const HeaderBodyFragmentDoc = {
           },
           { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
         ],
       },
     },
@@ -8783,6 +10378,67 @@ export const HeaderFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -8791,7 +10447,31 @@ export const HeaderFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -9335,6 +11015,22 @@ export const TextBlockContentFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -9569,6 +11265,67 @@ export const TextBlockContentFragmentDoc = {
               ],
             },
           },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
         ],
       },
     },
@@ -9840,6 +11597,67 @@ export const TextBlockFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -9956,6 +11774,22 @@ export const TextBlockFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -10077,6 +11911,22 @@ export const LeftContentFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -10281,6 +12131,67 @@ export const LeftContentFragmentDoc = {
               ],
             },
           },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
         ],
       },
     },
@@ -10395,6 +12306,22 @@ export const RightContentFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -10599,6 +12526,67 @@ export const RightContentFragmentDoc = {
               ],
             },
           },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
         ],
       },
     },
@@ -10853,6 +12841,67 @@ export const TwoColumFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'leftContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -10953,6 +13002,22 @@ export const TwoColumFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -11065,6 +13130,22 @@ export const TwoColumFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -11311,6 +13392,67 @@ export const ConcertDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -11319,7 +13461,31 @@ export const ConcertDetailFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -11661,6 +13827,22 @@ export const ConcertDetailFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -11773,6 +13955,22 @@ export const ConcertDetailFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -11881,6 +14079,22 @@ export const ConcertDetailFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -12842,6 +15056,67 @@ export const PageFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -12850,7 +15125,31 @@ export const PageFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -13192,6 +15491,22 @@ export const PageFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -13304,6 +15619,22 @@ export const PageFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -13412,6 +15743,22 @@ export const PageFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -13678,6 +16025,67 @@ export const PageDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -13686,7 +16094,31 @@ export const PageDetailFragmentDoc = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -14028,6 +16460,22 @@ export const PageDetailFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -14140,6 +16588,22 @@ export const PageDetailFragmentDoc = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -14248,6 +16712,22 @@ export const PageDetailFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -14794,7 +17274,7 @@ export const GetAuthorsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetAuthorsMetaQuery, GetAuthorsMetaQueryVariables>
 export const GetEventDocument = {
-  __meta__: { hash: '3bb70db94ecad0e09d41932abef19da877ca54c7' },
+  __meta__: { hash: '81cdf7d3be14d4ec6ba7174642b9fdba5fc535cf' },
   kind: 'Document',
   definitions: [
     {
@@ -15044,6 +17524,67 @@ export const GetEventDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -15052,7 +17593,31 @@ export const GetEventDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -15418,6 +17983,22 @@ export const GetEventDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -15560,6 +18141,22 @@ export const GetEventDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -15668,6 +18265,22 @@ export const GetEventDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -15852,7 +18465,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: 'b71f8916da9e5064b250036617896dd8a171bbdc' },
+  __meta__: { hash: '41e44a1e9be984c9d5cb10d47679400d8195398b' },
   kind: 'Document',
   definitions: [
     {
@@ -16102,6 +18715,67 @@ export const GetEventPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -16110,7 +18784,31 @@ export const GetEventPageDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -16476,6 +19174,22 @@ export const GetEventPageDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -16618,6 +19332,22 @@ export const GetEventPageDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -16726,6 +19456,22 @@ export const GetEventPageDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -17209,7 +19955,7 @@ export const GetEventsUrlsDocument = {
   ],
 } as unknown as DocumentNode<GetEventsUrlsQuery, GetEventsUrlsQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: 'f33c038bac7e5f124b7bdec8ac1871a8d1c83af4' },
+  __meta__: { hash: 'd8befe2000c17774bedeabda7c7e2b5188bbe75a' },
   kind: 'Document',
   definitions: [
     {
@@ -17485,6 +20231,67 @@ export const GetEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -17493,7 +20300,31 @@ export const GetEventsDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -17859,6 +20690,22 @@ export const GetEventsDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -18001,6 +20848,22 @@ export const GetEventsDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -18109,6 +20972,22 @@ export const GetEventsDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -18319,7 +21198,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '8a447b4803b81b8f745aee8b5459398745e8e51a' },
+  __meta__: { hash: 'e3d2962319458815550158a31a21ffbcd0b7bf22' },
   kind: 'Document',
   definitions: [
     {
@@ -18614,6 +21493,67 @@ export const GetFutureEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -18622,7 +21562,31 @@ export const GetFutureEventsDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -18988,6 +21952,22 @@ export const GetFutureEventsDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -19130,6 +22110,22 @@ export const GetFutureEventsDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -19238,6 +22234,22 @@ export const GetFutureEventsDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },
@@ -19840,7 +22852,7 @@ export const GetLocationsDocument = {
   ],
 } as unknown as DocumentNode<GetLocationsQuery, GetLocationsQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: '4d6b4fd0436d1ca0af9d980b658eb2f9c4ce554a' },
+  __meta__: { hash: '2a8cf35fcc6e0e0d7105ad73305c5dacba670439' },
   kind: 'Document',
   definitions: [
     {
@@ -19966,6 +22978,67 @@ export const GetPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'callToAction' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'CallToActionRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'externalUrl' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'pageLink' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'ConcertRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'concertLink' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'PageRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'pageLink' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'headerBody' },
       typeCondition: {
         kind: 'NamedType',
@@ -19974,7 +23047,31 @@ export const GetPageDocument = {
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'blocks' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'blocks' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'links' },
@@ -20359,6 +23456,22 @@ export const GetPageDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -20501,6 +23614,22 @@ export const GetPageDocument = {
                     ],
                   },
                 },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -20609,6 +23738,22 @@ export const GetPageDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'video' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'CallToActionRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'callToAction' },
                       },
                     ],
                   },

@@ -3,7 +3,8 @@ import classNames from 'classnames'
 import type { DocumentFragment } from '../../graphql/generated/graphql'
 import { formatCloudinaryDocument } from '../../graphql/formatters/formatCloudinaryDocument'
 import { isOfTypeCloudinaryAsset } from '../../graphql/types/image'
-import { Pdf } from 'components/icons/pdf'
+import { Button } from 'components/button'
+import { ArrowDown } from 'components/icons/arrow-down'
 import { formatBytes } from 'utils/formatBytes'
 
 import styles from './styles.module.scss'
@@ -26,10 +27,13 @@ export const DocumentBlock: React.FC<Props> = ({ record }: Props) => {
         {record.document.title}
       </span>
       <span className={styles.download}>
-        <Pdf />
-        <a href={asset.url}>
-          Download document {asset.bytes && `(${formatBytes(asset.bytes, 0)})`}
-        </a>
+        <Button
+          href={asset.url}
+          leftIcon={<ArrowDown />}
+          suffix={asset.bytes ? `(${formatBytes(asset.bytes, 0)})` : ''}
+        >
+          Download document
+        </Button>
       </span>
     </p>
   )
