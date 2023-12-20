@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use './tokens/colors.module.scss' as colors;
+@use './tokens/typography.module.scss' as typography;
+@use './tokens/breakpoints.module.scss' as breakpoints;
+
+@import './reset.module.scss';
+@import './fonts.module.scss';
+@import './layout.module.scss';
+@import './text.module.scss';
+
+body {
+  font-family: typography.$dm-sans;
+  background-color: colors.$background;
+  color: colors.$primary-dark;
+  font-size: 1rem;
+  word-break: break-word;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    font-size: 1.125rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.noscroll {
+  overflow: hidden;
+}

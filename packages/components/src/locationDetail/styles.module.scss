@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../styles/tokens/colors.module.scss' as colors;
+@use '../styles/tokens/spacing.module.scss' as spacing;
+@use '../styles/tokens/breakpoints.module.scss' as breakpoints;
+@use '../styles/tokens/z-indices.module.scss' as z;
+
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details {
+  font-style: normal;
+  padding: 0 map.get(spacing.$rem, 24);
+  margin-bottom: map.get(spacing.$rem, 24);
+}
+
+.detailsText {
+  margin: 0;
+}

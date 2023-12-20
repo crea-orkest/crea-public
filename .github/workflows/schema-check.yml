@@ -38,8 +38,8 @@ jobs:
         if: ${{ env.DATOCMS_ACCESS_TOKEN != '' }}
         run: |
           rover graph introspect https://graphql.datocms.com --header "Authorization: Bearer ${{ env.DATOCMS_ACCESS_TOKEN }}" \
-          > ./src/graphql/generated/datocms.graphql
+          > ./packages/graphql/src/generated/datocms.graphql
       - name: Publishing datocms schema
         if: ${{ env.APOLLO_KEY != '' }}
         run: |
-          rover subgraph publish crea-orkest-p7nmyh@main --name datocms --schema ./src/graphql/generated/datocms.graphql
+          rover subgraph publish crea-orkest-p7nmyh@main --name datocms --schema ./packages/graphql/src/generated/datocms.graphql

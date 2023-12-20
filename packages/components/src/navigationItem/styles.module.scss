@@ -1,0 +1,5 @@
+@use '../styles/mixins/navigation.module.scss' as navigation;
+
+.link {
+  @include navigation.link;
+}

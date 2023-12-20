@@ -1,0 +1,10 @@
+{
+  "extends": "@crea/dev-config/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "baseUrl": "src/",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*", "src/*"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"]
+}

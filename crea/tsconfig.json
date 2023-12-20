@@ -1,0 +1,16 @@
+{
+  "extends": "@crea/dev-config/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "skipLibCheck": true
+  },
+  "include": [
+    "packages/**/*",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "next.config.js"
+  ],
+  "exclude": ["node_modules"]
+}

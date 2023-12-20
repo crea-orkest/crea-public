@@ -156,7 +156,7 @@
 * **document.tsx:** add styling and number of bytes to download button ([5072acb](https://github.com/crea-orkest/crea-public/commit/5072acba5766d737fa8edc08290d188d8c04681b))
 * **eventListItem:** make sure date is correct and show poster if any ([7da00a4](https://github.com/crea-orkest/crea-public/commit/7da00a4b5321edf30514fd279b81f10c7b1181b3))
 * **formatDate.ts:** add date formatter ([35fadd4](https://github.com/crea-orkest/crea-public/commit/35fadd4557ebabec18a5663d67b16cd3086250fa))
-* **layout.scss:** add max content width for paragraphs ([74cf381](https://github.com/crea-orkest/crea-public/commit/74cf38163fb41f0e0265340dadc3c4794c630891))
+* **layout.module.scss:** add max content width for paragraphs ([74cf381](https://github.com/crea-orkest/crea-public/commit/74cf38163fb41f0e0265340dadc3c4794c630891))
 * **mobileMenu:** rename and style hamburger menu with default styling ([78232d8](https://github.com/crea-orkest/crea-public/commit/78232d89e671641162f5c31ed8e741040dfe4342))
 
 
