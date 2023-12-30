@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.1](https://github.com/crea-orkest/crea-public/compare/v1.2.0...v1.2.1) (2023-12-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency classnames to v2.3.3 ([e78316c](https://github.com/crea-orkest/crea-public/commit/e78316c8fa210288f406f3686e90cbffa10b06cc))
+* **deps:** update dependency classnames to v2.4.0 ([e347b7f](https://github.com/crea-orkest/crea-public/commit/e347b7f1fd98338098313e965e853624e388387b))
+* **deps:** update dependency classnames to v2.5.0 ([d88375b](https://github.com/crea-orkest/crea-public/commit/d88375b493a590c0fa96935f1d068b2c9c25937b))
+* **deps:** update dependency classnames to v2.5.1 ([926af90](https://github.com/crea-orkest/crea-public/commit/926af908b1276a781074fc6c6feae7aa2a3eaa73))
+* www url ([3a360c8](https://github.com/crea-orkest/crea-public/commit/3a360c885a0685499e94ea6f44dac22308507251))
+
 ## [1.2.0](https://github.com/crea-orkest/crea-public/compare/v1.1.0...v1.2.0) (2023-12-13)
 
 
