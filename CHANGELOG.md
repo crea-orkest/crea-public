@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/crea-orkest/crea-public/compare/v1.2.1...v1.2.2) (2023-12-30)
+
+
+### Bug Fixes
+
+* url to org ([8af5e26](https://github.com/crea-orkest/crea-public/commit/8af5e26d0c02473819b8cbae72a959976118956d))
+
 ## [1.2.1](https://github.com/crea-orkest/crea-public/compare/v1.2.0...v1.2.1) (2023-12-30)
 
 
