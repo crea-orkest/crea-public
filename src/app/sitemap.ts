@@ -8,7 +8,7 @@ import type {
   PageLinkFragment,
 } from '../graphql/generated/graphql'
 
-const URL = 'https://www.creaorkest.nl'
+const URL = 'https://www.creaorkest.org'
 
 export default async function sitemap() {
   const pagesMeta = await getPagesMeta()
