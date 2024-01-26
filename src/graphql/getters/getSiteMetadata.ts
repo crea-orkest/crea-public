@@ -12,13 +12,17 @@ export const getSiteMetadata = async () => {
       GetSiteMetadataQuery,
       GetSiteMetadataQueryVariables
     >(GetSiteMetadataDocument, {})
-
+    const siteMetadata = data?.general?.siteMetadata as { base_url?: string }
+    const siteSeo = data?._site?.globalSeo
     return {
-      metadata: formatSiteMetadata(data?.general?.siteMetadata),
+      metadata: formatSiteMetadata({
+        baseUrl: siteMetadata?.base_url,
+        title: siteSeo?.siteName || '',
+      }),
       error,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { metadata: formatSiteMetadata(), error }
+    return { metadata: formatSiteMetadata({}), error }
   }
 }

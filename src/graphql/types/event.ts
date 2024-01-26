@@ -7,10 +7,21 @@ import type { Music } from './music'
 export interface Event {
   id: string
   title: string
-  image?: Image
+  image?: Image | null
   locations: (Location | undefined)[]
   persons: (Author | undefined)[]
   program: (Music | undefined)[]
+  slug: string
   url: string
   content?: ConcertDetailFragment['content']
+}
+
+export interface EventSmall {
+  id: string
+  title: string
+  image?: Image | null
+  locations: (Location | undefined)[]
+  program: (Music | undefined)[]
+  slug: string
+  url: string
 }

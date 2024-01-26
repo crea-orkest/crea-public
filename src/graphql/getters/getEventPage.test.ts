@@ -59,14 +59,15 @@ describe('getEventPage', () => {
     })
     const { data } = await getEventPage({ slug: 'another-concert' })
     expect(data).toEqual({
-      content: undefined,
+      content: null,
       id: '201835035',
-      image: undefined,
+      image: null,
       locations: [],
       persons: [],
       program: [],
       title: 'another concert',
       url: '/concerten/another-concert',
+      slug: 'another-concert',
     })
   })
 

@@ -6,6 +6,11 @@ export const GET_SITE_METADATA = gql`
     general {
       ...siteMetadata
     }
+    _site {
+      globalSeo {
+        siteName
+      }
+    }
   }
   ${siteMetadata}
 `

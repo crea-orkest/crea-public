@@ -60,12 +60,14 @@ describe('getEvent', () => {
     const { data } = await getEvent({ id: '186234305' })
     expect(data).toEqual({
       id: '186234305',
-      image: undefined,
+      image: null,
       locations: [],
       persons: [],
       program: [],
+      content: null,
       title: 'another concert',
       url: '/concerten/another-concert',
+      slug: 'another-concert',
     })
   })
 
