@@ -1,6 +1,7 @@
+import { Fragment } from 'react'
 import classNames from 'classnames'
-import { type Event } from 'graphql/types/event'
-import { type PageDetailFragment } from 'graphql/generated/graphql'
+import type { PageDetailFragment } from 'graphql/generated/graphql'
+import type { Event } from 'graphql/types/event'
 import { ContentField } from 'components/contentField'
 import { TwoColumContentField } from 'components/twoColumContentField'
 import { Header } from 'components/header'
@@ -19,18 +20,12 @@ export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
 
     if (index === 0 && item.__typename !== 'HeaderRecord' && pageTitle) {
       header = (
-        <Header
-          key={`${item.id}-header`}
-          title={pageTitle}
-          tag="header"
-          className={styles.header}
-        />
+        <Header title={pageTitle} tag="header" className={styles.header} />
       )
     }
     if (item.__typename === 'TwoColumnRecord') {
       pageContent = (
         <section
-          key={item.id}
           className={classNames(styles.defaultSpacing, sectionClassName)}
         >
           <TwoColumContentField item={item} />
@@ -40,7 +35,6 @@ export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
     if (item.__typename === 'TextBlockRecord') {
       pageContent = (
         <section
-          key={item.id}
           className={classNames(styles.defaultSpacing, sectionClassName)}
         >
           <ContentField data={item.content} />
@@ -54,7 +48,6 @@ export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
             [`${styles.headerSpacing}`]: index > 0,
             [`${styles.header}`]: index === 0,
           })}
-          key={item.id}
           title={index === 0 ? pageTitle : undefined}
           body={item.body}
           cover={item.cover}
@@ -63,10 +56,10 @@ export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
       )
     }
     return (
-      <>
+      <Fragment key={item.id}>
         {header}
         {pageContent}
-      </>
+      </Fragment>
     )
   })
 }

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import classNames from 'classnames'
 import { slugFormatter } from 'utils/slugFormatter'
+
 import styles from './styles.module.scss'
 
 export interface NavigationItemProps {
@@ -9,10 +10,7 @@ export interface NavigationItemProps {
   label?: string | null
 }
 
-export const NavigationItem: React.FC<NavigationItemProps> = ({
-  slug,
-  label,
-}) => {
+export const NavigationItem = ({ slug, label }: NavigationItemProps) => {
   if (!slug)
     return <li className={classNames(styles.navItem)}>No link specified</li>
   if (!label)

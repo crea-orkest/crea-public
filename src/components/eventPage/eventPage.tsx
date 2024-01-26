@@ -1,21 +1,17 @@
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
 import classNames from 'classnames'
+import type { Event } from 'graphql/types/event'
 import { PageContent } from 'components/pageContent'
 import { LocationDetail } from 'components/locationDetail'
 import { EventListItem } from 'components/eventListItem'
-import { getEventPage } from '../../graphql/getters/getEventPage'
 
 import styles from './styles.module.scss'
 
 export interface Props {
-  slug: string
+  data: Event
 }
 
-export const EventPage = async ({ slug }: Props) => {
-  const { data } = await getEventPage({ slug })
-  if (!data) return notFound()
-
+export const EventPage = ({ data }: Props) => {
   return (
     <article className={styles.root}>
       <header className={classNames(styles.header, 'with-background')}>
@@ -103,13 +99,7 @@ export const EventPage = async ({ slug }: Props) => {
       <div className={styles.locations}>
         {data.locations.map((location) => {
           if (!location?.id || !location.startTime) return null
-          return (
-            <LocationDetail
-              key={location?.id}
-              id={location.id}
-              startTime={location.startTime}
-            />
-          )
+          return <LocationDetail key={location?.id} data={location} />
         })}
       </div>
     </article>

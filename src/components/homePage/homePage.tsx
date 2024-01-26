@@ -3,7 +3,6 @@ import type { PageFragment } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
 import { EventListItem } from 'components/eventListItem'
 import { Header } from 'components/header'
-import { LoadMoreEvents } from 'components/loadMoreEvents'
 import { PageContent } from 'components/pageContent'
 
 import styles from './styles.module.scss'
@@ -11,17 +10,12 @@ import styles from './styles.module.scss'
 export interface Props {
   pageData: PageFragment
   eventData: Event[]
-  numberOfLoadedEvents: number
 }
 
-export const ConcertsPage = ({
-  pageData,
-  eventData,
-  numberOfLoadedEvents,
-}: Props) => {
+export const HomePage = ({ pageData, eventData }: Props) => {
   const events = (
     <div className={classNames(styles.concerts, 'content-layout')}>
-      {eventData?.map((event) => {
+      {eventData?.map((event, index) => {
         if (!event?.id) return
 
         return (
@@ -29,11 +23,11 @@ export const ConcertsPage = ({
             className="content-layout--small"
             key={event.id}
             data={event}
+            isLast={eventData.length - 1 === index}
+            size="large"
           />
         )
       })}
-
-      <LoadMoreEvents initialSkip={numberOfLoadedEvents} />
     </div>
   )
 

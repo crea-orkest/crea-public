@@ -1,15 +1,31 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { EventListItem } from 'components/eventListItem'
+import type { Event } from 'graphql/types/event'
 import { getFutureEvents } from '../../graphql/getters/getFutureEvents'
+import { EventListItem } from 'components/eventListItem'
 
-export interface Props {
-  skip: number
-  first: number
-}
+export const FutureEvents = () => {
+  const [futureEvents, setFutureEvents] = useState<(Event | undefined)[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
-export const FutureEvents = async ({ skip, first }: Props) => {
-  const { data } = await getFutureEvents({ skip, first })
-  if (!data || data?.length === 0)
+  useEffect(() => {
+    const getEvents = async () => {
+      try {
+        setIsLoading(true)
+        const { data } = await getFutureEvents({ skip: 0, first: 3 })
+
+        if (data && data.length > 0) {
+          setFutureEvents(data)
+        }
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    getEvents()
+  }, [])
+
+  if (!isLoading && futureEvents.length === 0) {
     return (
       <>
         <h2>Komende concerten</h2>
@@ -20,10 +36,15 @@ export const FutureEvents = async ({ skip, first }: Props) => {
         <Link href="/concerten">Bekijk al onze vorige concerten</Link>
       </>
     )
+  }
+
+  if (isLoading) {
+    return <p>Aankomende concerten aan het laden...</p>
+  }
 
   return (
     <div>
-      {data.map((event, index) => {
+      {futureEvents.map((event, index) => {
         if (!event?.id) return null
         return (
           <EventListItem
@@ -31,7 +52,7 @@ export const FutureEvents = async ({ skip, first }: Props) => {
             key={event.id}
             data={event}
             size="large"
-            isLast={data.length - 1 === index}
+            isLast={futureEvents.length - 1 === index}
           />
         )
       })}

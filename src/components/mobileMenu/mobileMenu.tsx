@@ -1,18 +1,20 @@
-'use client'
 import { useState, useEffect } from 'react'
 import classNames from 'classnames'
-import { Provider } from 'urql'
+import type { GeneralRecord } from 'graphql/generated/graphql'
 import { useDimensions } from 'hooks/useDimensions'
-import { client } from '../../graphql/gqlClient'
+import { useHrefClick } from 'hooks/useHrefClick'
+import { cssToJs } from 'utils/cssToJs'
 import { Hamburger } from 'components/icons/hamburger'
 import { Cross } from 'components/icons/cross'
-import { useHrefClick } from 'hooks/useHrefClick'
-import { MobileMenuItems } from 'components/mobileMenuItems'
-import { cssToJs } from 'utils/cssToJs'
+import { NavigationItem } from 'components/navigationItem'
 
 import styles from './styles.module.scss'
 
-export const MobileMenu = () => {
+interface Props {
+  menu: GeneralRecord['menu']
+}
+
+export const MobileMenu = ({ menu }: Props) => {
   const [open, setOpen] = useState(false)
   useHrefClick(() => setOpen(false))
   const { width } = useDimensions()
@@ -30,32 +32,67 @@ export const MobileMenu = () => {
   }, [open, width])
 
   return (
-    <Provider value={client}>
-      <div className={classNames(styles.root)}>
-        <button
-          className={classNames(styles.menuButton)}
-          type="button"
-          onClick={handleClick}
-        >
-          <span className="sr-only">Menu</span>
-          <Hamburger className={classNames(styles.menuIcon)} />
-        </button>
-        {open && (
-          <div className={classNames(styles.overlay)}>
-            <div className={classNames(styles.heading)}>
-              <button
-                className={classNames(styles.menuButton)}
-                type="button"
-                onClick={handleClick}
-              >
-                <span className="sr-only">Sluit menu</span>
-                <Cross className={classNames(styles.menuIcon)} />
-              </button>
-            </div>
-            <MobileMenuItems />
+    <div className={classNames(styles.root)}>
+      <button
+        className={classNames(styles.menuButton)}
+        type="button"
+        onClick={handleClick}
+      >
+        <span className="sr-only">Menu</span>
+        <Hamburger className={classNames(styles.menuIcon)} />
+      </button>
+      {open && (
+        <div className={classNames(styles.overlay)}>
+          <div className={classNames(styles.heading)}>
+            <button
+              className={classNames(styles.menuButton)}
+              type="button"
+              onClick={handleClick}
+            >
+              <span className="sr-only">Sluit menu</span>
+              <Cross className={classNames(styles.menuIcon)} />
+            </button>
           </div>
-        )}
-      </div>
-    </Provider>
+
+          <ul className={styles.mobileMenuItems}>
+            {menu.map((item) => {
+              if ('link' in item) {
+                return (
+                  <NavigationItem
+                    key={item.id}
+                    slug={item?.link?.slug}
+                    label={item.label}
+                  />
+                )
+              }
+
+              if ('menu' in item) {
+                return (
+                  <li key={item.id}>
+                    <span
+                      className={classNames(styles.mobileMenuSubItem, 'h3')}
+                    >
+                      {item.label}
+                    </span>
+                    <ul className={styles.mobileMenuSubList}>
+                      {item?.menu?.map((subItem) => {
+                        return (
+                          <NavigationItem
+                            key={subItem.id}
+                            slug={subItem?.link?.slug}
+                            label={subItem.label}
+                          />
+                        )
+                      })}
+                    </ul>
+                  </li>
+                )
+              }
+              return <NavigationItem key={item.id} slug={'/'} label={'Error'} />
+            })}
+          </ul>
+        </div>
+      )}
+    </div>
   )
 }
