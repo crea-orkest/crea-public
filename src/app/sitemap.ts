@@ -23,7 +23,7 @@ export default async function sitemap() {
     const { data } = await getPages({ skip: step, first: 100 })
 
     data?.map((item) => {
-      if (!item.slug) return
+      if (!item.slug || item.slug === '404') return
 
       item.slug = slugFormatter({ slug: item.slug })
       pages.push(item)
