@@ -10,7 +10,7 @@ exports[`EventListItem component shows all the data 1`] = `
     >
       <span>
         <a
-          href="some-slug"
+          href="/some-slug"
         >
           name
         </a>
@@ -42,7 +42,7 @@ exports[`EventListItem component shows all the data 1`] = `
     </div>
     <a
       class="eventLink text-small"
-      href="some-slug"
+      href="/some-slug"
     >
       Bekijk concert
       <svg
