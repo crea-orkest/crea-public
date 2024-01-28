@@ -1,14 +1,14 @@
 import { Map } from 'components/map'
 import type { Location } from 'graphql/types/location'
-import { useEnv } from 'hooks/useEnv'
 import styles from './styles.module.scss'
 
 export interface Props {
   data: Location
 }
 
+const googleMapsApiKey = process.env['NEXT_PUBLIC_GOOGLE_MAPS_API_KEY']
+
 export const LocationDetail = ({ data }: Props) => {
-  const googleMapsApiKey = useEnv('GOOGLE_MAPS_API_KEY')
   const { title, address, lat, lng } = data
 
   return (
