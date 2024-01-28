@@ -95,20 +95,12 @@ const documents = {
     types.VideoFragmentDoc,
   '\n  fragment videoField on VideoField {\n    height\n    provider\n    providerUid\n    thumbnailUrl\n    title\n    url\n    width\n  }\n':
     types.VideoFieldFragmentDoc,
-  '\n  query getAuthor($id: ItemId!) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n':
-    types.GetAuthorDocument,
-  '\n  query getAuthors(\n    $first: IntType!\n    $skip: IntType!\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n':
-    types.GetAuthorsDocument,
-  '\n  query getAuthorsMeta {\n    _allPeopleMeta {\n      count\n    }\n  }\n':
-    types.GetAuthorsMetaDocument,
   '\n  query getEvent($id: ItemId!) {\n    concert(filter: { id: { eq: $id } }) {\n      ...concertDetail\n    }\n  }\n  \n':
     types.GetEventDocument,
   '\n  query getEventPage($slug: String!) {\n    concert(filter: { slug: { eq: $slug } }) {\n      ...concertDetail\n    }\n  }\n  \n':
     types.GetEventPageDocument,
   '\n  query getEventSeo($slug: String!) {\n    concert(filter: { slug: { eq: $slug } }) {\n      ...eventPageSeo\n    }\n  }\n  \n':
     types.GetEventSeoDocument,
-  '\n  query getEventsUrls(\n    $skip: IntType!\n    $first: IntType!\n    $order: [ConcertModelOrderBy]\n  ) {\n    allConcerts(first: $first, skip: $skip, orderBy: $order) {\n      ...eventLink\n    }\n  }\n  \n':
-    types.GetEventsUrlsDocument,
   '\n  query getEvents(\n    $skip: IntType!\n    $first: IntType!\n    $order: [ConcertModelOrderBy]\n  ) {\n    allConcerts(first: $first, skip: $skip, orderBy: $order) {\n      ...concertDetail\n    }\n  }\n  \n':
     types.GetEventsDocument,
   '\n  query getEventsMeta {\n    _allConcertsMeta {\n      count\n    }\n  }\n':
@@ -117,10 +109,6 @@ const documents = {
     types.GetFutureEventsDocument,
   '\n  query getGeneralInfo {\n    general {\n      ...generalInfo\n    }\n  }\n  \n':
     types.GetGeneralInfoDocument,
-  '\n  query getLocation($id: ItemId) {\n    location(filter: { id: { eq: $id } }) {\n      ...location\n    }\n  }\n  \n':
-    types.GetLocationDocument,
-  '\n  query getLocations(\n    $first: IntType\n    $skip: IntType\n    $order: [LocationModelOrderBy]\n  ) {\n    allLocations(first: $first, skip: $skip, orderBy: $order) {\n      ...location\n    }\n  }\n  \n':
-    types.GetLocationsDocument,
   '\n  query getPage($slug: String!) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetail\n    }\n  }\n  \n':
     types.GetPageDocument,
   '\n  query getPageSeo($slug: String!) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetailSeo\n    }\n  }\n  \n':
@@ -133,8 +121,6 @@ const documents = {
     types.GetSiteInfoDocument,
   '\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n    _site {\n      globalSeo {\n        siteName\n      }\n    }\n  }\n  \n':
     types.GetSiteMetadataDocument,
-  '\n  query getSubmenu {\n    general {\n      menu {\n        ... on SubmenuItemRecord {\n          ...submenuItem\n        }\n      }\n    }\n  }\n  \n':
-    types.GetSubmenuDocument,
 }
 
 /**
@@ -401,24 +387,6 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  query getAuthor($id: ItemId!) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n'
-): (typeof documents)['\n  query getAuthor($id: ItemId!) {\n    person(filter: { id: { eq: $id } }) {\n      ...author\n    }\n  }\n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
-  source: '\n  query getAuthors(\n    $first: IntType!\n    $skip: IntType!\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n'
-): (typeof documents)['\n  query getAuthors(\n    $first: IntType!\n    $skip: IntType!\n    $order: [PersonModelOrderBy]\n  ) {\n    allPeople(first: $first, skip: $skip, orderBy: $order) {\n      ...author\n    }\n  }\n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
-  source: '\n  query getAuthorsMeta {\n    _allPeopleMeta {\n      count\n    }\n  }\n'
-): (typeof documents)['\n  query getAuthorsMeta {\n    _allPeopleMeta {\n      count\n    }\n  }\n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
   source: '\n  query getEvent($id: ItemId!) {\n    concert(filter: { id: { eq: $id } }) {\n      ...concertDetail\n    }\n  }\n  \n'
 ): (typeof documents)['\n  query getEvent($id: ItemId!) {\n    concert(filter: { id: { eq: $id } }) {\n      ...concertDetail\n    }\n  }\n  \n']
 /**
@@ -433,12 +401,6 @@ export function gql(
 export function gql(
   source: '\n  query getEventSeo($slug: String!) {\n    concert(filter: { slug: { eq: $slug } }) {\n      ...eventPageSeo\n    }\n  }\n  \n'
 ): (typeof documents)['\n  query getEventSeo($slug: String!) {\n    concert(filter: { slug: { eq: $slug } }) {\n      ...eventPageSeo\n    }\n  }\n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
-  source: '\n  query getEventsUrls(\n    $skip: IntType!\n    $first: IntType!\n    $order: [ConcertModelOrderBy]\n  ) {\n    allConcerts(first: $first, skip: $skip, orderBy: $order) {\n      ...eventLink\n    }\n  }\n  \n'
-): (typeof documents)['\n  query getEventsUrls(\n    $skip: IntType!\n    $first: IntType!\n    $order: [ConcertModelOrderBy]\n  ) {\n    allConcerts(first: $first, skip: $skip, orderBy: $order) {\n      ...eventLink\n    }\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -463,18 +425,6 @@ export function gql(
 export function gql(
   source: '\n  query getGeneralInfo {\n    general {\n      ...generalInfo\n    }\n  }\n  \n'
 ): (typeof documents)['\n  query getGeneralInfo {\n    general {\n      ...generalInfo\n    }\n  }\n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
-  source: '\n  query getLocation($id: ItemId) {\n    location(filter: { id: { eq: $id } }) {\n      ...location\n    }\n  }\n  \n'
-): (typeof documents)['\n  query getLocation($id: ItemId) {\n    location(filter: { id: { eq: $id } }) {\n      ...location\n    }\n  }\n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
-  source: '\n  query getLocations(\n    $first: IntType\n    $skip: IntType\n    $order: [LocationModelOrderBy]\n  ) {\n    allLocations(first: $first, skip: $skip, orderBy: $order) {\n      ...location\n    }\n  }\n  \n'
-): (typeof documents)['\n  query getLocations(\n    $first: IntType\n    $skip: IntType\n    $order: [LocationModelOrderBy]\n  ) {\n    allLocations(first: $first, skip: $skip, orderBy: $order) {\n      ...location\n    }\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -511,12 +461,6 @@ export function gql(
 export function gql(
   source: '\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n    _site {\n      globalSeo {\n        siteName\n      }\n    }\n  }\n  \n'
 ): (typeof documents)['\n  query getSiteMetadata {\n    general {\n      ...siteMetadata\n    }\n    _site {\n      globalSeo {\n        siteName\n      }\n    }\n  }\n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
-  source: '\n  query getSubmenu {\n    general {\n      menu {\n        ... on SubmenuItemRecord {\n          ...submenuItem\n        }\n      }\n    }\n  }\n  \n'
-): (typeof documents)['\n  query getSubmenu {\n    general {\n      menu {\n        ... on SubmenuItemRecord {\n          ...submenuItem\n        }\n      }\n    }\n  }\n  \n']
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {}

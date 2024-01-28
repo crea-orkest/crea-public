@@ -23,6 +23,11 @@ describe('eventFormatter', () => {
         slug: 'some-slug',
       })
     ).toEqual({
+      __typename: 'ConcertRecord',
+      _createdAt: 'some date time string',
+      _firstPublishedAt: undefined,
+      _publishedAt: undefined,
+      _updatedAt: 'some date time string',
       id: 'some-id',
       image: null,
       locations: [

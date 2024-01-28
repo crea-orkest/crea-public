@@ -13,6 +13,11 @@ export const eventFormatter = (
   if (!event.title) return
   if (!event.slug) return
   return {
+    __typename: event.__typename,
+    _createdAt: event._createdAt,
+    _firstPublishedAt: event._firstPublishedAt,
+    _publishedAt: event._publishedAt,
+    _updatedAt: event._updatedAt,
     id: event.id,
     title: event.title,
     image: formatCloudinaryImage(

@@ -28,6 +28,13 @@ export const metadataFormatter = (
       {
         tag: 'meta',
         attributes: {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
+        },
+      },
+      {
+        tag: 'meta',
+        attributes: {
           rel: 'canonical',
           href: slug === 'homepage' ? base : `${base}/${slug}`,
         },

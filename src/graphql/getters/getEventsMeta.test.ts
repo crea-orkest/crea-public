@@ -1,4 +1,4 @@
-import { GetAuthorsMetaDocument } from '../generated/graphql'
+import { GetEventsDocument } from '../generated/graphql'
 import { client } from '../gqlClient'
 import { getEventsMeta } from './getEventsMeta'
 
@@ -26,7 +26,7 @@ describe('getEventsMeta', () => {
       },
       operation: {
         key: 1,
-        query: GetAuthorsMetaDocument,
+        query: GetEventsDocument,
         variables: {},
         kind: 'query',
         context: {
