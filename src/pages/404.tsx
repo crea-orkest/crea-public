@@ -1,40 +1,40 @@
-import type { GeneralRecord, PageFragment } from 'graphql/generated/graphql'
+import type { GeneralRecord } from 'graphql/generated/graphql'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
 import { DefaultLayout } from 'components/defaultLayout'
-import { DefaultPage } from 'components/defaultPage'
 import { SeoHead } from 'components/seoHead'
 import { getPageData } from 'utils/staticPropsHelpers/getPageData'
-import Head from 'next/head'
+import { NotFound } from 'components/notFound'
 
 const errorSlug = '404'
 
 interface Props {
-  pageData: PageFragment
   pageSeo: Metadata
   generalInfo: GeneralRecord
 }
 
-export default function Page({ pageData, pageSeo, generalInfo }: Props) {
-  if (!pageData) return <p>404 - Pagina niet gevonden</p>
+export default function Page({ pageSeo, generalInfo }: Props) {
   return (
     <>
-      <Head>
-        <meta name="robots" content="noindex" />
-      </Head>
       <SeoHead metaTags={pageSeo.metaTags} baseUrl={pageSeo.baseUrl} />
       <DefaultLayout generalInfo={generalInfo} siteName={pageSeo.siteName}>
-        <DefaultPage data={pageData} />
+        <NotFound />
       </DefaultLayout>
     </>
   )
 }
 
 export async function getStaticProps() {
-  const { pageData, pageSeo, generalInfo } = await getPageData(errorSlug)
+  const { pageSeo, generalInfo } = await getPageData(errorSlug)
+  const parsedMetaTags = pageSeo.metaTags.filter(
+    (tag) => tag.attributes && tag?.attributes.rel !== 'canonical'
+  )
+
   return {
     props: {
-      pageData,
-      pageSeo,
+      pageSeo: {
+        ...pageSeo,
+        metaTags: parsedMetaTags,
+      },
       generalInfo,
     },
   }

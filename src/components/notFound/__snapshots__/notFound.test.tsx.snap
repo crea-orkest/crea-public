@@ -5,13 +5,12 @@ exports[`NotFound component shows all the data 1`] = `
   <section
     class="content-layout"
   >
-    <h2>
-      Niet gevonden
-    </h2>
+    <h1>
+      Pagina niet gevonden
+    </h1>
     <p>
-      Deze pagina is niet gevonden.
-    </p>
-    <p>
+      Je lijkt een verkeerde afslag te hebben genomen.
+       
       <a
         href="/"
       >

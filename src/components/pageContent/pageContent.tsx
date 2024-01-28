@@ -10,10 +10,14 @@ import styles from './styles.module.scss'
 export interface Props {
   sectionClassName?: string
   pageTitle?: string
-  items: Event['content'] | PageDetailFragment['content']
+  items?: Event['content'] | PageDetailFragment['content']
 }
 
 export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
+  if (!items && pageTitle)
+    return <Header title={pageTitle} tag="header" className={styles.header} />
+  if (!items && !pageTitle) return null
+
   return items?.map((item, index) => {
     let header = null
     let pageContent = null
