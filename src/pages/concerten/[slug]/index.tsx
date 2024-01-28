@@ -3,7 +3,7 @@ import type { Event } from 'graphql/types/event'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
 import { DefaultLayout } from 'components/defaultLayout'
 import { EventPage } from 'components/eventPage'
-import { getEventsPaginated } from 'utils/staticPropsHelpers/getPaginatedData'
+import { getAllEvents } from 'utils/staticPropsHelpers/getPaginatedData'
 import { getEventData } from 'utils/staticPropsHelpers/getPageData'
 import { SeoHead } from 'components/seoHead'
 
@@ -43,7 +43,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  const events = await getEventsPaginated()
+  const events = await getAllEvents()
   const paths = events
     .map((event) => {
       if (!event.slug || event.slug === '') {

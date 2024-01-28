@@ -1,46 +1,56 @@
 import type { PageRecord } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
-import { getEvents } from 'graphql/getters/getEvents'
 import { getPages } from 'graphql/getters/getPages'
+import { getPagesMeta } from 'graphql/getters/getPagesMeta'
+import { getEventsMeta } from 'graphql/getters/getEventsMeta'
+import { getEvents } from 'graphql/getters/getEvents'
 
-const defaultFirst = 20
+const defaultFirst = 100
 
-export async function getPagesPaginated(
-  skip: number = 0
-): Promise<PageRecord[]> {
+export async function getAllPages(): Promise<PageRecord[]> {
+  const pagesMeta = await getPagesMeta()
   const first = defaultFirst
-  const { data } = (await getPages({ first, skip })) as {
-    data: PageRecord[] | null
+  const pageCount = pagesMeta.data?.count || 0
+
+  const pages: PageRecord[] = []
+
+  for (let step = 0; step < pageCount; step += first) {
+    const { data } = (await getPages({ skip: step, first })) as {
+      data: PageRecord[] | null
+    }
+
+    if (!data || !data.length) {
+      return pages
+    }
+
+    data.map((item) => {
+      pages.push(item)
+    })
   }
 
-  if (!data) {
-    return []
-  }
-
-  if (data.length < first) {
-    return data
-  }
-
-  const paginatedData = await getPagesPaginated(skip + first)
-
-  return [...data, ...paginatedData]
+  return pages
 }
 
-export async function getEventsPaginated(skip: number = 0): Promise<Event[]> {
+export async function getAllEvents(): Promise<Event[]> {
+  const eventsMeta = await getEventsMeta()
   const first = defaultFirst
-  const { data } = (await getEvents({ first, skip })) as {
-    data: Event[] | null
+  const pageCount = eventsMeta.data?.count || 0
+
+  const events: Event[] = []
+
+  for (let step = 0; step < pageCount; step += first) {
+    const { data } = (await getEvents({ skip: step, first })) as {
+      data: Event[] | null
+    }
+
+    if (!data || !data.length) {
+      return events
+    }
+
+    data.map((item) => {
+      events.push(item)
+    })
   }
 
-  if (!data) {
-    return []
-  }
-
-  if (data.length < first) {
-    return data
-  }
-
-  const paginatedData = await getEventsPaginated(skip + first)
-
-  return [...data, ...paginatedData]
+  return events
 }

@@ -2,7 +2,7 @@ import type { GeneralRecord, PageFragment } from 'graphql/generated/graphql'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
 import { DefaultLayout } from 'components/defaultLayout'
 import { DefaultPage } from 'components/defaultPage'
-import { getPagesPaginated } from 'utils/staticPropsHelpers/getPaginatedData'
+import { getAllPages } from 'utils/staticPropsHelpers/getPaginatedData'
 import { getPageData } from 'utils/staticPropsHelpers/getPageData'
 import { SeoHead } from 'components/seoHead'
 
@@ -41,7 +41,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  const pages = await getPagesPaginated()
+  const pages = await getAllPages()
 
   const paths = pages
     .map((page) => {
