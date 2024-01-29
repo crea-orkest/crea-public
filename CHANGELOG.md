@@ -1,5 +1,43 @@
 # Changelog
 
+## [2.0.0](https://github.com/crea-orkest/crea-public/compare/v1.2.2...v2.0.0) (2024-01-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* add documentation about pages router
+
+### Features
+
+* **.env.example:** add public env variable ([b5841b9](https://github.com/crea-orkest/crea-public/commit/b5841b936d175167e1b4a03c9efdd5114bc3bf93))
+* add documentation about pages router ([1fd408b](https://github.com/crea-orkest/crea-public/commit/1fd408b607f1321f2dddaf1911cdfd4a345df14d))
+* **app:** remove not used routes ([98f4d4e](https://github.com/crea-orkest/crea-public/commit/98f4d4e6b8af5e0188d4bfa0223467aa96c7db79))
+* **button:** add download attribute to href ([aa7badf](https://github.com/crea-orkest/crea-public/commit/aa7badfd1e73ecd8258c99186a123c6fc0467162))
+* **components:** rewrite components to be able to use them in ssg ([82aeddc](https://github.com/crea-orkest/crea-public/commit/82aeddcf7798573749a9347085eddd5fce793d25))
+* **EventListItem:** update snapshot ([991c111](https://github.com/crea-orkest/crea-public/commit/991c1116c4aa91f8d0d6671ff9b34539930c4a2d))
+* **eventPage:** add poster to event page header ([d534bda](https://github.com/crea-orkest/crea-public/commit/d534bda5c8cf05f42c5bd333ca94fb0338adcfda))
+* **footer:** add correct link ([4e74046](https://github.com/crea-orkest/crea-public/commit/4e74046644c26cba32b788403486da109278a05b))
+* **grapql:** update all types and not used queries ([1828bf1](https://github.com/crea-orkest/crea-public/commit/1828bf16cb848e4a97c6886a6e5693ed8d080a38))
+* **LICENSE:** 2023 -&gt; 2024 ([3f7f2fc](https://github.com/crea-orkest/crea-public/commit/3f7f2fc78ee05fdef23d7b4baa1825abbb8e607e))
+* **locationDetail:** add google maps link if no maps token is set ([b88f959](https://github.com/crea-orkest/crea-public/commit/b88f9593118f805f4ced8060b9592bb3567a386e))
+* **metaTitleFormatter.ts:** add different seperator and change order of title ([eb7225e](https://github.com/crea-orkest/crea-public/commit/eb7225e0f93638369c61b7eeb9f46a13367b5710))
+* **next-env.d.ts:** remove generated type ([ca6bf36](https://github.com/crea-orkest/crea-public/commit/ca6bf36bbf15acf825a24ce944ba65f64a84b004))
+* **next-env:** generated types ([bb960cd](https://github.com/crea-orkest/crea-public/commit/bb960cd4ade8b4bf30f50489d23d618a355782b8))
+* **notFound:** add correct not found component ([398595f](https://github.com/crea-orkest/crea-public/commit/398595f371d9cbd4e7cf63a8e07a4497b7d0d9cc))
+* **pages:** move sitemap to pages ([d540ea3](https://github.com/crea-orkest/crea-public/commit/d540ea37903f9d5d8653f906f7c601bdd7efb5e3))
+* **pages:** update paginated data function ([70b9c39](https://github.com/crea-orkest/crea-public/commit/70b9c39efd00332fe4721b07d1fdfa2347b61cbf))
+* **public:** add new favicon and some logos for in the future ([739d367](https://github.com/crea-orkest/crea-public/commit/739d367d606c0d353cea417c2c3b0bdef1fa0d4e))
+* **src:** add some graphql changes to be able to use ssg ([7c8ede4](https://github.com/crea-orkest/crea-public/commit/7c8ede4662ea7c6e5e98abcc911a881e2b95f51a))
+* **src:** fix code styling ([13cc5d8](https://github.com/crea-orkest/crea-public/commit/13cc5d8847bbbd2e26619aa8ff4da2bcce9549d9))
+* **src:** move all app routes to pages directory ([8881aa0](https://github.com/crea-orkest/crea-public/commit/8881aa0f567c1609c380c877c2a8ffb50b8839f0))
+* **src:** remove all unused files ([9443cea](https://github.com/crea-orkest/crea-public/commit/9443cea139ba23a1575a14eba34e2aef74011681))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/core to v4.2.3 ([ca04520](https://github.com/crea-orkest/crea-public/commit/ca04520c343dea43b73edcf513c2a4408df6e109))
+* **deps:** update dependency datocms-structured-text-utils to v2.1.12 ([7b4d696](https://github.com/crea-orkest/crea-public/commit/7b4d696c1cfdc779894c6a894e044f2f1f033da8))
+
 ## [1.2.2](https://github.com/crea-orkest/crea-public/compare/v1.2.1...v1.2.2) (2023-12-30)
 
 
