@@ -3,7 +3,7 @@ import type {
   PageDetailSeoFragment,
 } from '../generated/graphql'
 
-const seperator = '-'
+const seperator = '|'
 
 export const metaTitleFormatter = (
   defaultTitle: string,
@@ -12,8 +12,8 @@ export const metaTitleFormatter = (
   if (data?.seo?.title) return data.seo.title
   if (data?.title === 'Homepage') return defaultTitle
   if (data?.__typename === 'ConcertRecord')
-    return `${defaultTitle} ${seperator} Concerten ${seperator} ${data.title}`
-  if (data?.title) return `${defaultTitle} ${seperator} ${data.title}`
+    return `${data.title} ${seperator} Concerten ${seperator} ${defaultTitle}`
+  if (data?.title) return `${data.title} ${seperator} ${defaultTitle}`
 
   return defaultTitle
 }
