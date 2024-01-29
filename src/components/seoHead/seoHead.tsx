@@ -8,7 +8,7 @@ export type Props = {
   baseUrl?: string
 }
 
-export function SeoHead({ metaTags, baseUrl }: Props) {
+export const SeoHead = ({ metaTags, baseUrl }: Props) => {
   const { asPath } = useRouter()
   const [pathWithoutSearchParams] = asPath.split('?')
   const ogUrl = `${baseUrl}${pathWithoutSearchParams}`
