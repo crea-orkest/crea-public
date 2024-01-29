@@ -7,6 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  Update-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update production
+        run: |
+          git checkout production
+          git merge $GITHUB_REF
+          git push origin production
+
   Deploy:
     runs-on: ubuntu-latest
     env:
@@ -26,3 +40,15 @@ jobs:
         run: vercel deploy --token=${{ env.VERCEL_TOKEN }}
       - name: Deploy to production
         run: vercel --prod --token=${{ env.VERCEL_TOKEN }}
+      - name: Send status
+        if: success()
+        run: |
+          curl -n -X POST https://webhooks.datocms.com/XOCxELkDWJ/deploy-results \
+            -H 'Content-Type: application/json' \
+            -d '{ "status": "success" }'
+      - name: Send status
+        if: failure()
+        run: |
+          curl -n -X POST https://webhooks.datocms.com/XOCxELkDWJ/deploy-results \
+            -H 'Content-Type: application/json' \
+            -d '{ "status": "error" }'
