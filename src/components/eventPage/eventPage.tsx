@@ -14,7 +14,24 @@ export interface Props {
 export const EventPage = ({ data }: Props) => {
   return (
     <article className={styles.root}>
-      <header className={classNames(styles.header, 'with-background')}>
+      <header
+        className={classNames(styles.header, 'with-background', {
+          [`${styles.withImage}`]: data.image?.url,
+        })}
+      >
+        {data.image?.url && (
+          <div className={classNames(styles.headerImageWrapper)}>
+            <Image
+              className={classNames(styles.headerImage)}
+              src={data.image.url}
+              alt={data.image.description}
+              width={data.image.width ?? 100}
+              height={data.image.height ?? 100}
+            />
+            <div className={classNames(styles.background)} />
+          </div>
+        )}
+
         <div className={classNames(styles.titleContainer, 'content-layout')}>
           <h2>{data.title}</h2>
 
@@ -46,7 +63,7 @@ export const EventPage = ({ data }: Props) => {
             {data.image?.url && (
               <div className={classNames(styles.imageContainer)}>
                 <Image
-                  priority={true} // TODO: only for the first item
+                  priority={true}
                   className={classNames(styles.image)}
                   src={data.image.url}
                   alt={data.image.description}

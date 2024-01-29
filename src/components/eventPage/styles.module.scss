@@ -31,6 +31,7 @@ $shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header {
+  position: relative;
   grid-area: header;
 
   background-color: colors.$primary;
@@ -42,10 +43,43 @@ $shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
   }
 }
 
+.withImage.header {
+  color: colors.$background;
+}
+
 .titleContainer {
+  position: relative;
   @media screen and (min-width: breakpoints.$sm) {
     text-align: center;
   }
+}
+
+.headerImageWrapper {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.headerImage {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: linear-gradient(0.25turn, colors.$secondary, colors.$primary);
+  opacity: 0.8;
 }
 
 .program {
