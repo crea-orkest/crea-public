@@ -32,13 +32,15 @@ export const LocationDetail = ({ data }: Props) => {
           }}
         />
       ) : (
-        <div
-          style={{
-            width: '100%',
-            height: '400px',
-            background: 'lightgray',
-          }}
-        />
+        <div className={styles.details}>
+          <a
+            href={`https://maps.google.com/?q=${lat},${lng}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open in Google Maps
+          </a>
+        </div>
       )}
     </address>
   )
