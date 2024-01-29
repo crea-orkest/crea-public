@@ -128,7 +128,7 @@ export const Footer = ({ generalInfo, siteName }: Props) => {
             <li>
               <Link
                 className={classNames(styles.link)}
-                href="https://www.youtube.com/user/creaorkest/"
+                href="https://www.youtube.com/user/creaorkestpr"
                 target="_blank"
                 rel="noopener noreferrer"
               >
