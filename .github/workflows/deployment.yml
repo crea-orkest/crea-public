@@ -40,15 +40,15 @@ jobs:
         run: vercel deploy --token=${{ env.VERCEL_TOKEN }}
       - name: Deploy to production
         run: vercel --prod --token=${{ env.VERCEL_TOKEN }}
-      - name: Send status
+      - name: Send success status
         if: success()
         run: |
-          curl -n -X POST https://webhooks.datocms.com/XOCxELkDWJ/deploy-results \
+          curl -n -X POST https://webhooks.datocms.com/${{ env.DATO_WEBHOOK_ID }}/deploy-results \
             -H 'Content-Type: application/json' \
             -d '{ "status": "success" }'
-      - name: Send status
+      - name: Send failure status
         if: failure()
         run: |
-          curl -n -X POST https://webhooks.datocms.com/XOCxELkDWJ/deploy-results \
+          curl -n -X POST https://webhooks.datocms.com/${{ env.DATO_WEBHOOK_ID }}/deploy-results \
             -H 'Content-Type: application/json' \
             -d '{ "status": "error" }'
