@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/crea-orkest/crea-public/compare/v2.0.0...v2.1.0) (2024-01-29)
+
+
+### Features
+
+* **deployment:** add steps for deploying site ([9535269](https://github.com/crea-orkest/crea-public/commit/95352692658f240d4fd9f097511649334d1f4f42))
+
 ## [2.0.0](https://github.com/crea-orkest/crea-public/compare/v1.2.2...v2.0.0) (2024-01-29)
 
 
