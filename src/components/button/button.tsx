@@ -13,6 +13,7 @@ export interface Props {
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   suffix?: string
+  download?: boolean
   variant?: 'primary' | 'secondary' | 'tertiary'
 }
 
@@ -25,6 +26,7 @@ export const Button = ({
   leftIcon,
   rightIcon,
   suffix,
+  download,
   variant = 'primary',
 }: Props) => {
   return (
@@ -38,6 +40,7 @@ export const Button = ({
       href={href}
       target={target}
       rel={rel}
+      download={download}
     >
       {leftIcon}
       <span>

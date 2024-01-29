@@ -1,42 +1,41 @@
 import classNames from 'classnames'
-import { notFound } from 'next/navigation'
-import { Event } from 'components/event'
+import type { PageFragment } from 'graphql/generated/graphql'
+import type { Event } from 'graphql/types/event'
+import { EventListItem } from 'components/eventListItem'
 import { Header } from 'components/header'
 import { LoadMoreEvents } from 'components/loadMoreEvents'
 import { PageContent } from 'components/pageContent'
-import { getEvents } from 'graphql/getters/getEvents'
-import { getPage } from 'graphql/getters/getPage'
 
 import styles from './styles.module.scss'
 
-export const ConcertsPage = async () => {
-  const first = 2
-  const { data: eventData } = await getEvents({ skip: 0, first })
-  const { data: pageData } = await getPage({ slug: 'concerten' })
+export interface Props {
+  pageData: PageFragment
+  eventData: Event[]
+  numberOfLoadedEvents: number
+}
 
+export const ConcertsPage = ({
+  pageData,
+  eventData,
+  numberOfLoadedEvents,
+}: Props) => {
   const events = (
     <div className={classNames(styles.concerts, 'content-layout')}>
       {eventData?.map((event) => {
         if (!event?.id) return
 
         return (
-          <Event
+          <EventListItem
             className="content-layout--small"
             key={event.id}
-            id={event.id}
+            data={event}
           />
         )
       })}
 
-      <LoadMoreEvents initialSkip={first} />
+      <LoadMoreEvents initialSkip={numberOfLoadedEvents} />
     </div>
   )
-
-  if (!eventData && !pageData) return notFound()
-
-  if (!pageData) {
-    return events
-  }
 
   let header = null
   let pageContent = pageData?.content

@@ -1,28 +1,27 @@
-'use client'
-import { EventListItem } from 'components/eventListItem'
+import { useState, useRef, useEffect } from 'react'
 import type { Event as EventType } from '../../graphql/types/event'
-import React from 'react'
 import { getEvents } from '../../graphql/getters/getEvents'
 import { useEventsMeta } from 'hooks/useEventsMeta'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
+import { EventListItem } from 'components/eventListItem'
 
 export interface Props {
   initialSkip: number
 }
 
 export const LoadMoreEvents = ({ initialSkip }: Props) => {
-  const [skip, setSkip] = React.useState(initialSkip)
-  const [loading, setLoading] = React.useState(false)
-  const [events, setEvents] = React.useState<(EventType | undefined)[]>([])
-  const ref = React.useRef<HTMLDivElement>(null)
+  const [skip, setSkip] = useState(initialSkip)
+  const [loading, setLoading] = useState(false)
+  const [events, setEvents] = useState<(EventType | undefined)[]>([])
+  const ref = useRef<HTMLDivElement>(null)
   const { numberOfEvents } = useEventsMeta()
   const [entry] = useIntersectionObserver({
     enabled: Boolean(numberOfEvents),
     ref,
   })
 
-  React.useEffect(() => {
-    const interval = 10
+  useEffect(() => {
+    const interval = 20
     if (loading) return
     if (!entry?.isIntersecting) return
     if (!numberOfEvents) return

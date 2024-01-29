@@ -1,23 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import classNames from 'classnames'
-import { getGeneralInfo } from '../../graphql/getters/getGeneralInfo'
-import { getSiteMetadata } from '../../graphql/getters/getSiteMetadata'
+import type { GeneralRecord } from 'graphql/generated/graphql'
 import { slugFormatter } from 'utils/slugFormatter'
+
 import styles from './styles.module.scss'
 
-export const Footer = async () => {
-  const { data } = await getGeneralInfo()
-  const { metadata } = await getSiteMetadata()
-  if (!data?.general) return null
+interface Props {
+  generalInfo: GeneralRecord
+  siteName: string
+}
 
+export const Footer = ({ generalInfo, siteName }: Props) => {
   return (
     <footer className={classNames(styles.root, 'with-background')}>
       <div className={classNames(styles.content, 'content-layout')}>
         <div>
           <h2 className={classNames(styles.title)}>
             <span className="sr-only">Footer</span>
-            {metadata?.title}
+            {siteName}
           </h2>
 
           <address className={classNames(styles.address)}>
@@ -83,7 +84,7 @@ export const Footer = async () => {
         <div>
           <h3 className={classNames(styles.title)}>Navigatie</h3>
           <ul className={classNames(styles.list)}>
-            {data.general.menu.map((item) => {
+            {generalInfo.menu.map((item) => {
               if ('link' in item && item?.link?.slug && item.label) {
                 return (
                   <li key={item.id}>
@@ -127,7 +128,7 @@ export const Footer = async () => {
             <li>
               <Link
                 className={classNames(styles.link)}
-                href="https://www.youtube.com/user/creaorkest/"
+                href="https://www.youtube.com/user/creaorkestpr"
                 target="_blank"
                 rel="noopener noreferrer"
               >

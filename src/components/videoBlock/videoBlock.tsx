@@ -1,5 +1,3 @@
-'use client'
-
 import { useCallback, useState } from 'react'
 import Image from 'next/image'
 import type { VideoFragment } from '../../graphql/generated/graphql'
@@ -35,7 +33,7 @@ export const VideoBlock = ({ record, autoplay, aspectRatio }: Props) => {
   }
 
   const asset = formatCloudinaryImage(
-    isOfTypeCloudinaryAsset(thumbnail?.asset) ? thumbnail?.asset : undefined
+    isOfTypeCloudinaryAsset(thumbnail?.asset) ? thumbnail?.asset : null
   )
 
   const videoUrl = () => {

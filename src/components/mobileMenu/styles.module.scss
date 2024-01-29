@@ -42,6 +42,24 @@ $mobileBreakpoint: breakpoints.$sm;
   background-color: colors.$background;
 }
 
+.mobileMenuItems {
+  list-style: none;
+  padding: 0 map.get(spacing.$rem, 32);
+  overflow: scroll;
+  height: calc(100% - map.get(spacing.$rem, 96));
+}
+
+.mobileMenuSubList {
+  list-style: none;
+  padding-left: map.get(spacing.$rem, 24);
+}
+
+.mobileMenuSubItem {
+  display: block;
+  margin-top: map.get(spacing.$rem, 24);
+  color: colors.$primary;
+}
+
 :export {
   mobileBreakpoint: $mobileBreakpoint;
 }

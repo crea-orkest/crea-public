@@ -5,20 +5,23 @@ import {
   type GetPageSeoQuery,
   type GetPageSeoQueryVariables,
 } from '../generated/graphql'
+import type { siteMetadata } from 'graphql/formatters/formatSiteMetadata'
 
-export const getPageSeo = async ({ slug }: GetPageSeoQueryVariables) => {
+export const getPageSeo = async (
+  { slug }: GetPageSeoQueryVariables,
+  metadata: siteMetadata
+) => {
   try {
     const { data, error } = await client.query<
       GetPageSeoQuery,
       GetPageSeoQueryVariables
     >(GetPageSeoDocument, { slug })
-
     return {
-      data: await metadataFormatter(data?.page ?? undefined, slug),
+      data: metadataFormatter(data?.page ?? undefined, slug, metadata),
       error,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: await metadataFormatter(undefined, slug), error }
+    return { data: metadataFormatter(undefined, slug, metadata), error }
   }
 }

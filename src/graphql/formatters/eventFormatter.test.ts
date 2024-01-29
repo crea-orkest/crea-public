@@ -23,8 +23,13 @@ describe('eventFormatter', () => {
         slug: 'some-slug',
       })
     ).toEqual({
+      __typename: 'ConcertRecord',
+      _createdAt: 'some date time string',
+      _firstPublishedAt: undefined,
+      _publishedAt: undefined,
+      _updatedAt: 'some date time string',
       id: 'some-id',
-      image: undefined,
+      image: null,
       locations: [
         {
           address: undefined,
@@ -33,10 +38,12 @@ describe('eventFormatter', () => {
           lng: undefined,
           startTime: undefined,
           title: undefined,
+          ticketLink: undefined,
         },
       ],
       title: 'required title',
       url: '/concerten/some-slug',
+      slug: 'some-slug',
       content: [],
       program: [],
       persons: [{ id: 'person-id', name: '', description: '' }],

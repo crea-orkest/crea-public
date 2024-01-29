@@ -35,6 +35,8 @@ export const getFutureEvents = async ({
   filter = defaultFilter,
 }: Props) => {
   try {
+    let futureEventData = null
+    let futureEventError = null
     const { data, error } = await client.query<
       GetFutureEventsQuery,
       GetFutureEventsQueryVariables
@@ -44,10 +46,26 @@ export const getFutureEvents = async ({
       order,
       filter,
     })
+    futureEventData = data?.allConcerts
+    futureEventError = error
+
+    if (futureEventData && futureEventData.length < 1) {
+      const { data, error } = await client.query<
+        GetFutureEventsQuery,
+        GetFutureEventsQueryVariables
+      >(GetFutureEventsDocument, {
+        skip,
+        first: 1,
+        order: ConcertModelOrderBy.PositionAsc,
+      })
+
+      futureEventData = data?.allConcerts
+      futureEventError = error
+    }
 
     return {
-      data: data?.allConcerts ? eventsFormatter(data.allConcerts) : [],
-      error,
+      data: futureEventData ? eventsFormatter(futureEventData) : [],
+      error: futureEventError,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)

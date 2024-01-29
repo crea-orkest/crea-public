@@ -34,6 +34,50 @@ jest.mock('../../graphql/getters/getSiteMetadata', () => {
 
 const mockedQuery = jest.mocked(client.query)
 
+const metaData = {
+  title: 'Default title',
+  baseUrl: 'https://example.com',
+}
+
+const pageSeo = {
+  siteName: metaData.title,
+  baseUrl: 'https://example.com',
+  metaTags: [
+    {
+      tag: 'meta',
+      attributes: {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
+    },
+    {
+      tag: 'meta',
+      attributes: {
+        rel: 'canonical',
+        href: 'https://example.com/',
+      },
+    },
+    {
+      tag: 'title',
+      content: metaData.title,
+    },
+    {
+      tag: 'meta',
+      attributes: {
+        property: 'og:title',
+        content: metaData.title,
+      },
+    },
+    {
+      tag: 'meta',
+      attributes: {
+        name: 'twitter:title',
+        content: metaData.title,
+      },
+    },
+  ],
+}
+
 describe('getPageSeo', () => {
   it('should return an object', async () => {
     mockedQuery.mockResolvedValue({
@@ -51,73 +95,15 @@ describe('getPageSeo', () => {
       stale: false,
       hasNext: false,
     })
-    const { data } = await getPageSeo({ slug: '' })
-    expect(data).toEqual({
-      alternates: {
-        canonical: 'https://example.com/',
-      },
-      title: 'Default title',
-      description: 'Default description',
-      metadataBase: expect.objectContaining({
-        host: 'example.com',
-        hostname: 'example.com',
-        href: 'https://example.com/',
-        origin: 'https://example.com',
-      }),
-      openGraph: {
-        description: 'Default description',
-        images: [
-          {
-            height: 900,
-            url: '',
-            width: 1200,
-          },
-        ],
-        locale: 'nl-NL',
-        siteName: 'Default title',
-        title: 'Default title',
-        type: 'article',
-        url: 'https://example.com/',
-      },
-      twitter: {
-        card: 'summary_large_image',
-        description: '',
-        images: [''],
-        title: 'Default title',
-      },
-    })
+    const { data } = await getPageSeo({ slug: '' }, metaData)
+    expect(data).toEqual(pageSeo)
   })
 
   it('should return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
-    const { data, error } = await getPageSeo({ slug: '' })
-    expect(data).toEqual({
-      alternates: { canonical: 'https://example.com/' },
-      description: 'Default description',
-      metadataBase: expect.objectContaining({
-        host: 'example.com',
-        hostname: 'example.com',
-        href: 'https://example.com/',
-        origin: 'https://example.com',
-      }),
-      openGraph: {
-        description: 'Default description',
-        images: [{ height: 900, url: '', width: 1200 }],
-        locale: 'nl-NL',
-        siteName: 'Default title',
-        title: 'Default title',
-        type: 'article',
-        url: 'https://example.com/',
-      },
-      title: 'Default title',
-      twitter: {
-        card: 'summary_large_image',
-        description: '',
-        images: [''],
-        title: 'Default title',
-      },
-    })
+    const { data, error } = await getPageSeo({ slug: '' }, metaData)
+    expect(data).toEqual(pageSeo)
     expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
   })

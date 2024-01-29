@@ -16,3 +16,7 @@ this can be done with the Rover CLI. Run `rover config auth`, or set an
 `$APOLLO_KEY` env variable to a valid Apollo Studio API key.
 
 Apollo admin rights can be acquired through Thijs van Diessen.
+
+## NEXTJS
+
+This website is build with the pages router of nextjs. All data comes from DatoCMS where content editors can trigger builds.

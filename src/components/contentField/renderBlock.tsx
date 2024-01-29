@@ -8,12 +8,13 @@ import type {
   ImageFragment,
   VideoFragment,
 } from '../../graphql/generated/graphql'
+import { eventSmallFormatter } from 'graphql/formatters/eventSmallFormatter'
 import { CallToAction } from 'components/callToAction'
 import { DocumentBlock } from 'components/documentBlock'
-import { Event } from 'components/event'
 import { ImageBlock } from 'components/imageBlock'
-import { FutureEvents } from 'components/futureEvents'
 import { VideoBlock } from 'components/videoBlock'
+import { EventListItem } from 'components/eventListItem'
+import { FutureEvents } from 'components/futureEvents'
 
 import styles from './styles.module.scss'
 
@@ -31,17 +32,19 @@ export const renderBlock = ({
     return (
       <div className={styles.spacing}>
         {record.pinnedConcerts.map((item, index) => {
+          const event = eventSmallFormatter(item)
+          if (!event) return null
           return (
-            <Event
+            <EventListItem
               className="content-layout--small"
               key={item.id}
-              id={item.id}
+              data={event}
               size="large"
               isLast={record.pinnedConcerts.length - 1 === index}
             />
           )
         })}
-        {record.futureConcerts && <FutureEvents skip={0} first={3} />}
+        {record.futureConcerts && <FutureEvents />}
       </div>
     )
   }

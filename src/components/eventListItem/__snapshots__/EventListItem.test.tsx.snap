@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Concert component shows all the data 1`] = `
+exports[`EventListItem component shows all the data 1`] = `
 <div>
   <div
     class="root oneLocation"
@@ -10,7 +10,7 @@ exports[`Concert component shows all the data 1`] = `
     >
       <span>
         <a
-          href="some-slug"
+          href="/some-slug"
         >
           name
         </a>
@@ -42,7 +42,7 @@ exports[`Concert component shows all the data 1`] = `
     </div>
     <a
       class="eventLink text-small"
-      href="some-slug"
+      href="/some-slug"
     >
       Bekijk concert
       <svg

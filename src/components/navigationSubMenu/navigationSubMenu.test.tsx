@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavigationSubMenu } from '../navigationSubMenu'
 import { fireEvent, render, screen } from '@testing-library/react'
 
@@ -22,7 +23,7 @@ const mockData = [
 describe('navigationSubMenu', () => {
   it('should render a button', () => {
     const { container } = render(
-      <NavigationSubMenu label="root label" item={JSON.stringify(mockData)} />
+      <NavigationSubMenu label="root label" submenu={mockData} />
     )
 
     expect(screen.getByRole('button', { name: 'root label' })).toBeVisible()

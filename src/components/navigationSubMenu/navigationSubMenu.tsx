@@ -1,20 +1,18 @@
-'use client'
-
-import React, { useState } from 'react'
+import { useState } from 'react'
 import classNames from 'classnames'
-import type { SubmenuItemFragment } from '../../graphql/generated/graphql'
-import { NavigationSubMenuItem } from '../navigationSubMenuItem'
+import type { MenuItemRecord } from 'graphql/generated/graphql'
 import { useOutsideClick } from 'hooks/useOutsideClick'
 import { useEscapeKey } from 'hooks/useEscapeKey'
+import { NavigationSubMenuItem } from '../navigationSubMenuItem'
+
 import styles from './styles.module.scss'
 
 export interface SubMenuProps {
   label?: string | null
-  item: string
+  submenu: MenuItemRecord[]
 }
 
-export const NavigationSubMenu: React.FC<SubMenuProps> = ({ label, item }) => {
-  const submenu: SubmenuItemFragment['menu'] = JSON.parse(item)
+export const NavigationSubMenu = ({ label, submenu }: SubMenuProps) => {
   const [visible, setVisible] = useState(false)
   const ref = useOutsideClick<HTMLLIElement>(() => setVisible(false))
   useEscapeKey(() => setVisible(false))

@@ -30,8 +30,13 @@ describe('eventsFormatter', () => {
       ])
     ).toEqual([
       {
+        __typename: 'ConcertRecord',
+        _createdAt: '2023-09-01T13:32:36+01:00',
+        _firstPublishedAt: undefined,
+        _publishedAt: undefined,
+        _updatedAt: '2023-08-14T09:37:24+01:00',
         id: 'some-id',
-        image: undefined,
+        image: null,
         locations: [
           {
             id: 'location-id',
@@ -40,10 +45,12 @@ describe('eventsFormatter', () => {
             lng: undefined,
             startTime: undefined,
             title: undefined,
+            ticketLink: undefined,
           },
         ],
         title: 'required title',
         url: '/concerten/required-slug',
+        slug: 'required-slug',
         content: [],
         persons: [{ id: 'some-id', name: '', description: '' }],
         program: [],
