@@ -6,23 +6,27 @@ import {
   type GetEventSeoQuery,
   type GetEventSeoQueryVariables,
 } from '../generated/graphql'
+import type { siteMetadata } from 'graphql/formatters/formatSiteMetadata'
 
-export const getEventPageSeo = async ({ slug }: GetEventSeoQueryVariables) => {
+export const getEventPageSeo = async (
+  { slug }: GetEventSeoQueryVariables,
+  metadata: siteMetadata
+) => {
+  const eventSlug = slugFormatter({ slug, prefix: '/concerten' })
   try {
     const { data, error } = await client.query<
       GetEventSeoQuery,
       GetEventSeoQueryVariables
     >(GetEventSeoDocument, { slug })
-
     return {
-      data: await metadataFormatter(
-        data?.concert ?? undefined,
-        slugFormatter({ slug, prefix: '/concerten' })
-      ),
+      data: metadataFormatter(data?.concert ?? undefined, eventSlug, metadata),
       error,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: await metadataFormatter(undefined, slug), error }
+    return {
+      data: await metadataFormatter(undefined, eventSlug, metadata),
+      error,
+    }
   }
 }

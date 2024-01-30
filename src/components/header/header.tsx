@@ -1,12 +1,12 @@
-import React from 'react'
 import type { ElementType } from 'react'
 import Image from 'next/image'
 import classNames from 'classnames'
-import { type HeaderFragment } from '../../graphql/generated/graphql'
+import { isEmptyDocument } from 'datocms-structured-text-utils'
+import type { HeaderFragment } from '../../graphql/generated/graphql'
 import { formatCloudinaryImage } from '../../graphql/formatters/formatCloudinaryImage'
 import { isOfTypeCloudinaryAsset } from '../../graphql/types/image'
 import { ContentField } from 'components/contentField'
-import { isEmptyDocument } from 'datocms-structured-text-utils'
+
 import styles from './styles.module.scss'
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
   cover?: HeaderFragment['cover']
 }
 
-export const Header: React.FC<Props> = ({
+export const Header = ({
   title,
   className,
   tag = 'header',
@@ -27,7 +27,7 @@ export const Header: React.FC<Props> = ({
   const HeaderTag = tag
 
   const asset = formatCloudinaryImage(
-    isOfTypeCloudinaryAsset(cover?.asset) ? cover?.asset : undefined
+    isOfTypeCloudinaryAsset(cover?.asset) ? cover?.asset : null
   )
 
   return (

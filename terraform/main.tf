@@ -10,11 +10,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.31.0"
+      version = "5.34.0"
     }
     google = {
       source  = "hashicorp/google"
-      version = "5.11.0"
+      version = "5.14.0"
     }
     hcp = {
       source  = "hashicorp/hcp"
@@ -22,7 +22,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "4.21.0"
+      version = "4.23.0"
     }
     vercel = {
       source  = "vercel/vercel"

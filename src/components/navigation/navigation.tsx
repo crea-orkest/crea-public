@@ -1,30 +1,30 @@
 import React from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
+import type { GeneralRecord } from 'graphql/generated/graphql'
 import { NavigationItem } from 'components/navigationItem'
 import { NavigationSubMenu } from 'components/navigationSubMenu'
-import { getGeneralInfo } from '../../graphql/getters/getGeneralInfo'
 import { MobileMenu } from 'components/mobileMenu'
-import { getSiteMetadata } from '../../graphql/getters/getSiteMetadata'
-
-import styles from './styles.module.scss'
 import { CreaOrkestLogo } from 'components/icons/crea-orkest-logo'
 
-export const Navigation: React.FC = async () => {
-  const { data } = await getGeneralInfo()
-  const { metadata } = await getSiteMetadata()
-  if (!data?.general) return null
+import styles from './styles.module.scss'
 
+interface Props {
+  generalInfo: GeneralRecord
+  siteName: string
+}
+
+export const Navigation = ({ siteName, generalInfo }: Props) => {
   return (
     <nav className={classNames(styles.root, 'content-layout')}>
       <div className={classNames(styles.content)}>
         <Link href="/" className={classNames(styles.logoLink)}>
           <CreaOrkestLogo className={classNames(styles.logo)} />
-          <span className="sr-only">{metadata?.title}: Ga naar home</span>
+          <span className="sr-only">{siteName}: Ga naar home</span>
         </Link>
-        <MobileMenu />
+        <MobileMenu menu={generalInfo.menu} />
         <ul className={classNames(styles.list)}>
-          {data.general.menu.map((item) => {
+          {generalInfo.menu.map((item) => {
             if ('link' in item) {
               return (
                 <NavigationItem
@@ -40,7 +40,7 @@ export const Navigation: React.FC = async () => {
                 <NavigationSubMenu
                   key={item.id}
                   label={item.label}
-                  item={JSON.stringify(item.menu)}
+                  submenu={item.menu}
                 />
               )
             }

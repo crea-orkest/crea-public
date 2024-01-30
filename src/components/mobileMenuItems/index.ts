@@ -1,1 +1,0 @@
-export { MobileMenuItems } from './mobileMenuItems'

@@ -7,6 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  Update-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update production
+        run: |
+          git checkout production
+          git merge $GITHUB_REF
+          git push origin production
+
   Deploy:
     runs-on: ubuntu-latest
     env:
@@ -14,6 +28,7 @@ jobs:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      DATO_WEBHOOK_ID: ${{ secrets.DATO_WEBHOOK_ID }}
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Install Vercel CLI
@@ -26,3 +41,15 @@ jobs:
         run: vercel deploy --token=${{ env.VERCEL_TOKEN }}
       - name: Deploy to production
         run: vercel --prod --token=${{ env.VERCEL_TOKEN }}
+      - name: Send success status
+        if: success()
+        run: |
+          curl -n -X POST https://webhooks.datocms.com/${{ env.DATO_WEBHOOK_ID }}/deploy-results \
+            -H 'Content-Type: application/json' \
+            -d '{ "status": "success" }'
+      - name: Send failure status
+        if: failure()
+        run: |
+          curl -n -X POST https://webhooks.datocms.com/${{ env.DATO_WEBHOOK_ID }}/deploy-results \
+            -H 'Content-Type: application/json' \
+            -d '{ "status": "error" }'

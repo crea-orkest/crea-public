@@ -1,18 +1,8 @@
-import { Navigation } from './navigation'
 import React from 'react'
-import { getGeneralInfo } from '../../graphql/getters/getGeneralInfo'
-import { mockMenuData } from './mocks/mockMenuData'
+import { Navigation } from './navigation'
 import { resolvedComponent } from '../../utils/testHelpers/resolvedComponent'
 import { render, screen } from '@testing-library/react'
-
-jest.mock('../../graphql/getters/getGeneralInfo', () => {
-  const originalModule = jest.requireActual('../../graphql/getters/getLocation')
-  return {
-    __esModule: true,
-    ...originalModule,
-    getGeneralInfo: jest.fn(),
-  }
-})
+import { mockMenuData } from './mocks/mockMenuData'
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
@@ -20,34 +10,12 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
   disconnect: jest.fn(),
 }))
 
-const getGeneralInfoMock = jest.mocked(getGeneralInfo)
-
-jest.mock('../../graphql/getters/getSiteMetadata', () => {
-  const originalModule = jest.requireActual(
-    '../../graphql/getters/getSiteMetadata'
-  )
-  return {
-    __esModule: true,
-    ...originalModule,
-    getSiteMetadata: jest.fn(() => ({
-      metadata: {
-        title: 'Default title',
-        description: 'Default description',
-        base_url: 'https://example.com',
-      },
-      error: undefined,
-    })),
-  }
-})
-
-describe('Concert component', () => {
+describe('Navigation component', () => {
   it('shows all the data', async () => {
-    getGeneralInfoMock.mockResolvedValueOnce({
-      data: mockMenuData,
-      error: undefined,
+    const Resolved = await resolvedComponent(Navigation, {
+      generalInfo: mockMenuData.general,
+      siteName: 'Default title',
     })
-
-    const Resolved = await resolvedComponent(Navigation, {})
 
     const { container } = render(<Resolved />)
 

@@ -59,14 +59,20 @@ describe('getEventPage', () => {
     })
     const { data } = await getEventPage({ slug: 'another-concert' })
     expect(data).toEqual({
-      content: undefined,
+      __typename: 'ConcertRecord',
+      _createdAt: '2023-09-24T17:30:44+02:00',
+      _firstPublishedAt: '2023-09-24T17:30:44+02:00',
+      _publishedAt: '2023-09-24T17:30:44+02:00',
+      _updatedAt: '2023-09-24T17:30:44+02:00',
+      content: null,
       id: '201835035',
-      image: undefined,
+      image: null,
       locations: [],
       persons: [],
       program: [],
       title: 'another concert',
       url: '/concerten/another-concert',
+      slug: 'another-concert',
     })
   })
 

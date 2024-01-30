@@ -29,6 +29,8 @@ export const DocumentBlock: React.FC<Props> = ({ record }: Props) => {
       <span className={styles.download}>
         <Button
           href={asset.url}
+          download
+          target="_blank"
           leftIcon={<ArrowDown />}
           suffix={asset.bytes ? `(${formatBytes(asset.bytes, 0)})` : ''}
         >

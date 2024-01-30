@@ -1,22 +1,16 @@
+import type { PageFragment } from 'graphql/generated/graphql'
 import { PageContent } from 'components/pageContent'
-import { getPage } from '../../graphql/getters/getPage'
-import { notFound } from 'next/navigation'
 
 export interface Props {
-  slug: string
+  data: PageFragment
 }
 
-export const DefaultPage = async ({ slug }: Props) => {
-  const { data } = await getPage({ slug })
-  if (!data) return notFound()
-
+export const DefaultPage = ({ data }: Props) => {
   return (
-    <article>
-      <PageContent
-        sectionClassName="content-layout"
-        items={data.content}
-        pageTitle={data.title || ''}
-      />
-    </article>
+    <PageContent
+      sectionClassName="content-layout"
+      items={data.content}
+      pageTitle={data.title || ''}
+    />
   )
 }

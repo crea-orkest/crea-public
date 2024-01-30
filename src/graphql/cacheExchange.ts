@@ -21,5 +21,8 @@ export const cacheExchange = exchange({
     TwoColumnModelLeftContentField: () => null,
     TextBlockModelContentField: () => null,
     HeaderModelBodyField: () => null,
+    Site: () => null,
+    GlobalSeoField: () => null,
+    SeoField: () => null,
   },
 })

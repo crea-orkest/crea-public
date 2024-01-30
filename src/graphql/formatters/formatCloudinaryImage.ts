@@ -1,9 +1,9 @@
 import type { CloudinaryAsset, Image } from '../types/image'
 
 export const formatCloudinaryImage = (
-  asset: CloudinaryAsset | undefined
-): Image | undefined => {
-  if (!asset) return
+  asset: CloudinaryAsset | null
+): Image | null => {
+  if (!asset) return null
   return {
     id: `v${asset.version}/${asset.id}`,
     title: asset.alt?.en ?? '',

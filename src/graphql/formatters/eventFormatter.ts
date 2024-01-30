@@ -13,12 +13,15 @@ export const eventFormatter = (
   if (!event.title) return
   if (!event.slug) return
   return {
+    __typename: event.__typename,
+    _createdAt: event._createdAt,
+    _firstPublishedAt: event._firstPublishedAt,
+    _publishedAt: event._publishedAt,
+    _updatedAt: event._updatedAt,
     id: event.id,
     title: event.title,
     image: formatCloudinaryImage(
-      isOfTypeCloudinaryAsset(event.poster?.asset)
-        ? event.poster?.asset
-        : undefined
+      isOfTypeCloudinaryAsset(event.poster?.asset) ? event.poster?.asset : null
     ),
     persons: event.persons.map((person) => authorFormatter(person)),
     program: event.program
@@ -27,7 +30,8 @@ export const eventFormatter = (
     locations: event.locations
       .map((location) => locationItemFormatter(location))
       .filter(Boolean),
+    slug: event.slug,
     url: slugFormatter({ slug: event.slug, prefix: '/concerten' }),
-    content: event.content,
+    content: event.content || null,
   }
 }

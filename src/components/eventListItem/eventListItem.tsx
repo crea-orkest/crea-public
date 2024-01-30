@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Event } from 'graphql/types/event'
+import type { Event, EventSmall } from 'graphql/types/event'
 import { ArrowRight } from 'components/icons/arrow-right'
 import { dateIsInThePast, formatDate } from 'utils/formatDate'
 
@@ -10,7 +10,7 @@ import styles from './styles.module.scss'
 
 export interface Props {
   className?: string
-  data: Event
+  data: Event | EventSmall
   size?: 'small' | 'large'
   isLast?: boolean
   showLink?: boolean
@@ -19,7 +19,7 @@ export interface Props {
   title?: string
 }
 
-export const EventListItem: React.FC<Props> = ({
+export const EventListItem = ({
   className,
   data,
   size = 'small',
