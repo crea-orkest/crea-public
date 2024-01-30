@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/crea-orkest/crea-public/compare/v2.1.1...v2.1.2) (2024-01-30)
+
+
+### Bug Fixes
+
+* **deployment.yml:** add dato webhook env ([bfcc1a8](https://github.com/crea-orkest/crea-public/commit/bfcc1a80315fe6f7769e995e03f7883ad544f826))
+
 ## [2.1.1](https://github.com/crea-orkest/crea-public/compare/v2.1.0...v2.1.1) (2024-01-30)
 
 
