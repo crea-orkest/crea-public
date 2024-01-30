@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/crea-orkest/crea-public/compare/v2.1.0...v2.1.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* **deployment:** fix workflow ([baa981b](https://github.com/crea-orkest/crea-public/commit/baa981bc3939cd87725d3d01819a85ba5d585941))
+
 ## [2.1.0](https://github.com/crea-orkest/crea-public/compare/v2.0.0...v2.1.0) (2024-01-29)
 
 
