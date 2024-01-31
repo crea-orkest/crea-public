@@ -7,20 +7,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  Update-production:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Update production
-        run: |
-          git checkout production
-          git merge $GITHUB_REF
-          git push origin production
-
   Deploy:
     runs-on: ubuntu-latest
     env:
@@ -34,13 +20,11 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --token=${{ env.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token=${{ env.VERCEL_TOKEN }}
       - name: Build Project Artifacts
-        run: vercel build --token=${{ env.VERCEL_TOKEN }}
+        run: vercel build --prod --token=${{ env.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --token=${{ env.VERCEL_TOKEN }}
-      - name: Deploy to production
-        run: vercel --prod --token=${{ env.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ env.VERCEL_TOKEN }}
       - name: Send success status
         if: success()
         run: |
