@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.0](https://github.com/crea-orkest/crea-public/compare/v2.1.2...v2.2.0) (2024-01-31)
+
+
+### Features
+
+* **workflows:** update workflows to have seperate workflow for updating production ([4a45c6b](https://github.com/crea-orkest/crea-public/commit/4a45c6ba99c5ae5b04700761d5dd9c48bf813ae6))
+
+
+### Bug Fixes
+
+* **mobileMenu:** fix scroll behaviour and some styling ([5ab902a](https://github.com/crea-orkest/crea-public/commit/5ab902a661f47adc056534bb8c54c17b975c0357))
+* **pages:** add correct header ([e0be6b9](https://github.com/crea-orkest/crea-public/commit/e0be6b9b44d169047dbf802df69b8d705dd4997f))
+
 ## [2.1.2](https://github.com/crea-orkest/crea-public/compare/v2.1.1...v2.1.2) (2024-01-30)
 
 
