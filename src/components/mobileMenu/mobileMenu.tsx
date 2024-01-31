@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import classNames from 'classnames'
 import type { GeneralRecord } from 'graphql/generated/graphql'
-import { useDimensions } from 'hooks/useDimensions'
 import { useHrefClick } from 'hooks/useHrefClick'
-import { cssToJs } from 'utils/cssToJs'
 import { Hamburger } from 'components/icons/hamburger'
 import { Cross } from 'components/icons/cross'
 import { NavigationItem } from 'components/navigationItem'
@@ -17,19 +15,16 @@ interface Props {
 export const MobileMenu = ({ menu }: Props) => {
   const [open, setOpen] = useState(false)
   useHrefClick(() => setOpen(false))
-  const { width } = useDimensions()
 
   const handleClick = () => {
-    setOpen(!open)
-  }
-
-  useEffect(() => {
-    if (width < cssToJs(styles.mobileBreakpoint)) {
-      document.body.classList.toggle('noscroll', open)
-    } else {
-      document.body.classList.remove('noscroll')
+    if (open) {
+      document.body.classList.remove('noscroll-mobile')
+      setOpen(false)
+    } else if (!open) {
+      document.body.classList.add('noscroll-mobile')
+      setOpen(true)
     }
-  }, [open, width])
+  }
 
   return (
     <div className={classNames(styles.root)}>
@@ -62,6 +57,7 @@ export const MobileMenu = ({ menu }: Props) => {
                     key={item.id}
                     slug={item?.link?.slug}
                     label={item.label}
+                    onClick={handleClick}
                   />
                 )
               }
@@ -81,6 +77,7 @@ export const MobileMenu = ({ menu }: Props) => {
                             key={subItem.id}
                             slug={subItem?.link?.slug}
                             label={subItem.label}
+                            onClick={handleClick}
                           />
                         )
                       })}
