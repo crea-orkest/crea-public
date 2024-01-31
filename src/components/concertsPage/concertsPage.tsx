@@ -46,12 +46,14 @@ export const ConcertsPage = ({
 
   return (
     <>
-      {header && (
+      {header ? (
         <Header
           body={header.body}
           cover={header.cover}
           title={pageData.title || ''}
         />
+      ) : (
+        <Header title={pageData.title || ''} />
       )}
       {events}
       <PageContent sectionClassName="content-layout" items={pageContent} />

@@ -3,9 +3,8 @@
 @use '../../styles/tokens/colors.scss' as colors;
 @use '../../styles/tokens/spacing.scss' as spacing;
 
-$mobileBreakpoint: breakpoints.$sm;
-
 .root {
+  font-weight: 700;
   margin: auto 0;
 
   @media screen and (min-width: breakpoints.$sm) {
@@ -52,14 +51,12 @@ $mobileBreakpoint: breakpoints.$sm;
 .mobileMenuSubList {
   list-style: none;
   padding-left: map.get(spacing.$rem, 24);
+  margin-bottom: map.get(spacing.$rem, 24);
 }
 
 .mobileMenuSubItem {
   display: block;
   margin-top: map.get(spacing.$rem, 24);
   color: colors.$primary;
-}
-
-:export {
-  mobileBreakpoint: $mobileBreakpoint;
+  font-weight: 400;
 }

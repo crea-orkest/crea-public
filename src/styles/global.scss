@@ -32,6 +32,10 @@ body {
   border-width: 0;
 }
 
-.noscroll {
+.noscroll-mobile {
   overflow: hidden;
+
+  @media screen and (min-width: breakpoints.$sm) {
+    overflow: initial;
+  }
 }
