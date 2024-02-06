@@ -14,33 +14,19 @@ export const responsiveImage = gql`
   }
 `
 
-export const mediaItem = gql`
-  fragment mediaItem on MediaItemRecord {
-    ...identifiable
-    title
-    asset
-  }
-  ${identifiable}
-`
-
 export const image = gql`
   fragment image on ImageRecord {
     ...identifiable
-    item {
-      ...mediaItem
-    }
+    cloudinaryImage
   }
-  ${mediaItem}
   ${identifiable}
 `
 
 export const document = gql`
   fragment document on DocumentRecord {
     ...identifiable
-    document {
-      ...mediaItem
-    }
+    title
+    cloudinaryDocument
   }
   ${identifiable}
-  ${mediaItem}
 `

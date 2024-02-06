@@ -1,6 +1,5 @@
 import { gql } from '@urql/core'
 import { identifiable } from './identifiable'
-import { mediaItem } from './image'
 
 export const videoUpload = gql`
   fragment videoUpload on UploadVideoField {
@@ -19,12 +18,9 @@ export const video = gql`
     media {
       ...videoField
     }
-    thumbnail {
-      ...mediaItem
-    }
+    cloudinaryThumbnail
   }
   ${identifiable}
-  ${mediaItem}
 `
 
 export const videoField = gql`

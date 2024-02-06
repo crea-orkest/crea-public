@@ -4,6 +4,7 @@ interface Document {
   id: string
   url: string
   bytes?: number
+  alt?: string
 }
 
 export const formatCloudinaryDocument = (
@@ -17,5 +18,6 @@ export const formatCloudinaryDocument = (
     id: `v${document.version}/${document.id}`,
     url: document.secure_url,
     bytes: document.bytes,
+    alt: document.alt?.['nl-NL'] ?? '',
   }
 }

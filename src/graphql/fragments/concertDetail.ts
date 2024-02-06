@@ -5,7 +5,6 @@ import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
 import { textBlock, twoColum } from './textBlock'
 import { header } from './header'
-import { mediaItem } from './image'
 import { music } from './music'
 
 export const concertDetail: TypedDocumentNode = gql`
@@ -16,9 +15,7 @@ export const concertDetail: TypedDocumentNode = gql`
     locations {
       ...locationItem
     }
-    poster {
-      ...mediaItem
-    }
+    cloudinaryPoster
     persons {
       ...author
     }
@@ -39,7 +36,6 @@ export const concertDetail: TypedDocumentNode = gql`
   }
   ${identifiable}
   ${locationItem}
-  ${mediaItem}
   ${music}
   ${author}
   ${header}

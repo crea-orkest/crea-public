@@ -2,7 +2,6 @@ import { type TypedDocumentNode, gql } from '@urql/core'
 
 import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
-import { mediaItem } from './image'
 import { music } from './music'
 
 export const concertDetailSmall: TypedDocumentNode = gql`
@@ -13,15 +12,12 @@ export const concertDetailSmall: TypedDocumentNode = gql`
     locations {
       ...locationItem
     }
-    poster {
-      ...mediaItem
-    }
+    cloudinaryPoster
     program {
       ...music
     }
   }
   ${identifiable}
   ${locationItem}
-  ${mediaItem}
   ${music}
 `

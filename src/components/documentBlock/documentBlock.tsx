@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import type { DocumentFragment } from '../../graphql/generated/graphql'
 import { formatCloudinaryDocument } from '../../graphql/formatters/formatCloudinaryDocument'
@@ -13,19 +12,17 @@ interface Props {
   record: DocumentFragment
 }
 
-export const DocumentBlock: React.FC<Props> = ({ record }: Props) => {
-  if (!record.document?.title) return null
+export const DocumentBlock = ({ record }: Props) => {
+  if (!record.cloudinaryDocument) return null
   const asset = formatCloudinaryDocument(
-    isOfTypeCloudinaryAsset(record.document?.asset)
-      ? record.document?.asset
+    isOfTypeCloudinaryAsset(record.cloudinaryDocument)
+      ? record.cloudinaryDocument
       : undefined
   )
   if (!asset?.url) return null
   return (
     <p className={styles.root}>
-      <span className={classNames(styles.title, 'h4')}>
-        {record.document.title}
-      </span>
+      <span className={classNames(styles.title, 'h4')}>{record.title}</span>
       <span className={styles.download}>
         <Button
           href={asset.url}

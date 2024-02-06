@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use '../../styles/tokens/spacing.scss' as spacing;
+
+.loaderText {
+  display: flex;
+  gap: map.get(spacing.$rem, 8);
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.loader {
+  width: 32px;
+  height: 32px;
+}

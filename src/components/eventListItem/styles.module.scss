@@ -278,13 +278,15 @@ $padding-large-left: map.get(spacing.$rem, 40);
   transform: translateX(calc($border-large-size / 2 * -1));
 }
 
-.isLast::before {
-  height: 100%;
+.isLast.oneLocation::before,
+.isLast.hasTitle::before,
+.isLast:not(.hasImage)::before {
+  height: 120%;
 }
 
-.isLast.oneLocation::before,
-.isLast.hasTitle::before {
-  height: 120%;
+.isLast::before,
+.isLast.hasImage::before {
+  height: 100%;
 }
 
 // locationTitle line
