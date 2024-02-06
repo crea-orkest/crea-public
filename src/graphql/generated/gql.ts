@@ -49,7 +49,7 @@ const documents = {
     types.ResponsiveImageFragmentDoc,
   '\n  fragment image on ImageRecord {\n    ...identifiable\n    cloudinaryImage\n  }\n  \n':
     types.ImageFragmentDoc,
-  '\n  fragment document on DocumentRecord {\n    ...identifiable\n    cloudinaryDocument\n  }\n  \n':
+  '\n  fragment document on DocumentRecord {\n    ...identifiable\n    title\n    cloudinaryDocument\n  }\n  \n':
     types.DocumentFragmentDoc,
   '\n  fragment location on LocationRecord {\n    id\n    title\n    addressTitle\n    address {\n      ...coordinates\n    }\n  }\n  \n':
     types.LocationFragmentDoc,
@@ -247,8 +247,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment document on DocumentRecord {\n    ...identifiable\n    cloudinaryDocument\n  }\n  \n'
-): (typeof documents)['\n  fragment document on DocumentRecord {\n    ...identifiable\n    cloudinaryDocument\n  }\n  \n']
+  source: '\n  fragment document on DocumentRecord {\n    ...identifiable\n    title\n    cloudinaryDocument\n  }\n  \n'
+): (typeof documents)['\n  fragment document on DocumentRecord {\n    ...identifiable\n    title\n    cloudinaryDocument\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -299,6 +299,7 @@ export type DocumentRecord = RecordInterface & {
   cloudinaryDocument?: Maybe<Scalars['JsonField']['output']>
   document?: Maybe<MediaItemRecord>
   id: Scalars['ItemId']['output']
+  title?: Maybe<Scalars['String']['output']>
 }
 
 /** Block of type Document (document) */
@@ -3682,6 +3683,7 @@ export type ConcertDetailFragment = {
               }
             | {
                 __typename: 'DocumentRecord'
+                title?: string | null
                 cloudinaryDocument?: unknown | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
@@ -4529,6 +4531,7 @@ export type ImageFragment = {
 
 export type DocumentFragment = {
   __typename: 'DocumentRecord'
+  title?: string | null
   cloudinaryDocument?: unknown | null
   _createdAt: string
   _firstPublishedAt?: string | null
@@ -4779,6 +4782,7 @@ export type PageFragment = {
               }
             | {
                 __typename: 'DocumentRecord'
+                title?: string | null
                 cloudinaryDocument?: unknown | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
@@ -5284,6 +5288,7 @@ export type PageDetailFragment = {
               }
             | {
                 __typename: 'DocumentRecord'
+                title?: string | null
                 cloudinaryDocument?: unknown | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
@@ -5796,6 +5801,7 @@ export type TextBlockContentFragment = {
       }
     | {
         __typename: 'DocumentRecord'
+        title?: string | null
         cloudinaryDocument?: unknown | null
         _createdAt: string
         _firstPublishedAt?: string | null
@@ -6214,6 +6220,7 @@ export type TextBlockFragment = {
         }
       | {
           __typename: 'DocumentRecord'
+          title?: string | null
           cloudinaryDocument?: unknown | null
           _createdAt: string
           _firstPublishedAt?: string | null
@@ -6795,6 +6802,7 @@ export type GetEventQuery = {
                 }
               | {
                   __typename: 'DocumentRecord'
+                  title?: string | null
                   cloudinaryDocument?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
@@ -7337,6 +7345,7 @@ export type GetEventPageQuery = {
                 }
               | {
                   __typename: 'DocumentRecord'
+                  title?: string | null
                   cloudinaryDocument?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
@@ -7912,6 +7921,7 @@ export type GetEventsQuery = {
                 }
               | {
                   __typename: 'DocumentRecord'
+                  title?: string | null
                   cloudinaryDocument?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
@@ -8466,6 +8476,7 @@ export type GetFutureEventsQuery = {
                 }
               | {
                   __typename: 'DocumentRecord'
+                  title?: string | null
                   cloudinaryDocument?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
@@ -9026,6 +9037,7 @@ export type GetPageQuery = {
                 }
               | {
                   __typename: 'DocumentRecord'
+                  title?: string | null
                   cloudinaryDocument?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
@@ -10695,6 +10707,7 @@ export const DocumentFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -11273,6 +11286,7 @@ export const TextBlockContentFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -11666,6 +11680,7 @@ export const TextBlockFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -14091,6 +14106,7 @@ export const ConcertDetailFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -15784,6 +15800,7 @@ export const PageFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -16827,6 +16844,7 @@ export const PageDetailFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -17607,7 +17625,7 @@ export const SiteMetadataFragmentDoc = {
   ],
 } as unknown as DocumentNode<SiteMetadataFragment, unknown>
 export const GetEventDocument = {
-  __meta__: { hash: '6f6a2380fcbbbde57bb0b7b8dbb13b19686a778f' },
+  __meta__: { hash: 'b37bdafb40445dc30555b0f464094cb7a65c1e8d' },
   kind: 'Document',
   definitions: [
     {
@@ -18099,6 +18117,7 @@ export const GetEventDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -18771,7 +18790,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '0ca3607005ad43a4b6873e9bc9078f62879de9eb' },
+  __meta__: { hash: '75e128b807e4d65b355ceddae67edc2a2c532450' },
   kind: 'Document',
   definitions: [
     {
@@ -19263,6 +19282,7 @@ export const GetEventPageDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -20100,7 +20120,7 @@ export const GetEventSeoDocument = {
   ],
 } as unknown as DocumentNode<GetEventSeoQuery, GetEventSeoQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '1f13426e6821f0ffd4958617cf3e31f6d8056c61' },
+  __meta__: { hash: '7bd1df6f010e1368b428ec29c52cea36e31ff17f' },
   kind: 'Document',
   definitions: [
     {
@@ -20618,6 +20638,7 @@ export const GetEventsDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -21316,7 +21337,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: 'a79d1f2c6e2cd8266bb82a909ad15b648e05b6a8' },
+  __meta__: { hash: 'bd565ca5da02e5def49a00f89cb2a4d4fa2c07d8' },
   kind: 'Document',
   definitions: [
     {
@@ -21853,6 +21874,7 @@ export const GetFutureEventsDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },
@@ -22707,7 +22729,7 @@ export const GetGeneralInfoDocument = {
   ],
 } as unknown as DocumentNode<GetGeneralInfoQuery, GetGeneralInfoQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: '9fb6a8b60b96e8a24705891ecf27db8a79a44317' },
+  __meta__: { hash: 'd4500d7e29118fbd79e28bef75f2051e6765e791' },
   kind: 'Document',
   definitions: [
     {
@@ -23183,6 +23205,7 @@ export const GetPageDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'cloudinaryDocument' },

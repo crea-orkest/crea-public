@@ -25,6 +25,7 @@ export const image = gql`
 export const document = gql`
   fragment document on DocumentRecord {
     ...identifiable
+    title
     cloudinaryDocument
   }
   ${identifiable}

@@ -357,6 +357,7 @@ type DocumentRecord implements RecordInterface {
   cloudinaryDocument: JsonField
   document: MediaItemRecord
   id: ItemId!
+  title: String
 }
 
 enum FaviconType {

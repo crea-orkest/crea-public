@@ -22,7 +22,7 @@ export const DocumentBlock = ({ record }: Props) => {
   if (!asset?.url) return null
   return (
     <p className={styles.root}>
-      <span className={classNames(styles.title, 'h4')}>{asset.alt}</span>
+      <span className={classNames(styles.title, 'h4')}>{record.title}</span>
       <span className={styles.download}>
         <Button
           href={asset.url}
