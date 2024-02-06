@@ -11,16 +11,18 @@ interface Props {
 }
 
 export const ImageBlock: React.FC<Props> = ({ record }: Props) => {
-  if (!record.item?.title) return null
+  if (!record.cloudinaryImage) return null
   const asset = formatCloudinaryImage(
-    isOfTypeCloudinaryAsset(record.item?.asset) ? record.item?.asset : null
+    isOfTypeCloudinaryAsset(record.cloudinaryImage)
+      ? record.cloudinaryImage
+      : undefined
   )
   if (!asset?.url) return null
   return (
     <Image
       className={styles.image}
       src={asset.url}
-      alt={record.item.title}
+      alt={asset.alt}
       height={asset.height}
       width={asset.width}
       style={{

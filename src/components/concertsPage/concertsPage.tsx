@@ -5,6 +5,8 @@ import { EventListItem } from 'components/eventListItem'
 import { Header } from 'components/header'
 import { LoadMoreEvents } from 'components/loadMoreEvents'
 import { PageContent } from 'components/pageContent'
+import { formatCloudinaryImage } from 'graphql/formatters/formatCloudinaryImage'
+import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
 
 import styles from './styles.module.scss'
 
@@ -49,7 +51,11 @@ export const ConcertsPage = ({
       {header ? (
         <Header
           body={header.body}
-          cover={header.cover}
+          cover={formatCloudinaryImage(
+            isOfTypeCloudinaryAsset(header.cloudinaryCover)
+              ? header.cloudinaryCover
+              : undefined
+          )}
           title={pageData.title || ''}
         />
       ) : (

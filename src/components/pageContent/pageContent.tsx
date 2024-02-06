@@ -4,7 +4,10 @@ import type { PageDetailFragment } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
 import { ContentField } from 'components/contentField'
 import { TwoColumContentField } from 'components/twoColumContentField'
+import { formatCloudinaryImage } from 'graphql/formatters/formatCloudinaryImage'
+import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
 import { Header } from 'components/header'
+
 import styles from './styles.module.scss'
 
 export interface Props {
@@ -14,9 +17,9 @@ export interface Props {
 }
 
 export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
+  if (!items && !pageTitle) return null
   if (!items && pageTitle)
     return <Header title={pageTitle} tag="header" className={styles.header} />
-  if (!items && !pageTitle) return null
 
   return items?.map((item, index) => {
     let header = null
@@ -54,7 +57,11 @@ export const PageContent = ({ sectionClassName, items, pageTitle }: Props) => {
           })}
           title={index === 0 ? pageTitle : undefined}
           body={item.body}
-          cover={item.cover}
+          cover={formatCloudinaryImage(
+            isOfTypeCloudinaryAsset(item.cloudinaryCover)
+              ? item.cloudinaryCover
+              : undefined
+          )}
           tag={index > 0 ? 'section' : 'header'}
         />
       )

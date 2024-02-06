@@ -16,7 +16,7 @@ type Props = {
 export const VideoBlock = ({ record, autoplay, aspectRatio }: Props) => {
   const [hasPlayed, setHasPlayed] = useState(autoplay)
   const binaryAutoplay = autoplay ? 1 : 0
-  const { media: video, thumbnail } = record
+  const { media: video, cloudinaryThumbnail } = record
 
   const toggleVideoPlay = useCallback(() => {
     if (!hasPlayed) {
@@ -32,8 +32,10 @@ export const VideoBlock = ({ record, autoplay, aspectRatio }: Props) => {
     return null
   }
 
-  const asset = formatCloudinaryImage(
-    isOfTypeCloudinaryAsset(thumbnail?.asset) ? thumbnail?.asset : null
+  const thumbnailAsset = formatCloudinaryImage(
+    isOfTypeCloudinaryAsset(cloudinaryThumbnail)
+      ? cloudinaryThumbnail
+      : undefined
   )
 
   const videoUrl = () => {
@@ -60,17 +62,17 @@ export const VideoBlock = ({ record, autoplay, aspectRatio }: Props) => {
       aspectRatio={aspectRatio}
     >
       <figure className={styles.iframeContainer}>
-        {!hasPlayed && asset && (
+        {!hasPlayed && thumbnailAsset && (
           <Image
-            src={asset.url}
-            width={asset.width}
-            height={asset.height}
+            src={thumbnailAsset.url}
+            width={thumbnailAsset.width}
+            height={thumbnailAsset.height}
             className={styles.thumbnail}
             alt=""
           />
         )}
 
-        {!hasPlayed && !thumbnail && video.thumbnailUrl && (
+        {!hasPlayed && !thumbnailAsset && video.thumbnailUrl && (
           // Domain of the video thumbnailUrl is unknown so we use an
           // img tag if the thumbnail is not defined
           // eslint-disable-next-line @next/next/no-img-element

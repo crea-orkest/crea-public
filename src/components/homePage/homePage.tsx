@@ -4,6 +4,8 @@ import type { Event } from 'graphql/types/event'
 import { EventListItem } from 'components/eventListItem'
 import { Header } from 'components/header'
 import { PageContent } from 'components/pageContent'
+import { formatCloudinaryImage } from 'graphql/formatters/formatCloudinaryImage'
+import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
 
 import styles from './styles.module.scss'
 
@@ -24,7 +26,6 @@ export const HomePage = ({ pageData, eventData }: Props) => {
             key={event.id}
             data={event}
             isLast={eventData.length - 1 === index}
-            size="large"
           />
         )
       })}
@@ -43,7 +44,11 @@ export const HomePage = ({ pageData, eventData }: Props) => {
       {header ? (
         <Header
           body={header.body}
-          cover={header.cover}
+          cover={formatCloudinaryImage(
+            isOfTypeCloudinaryAsset(header.cloudinaryCover)
+              ? header.cloudinaryCover
+              : undefined
+          )}
           title={pageData.title || ''}
         />
       ) : (

@@ -24,7 +24,7 @@ export const EventPage = ({ data }: Props) => {
             <Image
               className={classNames(styles.headerImage)}
               src={data.image.url}
-              alt={data.image.description}
+              alt={data.image.alt}
               width={data.image.width ?? 100}
               height={data.image.height ?? 100}
             />
@@ -66,7 +66,7 @@ export const EventPage = ({ data }: Props) => {
                   priority={true}
                   className={classNames(styles.image)}
                   src={data.image.url}
-                  alt={data.image.description}
+                  alt={data.image.alt}
                   width={data.image.width ?? 100}
                   height={data.image.height ?? 100}
                 />

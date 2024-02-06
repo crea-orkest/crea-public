@@ -3,8 +3,7 @@ import Image from 'next/image'
 import classNames from 'classnames'
 import { isEmptyDocument } from 'datocms-structured-text-utils'
 import type { HeaderFragment } from '../../graphql/generated/graphql'
-import { formatCloudinaryImage } from '../../graphql/formatters/formatCloudinaryImage'
-import { isOfTypeCloudinaryAsset } from '../../graphql/types/image'
+import type { Image as CoverImage } from '../../graphql/types/image'
 import { ContentField } from 'components/contentField'
 
 import styles from './styles.module.scss'
@@ -14,7 +13,7 @@ interface Props {
   tag?: ElementType
   title?: string
   body?: HeaderFragment['body']
-  cover?: HeaderFragment['cover']
+  cover?: CoverImage
 }
 
 export const Header = ({
@@ -25,15 +24,10 @@ export const Header = ({
   cover,
 }: Props) => {
   const HeaderTag = tag
-
-  const asset = formatCloudinaryImage(
-    isOfTypeCloudinaryAsset(cover?.asset) ? cover?.asset : null
-  )
-
   return (
     <HeaderTag
       className={classNames(className, styles.header, 'with-background', {
-        [`${styles.withImage}`]: asset?.url,
+        [`${styles.withImage}`]: cover?.url,
         [`${styles.withBody}`]: !isEmptyDocument(body),
       })}
     >
@@ -41,7 +35,7 @@ export const Header = ({
         {title && (
           <h1
             className={classNames({
-              'sr-only': body || (!body && asset?.url),
+              'sr-only': body || (!body && cover?.url),
             })}
           >
             {title}
@@ -49,14 +43,14 @@ export const Header = ({
         )}
         <ContentField data={body} />
       </div>
-      {asset?.url && (
+      {cover?.url && (
         <div className={classNames(styles.headerImageWrapper)}>
           <Image
             className={classNames(styles.headerImage)}
-            alt={cover?.title || asset.title || ''}
-            src={asset.url}
-            width={asset.width || 100}
-            height={asset.height || 100}
+            alt={cover.alt || ''}
+            src={cover.url}
+            width={cover.width || 100}
+            height={cover.height || 100}
           />
           <div className={classNames(styles.background)} />
         </div>
