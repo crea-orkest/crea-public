@@ -4,7 +4,7 @@ exports[`Events component shows all the data 1`] = `
 <div>
   <div>
     <p
-      class="text-small"
+      class="loaderText text-small"
     >
       1
        van 

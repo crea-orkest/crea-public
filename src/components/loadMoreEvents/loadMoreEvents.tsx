@@ -1,9 +1,13 @@
+import classNames from 'classnames'
 import { useState, useRef, useEffect } from 'react'
 import type { Event as EventType } from '../../graphql/types/event'
 import { getEvents } from '../../graphql/getters/getEvents'
 import { useEventsMeta } from 'hooks/useEventsMeta'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
 import { EventListItem } from 'components/eventListItem'
+import { Loader } from 'components/icons/loader'
+
+import styles from './styles.module.scss'
 
 export interface Props {
   initialSkip: number
@@ -68,13 +72,14 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
 
       {numberOfEvents ? (
         <div ref={ref}>
-          <p className="text-small">
+          <p className={classNames(styles.loaderText, 'text-small')}>
             {/* TODO: simplify/fix this logic */}
+            {loading && <Loader className={styles.loader} />}
             {events.length + initialSkip} van {numberOfEvents} concerten
           </p>
         </div>
       ) : (
-        <p className="text-small">...</p>
+        <p className={classNames(styles.loader, 'text-small')}>...</p>
       )}
     </>
   )
