@@ -6,6 +6,7 @@
   gap: map.get(spacing.$rem, 8);
   align-items: flex-end;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .loader {
