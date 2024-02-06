@@ -23,6 +23,7 @@ export const HomePage = ({ pageData, eventData }: Props) => {
         return (
           <EventListItem
             className="content-layout--small"
+            size="large"
             key={event.id}
             data={event}
             isLast={eventData.length - 1 === index}
