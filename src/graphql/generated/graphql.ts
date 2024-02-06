@@ -158,7 +158,6 @@ export type ConcertModelFilter = {
   locations?: InputMaybe<ConcertModelLocationsFieldFilter>
   persons?: InputMaybe<LinksFilter>
   position?: InputMaybe<PositionFilter>
-  poster?: InputMaybe<LinkFilter>
   program?: InputMaybe<LinksFilter>
   seo?: InputMaybe<SeoFilter>
   slug?: InputMaybe<SlugFilter>
@@ -232,7 +231,6 @@ export type ConcertRecord = RecordInterface & {
   locations: Array<LocationItemRecord>
   persons: Array<PersonRecord>
   position?: Maybe<Scalars['IntType']['output']>
-  poster?: Maybe<MediaItemRecord>
   program: Array<MusicRecord>
   seo?: Maybe<SeoField>
   slug?: Maybe<Scalars['String']['output']>
@@ -297,7 +295,6 @@ export type DocumentRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
   cloudinaryDocument?: Maybe<Scalars['JsonField']['output']>
-  document?: Maybe<MediaItemRecord>
   id: Scalars['ItemId']['output']
   title?: Maybe<Scalars['String']['output']>
 }
@@ -521,7 +518,6 @@ export type HeaderRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output']
   body?: Maybe<HeaderModelBodyField>
   cloudinaryCover?: Maybe<Scalars['JsonField']['output']>
-  cover?: Maybe<MediaItemRecord>
   id: Scalars['ItemId']['output']
 }
 
@@ -548,7 +544,6 @@ export type ImageRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output']
   cloudinaryImage?: Maybe<Scalars['JsonField']['output']>
   id: Scalars['ItemId']['output']
-  item?: Maybe<MediaItemRecord>
 }
 
 /** Block of type Afbeelding (image) */
@@ -2153,71 +2148,6 @@ export type LocationRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
 }
 
-export type MediaItemModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<MediaItemModelFilter>>>
-  OR?: InputMaybe<Array<InputMaybe<MediaItemModelFilter>>>
-  _createdAt?: InputMaybe<CreatedAtFilter>
-  _firstPublishedAt?: InputMaybe<PublishedAtFilter>
-  _isValid?: InputMaybe<BooleanFilter>
-  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>
-  _publishedAt?: InputMaybe<PublishedAtFilter>
-  _status?: InputMaybe<StatusFilter>
-  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
-  _updatedAt?: InputMaybe<UpdatedAtFilter>
-  asset?: InputMaybe<JsonFilter>
-  id?: InputMaybe<ItemIdFilter>
-  title?: InputMaybe<StringFilter>
-}
-
-export enum MediaItemModelOrderBy {
-  CreatedAtAsc = '_createdAt_ASC',
-  CreatedAtDesc = '_createdAt_DESC',
-  FirstPublishedAtAsc = '_firstPublishedAt_ASC',
-  FirstPublishedAtDesc = '_firstPublishedAt_DESC',
-  IsValidAsc = '_isValid_ASC',
-  IsValidDesc = '_isValid_DESC',
-  PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
-  PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
-  PublishedAtAsc = '_publishedAt_ASC',
-  PublishedAtDesc = '_publishedAt_DESC',
-  StatusAsc = '_status_ASC',
-  StatusDesc = '_status_DESC',
-  UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
-  UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
-  UpdatedAtAsc = '_updatedAt_ASC',
-  UpdatedAtDesc = '_updatedAt_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC',
-}
-
-/** Record of type Media item (media_item) */
-export type MediaItemRecord = RecordInterface & {
-  __typename?: 'MediaItemRecord'
-  _createdAt: Scalars['DateTime']['output']
-  /** Editing URL */
-  _editingUrl?: Maybe<Scalars['String']['output']>
-  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
-  _isValid: Scalars['BooleanType']['output']
-  _modelApiKey: Scalars['String']['output']
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** Generates SEO and Social card meta tags to be used in your frontend */
-  _seoMetaTags: Array<Tag>
-  _status: ItemStatus
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _updatedAt: Scalars['DateTime']['output']
-  asset?: Maybe<Scalars['JsonField']['output']>
-  id: Scalars['ItemId']['output']
-  title?: Maybe<Scalars['String']['output']>
-}
-
-/** Record of type Media item (media_item) */
-export type MediaItemRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>
-}
-
 /** Block of type Menu item (menu_item) */
 export type MenuItemRecord = RecordInterface & {
   __typename?: 'MenuItemRecord'
@@ -2507,8 +2437,6 @@ export type Query = {
   /** Returns meta information regarding a record collection */
   _allLocationsMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
-  _allMediaItemsMeta: CollectionMetadata
-  /** Returns meta information regarding a record collection */
   _allMusicsMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
   _allPagesMeta: CollectionMetadata
@@ -2523,8 +2451,6 @@ export type Query = {
   /** Returns a collection of records */
   allLocations: Array<LocationRecord>
   /** Returns a collection of records */
-  allMediaItems: Array<MediaItemRecord>
-  /** Returns a collection of records */
   allMusics: Array<MusicRecord>
   /** Returns a collection of records */
   allPages: Array<PageRecord>
@@ -2538,8 +2464,6 @@ export type Query = {
   general?: Maybe<GeneralRecord>
   /** Returns a specific record */
   location?: Maybe<LocationRecord>
-  /** Returns a specific record */
-  mediaItem?: Maybe<MediaItemRecord>
   /** Returns a specific record */
   music?: Maybe<MusicRecord>
   /** Returns a specific record */
@@ -2559,12 +2483,6 @@ export type Query_AllConcertsMetaArgs = {
 /** The query root for this schema */
 export type Query_AllLocationsMetaArgs = {
   filter?: InputMaybe<LocationModelFilter>
-  locale?: InputMaybe<SiteLocale>
-}
-
-/** The query root for this schema */
-export type Query_AllMediaItemsMetaArgs = {
-  filter?: InputMaybe<MediaItemModelFilter>
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -2615,16 +2533,6 @@ export type QueryAllLocationsArgs = {
   first?: InputMaybe<Scalars['IntType']['input']>
   locale?: InputMaybe<SiteLocale>
   orderBy?: InputMaybe<Array<InputMaybe<LocationModelOrderBy>>>
-  skip?: InputMaybe<Scalars['IntType']['input']>
-}
-
-/** The query root for this schema */
-export type QueryAllMediaItemsArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<MediaItemModelFilter>
-  first?: InputMaybe<Scalars['IntType']['input']>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<MediaItemModelOrderBy>>>
   skip?: InputMaybe<Scalars['IntType']['input']>
 }
 
@@ -2688,14 +2596,6 @@ export type QueryLocationArgs = {
   filter?: InputMaybe<LocationModelFilter>
   locale?: InputMaybe<SiteLocale>
   orderBy?: InputMaybe<Array<InputMaybe<LocationModelOrderBy>>>
-}
-
-/** The query root for this schema */
-export type QueryMediaItemArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<MediaItemModelFilter>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<MediaItemModelOrderBy>>>
 }
 
 /** The query root for this schema */
@@ -3398,7 +3298,6 @@ export type VideoRecord = RecordInterface & {
   cloudinaryThumbnail?: Maybe<Scalars['JsonField']['output']>
   id: Scalars['ItemId']['output']
   media?: Maybe<VideoField>
-  thumbnail?: Maybe<MediaItemRecord>
   title?: Maybe<Scalars['String']['output']>
 }
 
@@ -4406,15 +4305,6 @@ type Identifiable_LocationRecord_Fragment = {
   id: string
 }
 
-type Identifiable_MediaItemRecord_Fragment = {
-  __typename: 'MediaItemRecord'
-  _createdAt: string
-  _firstPublishedAt?: string | null
-  _publishedAt?: string | null
-  _updatedAt: string
-  id: string
-}
-
 type Identifiable_MenuItemRecord_Fragment = {
   __typename: 'MenuItemRecord'
   _createdAt: string
@@ -4497,7 +4387,6 @@ export type IdentifiableFragment =
   | Identifiable_ImageRecord_Fragment
   | Identifiable_LocationItemRecord_Fragment
   | Identifiable_LocationRecord_Fragment
-  | Identifiable_MediaItemRecord_Fragment
   | Identifiable_MenuItemRecord_Fragment
   | Identifiable_MusicRecord_Fragment
   | Identifiable_PageRecord_Fragment

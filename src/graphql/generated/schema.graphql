@@ -130,7 +130,6 @@ input ConcertModelFilter {
   cloudinaryPoster: JsonFilter
   locations: ConcertModelLocationsFieldFilter
   persons: LinksFilter
-  poster: LinkFilter
   program: LinksFilter
   seo: SeoFilter
   slug: SlugFilter
@@ -232,7 +231,6 @@ type ConcertRecord implements RecordInterface {
   locations: [LocationItemRecord!]!
   persons: [PersonRecord!]!
   position: IntType
-  poster: MediaItemRecord
   program: [MusicRecord!]!
   seo: SeoField
   slug: String
@@ -355,7 +353,6 @@ type DocumentRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   cloudinaryDocument: JsonField
-  document: MediaItemRecord
   id: ItemId!
   title: String
 }
@@ -700,7 +697,6 @@ type HeaderRecord implements RecordInterface {
   _updatedAt: DateTime!
   body: HeaderModelBodyField
   cloudinaryCover: JsonField
-  cover: MediaItemRecord
   id: ItemId!
 }
 
@@ -734,7 +730,6 @@ type ImageRecord implements RecordInterface {
   _updatedAt: DateTime!
   cloudinaryImage: JsonField
   id: ItemId!
-  item: MediaItemRecord
 }
 
 input ImgixParams {
@@ -2553,78 +2548,6 @@ type LocationRecord implements RecordInterface {
   title: String
 }
 
-input MediaItemModelFilter {
-  _createdAt: CreatedAtFilter
-  id: ItemIdFilter
-  _firstPublishedAt: PublishedAtFilter
-  _publicationScheduledAt: PublishedAtFilter
-  _unpublishingScheduledAt: PublishedAtFilter
-  _publishedAt: PublishedAtFilter
-  _status: StatusFilter
-  _updatedAt: UpdatedAtFilter
-  _isValid: BooleanFilter
-  asset: JsonFilter
-  title: StringFilter
-  OR: [MediaItemModelFilter]
-  AND: [MediaItemModelFilter]
-}
-
-enum MediaItemModelOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  id_ASC
-  id_DESC
-  _firstPublishedAt_ASC
-  _firstPublishedAt_DESC
-  _publicationScheduledAt_ASC
-  _publicationScheduledAt_DESC
-  _unpublishingScheduledAt_ASC
-  _unpublishingScheduledAt_DESC
-  _publishedAt_ASC
-  _publishedAt_DESC
-  _status_ASC
-  _status_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  _isValid_ASC
-  _isValid_DESC
-  title_ASC
-  title_DESC
-}
-
-"""
-Record of type Media item (media_item)
-"""
-type MediaItemRecord implements RecordInterface {
-  _createdAt: DateTime!
-
-  """
-  Editing URL
-  """
-  _editingUrl: String
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-
-  """
-  Generates SEO and Social card meta tags to be used in your frontend
-  """
-  _seoMetaTags(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  asset: JsonField
-  id: ItemId!
-  title: String
-}
-
 """
 Block of type Menu item (menu_item)
 """
@@ -3010,17 +2933,6 @@ type Query {
   """
   Returns meta information regarding a record collection
   """
-  _allMediaItemsMeta(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-    filter: MediaItemModelFilter
-  ): CollectionMetadata!
-
-  """
-  Returns meta information regarding a record collection
-  """
   _allMusicsMeta(
     """
     The locale to use to fetch the field's content
@@ -3130,33 +3042,6 @@ type Query {
     filter: LocationModelFilter
     orderBy: [LocationModelOrderBy] = [_updatedAt_DESC]
   ): [LocationRecord!]!
-
-  """
-  Returns a collection of records
-  """
-  allMediaItems(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-
-    """
-    If you want to fallback to a default translation when a translation has not been found
-    """
-    fallbackLocales: [SiteLocale!]
-
-    """
-    Skip the first results
-    """
-    skip: IntType
-
-    """
-    Limit the number of results
-    """
-    first: IntType = 20
-    filter: MediaItemModelFilter
-    orderBy: [MediaItemModelOrderBy] = [_updatedAt_DESC]
-  ): [MediaItemRecord!]!
 
   """
   Returns a collection of records
@@ -3314,23 +3199,6 @@ type Query {
     filter: LocationModelFilter
     orderBy: [LocationModelOrderBy] = [_updatedAt_DESC]
   ): LocationRecord
-
-  """
-  Returns a specific record
-  """
-  mediaItem(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-
-    """
-    If you want to fallback to a default translation when a translation has not been found
-    """
-    fallbackLocales: [SiteLocale!]
-    filter: MediaItemModelFilter
-    orderBy: [MediaItemModelOrderBy] = [_updatedAt_DESC]
-  ): MediaItemRecord
 
   """
   Returns a specific record
@@ -4493,6 +4361,5 @@ type VideoRecord implements RecordInterface {
   cloudinaryThumbnail: JsonField
   id: ItemId!
   media: VideoField
-  thumbnail: MediaItemRecord
   title: String
 }
