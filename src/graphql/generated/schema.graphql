@@ -127,13 +127,14 @@ input ConcertModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
+  cloudinaryPoster: JsonFilter
+  locations: ConcertModelLocationsFieldFilter
+  persons: LinksFilter
   poster: LinkFilter
   program: LinksFilter
-  persons: LinksFilter
-  slug: SlugFilter
   seo: SeoFilter
+  slug: SlugFilter
   title: StringFilter
-  locations: ConcertModelLocationsFieldFilter
   OR: [ConcertModelFilter]
   AND: [ConcertModelFilter]
 }
@@ -225,6 +226,7 @@ type ConcertRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  cloudinaryPoster: JsonField
   content: [ConcertModelContentField!]!
   id: ItemId!
   locations: [LocationItemRecord!]!
@@ -352,6 +354,7 @@ type DocumentRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  cloudinaryDocument: JsonField
   document: MediaItemRecord
   id: ItemId!
 }
@@ -695,6 +698,7 @@ type HeaderRecord implements RecordInterface {
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
   body: HeaderModelBodyField
+  cloudinaryCover: JsonField
   cover: MediaItemRecord
   id: ItemId!
 }
@@ -727,6 +731,7 @@ type ImageRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  cloudinaryImage: JsonField
   id: ItemId!
   item: MediaItemRecord
 }
@@ -2430,9 +2435,9 @@ input LinksFilter {
 
 input LocationItemModelFilter {
   id: ItemIdFilter
-  ticketLink: StringFilter
   dateTime: DateTimeFilter
   location: LinkFilter
+  ticketLink: StringFilter
   OR: [LocationItemModelFilter]
   AND: [LocationItemModelFilter]
 }
@@ -2481,9 +2486,9 @@ input LocationModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  title: StringFilter
-  addressTitle: StringFilter
   address: LatLonFilter
+  addressTitle: StringFilter
+  title: StringFilter
   OR: [LocationModelFilter]
   AND: [LocationModelFilter]
 }
@@ -2507,10 +2512,10 @@ enum LocationModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  title_ASC
-  title_DESC
   addressTitle_ASC
   addressTitle_DESC
+  title_ASC
+  title_DESC
 }
 
 """
@@ -2761,8 +2766,8 @@ input PageModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  slug: SlugFilter
   seo: SeoFilter
+  slug: SlugFilter
   title: StringFilter
   OR: [PageModelFilter]
   AND: [PageModelFilter]
@@ -3472,6 +3477,7 @@ type ResponsiveImage {
 type SeoField {
   description: String
   image: FileField
+  noIndex: BooleanType
   title: String
   twitterCard: String
 }
@@ -3506,6 +3512,7 @@ type Site {
     fallbackLocales: [SiteLocale!]
   ): GlobalSeoField
   locales: [SiteLocale!]!
+  noIndex: BooleanType
 }
 
 enum SiteLocale {
@@ -4482,6 +4489,7 @@ type VideoRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  cloudinaryThumbnail: JsonField
   id: ItemId!
   media: VideoField
   thumbnail: MediaItemRecord

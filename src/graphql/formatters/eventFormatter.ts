@@ -20,9 +20,12 @@ export const eventFormatter = (
     _updatedAt: event._updatedAt,
     id: event.id,
     title: event.title,
-    image: formatCloudinaryImage(
-      isOfTypeCloudinaryAsset(event.poster?.asset) ? event.poster?.asset : null
-    ),
+    image:
+      formatCloudinaryImage(
+        isOfTypeCloudinaryAsset(event.cloudinaryPoster)
+          ? event.cloudinaryPoster
+          : undefined
+      ) || null,
     persons: event.persons.map((person) => authorFormatter(person)),
     program: event.program
       .map((music) => musicFormatter(music))

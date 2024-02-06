@@ -19,9 +19,9 @@ const documents = {
     types.CallToActionFragmentDoc,
   '\n  fragment colors on ColorField {\n    alpha\n    blue\n    cssRgb\n    green\n    hex\n    red\n  }\n':
     types.ColorsFragmentDoc,
-  '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    persons {\n      ...author\n    }\n    program {\n      ...music\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n  \n':
+  '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    cloudinaryPoster\n    persons {\n      ...author\n    }\n    program {\n      ...music\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n':
     types.ConcertDetailFragmentDoc,
-  '\n  fragment concertDetailSmall on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    program {\n      ...music\n    }\n  }\n  \n  \n  \n  \n':
+  '\n  fragment concertDetailSmall on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    cloudinaryPoster\n    program {\n      ...music\n    }\n  }\n  \n  \n  \n':
     types.ConcertDetailSmallFragmentDoc,
   '\n  fragment concertLink on ConcertRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.ConcertLinkFragmentDoc,
@@ -39,7 +39,7 @@ const documents = {
     types.FocalPointFragmentDoc,
   '\n  fragment generalInfo on GeneralRecord {\n    id\n    title\n    menu {\n      ... on MenuItemRecord {\n        ...menuItem\n      }\n      ... on SubmenuItemRecord {\n        ...submenuItem\n      }\n    }\n  }\n  \n  \n':
     types.GeneralInfoFragmentDoc,
-  '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n':
+  '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cloudinaryCover\n  }\n  \n  \n':
     types.HeaderFragmentDoc,
   '\n  fragment headerBody on HeaderModelBodyField {\n    blocks {\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n    }\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    value\n  }\n  \n  \n  \n':
     types.HeaderBodyFragmentDoc,
@@ -47,11 +47,9 @@ const documents = {
     types.IdentifiableFragmentDoc,
   '\n  fragment responsiveImage on ResponsiveImage {\n    title\n    alt\n    sizes\n    aspectRatio\n    bgColor\n    src\n    height\n    width\n  }\n':
     types.ResponsiveImageFragmentDoc,
-  '\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    asset\n  }\n  \n':
-    types.MediaItemFragmentDoc,
-  '\n  fragment image on ImageRecord {\n    ...identifiable\n    item {\n      ...mediaItem\n    }\n  }\n  \n  \n':
+  '\n  fragment image on ImageRecord {\n    ...identifiable\n    cloudinaryImage\n  }\n  \n':
     types.ImageFragmentDoc,
-  '\n  fragment document on DocumentRecord {\n    ...identifiable\n    document {\n      ...mediaItem\n    }\n  }\n  \n  \n':
+  '\n  fragment document on DocumentRecord {\n    ...identifiable\n    cloudinaryDocument\n  }\n  \n':
     types.DocumentFragmentDoc,
   '\n  fragment location on LocationRecord {\n    id\n    title\n    addressTitle\n    address {\n      ...coordinates\n    }\n  }\n  \n':
     types.LocationFragmentDoc,
@@ -91,7 +89,7 @@ const documents = {
     types.TwoColumFragmentDoc,
   '\n  fragment videoUpload on UploadVideoField {\n    mp4Url\n    muxAssetId\n    muxPlaybackId\n    streamingUrl\n    thumbnailUrl\n  }\n':
     types.VideoUploadFragmentDoc,
-  '\n  fragment video on VideoRecord {\n    ...identifiable\n    title\n    media {\n      ...videoField\n    }\n    thumbnail {\n      ...mediaItem\n    }\n  }\n  \n  \n':
+  '\n  fragment video on VideoRecord {\n    ...identifiable\n    title\n    media {\n      ...videoField\n    }\n    cloudinaryThumbnail\n  }\n  \n':
     types.VideoFragmentDoc,
   '\n  fragment videoField on VideoField {\n    height\n    provider\n    providerUid\n    thumbnailUrl\n    title\n    url\n    width\n  }\n':
     types.VideoFieldFragmentDoc,
@@ -159,14 +157,14 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    persons {\n      ...author\n    }\n    program {\n      ...music\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    persons {\n      ...author\n    }\n    program {\n      ...music\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n  \n']
+  source: '\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    cloudinaryPoster\n    persons {\n      ...author\n    }\n    program {\n      ...music\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n'
+): (typeof documents)['\n  fragment concertDetail on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    cloudinaryPoster\n    persons {\n      ...author\n    }\n    program {\n      ...music\n    }\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment concertDetailSmall on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    program {\n      ...music\n    }\n  }\n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment concertDetailSmall on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    poster {\n      ...mediaItem\n    }\n    program {\n      ...music\n    }\n  }\n  \n  \n  \n  \n']
+  source: '\n  fragment concertDetailSmall on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    cloudinaryPoster\n    program {\n      ...music\n    }\n  }\n  \n  \n  \n'
+): (typeof documents)['\n  fragment concertDetailSmall on ConcertRecord {\n    ...identifiable\n    title\n    slug\n    locations {\n      ...locationItem\n    }\n    cloudinaryPoster\n    program {\n      ...music\n    }\n  }\n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -219,8 +217,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n'
-): (typeof documents)['\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cover {\n      ...mediaItem\n    }\n  }\n  \n  \n  \n']
+  source: '\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cloudinaryCover\n  }\n  \n  \n'
+): (typeof documents)['\n  fragment header on HeaderRecord {\n    ...identifiable\n    body {\n      ...headerBody\n    }\n    cloudinaryCover\n  }\n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -243,20 +241,14 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    asset\n  }\n  \n'
-): (typeof documents)['\n  fragment mediaItem on MediaItemRecord {\n    ...identifiable\n    title\n    asset\n  }\n  \n']
+  source: '\n  fragment image on ImageRecord {\n    ...identifiable\n    cloudinaryImage\n  }\n  \n'
+): (typeof documents)['\n  fragment image on ImageRecord {\n    ...identifiable\n    cloudinaryImage\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment image on ImageRecord {\n    ...identifiable\n    item {\n      ...mediaItem\n    }\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment image on ImageRecord {\n    ...identifiable\n    item {\n      ...mediaItem\n    }\n  }\n  \n  \n']
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(
-  source: '\n  fragment document on DocumentRecord {\n    ...identifiable\n    document {\n      ...mediaItem\n    }\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment document on DocumentRecord {\n    ...identifiable\n    document {\n      ...mediaItem\n    }\n  }\n  \n  \n']
+  source: '\n  fragment document on DocumentRecord {\n    ...identifiable\n    cloudinaryDocument\n  }\n  \n'
+): (typeof documents)['\n  fragment document on DocumentRecord {\n    ...identifiable\n    cloudinaryDocument\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -375,8 +367,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment video on VideoRecord {\n    ...identifiable\n    title\n    media {\n      ...videoField\n    }\n    thumbnail {\n      ...mediaItem\n    }\n  }\n  \n  \n'
-): (typeof documents)['\n  fragment video on VideoRecord {\n    ...identifiable\n    title\n    media {\n      ...videoField\n    }\n    thumbnail {\n      ...mediaItem\n    }\n  }\n  \n  \n']
+  source: '\n  fragment video on VideoRecord {\n    ...identifiable\n    title\n    media {\n      ...videoField\n    }\n    cloudinaryThumbnail\n  }\n  \n'
+): (typeof documents)['\n  fragment video on VideoRecord {\n    ...identifiable\n    title\n    media {\n      ...videoField\n    }\n    cloudinaryThumbnail\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

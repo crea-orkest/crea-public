@@ -14,9 +14,12 @@ export const eventSmallFormatter = (
   return {
     id: event.id,
     title: event.title,
-    image: formatCloudinaryImage(
-      isOfTypeCloudinaryAsset(event.poster?.asset) ? event.poster?.asset : null
-    ),
+    image:
+      formatCloudinaryImage(
+        isOfTypeCloudinaryAsset(event.cloudinaryPoster)
+          ? event.cloudinaryPoster
+          : undefined
+      ) || null,
     program: event.program
       .map((music) => musicFormatter(music))
       .filter(Boolean),

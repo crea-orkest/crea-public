@@ -6,7 +6,7 @@ interface CloudinaryUser {
 }
 
 interface CloudinaryDescription {
-  en?: string | null
+  ['nl-NL']?: string | null
 }
 
 export interface CloudinaryAsset {
@@ -32,8 +32,7 @@ export interface CloudinaryAsset {
 
 export interface Image {
   id: string
-  title: string
-  description: string
+  alt: string
   width?: number
   height?: number
   url: string
