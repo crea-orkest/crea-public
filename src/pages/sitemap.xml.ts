@@ -54,7 +54,7 @@ export async function getServerSideProps({ res }: GetServerSidePropsContext) {
     const { data } = await getPages({ skip: step, first: defaultFirst })
 
     data?.map((item) => {
-      if (!item.slug || !item.indexPage) return
+      if (!item.slug || item.slug === '404' || !item.indexPage) return
 
       item.slug = slugFormatter({ slug: item.slug })
       pages.push(item)
