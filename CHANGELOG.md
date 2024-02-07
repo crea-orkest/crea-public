@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/crea-orkest/crea-public/compare/v2.4.0...v2.4.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* **eventListItem:** no priority to image ([288b711](https://github.com/crea-orkest/crea-public/commit/288b711e07825bdd6678439c0e6b731288392bcc))
+
 ## [2.4.0](https://github.com/crea-orkest/crea-public/compare/v2.3.0...v2.4.0) (2024-02-07)
 
 
