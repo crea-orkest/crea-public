@@ -13,15 +13,6 @@ jest.mock('../../graphql/getters/getEvents', () => {
   }
 })
 
-jest.mock('../../hooks/useEventsMeta', () => {
-  const originalModule = jest.requireActual('../../hooks/useEventsMeta')
-  return {
-    __esModule: true,
-    ...originalModule,
-    useEventsMeta: () => ({ numberOfEvents: 10 }),
-  }
-})
-
 const getEventsMock = jest.mocked(getEvents)
 
 describe('Events component', () => {
@@ -31,7 +22,9 @@ describe('Events component', () => {
       error: undefined,
     })
 
-    const { container } = render(<LoadMoreEvents initialSkip={1} />)
+    const { container } = render(
+      <LoadMoreEvents initialSkip={1} numberOfEvents={10} />
+    )
 
     expect(screen.getByText('1 van 10 concerten')).toBeInTheDocument()
     expect(container).toMatchSnapshot()

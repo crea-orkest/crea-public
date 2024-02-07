@@ -7,7 +7,8 @@ exports[`Events component shows all the data 1`] = `
       class="loaderText text-small"
     >
       1
-       van 
+       van
+       
       10
        concerten
     </p>

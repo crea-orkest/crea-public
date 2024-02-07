@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import { useState, useRef, useEffect } from 'react'
 import type { Event as EventType } from '../../graphql/types/event'
 import { getEvents } from '../../graphql/getters/getEvents'
-import { useEventsMeta } from 'hooks/useEventsMeta'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
 import { EventListItem } from 'components/eventListItem'
 import { Loader } from 'components/icons/loader'
@@ -11,14 +10,14 @@ import styles from './styles.module.scss'
 
 export interface Props {
   initialSkip: number
+  numberOfEvents: number
 }
 
-export const LoadMoreEvents = ({ initialSkip }: Props) => {
+export const LoadMoreEvents = ({ initialSkip, numberOfEvents }: Props) => {
   const [skip, setSkip] = useState(initialSkip)
   const [loading, setLoading] = useState(false)
   const [events, setEvents] = useState<(EventType | undefined)[]>([])
   const ref = useRef<HTMLDivElement>(null)
-  const { numberOfEvents } = useEventsMeta()
   const [entry] = useIntersectionObserver({
     enabled: Boolean(numberOfEvents),
     ref,
@@ -73,9 +72,9 @@ export const LoadMoreEvents = ({ initialSkip }: Props) => {
       {numberOfEvents ? (
         <div ref={ref}>
           <p className={classNames(styles.loaderText, 'text-small')}>
-            {/* TODO: simplify/fix this logic */}
             {loading && <Loader className={styles.loader} />}
-            {events.length + initialSkip} van {numberOfEvents} concerten
+            {Math.min(numberOfEvents, events.length + initialSkip)} van{' '}
+            {numberOfEvents} concerten
           </p>
         </div>
       ) : (
