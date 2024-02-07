@@ -14,16 +14,18 @@ export interface Props {
   pageData: PageFragment
   eventData: Event[]
   numberOfLoadedEvents: number
+  numberOfEvents: number
 }
 
 export const ConcertsPage = ({
   pageData,
   eventData,
   numberOfLoadedEvents,
+  numberOfEvents,
 }: Props) => {
   const events = (
     <div className={classNames(styles.concerts, 'content-layout')}>
-      {eventData?.map((event) => {
+      {eventData?.map((event, index) => {
         if (!event?.id) return
 
         return (
@@ -31,11 +33,18 @@ export const ConcertsPage = ({
             className="content-layout--small"
             key={event.id}
             data={event}
+            isLast={
+              eventData.length <= numberOfLoadedEvents &&
+              eventData.length - 1 === index
+            }
           />
         )
       })}
 
-      <LoadMoreEvents initialSkip={numberOfLoadedEvents} />
+      <LoadMoreEvents
+        initialSkip={numberOfLoadedEvents}
+        numberOfEvents={numberOfEvents}
+      />
     </div>
   )
 
