@@ -137,7 +137,6 @@ export const EventListItem = ({
           {showImage && data.image?.url && (
             <div className={classNames(styles.imageContainer)}>
               <Image
-                priority={true} // TODO: only for the first item
                 className={classNames(styles.image)}
                 src={data.image.url}
                 alt={data.image.alt}
