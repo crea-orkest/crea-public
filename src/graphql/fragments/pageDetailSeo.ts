@@ -10,6 +10,7 @@ export const pageDetailSeo = gql`
     _seoMetaTags {
       ...tag
     }
+    indexPage
     seo {
       ...seoField
     }

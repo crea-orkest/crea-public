@@ -2272,6 +2272,7 @@ export type PageModelFilter = {
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
   _updatedAt?: InputMaybe<UpdatedAtFilter>
   id?: InputMaybe<ItemIdFilter>
+  indexPage?: InputMaybe<BooleanFilter>
   seo?: InputMaybe<SeoFilter>
   slug?: InputMaybe<SlugFilter>
   title?: InputMaybe<StringFilter>
@@ -2296,6 +2297,8 @@ export enum PageModelOrderBy {
   UpdatedAtDesc = '_updatedAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  IndexPageAsc = 'indexPage_ASC',
+  IndexPageDesc = 'indexPage_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
 }
@@ -2318,6 +2321,7 @@ export type PageRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output']
   content: Array<PageModelContentField>
   id: Scalars['ItemId']['output']
+  indexPage?: Maybe<Scalars['BooleanType']['output']>
   seo?: Maybe<SeoField>
   slug?: Maybe<Scalars['String']['output']>
   title?: Maybe<Scalars['String']['output']>
@@ -5497,6 +5501,7 @@ export type PageDetailFragment = {
 export type PageDetailSeoFragment = {
   __typename: 'PageRecord'
   title?: string | null
+  indexPage?: boolean | null
   _createdAt: string
   _firstPublishedAt?: string | null
   _publishedAt?: string | null
@@ -9253,6 +9258,7 @@ export type GetPageSeoQuery = {
   page?: {
     __typename: 'PageRecord'
     title?: string | null
+    indexPage?: boolean | null
     _createdAt: string
     _firstPublishedAt?: string | null
     _publishedAt?: string | null
@@ -9285,6 +9291,7 @@ export type GetPagesQuery = {
   __typename?: 'Query'
   allPages: Array<{
     __typename: 'PageRecord'
+    indexPage?: boolean | null
     title?: string | null
     slug?: string | null
     _createdAt: string
@@ -17351,6 +17358,7 @@ export const PageDetailSeoFragmentDoc = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'indexPage' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'seo' },
@@ -23727,7 +23735,7 @@ export const GetPageDocument = {
   ],
 } as unknown as DocumentNode<GetPageQuery, GetPageQueryVariables>
 export const GetPageSeoDocument = {
-  __meta__: { hash: '55bf93684267f9682afdb0f44011be54dc504175' },
+  __meta__: { hash: 'a6df041338553f78711d868a58e818dc1e9d2b45' },
   kind: 'Document',
   definitions: [
     {
@@ -23873,6 +23881,7 @@ export const GetPageSeoDocument = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'indexPage' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'seo' },
@@ -23892,7 +23901,7 @@ export const GetPageSeoDocument = {
   ],
 } as unknown as DocumentNode<GetPageSeoQuery, GetPageSeoQueryVariables>
 export const GetPagesDocument = {
-  __meta__: { hash: 'ca272263dd3de7afa339e7dec4ec14da84082ba6' },
+  __meta__: { hash: '3a164ce360001bfda8583c766451272c7015f08f' },
   kind: 'Document',
   definitions: [
     {
@@ -23967,6 +23976,7 @@ export const GetPagesDocument = {
                   kind: 'FragmentSpread',
                   name: { kind: 'Name', value: 'pageLink' },
                 },
+                { kind: 'Field', name: { kind: 'Name', value: 'indexPage' } },
               ],
             },
           },

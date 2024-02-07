@@ -13,17 +13,22 @@ const defaultFirst = 100
 type Route = {
   url: string
   lastModified: string
+  __typename: PageLinkFragment['__typename'] | Event['__typename']
 }
 
 function generateSiteMap(routes: Route[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
       ${routes
-        .map(({ url, lastModified }) => {
+        .map(({ url, lastModified, __typename }) => {
           return `
         <url>
           <loc>${url}</loc>
           <lastmod>${lastModified}</lastmod>
+          <changefreq>${
+            __typename === 'ConcertRecord' ? 'monthly' : 'daily'
+          }</changefreq>
+          <priority>0.7</priority>
         </url>
       `
         })
@@ -49,7 +54,7 @@ export async function getServerSideProps({ res }: GetServerSidePropsContext) {
     const { data } = await getPages({ skip: step, first: defaultFirst })
 
     data?.map((item) => {
-      if (!item.slug || item.slug === '404') return
+      if (!item.slug || item.slug === '404' || !item.indexPage) return
 
       item.slug = slugFormatter({ slug: item.slug })
       pages.push(item)
@@ -70,7 +75,8 @@ export async function getServerSideProps({ res }: GetServerSidePropsContext) {
     })
   }
 
-  const routes: Route[] = pages.map(({ slug, _updatedAt }) => ({
+  const routes: Route[] = pages.map(({ slug, _updatedAt, __typename }) => ({
+    __typename,
     url: `${URL}${slug}`,
     lastModified: new Date(_updatedAt).toISOString(),
   }))
