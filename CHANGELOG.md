@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.0](https://github.com/crea-orkest/crea-public/compare/v2.3.0...v2.4.0) (2024-02-07)
+
+
+### Features
+
+* **graphql:** add indexPage ([4243a28](https://github.com/crea-orkest/crea-public/commit/4243a28c051f98abe07d3356a314c6bc56aa303c))
+* **sitemap.xml:** implement indexPage ([de6d61f](https://github.com/crea-orkest/crea-public/commit/de6d61f7fb545dd3a812f98d763d211169941bc0))
+
+
+### Bug Fixes
+
+* **sitemap.xml.ts:** add slug 404 check ([7c0c099](https://github.com/crea-orkest/crea-public/commit/7c0c099b9a0dc4e02f32e85ac3c8f7571101d1b4))
+
 ## [2.3.0](https://github.com/crea-orkest/crea-public/compare/v2.2.0...v2.3.0) (2024-02-07)
 
 
