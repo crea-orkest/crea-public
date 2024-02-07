@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.3.0](https://github.com/crea-orkest/crea-public/compare/v2.2.0...v2.3.0) (2024-02-07)
+
+
+### Features
+
+* **components:** implement new assets ([3f0810c](https://github.com/crea-orkest/crea-public/commit/3f0810c92479768f38fcc35633e9c2846e2a398e))
+* **documentBlock:** add title ([ac90e76](https://github.com/crea-orkest/crea-public/commit/ac90e76fbd457fad6dd8fa44b4a8241fcbcf4045))
+* **generated:** add generated schemas for new graphql and types ([058af68](https://github.com/crea-orkest/crea-public/commit/058af680728f2eb93e7c14d6c46f97f549659f87))
+* **graphql:** update generated types ([d341e1d](https://github.com/crea-orkest/crea-public/commit/d341e1d7ef61734e2c372c1d27792a12320a733e))
+* **loader:** implement loader in loadMoreEvents ([c22d653](https://github.com/crea-orkest/crea-public/commit/c22d653d2abf70a0a228d4bc41344a7b7f13a837))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/exchange-graphcache to v6.4.1 ([c33c57f](https://github.com/crea-orkest/crea-public/commit/c33c57fb272d8ed095ed5b12d4a6240b426e0c60))
+* **homePage:** event size ([d1b43df](https://github.com/crea-orkest/crea-public/commit/d1b43dfc54344492c9a17c09ccea1d6664b57e37))
+* **loadMoreEvents:** styling position of text ([c8aa9d4](https://github.com/crea-orkest/crea-public/commit/c8aa9d41fde51f278c6c46883bbc302484f525c2))
+
 ## [2.2.0](https://github.com/crea-orkest/crea-public/compare/v2.1.2...v2.2.0) (2024-01-31)
 
 
