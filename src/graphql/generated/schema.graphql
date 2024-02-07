@@ -127,13 +127,13 @@ input ConcertModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  cloudinaryPoster: JsonFilter
+  program: LinksFilter
   locations: ConcertModelLocationsFieldFilter
   persons: LinksFilter
-  program: LinksFilter
-  seo: SeoFilter
-  slug: SlugFilter
   title: StringFilter
+  cloudinaryPoster: JsonFilter
+  slug: SlugFilter
+  seo: SeoFilter
   OR: [ConcertModelFilter]
   AND: [ConcertModelFilter]
 }
@@ -2431,9 +2431,9 @@ input LinksFilter {
 
 input LocationItemModelFilter {
   id: ItemIdFilter
+  ticketLink: StringFilter
   dateTime: DateTimeFilter
   location: LinkFilter
-  ticketLink: StringFilter
   OR: [LocationItemModelFilter]
   AND: [LocationItemModelFilter]
 }
@@ -2482,9 +2482,9 @@ input LocationModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  address: LatLonFilter
-  addressTitle: StringFilter
   title: StringFilter
+  addressTitle: StringFilter
+  address: LatLonFilter
   OR: [LocationModelFilter]
   AND: [LocationModelFilter]
 }
@@ -2508,10 +2508,10 @@ enum LocationModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  addressTitle_ASC
-  addressTitle_DESC
   title_ASC
   title_DESC
+  addressTitle_ASC
+  addressTitle_DESC
 }
 
 """
@@ -2690,8 +2690,9 @@ input PageModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  seo: SeoFilter
   slug: SlugFilter
+  seo: SeoFilter
+  indexPage: BooleanFilter
   title: StringFilter
   OR: [PageModelFilter]
   AND: [PageModelFilter]
@@ -2716,6 +2717,8 @@ enum PageModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
+  indexPage_ASC
+  indexPage_DESC
   title_ASC
   title_DESC
 }
@@ -2750,6 +2753,7 @@ type PageRecord implements RecordInterface {
   _updatedAt: DateTime!
   content: [PageModelContentField!]!
   id: ItemId!
+  indexPage: BooleanType
   seo: SeoField
   slug: String
   title: String

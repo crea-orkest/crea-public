@@ -63,7 +63,7 @@ const documents = {
     types.PageFragmentDoc,
   '\n  fragment pageDetail on PageRecord {\n    ...identifiable\n    title\n    slug\n    content {\n      ... on HeaderRecord {\n        ...header\n      }\n      ... on TextBlockRecord {\n        ...textBlock\n      }\n      ... on TwoColumnRecord {\n        ...twoColum\n      }\n    }\n  }\n  \n  \n  \n  \n':
     types.PageDetailFragmentDoc,
-  '\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n':
+  '\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    indexPage\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n':
     types.PageDetailSeoFragmentDoc,
   '\n  fragment pageLink on PageRecord {\n    ...identifiable\n    title\n    slug\n  }\n  \n':
     types.PageLinkFragmentDoc,
@@ -111,7 +111,7 @@ const documents = {
     types.GetPageDocument,
   '\n  query getPageSeo($slug: String!) {\n    page(filter: { slug: { eq: $slug } }) {\n      ...pageDetailSeo\n    }\n  }\n  \n':
     types.GetPageSeoDocument,
-  '\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...pageLink\n    }\n  }\n  \n':
+  '\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...pageLink\n      indexPage\n    }\n  }\n  \n':
     types.GetPagesDocument,
   '\n  query getPagesMeta {\n    _allPagesMeta {\n      count\n    }\n  }\n':
     types.GetPagesMetaDocument,
@@ -289,8 +289,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n'
-): (typeof documents)['\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n']
+  source: '\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    indexPage\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n'
+): (typeof documents)['\n  fragment pageDetailSeo on PageRecord {\n    ...identifiable\n    title\n    _seoMetaTags {\n      ...tag\n    }\n    indexPage\n    seo {\n      ...seoField\n    }\n  }\n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -433,8 +433,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...pageLink\n    }\n  }\n  \n'
-): (typeof documents)['\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...pageLink\n    }\n  }\n  \n']
+  source: '\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...pageLink\n      indexPage\n    }\n  }\n  \n'
+): (typeof documents)['\n  query getPages($skip: IntType, $first: IntType, $order: [PageModelOrderBy]) {\n    allPages(first: $first, skip: $skip, orderBy: $order) {\n      ...pageLink\n      indexPage\n    }\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
