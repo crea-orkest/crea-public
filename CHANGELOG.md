@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.2](https://github.com/crea-orkest/crea-public/compare/v2.4.1...v2.4.2) (2024-02-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-google-maps/api to v2.19.3 ([a2acf18](https://github.com/crea-orkest/crea-public/commit/a2acf183c2d1eded8de4dbbf16004cf574b05e89))
+
 ## [2.4.1](https://github.com/crea-orkest/crea-public/compare/v2.4.0...v2.4.1) (2024-02-07)
 
 
