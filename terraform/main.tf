@@ -22,7 +22,7 @@ terraform {
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "4.24.0"
+      version = "4.25.0"
     }
     vercel = {
       source  = "vercel/vercel"
