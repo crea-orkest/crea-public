@@ -2,14 +2,14 @@ import { useState, type FormEvent } from 'react'
 import classNames from 'classnames'
 import { Button } from 'components/button'
 import { Loader } from 'components/icons/loader'
-
-import styles from './styles.module.scss'
 import { ArrowRight } from 'components/icons/arrow-right'
 
-enum Cost {
-  'Goede vriend' = 30,
-  'Bijzondere vriend' = 50,
-  'Ambassadeur' = 100,
+import styles from './styles.module.scss'
+
+const cost = {
+  'Goede vriend': 30,
+  'Bijzondere vriend': 50,
+  Ambassadeur: 100,
 }
 
 interface Props {
@@ -69,7 +69,7 @@ export const MailchimpForm = ({ title }: Props) => {
             <span className={styles.lowercase}>{subscription.subscribed}</span>.
           </p>
           <p>
-            We verzoeken u <strong>€{Cost[subscription.subscribed]},-</strong>{' '}
+            We verzoeken u <strong>€{cost[subscription.subscribed]},-</strong>{' '}
             over te maken op rekeningnummer{' '}
             <strong>NL64 INGB 0000 3569 92</strong> t.n.v.{' '}
             <strong>Vereniging Vrienden van het CREA Orkest</strong> onder
@@ -222,7 +222,7 @@ export const MailchimpForm = ({ title }: Props) => {
           <label className={styles.radioLabel} htmlFor="mce-FRIEND0">
             <span className="h5">Goede vriend</span>
             <span className={classNames('text-small', styles.radioLabelSuffix)}>
-              € {Cost['Goede vriend']},-
+              € {cost['Goede vriend']},-
             </span>
           </label>
           <input
@@ -236,7 +236,7 @@ export const MailchimpForm = ({ title }: Props) => {
           <label className={styles.radioLabel} htmlFor="mce-FRIEND1">
             <span className="h5">Bijzondere vriend</span>
             <span className={classNames('text-small', styles.radioLabelSuffix)}>
-              € {Cost['Bijzondere vriend']},-
+              € {cost['Bijzondere vriend']},-
             </span>
           </label>
           <input
@@ -250,7 +250,7 @@ export const MailchimpForm = ({ title }: Props) => {
           <label className={styles.radioLabel} htmlFor="mce-FRIEND2">
             <span className="h5">Ambassadeur</span>
             <span className={classNames('text-small', styles.radioLabelSuffix)}>
-              € {Cost['Ambassadeur']},-
+              € {cost['Ambassadeur']},-
             </span>
           </label>
         </div>
