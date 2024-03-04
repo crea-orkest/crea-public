@@ -10,6 +10,7 @@ export const Loader = ({ className }: { className?: string }) => {
       height="80"
       viewBox="0 0 55 80"
       xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
     >
       <g transform="matrix(1 0 0 -1 0 80)">
         <rect width="10" height="20" rx="3">

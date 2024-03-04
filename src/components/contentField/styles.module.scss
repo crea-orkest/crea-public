@@ -7,6 +7,10 @@
   margin: map.get(spacing.$rem, 16) 0;
 }
 
+.structuredText .spacingLarge {
+  margin: map.get(spacing.$rem, 64) 0;
+}
+
 .structuredText > p:first-child,
 .structuredText > ul:first-child,
 .structuredText > .spacing:first-child {
@@ -15,7 +19,8 @@
 
 .structuredText > p:last-child,
 .structuredText > ul:last-child,
-.structuredText > .spacing:last-child {
+.structuredText > .spacing:last-child,
+.structuredText > .spacingLarge:last-child {
   margin-bottom: 0;
 }
 

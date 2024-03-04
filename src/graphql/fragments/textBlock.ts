@@ -6,6 +6,7 @@ import { identifiable } from './identifiable'
 import { document, image } from './image'
 import { pageLink } from './pageLink'
 import { video } from './video'
+import { mailchimpForm } from './mailchimpForm'
 
 export const textBlockContent = gql`
   fragment textBlockContent on TextBlockModelContentField {
@@ -34,6 +35,9 @@ export const textBlockContent = gql`
       ... on CallToActionRecord {
         ...callToAction
       }
+      ... on MailchimpFormRecord {
+        ...mailchimpForm
+      }
     }
   }
   ${concertLink}
@@ -43,6 +47,7 @@ export const textBlockContent = gql`
   ${image}
   ${video}
   ${callToAction}
+  ${mailchimpForm}
 `
 
 export const leftContent = gql`
