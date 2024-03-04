@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.5.0](https://github.com/crea-orkest/crea-public/compare/v2.4.2...v2.5.0) (2024-03-04)
+
+
+### Features
+
+* **button:** add button on button ([f893cea](https://github.com/crea-orkest/crea-public/commit/f893cea4fe3902050b5b81f8b2a7d7018cf1c6be))
+* **components:** add and implement mailchimpForm ([9ebee51](https://github.com/crea-orkest/crea-public/commit/9ebee5136ce731ce29d0e39a06d35746634d6721))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/core to v4.3.0 ([35105a0](https://github.com/crea-orkest/crea-public/commit/35105a080495243f1995abc3fbef1d795aa7fd22))
+* **deps:** update dependency @urql/exchange-graphcache to v6.5.0 ([407148c](https://github.com/crea-orkest/crea-public/commit/407148c7d42557f67c30fc779c15ca1cdc12f891))
+* **deps:** update dependency next to v14.1.1 ([f2138a6](https://github.com/crea-orkest/crea-public/commit/f2138a66d0b0d9e1a9e9301236b5181051168979))
+* **deps:** update dependency react-datocms to v4.2.0 ([e8ffd80](https://github.com/crea-orkest/crea-public/commit/e8ffd80dceba8ef428b4c365ab22c83531e5aeff))
+* **mailchimpForm:** make cost an object ([d80b465](https://github.com/crea-orkest/crea-public/commit/d80b4656bf3c90d4cdc8ebcc0cf0651fe57a7e57))
+* **schema-check:** only on click ([05af676](https://github.com/crea-orkest/crea-public/commit/05af676c71e3f40f22c5a8d2d5f26b72c3b77330))
+
 ## [2.4.2](https://github.com/crea-orkest/crea-public/compare/v2.4.1...v2.4.2) (2024-02-17)
 
 
