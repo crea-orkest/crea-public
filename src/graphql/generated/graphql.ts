@@ -13,7 +13,7 @@ export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
 }
 export type MakeEmpty<
   T extends { [key: string]: unknown },
-  K extends keyof T
+  K extends keyof T,
 > = { [_ in K]?: never }
 export type Incremental<T> =
   | T
@@ -2148,6 +2148,31 @@ export type LocationRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
 }
 
+/** Block of type Word vriend formulier (mailchimp_form) */
+export type MailchimpFormRecord = RecordInterface & {
+  __typename?: 'MailchimpFormRecord'
+  _createdAt: Scalars['DateTime']['output']
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
+  _isValid: Scalars['BooleanType']['output']
+  _modelApiKey: Scalars['String']['output']
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>
+  _status: ItemStatus
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
+  _updatedAt: Scalars['DateTime']['output']
+  id: Scalars['ItemId']['output']
+  title?: Maybe<Scalars['String']['output']>
+}
+
+/** Block of type Word vriend formulier (mailchimp_form) */
+export type MailchimpFormRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>
+}
+
 /** Block of type Menu item (menu_item) */
 export type MenuItemRecord = RecordInterface & {
   __typename?: 'MenuItemRecord'
@@ -2816,6 +2841,7 @@ export type TextBlockModelContentBlocksField =
   | ConcertListRecord
   | DocumentRecord
   | ImageRecord
+  | MailchimpFormRecord
   | VideoRecord
 
 export type TextBlockModelContentField = {
@@ -3232,13 +3258,32 @@ export type UploadUpdatedAtFilter = {
 
 export type UploadVideoField = {
   __typename?: 'UploadVideoField'
+  alt?: Maybe<Scalars['String']['output']>
+  blurUpThumb?: Maybe<Scalars['String']['output']>
+  blurhash?: Maybe<Scalars['String']['output']>
   duration?: Maybe<Scalars['Int']['output']>
   framerate?: Maybe<Scalars['Int']['output']>
+  height: Scalars['IntType']['output']
   mp4Url?: Maybe<Scalars['String']['output']>
   muxAssetId: Scalars['String']['output']
   muxPlaybackId: Scalars['String']['output']
   streamingUrl: Scalars['String']['output']
+  thumbhash?: Maybe<Scalars['String']['output']>
   thumbnailUrl: Scalars['String']['output']
+  title?: Maybe<Scalars['String']['output']>
+  width: Scalars['IntType']['output']
+}
+
+export type UploadVideoFieldAltArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>
+  locale?: InputMaybe<SiteLocale>
+}
+
+export type UploadVideoFieldBlurUpThumbArgs = {
+  imgixParams?: InputMaybe<ImgixParams>
+  punch?: Scalars['Float']['input']
+  quality?: Scalars['Int']['input']
+  size?: Scalars['Int']['input']
 }
 
 export type UploadVideoFieldMp4UrlArgs = {
@@ -3248,6 +3293,11 @@ export type UploadVideoFieldMp4UrlArgs = {
 
 export type UploadVideoFieldThumbnailUrlArgs = {
   format?: InputMaybe<MuxThumbnailFormatType>
+}
+
+export type UploadVideoFieldTitleArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>
+  locale?: InputMaybe<SiteLocale>
 }
 
 /** Specifies how to filter by width */
@@ -3597,6 +3647,15 @@ export type ConcertDetailFragment = {
             | {
                 __typename: 'ImageRecord'
                 cloudinaryImage?: unknown | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'MailchimpFormRecord'
+                title?: string | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
                 _publishedAt?: string | null
@@ -4309,6 +4368,15 @@ type Identifiable_LocationRecord_Fragment = {
   id: string
 }
 
+type Identifiable_MailchimpFormRecord_Fragment = {
+  __typename: 'MailchimpFormRecord'
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
+}
+
 type Identifiable_MenuItemRecord_Fragment = {
   __typename: 'MenuItemRecord'
   _createdAt: string
@@ -4391,6 +4459,7 @@ export type IdentifiableFragment =
   | Identifiable_ImageRecord_Fragment
   | Identifiable_LocationItemRecord_Fragment
   | Identifiable_LocationRecord_Fragment
+  | Identifiable_MailchimpFormRecord_Fragment
   | Identifiable_MenuItemRecord_Fragment
   | Identifiable_MusicRecord_Fragment
   | Identifiable_PageRecord_Fragment
@@ -4461,6 +4530,16 @@ export type LocationItemFragment = {
       longitude: number
     } | null
   } | null
+}
+
+export type MailchimpFormFragment = {
+  __typename: 'MailchimpFormRecord'
+  title?: string | null
+  _createdAt: string
+  _firstPublishedAt?: string | null
+  _publishedAt?: string | null
+  _updatedAt: string
+  id: string
 }
 
 export type MenuItemFragment = {
@@ -4686,6 +4765,15 @@ export type PageFragment = {
             | {
                 __typename: 'ImageRecord'
                 cloudinaryImage?: unknown | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'MailchimpFormRecord'
+                title?: string | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
                 _publishedAt?: string | null
@@ -5192,6 +5280,15 @@ export type PageDetailFragment = {
             | {
                 __typename: 'ImageRecord'
                 cloudinaryImage?: unknown | null
+                _createdAt: string
+                _firstPublishedAt?: string | null
+                _publishedAt?: string | null
+                _updatedAt: string
+                id: string
+              }
+            | {
+                __typename: 'MailchimpFormRecord'
+                title?: string | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
                 _publishedAt?: string | null
@@ -5713,6 +5810,15 @@ export type TextBlockContentFragment = {
         id: string
       }
     | {
+        __typename: 'MailchimpFormRecord'
+        title?: string | null
+        _createdAt: string
+        _firstPublishedAt?: string | null
+        _publishedAt?: string | null
+        _updatedAt: string
+        id: string
+      }
+    | {
         __typename: 'VideoRecord'
         title?: string | null
         cloudinaryThumbnail?: unknown | null
@@ -6125,6 +6231,15 @@ export type TextBlockFragment = {
       | {
           __typename: 'ImageRecord'
           cloudinaryImage?: unknown | null
+          _createdAt: string
+          _firstPublishedAt?: string | null
+          _publishedAt?: string | null
+          _updatedAt: string
+          id: string
+        }
+      | {
+          __typename: 'MailchimpFormRecord'
+          title?: string | null
           _createdAt: string
           _firstPublishedAt?: string | null
           _publishedAt?: string | null
@@ -6714,6 +6829,15 @@ export type GetEventQuery = {
                   id: string
                 }
               | {
+                  __typename: 'MailchimpFormRecord'
+                  title?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
                   __typename: 'VideoRecord'
                   title?: string | null
                   cloudinaryThumbnail?: unknown | null
@@ -7250,6 +7374,15 @@ export type GetEventPageQuery = {
               | {
                   __typename: 'ImageRecord'
                   cloudinaryImage?: unknown | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'MailchimpFormRecord'
+                  title?: string | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -7833,6 +7966,15 @@ export type GetEventsQuery = {
                   id: string
                 }
               | {
+                  __typename: 'MailchimpFormRecord'
+                  title?: string | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
                   __typename: 'VideoRecord'
                   title?: string | null
                   cloudinaryThumbnail?: unknown | null
@@ -8381,6 +8523,15 @@ export type GetFutureEventsQuery = {
               | {
                   __typename: 'ImageRecord'
                   cloudinaryImage?: unknown | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'MailchimpFormRecord'
+                  title?: string | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -8942,6 +9093,15 @@ export type GetPageQuery = {
               | {
                   __typename: 'ImageRecord'
                   cloudinaryImage?: unknown | null
+                  _createdAt: string
+                  _firstPublishedAt?: string | null
+                  _publishedAt?: string | null
+                  _updatedAt: string
+                  id: string
+                }
+              | {
+                  __typename: 'MailchimpFormRecord'
+                  title?: string | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -10778,6 +10938,48 @@ export const VideoFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<VideoFragment, unknown>
+export const MailchimpFormFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'identifiable' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'RecordInterface' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_createdAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_firstPublishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_publishedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: '_updatedAt' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<MailchimpFormFragment, unknown>
 export const TextBlockContentFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -10915,6 +11117,22 @@ export const TextBlockContentFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -11301,6 +11519,24 @@ export const TextBlockContentFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'variant' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
         ],
       },
     },
@@ -11720,6 +11956,24 @@ export const TextBlockFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -11852,6 +12106,22 @@ export const TextBlockFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -14085,6 +14355,24 @@ export const ConcertDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -14217,6 +14505,22 @@ export const ConcertDetailFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -15779,6 +16083,24 @@ export const PageFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -15911,6 +16233,22 @@ export const PageFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -16823,6 +17161,24 @@ export const PageDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -16955,6 +17311,22 @@ export const PageDetailFragmentDoc = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -17522,7 +17894,7 @@ export const SiteMetadataFragmentDoc = {
   ],
 } as unknown as DocumentNode<SiteMetadataFragment, unknown>
 export const GetEventDocument = {
-  __meta__: { hash: 'b37bdafb40445dc30555b0f464094cb7a65c1e8d' },
+  __meta__: { hash: '707d009686ec5b1024110c20375af30029a31c4d' },
   kind: 'Document',
   definitions: [
     {
@@ -18097,6 +18469,24 @@ export const GetEventDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -18229,6 +18619,22 @@ export const GetEventDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -18687,7 +19093,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '75e128b807e4d65b355ceddae67edc2a2c532450' },
+  __meta__: { hash: '5b63753b62b11e1277cd68c9c46ba31bb5a6ba02' },
   kind: 'Document',
   definitions: [
     {
@@ -19262,6 +19668,24 @@ export const GetEventPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -19394,6 +19818,22 @@ export const GetEventPageDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -20017,7 +20457,7 @@ export const GetEventSeoDocument = {
   ],
 } as unknown as DocumentNode<GetEventSeoQuery, GetEventSeoQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '7bd1df6f010e1368b428ec29c52cea36e31ff17f' },
+  __meta__: { hash: 'b84c00a88ad21c39999846f0590c1841bdeeafd8' },
   kind: 'Document',
   definitions: [
     {
@@ -20618,6 +21058,24 @@ export const GetEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -20750,6 +21208,22 @@ export const GetEventsDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -21234,7 +21708,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: 'bd565ca5da02e5def49a00f89cb2a4d4fa2c07d8' },
+  __meta__: { hash: '83ef223b102f60410b82dcf5849830b3f36d8b50' },
   kind: 'Document',
   definitions: [
     {
@@ -21854,6 +22328,24 @@ export const GetFutureEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -21986,6 +22478,22 @@ export const GetFutureEventsDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },
@@ -22626,7 +23134,7 @@ export const GetGeneralInfoDocument = {
   ],
 } as unknown as DocumentNode<GetGeneralInfoQuery, GetGeneralInfoQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: 'd4500d7e29118fbd79e28bef75f2051e6765e791' },
+  __meta__: { hash: 'c4d90f198896e63a342ac1cea7ac57a196c7b651' },
   kind: 'Document',
   definitions: [
     {
@@ -23185,6 +23693,24 @@ export const GetPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'mailchimpForm' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'MailchimpFormRecord' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'FragmentSpread',
+            name: { kind: 'Name', value: 'identifiable' },
+          },
+          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'textBlockContent' },
       typeCondition: {
         kind: 'NamedType',
@@ -23317,6 +23843,22 @@ export const GetPageDocument = {
                       {
                         kind: 'FragmentSpread',
                         name: { kind: 'Name', value: 'callToAction' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'MailchimpFormRecord' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: { kind: 'Name', value: 'mailchimpForm' },
                       },
                     ],
                   },

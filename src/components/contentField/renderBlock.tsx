@@ -6,6 +6,7 @@ import type {
   DocumentFragment,
   EventBlockFragment,
   ImageFragment,
+  MailchimpFormFragment,
   VideoFragment,
 } from '../../graphql/generated/graphql'
 import { eventSmallFormatter } from 'graphql/formatters/eventSmallFormatter'
@@ -15,6 +16,7 @@ import { ImageBlock } from 'components/imageBlock'
 import { VideoBlock } from 'components/videoBlock'
 import { EventListItem } from 'components/eventListItem'
 import { FutureEvents } from 'components/futureEvents'
+import { MailchimpForm } from 'components/mailchimpForm'
 
 import styles from './styles.module.scss'
 
@@ -26,6 +28,7 @@ export const renderBlock = ({
   | VideoFragment
   | DocumentFragment
   | CallToActionFragment
+  | MailchimpFormFragment
   | Record
 >) => {
   if (isOfType<EventBlockFragment>(record, 'ConcertListRecord')) {
@@ -78,6 +81,14 @@ export const renderBlock = ({
     return (
       <div className={styles.spacing}>
         <CallToAction record={record} />
+      </div>
+    )
+  }
+
+  if (isOfType<MailchimpFormFragment>(record, 'MailchimpFormRecord')) {
+    return (
+      <div className={styles.spacingLarge}>
+        <MailchimpForm title={record.title || ''} />
       </div>
     )
   }

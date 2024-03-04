@@ -55,6 +55,8 @@ const documents = {
     types.LocationFragmentDoc,
   '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n  }\n  \n':
     types.LocationItemFragmentDoc,
+  '\n  fragment mailchimpForm on MailchimpFormRecord {\n    ...identifiable\n    title\n  }\n  \n':
+    types.MailchimpFormFragmentDoc,
   '\n  fragment menuItem on MenuItemRecord {\n    id\n    label\n    link {\n      ...pageLink\n    }\n  }\n  \n':
     types.MenuItemFragmentDoc,
   '\n  fragment music on MusicRecord {\n    id\n    title\n    composer\n  }\n':
@@ -77,7 +79,7 @@ const documents = {
     types.SubmenuItemFragmentDoc,
   '\n  fragment tag on Tag {\n    attributes\n    content\n    tag\n  }\n':
     types.TagFragmentDoc,
-  '\n  fragment textBlockContent on TextBlockModelContentField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks {\n      ... on ConcertListRecord {\n        ...eventBlock\n      }\n      ... on DocumentRecord {\n        ...document\n      }\n      ... on ImageRecord {\n        ...image\n      }\n      ... on VideoRecord {\n        ...video\n      }\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n':
+  '\n  fragment textBlockContent on TextBlockModelContentField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks {\n      ... on ConcertListRecord {\n        ...eventBlock\n      }\n      ... on DocumentRecord {\n        ...document\n      }\n      ... on ImageRecord {\n        ...image\n      }\n      ... on VideoRecord {\n        ...video\n      }\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n      ... on MailchimpFormRecord {\n        ...mailchimpForm\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n  \n':
     types.TextBlockContentFragmentDoc,
   '\n  fragment leftContent on TwoColumnModelLeftContentField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks {\n      ... on ConcertListRecord {\n        ...eventBlock\n      }\n      ... on ImageRecord {\n        ...image\n      }\n      ... on VideoRecord {\n        ...video\n      }\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n':
     types.LeftContentFragmentDoc,
@@ -265,6 +267,12 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
+  source: '\n  fragment mailchimpForm on MailchimpFormRecord {\n    ...identifiable\n    title\n  }\n  \n'
+): (typeof documents)['\n  fragment mailchimpForm on MailchimpFormRecord {\n    ...identifiable\n    title\n  }\n  \n']
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(
   source: '\n  fragment menuItem on MenuItemRecord {\n    id\n    label\n    link {\n      ...pageLink\n    }\n  }\n  \n'
 ): (typeof documents)['\n  fragment menuItem on MenuItemRecord {\n    id\n    label\n    link {\n      ...pageLink\n    }\n  }\n  \n']
 /**
@@ -331,8 +339,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment textBlockContent on TextBlockModelContentField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks {\n      ... on ConcertListRecord {\n        ...eventBlock\n      }\n      ... on DocumentRecord {\n        ...document\n      }\n      ... on ImageRecord {\n        ...image\n      }\n      ... on VideoRecord {\n        ...video\n      }\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n'
-): (typeof documents)['\n  fragment textBlockContent on TextBlockModelContentField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks {\n      ... on ConcertListRecord {\n        ...eventBlock\n      }\n      ... on DocumentRecord {\n        ...document\n      }\n      ... on ImageRecord {\n        ...image\n      }\n      ... on VideoRecord {\n        ...video\n      }\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n']
+  source: '\n  fragment textBlockContent on TextBlockModelContentField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks {\n      ... on ConcertListRecord {\n        ...eventBlock\n      }\n      ... on DocumentRecord {\n        ...document\n      }\n      ... on ImageRecord {\n        ...image\n      }\n      ... on VideoRecord {\n        ...video\n      }\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n      ... on MailchimpFormRecord {\n        ...mailchimpForm\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n  \n'
+): (typeof documents)['\n  fragment textBlockContent on TextBlockModelContentField {\n    value\n    links {\n      ... on ConcertRecord {\n        ...concertLink\n      }\n      ... on PageRecord {\n        ...pageLink\n      }\n    }\n    blocks {\n      ... on ConcertListRecord {\n        ...eventBlock\n      }\n      ... on DocumentRecord {\n        ...document\n      }\n      ... on ImageRecord {\n        ...image\n      }\n      ... on VideoRecord {\n        ...video\n      }\n      ... on CallToActionRecord {\n        ...callToAction\n      }\n      ... on MailchimpFormRecord {\n        ...mailchimpForm\n      }\n    }\n  }\n  \n  \n  \n  \n  \n  \n  \n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

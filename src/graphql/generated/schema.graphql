@@ -112,7 +112,7 @@ type ConcertListRecord implements RecordInterface {
 }
 
 union ConcertModelContentField =
-    HeaderRecord
+  | HeaderRecord
   | TextBlockRecord
   | TwoColumnRecord
 
@@ -127,13 +127,13 @@ input ConcertModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  program: LinksFilter
+  cloudinaryPoster: JsonFilter
   locations: ConcertModelLocationsFieldFilter
   persons: LinksFilter
-  title: StringFilter
-  cloudinaryPoster: JsonFilter
-  slug: SlugFilter
+  program: LinksFilter
   seo: SeoFilter
+  slug: SlugFilter
+  title: StringFilter
   OR: [ConcertModelFilter]
   AND: [ConcertModelFilter]
 }
@@ -2431,9 +2431,9 @@ input LinksFilter {
 
 input LocationItemModelFilter {
   id: ItemIdFilter
-  ticketLink: StringFilter
   dateTime: DateTimeFilter
   location: LinkFilter
+  ticketLink: StringFilter
   OR: [LocationItemModelFilter]
   AND: [LocationItemModelFilter]
 }
@@ -2482,9 +2482,9 @@ input LocationModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  title: StringFilter
-  addressTitle: StringFilter
   address: LatLonFilter
+  addressTitle: StringFilter
+  title: StringFilter
   OR: [LocationModelFilter]
   AND: [LocationModelFilter]
 }
@@ -2508,10 +2508,10 @@ enum LocationModelOrderBy {
   _updatedAt_DESC
   _isValid_ASC
   _isValid_DESC
-  title_ASC
-  title_DESC
   addressTitle_ASC
   addressTitle_DESC
+  title_ASC
+  title_DESC
 }
 
 """
@@ -2544,6 +2544,38 @@ type LocationRecord implements RecordInterface {
   _updatedAt: DateTime!
   address: LatLonField
   addressTitle: String
+  id: ItemId!
+  title: String
+}
+
+"""
+Block of type Word vriend formulier (mailchimp_form)
+"""
+type MailchimpFormRecord implements RecordInterface {
+  _createdAt: DateTime!
+
+  """
+  Editing URL
+  """
+  _editingUrl: String
+  _firstPublishedAt: DateTime
+  _isValid: BooleanType!
+  _modelApiKey: String!
+  _publicationScheduledAt: DateTime
+  _publishedAt: DateTime
+
+  """
+  Generates SEO and Social card meta tags to be used in your frontend
+  """
+  _seoMetaTags(
+    """
+    The locale to use to fetch the field's content
+    """
+    locale: SiteLocale
+  ): [Tag!]!
+  _status: ItemStatus!
+  _unpublishingScheduledAt: DateTime
+  _updatedAt: DateTime!
   id: ItemId!
   title: String
 }
@@ -2690,9 +2722,9 @@ input PageModelFilter {
   _status: StatusFilter
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
-  slug: SlugFilter
-  seo: SeoFilter
   indexPage: BooleanFilter
+  seo: SeoFilter
+  slug: SlugFilter
   title: StringFilter
   OR: [PageModelFilter]
   AND: [PageModelFilter]
@@ -3538,10 +3570,11 @@ type Tag {
 }
 
 union TextBlockModelContentBlocksField =
-    CallToActionRecord
+  | CallToActionRecord
   | ConcertListRecord
   | DocumentRecord
   | ImageRecord
+  | MailchimpFormRecord
   | VideoRecord
 
 type TextBlockModelContentField {
@@ -3585,7 +3618,7 @@ type TextBlockRecord implements RecordInterface {
 }
 
 union TwoColumnModelLeftContentBlocksField =
-    CallToActionRecord
+  | CallToActionRecord
   | ConcertListRecord
   | ImageRecord
   | VideoRecord
@@ -3599,7 +3632,7 @@ type TwoColumnModelLeftContentField {
 union TwoColumnModelLeftContentLinksField = ConcertRecord | PageRecord
 
 union TwoColumnModelRightContentBlocksField =
-    CallToActionRecord
+  | CallToActionRecord
   | ConcertListRecord
   | ImageRecord
   | VideoRecord
@@ -4259,8 +4292,42 @@ input UploadUpdatedAtFilter {
 }
 
 type UploadVideoField {
+  alt(
+    """
+    The locale to use to fetch the field's content
+    """
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String
+  blurUpThumb(
+    """
+    Controls the "punch" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)
+    """
+    punch: Float! = 1
+
+    """
+    Maximum image dimension (defaults to 24px)
+    """
+    size: Int! = 24
+
+    """
+    Image quality (defaults to 70%)
+    """
+    quality: Int! = 70
+
+    """
+    Imgix transformations to apply to the image
+    """
+    imgixParams: ImgixParams
+  ): String
+  blurhash: String
   duration: Int
   framerate: Int
+  height: IntType!
   mp4Url(
     """
     Pick highest resolution available up to the specified argument
@@ -4275,12 +4342,25 @@ type UploadVideoField {
   muxAssetId: String!
   muxPlaybackId: String!
   streamingUrl: String!
+  thumbhash: String
   thumbnailUrl(
     """
     The file extension of the requested image format. Either png, jpg or gif
     """
     format: MuxThumbnailFormatType = jpg
   ): String!
+  title(
+    """
+    The locale to use to fetch the field's content
+    """
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String
+  width: IntType!
 }
 
 """
