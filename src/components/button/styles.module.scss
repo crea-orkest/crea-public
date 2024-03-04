@@ -10,9 +10,16 @@
   align-items: center;
   gap: map.get(spacing.$rem, 8);
   padding: map.get(spacing.$rem, 12) map.get(spacing.$rem, 32);
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 
   text-decoration: none;
   border-radius: map.get(spacing.$rem, 32);
+
+  appearance: none;
+  border: none;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -80,5 +87,21 @@
     .suffix {
       color: colors.$primary;
     }
+  }
+}
+
+.button.disabled,
+.button:disabled {
+  background-color: colors.$grey;
+  cursor: auto;
+  pointer-events: none;
+
+  .suffix {
+    color: colors.$light;
+  }
+
+  &:hover,
+  &:focus {
+    color: colors.$background;
   }
 }

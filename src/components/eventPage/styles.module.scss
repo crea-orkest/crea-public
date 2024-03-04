@@ -190,14 +190,18 @@ $sidebar-translate: 50px;
 
 .root .pageContent {
   padding-top: calc(
-    map.get(spacing.$rem, layout.$default-mobile-spacing) -
-      map.get(spacing.$rem, 24)
+    map.get(spacing.$rem, layout.$default-mobile-spacing) - map.get(
+        spacing.$rem,
+        24
+      )
   );
 
   @media screen and (min-width: breakpoints.$sm) {
     padding-top: calc(
-      map.get(spacing.$rem, layout.$default-desktop-spacing) -
-        map.get(spacing.$rem, 32)
+      map.get(spacing.$rem, layout.$default-desktop-spacing) - map.get(
+          spacing.$rem,
+          32
+        )
     );
   }
 }

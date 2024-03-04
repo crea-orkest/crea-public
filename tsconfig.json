@@ -5,7 +5,7 @@
       "components/*": ["components/*"],
       "graphql/*": ["graphql/*"],
       "utils/*": ["utils/*"],
-      "hooks/*": ["hooks/*"]
+      "hooks/*": ["hooks/*"],
     },
     "lib": ["ESNext", "DOM", "WebWorker", "DOM.Iterable"],
     "allowJs": true,
@@ -36,16 +36,16 @@
     "types": ["node"],
     "plugins": [
       {
-        "name": "next"
-      }
-    ]
+        "name": "next",
+      },
+    ],
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "next.config.js"
+    "next.config.js",
   ],
-  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"]
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"],
 }
