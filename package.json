@@ -12,7 +12,7 @@
     "lint:turbo": "turbo run lint",
     "lint:js": "eslint . --fix",
     "lint:js:turbo": "turbo run lint:js",
-    "lint:styles": "prettier . --write --cache --loglevel silent --list-different",
+    "lint:styles": "prettier . --write --cache --log-level silent --list-different",
     "lint:styles:turbo": "turbo run lint:styles",
     "lint:typescript": "tsc",
     "lint:typescript:turbo": "turbo run lint:typescript",

@@ -6,11 +6,13 @@ export default async function subscribe(
 ) {
   const { MAILCHIMP_SUBSCRIBE_URL } = process.env
 
-  const formData = { ...req.body }
+  const formData = req.body
   const data = new URLSearchParams()
-  for (const [key, value] of Object.entries(formData)) {
-    data.append(key, value as string)
+  for (const [key, value] of Object.entries(req.body)) {
+    data.append(key, String(value ?? ''))
   }
+
+  console.log({ req, res, MAILCHIMP_SUBSCRIBE_URL, data })
 
   if (!MAILCHIMP_SUBSCRIBE_URL) {
     return res.status(500).json({
