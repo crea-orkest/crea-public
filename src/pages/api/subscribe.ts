@@ -12,8 +12,6 @@ export default async function subscribe(
     data.append(key, String(value ?? ''))
   }
 
-  console.log({ req, res, MAILCHIMP_SUBSCRIBE_URL, data })
-
   if (!MAILCHIMP_SUBSCRIBE_URL) {
     return res.status(500).json({
       error:
