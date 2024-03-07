@@ -1,5 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
+
 export default async function subscribe(
   req: NextApiRequest,
   res: NextApiResponse
@@ -28,7 +34,11 @@ export default async function subscribe(
       body: data,
     })
 
+    console.log(response.body)
+
     const htmlPage = await response.text()
+
+    console.log(htmlPage)
 
     if (htmlPage.includes('Subscription Confirmed')) {
       res.status(200).json({
