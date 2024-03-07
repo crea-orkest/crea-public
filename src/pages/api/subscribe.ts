@@ -1,11 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
-
 export default async function subscribe(
   req: NextApiRequest,
   res: NextApiResponse
@@ -13,7 +7,7 @@ export default async function subscribe(
   const { MAILCHIMP_SUBSCRIBE_URL } = process.env
 
   const formData = req.body
-  const data = new URLSearchParams()
+  const data = new FormData()
   for (const [key, value] of Object.entries(req.body)) {
     data.append(key, String(value ?? ''))
   }
