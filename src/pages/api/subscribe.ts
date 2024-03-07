@@ -6,12 +6,6 @@ export default async function subscribe(
 ) {
   const { MAILCHIMP_SUBSCRIBE_URL } = process.env
 
-  const formData = req.body
-  const data = new FormData()
-  for (const [key, value] of Object.entries(req.body)) {
-    data.append(key, String(value ?? ''))
-  }
-
   if (!MAILCHIMP_SUBSCRIBE_URL) {
     return res.status(500).json({
       error:
@@ -25,21 +19,16 @@ export default async function subscribe(
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       method: 'POST',
-      body: data,
+      body: new URLSearchParams(req.body),
     })
 
-    console.log(response.body)
-
-    const htmlPage = await response.text()
-
-    console.log(htmlPage)
-
-    if (htmlPage.includes('Subscription Confirmed')) {
+    // skip check if confirmed
+    if (response.status === 200) {
       res.status(200).json({
-        subscribed: formData.FRIEND,
-        fname: formData.FNAME,
-        email: formData.EMAIL,
-        lname: formData.LNAME,
+        subscribed: req.body.FRIEND,
+        fname: req.body.FNAME,
+        email: req.body.EMAIL,
+        lname: req.body.LNAME,
       })
     } else {
       res.status(400).json({
