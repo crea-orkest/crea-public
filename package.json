@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@apollo/rover": "0.22.0",
-    "@commitlint/cli": "19.1.0",
+    "@commitlint/cli": "19.2.0",
     "@commitlint/config-conventional": "19.1.0",
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.2.4",
