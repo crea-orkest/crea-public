@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.5.1](https://github.com/crea-orkest/crea-public/compare/v2.5.0...v2.5.1) (2024-03-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-datocms to v4.2.1 ([13ddef1](https://github.com/crea-orkest/crea-public/commit/13ddef1ae85dae38f5ebd701cb3fb1daee6e22a7))
+* **deps:** update dependency react-datocms to v4.2.2 ([6a3edae](https://github.com/crea-orkest/crea-public/commit/6a3edaee777c95bd1a9eaceb0ecddc0995688bcb))
+* **deps:** update dependency react-datocms to v5 ([9c1db1e](https://github.com/crea-orkest/crea-public/commit/9c1db1e9a2fb58d726338ac1de6c42547abee21e))
+* **node.js.yml:** only use node 20 builds ([e788768](https://github.com/crea-orkest/crea-public/commit/e788768852d8672a6dc742e95f3643ce6df34239))
+
 ## [2.5.0](https://github.com/crea-orkest/crea-public/compare/v2.4.2...v2.5.0) (2024-03-04)
 
 
