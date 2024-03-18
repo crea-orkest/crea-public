@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.6.0](https://github.com/crea-orkest/crea-public/compare/v2.5.2...v2.6.0) (2024-03-18)
+
+
+### Features
+
+* **event:** add new music and extraInfo properties for events ([a7bfd26](https://github.com/crea-orkest/crea-public/commit/a7bfd26dcec59811d21de7745ac257edf17c923d))
+* **footer.tsx:** add link for address to google maps ([f2bf001](https://github.com/crea-orkest/crea-public/commit/f2bf0016c79cb9f436abb29c584b5b029c798a67))
+* **graphql:** remove some author and music queries and use music and extraInfo properties ([43d75b9](https://github.com/crea-orkest/crea-public/commit/43d75b96361fc2f0321f343e1d918e428b650881))
+
+
+### Bug Fixes
+
+* **eventFormatter.test.ts:** use null for startTime and ticketLink ([425ee26](https://github.com/crea-orkest/crea-public/commit/425ee26a6a53cc93f8a3e6a0746cc098274929af))
+* **locationItemFormatter:** add ability to have no datetime ([9039017](https://github.com/crea-orkest/crea-public/commit/903901747f9fbc9700d02bc6d25f4ba1d15797de))
+
 ## [2.5.2](https://github.com/crea-orkest/crea-public/compare/v2.5.1...v2.5.2) (2024-03-18)
 
 
