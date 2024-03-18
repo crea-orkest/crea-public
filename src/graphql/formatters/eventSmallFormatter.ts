@@ -1,7 +1,6 @@
 import type { ConcertDetailSmallFragment } from '../generated/graphql'
 import type { EventSmall } from '../types/event'
 import { locationItemFormatter } from './locationItemFormatter'
-import { musicFormatter } from './musicFormatter'
 import { slugFormatter } from 'utils/slugFormatter'
 import { isOfTypeCloudinaryAsset } from '../types/image'
 import { formatCloudinaryImage } from './formatCloudinaryImage'
@@ -20,9 +19,7 @@ export const eventSmallFormatter = (
           ? event.cloudinaryPoster
           : undefined
       ) || null,
-    program: event.program
-      .map((music) => musicFormatter(music))
-      .filter(Boolean),
+    music: event.music as { [key: string]: string },
     locations: event.locations
       .map((location) => locationItemFormatter(location))
       .filter(Boolean),

@@ -2,7 +2,6 @@ import { type TypedDocumentNode, gql } from '@urql/core'
 
 import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
-import { music } from './music'
 
 export const concertDetailSmall: TypedDocumentNode = gql`
   fragment concertDetailSmall on ConcertRecord {
@@ -13,11 +12,8 @@ export const concertDetailSmall: TypedDocumentNode = gql`
       ...locationItem
     }
     cloudinaryPoster
-    program {
-      ...music
-    }
+    music
   }
   ${identifiable}
   ${locationItem}
-  ${music}
 `

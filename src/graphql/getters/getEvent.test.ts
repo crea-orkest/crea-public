@@ -30,7 +30,8 @@ describe('getEvent', () => {
           title: 'another concert',
           slug: 'another-concert',
           locations: [],
-          program: [],
+          music: {},
+          extraInfo: {},
           poster: {
             id: '72577339',
             alt: null,
@@ -41,7 +42,6 @@ describe('getEvent', () => {
             video: null,
             __typename: 'FileField',
           },
-          persons: [],
         },
       },
       operation: {
@@ -67,8 +67,8 @@ describe('getEvent', () => {
       id: '186234305',
       image: null,
       locations: [],
-      persons: [],
-      program: [],
+      music: {},
+      extraInfo: {},
       content: null,
       title: 'another concert',
       url: '/concerten/another-concert',
