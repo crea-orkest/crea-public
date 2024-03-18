@@ -54,24 +54,27 @@ export const EventListItem = ({
       </h2>
       {(data.locations.length > 0 ||
         data.image?.url ||
-        data.program.length > 0) && (
+        (data.music && Object.entries(data.music).length > 0)) && (
         <div className={styles.content}>
           <div>
-            {showProgram && data.program.length > 0 && (
-              <ul className={styles.program}>
-                {data.program.map((item) => {
-                  if (!item?.id) return null
-                  return (
-                    <li key={item.id}>
-                      <span className={styles.programTitle}>
-                        {item.composer}
-                      </span>{' '}
-                      — {item.title}
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
+            {showProgram &&
+              data.music &&
+              Object.entries(data.music).length > 0 && (
+                <ul className={styles.program}>
+                  {Object.entries(data.music).map(
+                    ([composer, title], index) => {
+                      return (
+                        <li key={index}>
+                          <span className={styles.programTitle}>
+                            {composer}
+                          </span>{' '}
+                          — {title}
+                        </li>
+                      )
+                    }
+                  )}
+                </ul>
+              )}
             {data.locations?.length > 0 ? (
               <ul className={styles.locations}>
                 {data.locations.map((item) => {

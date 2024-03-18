@@ -97,6 +97,7 @@ $padding-large-left: map.get(spacing.$rem, 40);
   background-color: colors.$secondary-light;
   flex-shrink: 0;
   max-width: fit-content;
+  margin-bottom: map.get(spacing.$rem, 16);
 
   @media screen and (min-width: breakpoints.$sm) {
     width: $image-width;
@@ -156,7 +157,6 @@ $padding-large-left: map.get(spacing.$rem, 40);
 .hasImage .eventLink {
   justify-content: flex-end;
   max-width: $image-width;
-  margin-top: map.get(spacing.$rem, 16);
 
   @media screen and (min-width: breakpoints.$sm) {
     max-width: initial;
@@ -183,9 +183,8 @@ $padding-large-left: map.get(spacing.$rem, 40);
   }
 
   .imageContainer {
-    margin-bottom: map.get(spacing.$rem, 24);
-
     @media screen and (min-width: breakpoints.$sm) {
+      margin-bottom: map.get(spacing.$rem, 24);
       width: $image-large-width;
       height: $image-large-height;
     }
@@ -232,14 +231,6 @@ $padding-large-left: map.get(spacing.$rem, 40);
   .locationLinkIcon {
     width: 1.5rem;
     height: 1.5rem;
-  }
-
-  .eventLink {
-    margin-top: map.get(spacing.$rem, 24);
-
-    @media screen and (min-width: breakpoints.$sm) {
-      margin-top: 0;
-    }
   }
 }
 
