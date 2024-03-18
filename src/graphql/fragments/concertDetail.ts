@@ -1,11 +1,9 @@
 import { type TypedDocumentNode, gql } from '@urql/core'
 
-import { author } from './author'
 import { identifiable } from './identifiable'
 import { locationItem } from './locationItem'
 import { textBlock, twoColum } from './textBlock'
 import { header } from './header'
-import { music } from './music'
 
 export const concertDetail: TypedDocumentNode = gql`
   fragment concertDetail on ConcertRecord {
@@ -16,12 +14,8 @@ export const concertDetail: TypedDocumentNode = gql`
       ...locationItem
     }
     cloudinaryPoster
-    persons {
-      ...author
-    }
-    program {
-      ...music
-    }
+    music
+    extraInfo
     content {
       ... on HeaderRecord {
         ...header
@@ -36,8 +30,6 @@ export const concertDetail: TypedDocumentNode = gql`
   }
   ${identifiable}
   ${locationItem}
-  ${music}
-  ${author}
   ${header}
   ${textBlock}
   ${twoColum}

@@ -128,9 +128,9 @@ input ConcertModelFilter {
   _updatedAt: UpdatedAtFilter
   _isValid: BooleanFilter
   cloudinaryPoster: JsonFilter
+  extraInfo: JsonFilter
   locations: ConcertModelLocationsFieldFilter
-  persons: LinksFilter
-  program: LinksFilter
+  music: JsonFilter
   seo: SeoFilter
   slug: SlugFilter
   title: StringFilter
@@ -227,11 +227,11 @@ type ConcertRecord implements RecordInterface {
   _updatedAt: DateTime!
   cloudinaryPoster: JsonField
   content: [ConcertModelContentField!]!
+  extraInfo: JsonField
   id: ItemId!
   locations: [LocationItemRecord!]!
-  persons: [PersonRecord!]!
+  music: JsonField
   position: IntType
-  program: [MusicRecord!]!
   seo: SeoField
   slug: String
   title: String
@@ -2399,36 +2399,6 @@ input LinkFilter {
   exists: BooleanType
 }
 
-"""
-Specifies how to filter Multiple-links fields
-"""
-input LinksFilter {
-  """
-  Search for records with an exact match. The specified values must be Record IDs
-  """
-  eq: [ItemId]
-
-  """
-  Filter records linked to all of the specified records. The specified values must be Record IDs
-  """
-  allIn: [ItemId]
-
-  """
-  Filter records linked to at least one of the specified records. The specified values must be Record IDs
-  """
-  anyIn: [ItemId]
-
-  """
-  Filter records not linked to any of the specified records. The specified values must be Record IDs
-  """
-  notIn: [ItemId]
-
-  """
-  Filter records with the specified field defined (i.e. with any value) or not
-  """
-  exists: BooleanType
-}
-
 input LocationItemModelFilter {
   id: ItemIdFilter
   dateTime: DateTimeFilter
@@ -2615,80 +2585,6 @@ type MenuItemRecord implements RecordInterface {
 
 scalar MetaTagAttributes
 
-input MusicModelFilter {
-  _createdAt: CreatedAtFilter
-  id: ItemIdFilter
-  _firstPublishedAt: PublishedAtFilter
-  _publicationScheduledAt: PublishedAtFilter
-  _unpublishingScheduledAt: PublishedAtFilter
-  _publishedAt: PublishedAtFilter
-  _status: StatusFilter
-  _updatedAt: UpdatedAtFilter
-  _isValid: BooleanFilter
-  composer: StringFilter
-  title: StringFilter
-  OR: [MusicModelFilter]
-  AND: [MusicModelFilter]
-}
-
-enum MusicModelOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  id_ASC
-  id_DESC
-  _firstPublishedAt_ASC
-  _firstPublishedAt_DESC
-  _publicationScheduledAt_ASC
-  _publicationScheduledAt_DESC
-  _unpublishingScheduledAt_ASC
-  _unpublishingScheduledAt_DESC
-  _publishedAt_ASC
-  _publishedAt_DESC
-  _status_ASC
-  _status_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  _isValid_ASC
-  _isValid_DESC
-  composer_ASC
-  composer_DESC
-  title_ASC
-  title_DESC
-}
-
-"""
-Record of type Muziekstukken (music)
-"""
-type MusicRecord implements RecordInterface {
-  _createdAt: DateTime!
-
-  """
-  Editing URL
-  """
-  _editingUrl: String
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-
-  """
-  Generates SEO and Social card meta tags to be used in your frontend
-  """
-  _seoMetaTags(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  composer: String
-  id: ItemId!
-  title: String
-}
-
 enum MuxThumbnailFormatType {
   jpg
   png
@@ -2789,80 +2685,6 @@ type PageRecord implements RecordInterface {
   seo: SeoField
   slug: String
   title: String
-}
-
-input PersonModelFilter {
-  _createdAt: CreatedAtFilter
-  id: ItemIdFilter
-  _firstPublishedAt: PublishedAtFilter
-  _publicationScheduledAt: PublishedAtFilter
-  _unpublishingScheduledAt: PublishedAtFilter
-  _publishedAt: PublishedAtFilter
-  _status: StatusFilter
-  _updatedAt: UpdatedAtFilter
-  _isValid: BooleanFilter
-  name: StringFilter
-  role: StringFilter
-  OR: [PersonModelFilter]
-  AND: [PersonModelFilter]
-}
-
-enum PersonModelOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  id_ASC
-  id_DESC
-  _firstPublishedAt_ASC
-  _firstPublishedAt_DESC
-  _publicationScheduledAt_ASC
-  _publicationScheduledAt_DESC
-  _unpublishingScheduledAt_ASC
-  _unpublishingScheduledAt_DESC
-  _publishedAt_ASC
-  _publishedAt_DESC
-  _status_ASC
-  _status_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  _isValid_ASC
-  _isValid_DESC
-  name_ASC
-  name_DESC
-  role_ASC
-  role_DESC
-}
-
-"""
-Record of type Personen (person)
-"""
-type PersonRecord implements RecordInterface {
-  _createdAt: DateTime!
-
-  """
-  Editing URL
-  """
-  _editingUrl: String
-  _firstPublishedAt: DateTime
-  _isValid: BooleanType!
-  _modelApiKey: String!
-  _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
-
-  """
-  Generates SEO and Social card meta tags to be used in your frontend
-  """
-  _seoMetaTags(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-  ): [Tag!]!
-  _status: ItemStatus!
-  _unpublishingScheduledAt: DateTime
-  _updatedAt: DateTime!
-  id: ItemId!
-  name: String
-  role: String
 }
 
 """
@@ -2969,34 +2791,12 @@ type Query {
   """
   Returns meta information regarding a record collection
   """
-  _allMusicsMeta(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-    filter: MusicModelFilter
-  ): CollectionMetadata!
-
-  """
-  Returns meta information regarding a record collection
-  """
   _allPagesMeta(
     """
     The locale to use to fetch the field's content
     """
     locale: SiteLocale
     filter: PageModelFilter
-  ): CollectionMetadata!
-
-  """
-  Returns meta information regarding a record collection
-  """
-  _allPeopleMeta(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-    filter: PersonModelFilter
   ): CollectionMetadata!
 
   """
@@ -3082,33 +2882,6 @@ type Query {
   """
   Returns a collection of records
   """
-  allMusics(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-
-    """
-    If you want to fallback to a default translation when a translation has not been found
-    """
-    fallbackLocales: [SiteLocale!]
-
-    """
-    Skip the first results
-    """
-    skip: IntType
-
-    """
-    Limit the number of results
-    """
-    first: IntType = 20
-    filter: MusicModelFilter
-    orderBy: [MusicModelOrderBy] = [_updatedAt_DESC]
-  ): [MusicRecord!]!
-
-  """
-  Returns a collection of records
-  """
   allPages(
     """
     The locale to use to fetch the field's content
@@ -3132,33 +2905,6 @@ type Query {
     filter: PageModelFilter
     orderBy: [PageModelOrderBy] = [_updatedAt_DESC]
   ): [PageRecord!]!
-
-  """
-  Returns a collection of records
-  """
-  allPeople(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-
-    """
-    If you want to fallback to a default translation when a translation has not been found
-    """
-    fallbackLocales: [SiteLocale!]
-
-    """
-    Skip the first results
-    """
-    skip: IntType
-
-    """
-    Limit the number of results
-    """
-    first: IntType = 20
-    filter: PersonModelFilter
-    orderBy: [PersonModelOrderBy] = [_updatedAt_DESC]
-  ): [PersonRecord!]!
 
   """
   Returns a collection of assets
@@ -3239,23 +2985,6 @@ type Query {
   """
   Returns a specific record
   """
-  music(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-
-    """
-    If you want to fallback to a default translation when a translation has not been found
-    """
-    fallbackLocales: [SiteLocale!]
-    filter: MusicModelFilter
-    orderBy: [MusicModelOrderBy] = [_updatedAt_DESC]
-  ): MusicRecord
-
-  """
-  Returns a specific record
-  """
   page(
     """
     The locale to use to fetch the field's content
@@ -3269,23 +2998,6 @@ type Query {
     filter: PageModelFilter
     orderBy: [PageModelOrderBy] = [_updatedAt_DESC]
   ): PageRecord
-
-  """
-  Returns a specific record
-  """
-  person(
-    """
-    The locale to use to fetch the field's content
-    """
-    locale: SiteLocale
-
-    """
-    If you want to fallback to a default translation when a translation has not been found
-    """
-    fallbackLocales: [SiteLocale!]
-    filter: PersonModelFilter
-    orderBy: [PersonModelOrderBy] = [_updatedAt_DESC]
-  ): PersonRecord
 
   """
   Returns a specific asset

@@ -23,9 +23,9 @@ describe('eventsFormatter', () => {
               },
             },
           ],
-          persons: [{ id: 'some-id' }],
+          music: {},
           content: [],
-          program: [],
+          extraInfo: {},
         },
       ])
     ).toEqual([
@@ -43,17 +43,17 @@ describe('eventsFormatter', () => {
             address: undefined,
             lat: undefined,
             lng: undefined,
-            startTime: undefined,
+            startTime: null,
             title: undefined,
-            ticketLink: undefined,
+            ticketLink: null,
           },
         ],
         title: 'required title',
         url: '/concerten/required-slug',
         slug: 'required-slug',
+        music: {},
         content: [],
-        persons: [{ id: 'some-id', name: '', description: '' }],
-        program: [],
+        extraInfo: {},
       },
     ])
   })

@@ -35,17 +35,16 @@ export const EventPage = ({ data }: Props) => {
         <div className={classNames(styles.titleContainer, 'content-layout')}>
           <h2>{data.title}</h2>
 
-          {data.program.length > 0 && (
+          {data.music && Object.entries(data.music).length > 0 && (
             <ul className={styles.program}>
-              {data.program.map((item) => {
-                if (!item?.id) return null
+              {Object.entries(data.music).map(([composer, title], index) => {
                 return (
                   <li
-                    key={item.id}
+                    key={index}
                     className={classNames(styles.programItem, 'text-large')}
                   >
-                    <span className={styles.programTitle}>{item.composer}</span>{' '}
-                    — {item.title}
+                    <span className={styles.programTitle}>{composer}</span> —{' '}
+                    {title}
                   </li>
                 )
               })}
@@ -73,18 +72,17 @@ export const EventPage = ({ data }: Props) => {
               </div>
             )}
 
-            {data.persons.length > 0 && (
+            {data.extraInfo && Object.entries(data.extraInfo).length > 0 && (
               <ul className={styles.persons}>
-                {data.persons.map((person) => {
-                  if (!person?.id) return null
+                {Object.entries(data.extraInfo).map(([role, name], index) => {
                   return (
-                    <li key={person.id} className={styles.person}>
+                    <li key={index} className={styles.person}>
                       <p
                         className={classNames(styles.personTitle, 'text-small')}
                       >
-                        {person.description}
+                        {role}
                       </p>
-                      <p className="h5">{person.name}</p>
+                      <p className="h5">{name}</p>
                     </li>
                   )
                 })}
@@ -115,7 +113,7 @@ export const EventPage = ({ data }: Props) => {
       </div>
       <div className={styles.locations}>
         {data.locations.map((location) => {
-          if (!location?.id || !location.startTime) return null
+          if (!location?.id || !location?.startTime) return null
           return <LocationDetail key={location?.id} data={location} />
         })}
       </div>

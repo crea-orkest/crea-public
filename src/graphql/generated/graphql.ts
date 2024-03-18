@@ -154,11 +154,11 @@ export type ConcertModelFilter = {
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
   _updatedAt?: InputMaybe<UpdatedAtFilter>
   cloudinaryPoster?: InputMaybe<JsonFilter>
+  extraInfo?: InputMaybe<JsonFilter>
   id?: InputMaybe<ItemIdFilter>
   locations?: InputMaybe<ConcertModelLocationsFieldFilter>
-  persons?: InputMaybe<LinksFilter>
+  music?: InputMaybe<JsonFilter>
   position?: InputMaybe<PositionFilter>
-  program?: InputMaybe<LinksFilter>
   seo?: InputMaybe<SeoFilter>
   slug?: InputMaybe<SlugFilter>
   title?: InputMaybe<StringFilter>
@@ -227,11 +227,11 @@ export type ConcertRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output']
   cloudinaryPoster?: Maybe<Scalars['JsonField']['output']>
   content: Array<ConcertModelContentField>
+  extraInfo?: Maybe<Scalars['JsonField']['output']>
   id: Scalars['ItemId']['output']
   locations: Array<LocationItemRecord>
-  persons: Array<PersonRecord>
+  music?: Maybe<Scalars['JsonField']['output']>
   position?: Maybe<Scalars['IntType']['output']>
-  program: Array<MusicRecord>
   seo?: Maybe<SeoField>
   slug?: Maybe<Scalars['String']['output']>
   title?: Maybe<Scalars['String']['output']>
@@ -2029,20 +2029,6 @@ export type LinkFilter = {
   notIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>
 }
 
-/** Specifies how to filter Multiple-links fields */
-export type LinksFilter = {
-  /** Filter records linked to all of the specified records. The specified values must be Record IDs */
-  allIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>
-  /** Filter records linked to at least one of the specified records. The specified values must be Record IDs */
-  anyIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>
-  /** Search for records with an exact match. The specified values must be Record IDs */
-  eq?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: InputMaybe<Scalars['BooleanType']['input']>
-  /** Filter records not linked to any of the specified records. The specified values must be Record IDs */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>
-}
-
 export type LocationItemModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<LocationItemModelFilter>>>
   OR?: InputMaybe<Array<InputMaybe<LocationItemModelFilter>>>
@@ -2199,73 +2185,6 @@ export type MenuItemRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
 }
 
-export type MusicModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<MusicModelFilter>>>
-  OR?: InputMaybe<Array<InputMaybe<MusicModelFilter>>>
-  _createdAt?: InputMaybe<CreatedAtFilter>
-  _firstPublishedAt?: InputMaybe<PublishedAtFilter>
-  _isValid?: InputMaybe<BooleanFilter>
-  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>
-  _publishedAt?: InputMaybe<PublishedAtFilter>
-  _status?: InputMaybe<StatusFilter>
-  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
-  _updatedAt?: InputMaybe<UpdatedAtFilter>
-  composer?: InputMaybe<StringFilter>
-  id?: InputMaybe<ItemIdFilter>
-  title?: InputMaybe<StringFilter>
-}
-
-export enum MusicModelOrderBy {
-  CreatedAtAsc = '_createdAt_ASC',
-  CreatedAtDesc = '_createdAt_DESC',
-  FirstPublishedAtAsc = '_firstPublishedAt_ASC',
-  FirstPublishedAtDesc = '_firstPublishedAt_DESC',
-  IsValidAsc = '_isValid_ASC',
-  IsValidDesc = '_isValid_DESC',
-  PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
-  PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
-  PublishedAtAsc = '_publishedAt_ASC',
-  PublishedAtDesc = '_publishedAt_DESC',
-  StatusAsc = '_status_ASC',
-  StatusDesc = '_status_DESC',
-  UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
-  UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
-  UpdatedAtAsc = '_updatedAt_ASC',
-  UpdatedAtDesc = '_updatedAt_DESC',
-  ComposerAsc = 'composer_ASC',
-  ComposerDesc = 'composer_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC',
-}
-
-/** Record of type Muziekstukken (music) */
-export type MusicRecord = RecordInterface & {
-  __typename?: 'MusicRecord'
-  _createdAt: Scalars['DateTime']['output']
-  /** Editing URL */
-  _editingUrl?: Maybe<Scalars['String']['output']>
-  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
-  _isValid: Scalars['BooleanType']['output']
-  _modelApiKey: Scalars['String']['output']
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** Generates SEO and Social card meta tags to be used in your frontend */
-  _seoMetaTags: Array<Tag>
-  _status: ItemStatus
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _updatedAt: Scalars['DateTime']['output']
-  composer?: Maybe<Scalars['String']['output']>
-  id: Scalars['ItemId']['output']
-  title?: Maybe<Scalars['String']['output']>
-}
-
-/** Record of type Muziekstukken (music) */
-export type MusicRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>
-}
-
 export enum MuxThumbnailFormatType {
   Gif = 'gif',
   Jpg = 'jpg',
@@ -2357,73 +2276,6 @@ export type PageRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>
 }
 
-export type PersonModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<PersonModelFilter>>>
-  OR?: InputMaybe<Array<InputMaybe<PersonModelFilter>>>
-  _createdAt?: InputMaybe<CreatedAtFilter>
-  _firstPublishedAt?: InputMaybe<PublishedAtFilter>
-  _isValid?: InputMaybe<BooleanFilter>
-  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>
-  _publishedAt?: InputMaybe<PublishedAtFilter>
-  _status?: InputMaybe<StatusFilter>
-  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>
-  _updatedAt?: InputMaybe<UpdatedAtFilter>
-  id?: InputMaybe<ItemIdFilter>
-  name?: InputMaybe<StringFilter>
-  role?: InputMaybe<StringFilter>
-}
-
-export enum PersonModelOrderBy {
-  CreatedAtAsc = '_createdAt_ASC',
-  CreatedAtDesc = '_createdAt_DESC',
-  FirstPublishedAtAsc = '_firstPublishedAt_ASC',
-  FirstPublishedAtDesc = '_firstPublishedAt_DESC',
-  IsValidAsc = '_isValid_ASC',
-  IsValidDesc = '_isValid_DESC',
-  PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
-  PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
-  PublishedAtAsc = '_publishedAt_ASC',
-  PublishedAtDesc = '_publishedAt_DESC',
-  StatusAsc = '_status_ASC',
-  StatusDesc = '_status_DESC',
-  UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
-  UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
-  UpdatedAtAsc = '_updatedAt_ASC',
-  UpdatedAtDesc = '_updatedAt_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  NameAsc = 'name_ASC',
-  NameDesc = 'name_DESC',
-  RoleAsc = 'role_ASC',
-  RoleDesc = 'role_DESC',
-}
-
-/** Record of type Personen (person) */
-export type PersonRecord = RecordInterface & {
-  __typename?: 'PersonRecord'
-  _createdAt: Scalars['DateTime']['output']
-  /** Editing URL */
-  _editingUrl?: Maybe<Scalars['String']['output']>
-  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>
-  _isValid: Scalars['BooleanType']['output']
-  _modelApiKey: Scalars['String']['output']
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _publishedAt?: Maybe<Scalars['DateTime']['output']>
-  /** Generates SEO and Social card meta tags to be used in your frontend */
-  _seoMetaTags: Array<Tag>
-  _status: ItemStatus
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
-  _updatedAt: Scalars['DateTime']['output']
-  id: Scalars['ItemId']['output']
-  name?: Maybe<Scalars['String']['output']>
-  role?: Maybe<Scalars['String']['output']>
-}
-
-/** Record of type Personen (person) */
-export type PersonRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>
-}
-
 /** Specifies how to filter by position (sorted and tree-like collections) */
 export type PositionFilter = {
   /** Search for records with an exact match */
@@ -2466,11 +2318,7 @@ export type Query = {
   /** Returns meta information regarding a record collection */
   _allLocationsMeta: CollectionMetadata
   /** Returns meta information regarding a record collection */
-  _allMusicsMeta: CollectionMetadata
-  /** Returns meta information regarding a record collection */
   _allPagesMeta: CollectionMetadata
-  /** Returns meta information regarding a record collection */
-  _allPeopleMeta: CollectionMetadata
   /** Returns meta information regarding an assets collection */
   _allUploadsMeta: CollectionMetadata
   /** Returns the single instance record */
@@ -2480,11 +2328,7 @@ export type Query = {
   /** Returns a collection of records */
   allLocations: Array<LocationRecord>
   /** Returns a collection of records */
-  allMusics: Array<MusicRecord>
-  /** Returns a collection of records */
   allPages: Array<PageRecord>
-  /** Returns a collection of records */
-  allPeople: Array<PersonRecord>
   /** Returns a collection of assets */
   allUploads: Array<FileField>
   /** Returns a specific record */
@@ -2494,11 +2338,7 @@ export type Query = {
   /** Returns a specific record */
   location?: Maybe<LocationRecord>
   /** Returns a specific record */
-  music?: Maybe<MusicRecord>
-  /** Returns a specific record */
   page?: Maybe<PageRecord>
-  /** Returns a specific record */
-  person?: Maybe<PersonRecord>
   /** Returns a specific asset */
   upload?: Maybe<FileField>
 }
@@ -2516,20 +2356,8 @@ export type Query_AllLocationsMetaArgs = {
 }
 
 /** The query root for this schema */
-export type Query_AllMusicsMetaArgs = {
-  filter?: InputMaybe<MusicModelFilter>
-  locale?: InputMaybe<SiteLocale>
-}
-
-/** The query root for this schema */
 export type Query_AllPagesMetaArgs = {
   filter?: InputMaybe<PageModelFilter>
-  locale?: InputMaybe<SiteLocale>
-}
-
-/** The query root for this schema */
-export type Query_AllPeopleMetaArgs = {
-  filter?: InputMaybe<PersonModelFilter>
   locale?: InputMaybe<SiteLocale>
 }
 
@@ -2566,32 +2394,12 @@ export type QueryAllLocationsArgs = {
 }
 
 /** The query root for this schema */
-export type QueryAllMusicsArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<MusicModelFilter>
-  first?: InputMaybe<Scalars['IntType']['input']>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<MusicModelOrderBy>>>
-  skip?: InputMaybe<Scalars['IntType']['input']>
-}
-
-/** The query root for this schema */
 export type QueryAllPagesArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>
   filter?: InputMaybe<PageModelFilter>
   first?: InputMaybe<Scalars['IntType']['input']>
   locale?: InputMaybe<SiteLocale>
   orderBy?: InputMaybe<Array<InputMaybe<PageModelOrderBy>>>
-  skip?: InputMaybe<Scalars['IntType']['input']>
-}
-
-/** The query root for this schema */
-export type QueryAllPeopleArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<PersonModelFilter>
-  first?: InputMaybe<Scalars['IntType']['input']>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<PersonModelOrderBy>>>
   skip?: InputMaybe<Scalars['IntType']['input']>
 }
 
@@ -2628,27 +2436,11 @@ export type QueryLocationArgs = {
 }
 
 /** The query root for this schema */
-export type QueryMusicArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<MusicModelFilter>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<MusicModelOrderBy>>>
-}
-
-/** The query root for this schema */
 export type QueryPageArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>
   filter?: InputMaybe<PageModelFilter>
   locale?: InputMaybe<SiteLocale>
   orderBy?: InputMaybe<Array<InputMaybe<PageModelOrderBy>>>
-}
-
-/** The query root for this schema */
-export type QueryPersonArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>
-  filter?: InputMaybe<PersonModelFilter>
-  locale?: InputMaybe<SiteLocale>
-  orderBy?: InputMaybe<Array<InputMaybe<PersonModelOrderBy>>>
 }
 
 /** The query root for this schema */
@@ -3366,13 +3158,6 @@ export type FocalPoint = {
   y: Scalars['FloatType']['output']
 }
 
-export type AuthorFragment = {
-  __typename?: 'PersonRecord'
-  id: string
-  name?: string | null
-  role?: string | null
-}
-
 export type CallToActionFragment = {
   __typename: 'CallToActionRecord'
   label?: string | null
@@ -3422,6 +3207,8 @@ export type ConcertDetailFragment = {
   title?: string | null
   slug?: string | null
   cloudinaryPoster?: unknown | null
+  music?: unknown | null
+  extraInfo?: unknown | null
   _createdAt: string
   _firstPublishedAt?: string | null
   _publishedAt?: string | null
@@ -3443,18 +3230,6 @@ export type ConcertDetailFragment = {
         longitude: number
       } | null
     } | null
-  }>
-  persons: Array<{
-    __typename?: 'PersonRecord'
-    id: string
-    name?: string | null
-    role?: string | null
-  }>
-  program: Array<{
-    __typename?: 'MusicRecord'
-    id: string
-    title?: string | null
-    composer?: string | null
   }>
   content: Array<
     | {
@@ -3604,6 +3379,7 @@ export type ConcertDetailFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -3625,12 +3401,6 @@ export type ConcertDetailFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -3764,6 +3534,7 @@ export type ConcertDetailFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -3785,12 +3556,6 @@ export type ConcertDetailFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -3897,6 +3662,7 @@ export type ConcertDetailFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -3918,12 +3684,6 @@ export type ConcertDetailFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -3967,6 +3727,7 @@ export type ConcertDetailSmallFragment = {
   title?: string | null
   slug?: string | null
   cloudinaryPoster?: unknown | null
+  music?: unknown | null
   _createdAt: string
   _firstPublishedAt?: string | null
   _publishedAt?: string | null
@@ -3988,12 +3749,6 @@ export type ConcertDetailSmallFragment = {
         longitude: number
       } | null
     } | null
-  }>
-  program: Array<{
-    __typename?: 'MusicRecord'
-    id: string
-    title?: string | null
-    composer?: string | null
   }>
 }
 
@@ -4027,6 +3782,7 @@ export type EventBlockFragment = {
     title?: string | null
     slug?: string | null
     cloudinaryPoster?: unknown | null
+    music?: unknown | null
     _createdAt: string
     _firstPublishedAt?: string | null
     _publishedAt?: string | null
@@ -4048,12 +3804,6 @@ export type EventBlockFragment = {
           longitude: number
         } | null
       } | null
-    }>
-    program: Array<{
-      __typename?: 'MusicRecord'
-      id: string
-      title?: string | null
-      composer?: string | null
     }>
   }>
 }
@@ -4386,26 +4136,8 @@ type Identifiable_MenuItemRecord_Fragment = {
   id: string
 }
 
-type Identifiable_MusicRecord_Fragment = {
-  __typename: 'MusicRecord'
-  _createdAt: string
-  _firstPublishedAt?: string | null
-  _publishedAt?: string | null
-  _updatedAt: string
-  id: string
-}
-
 type Identifiable_PageRecord_Fragment = {
   __typename: 'PageRecord'
-  _createdAt: string
-  _firstPublishedAt?: string | null
-  _publishedAt?: string | null
-  _updatedAt: string
-  id: string
-}
-
-type Identifiable_PersonRecord_Fragment = {
-  __typename: 'PersonRecord'
   _createdAt: string
   _firstPublishedAt?: string | null
   _publishedAt?: string | null
@@ -4461,9 +4193,7 @@ export type IdentifiableFragment =
   | Identifiable_LocationRecord_Fragment
   | Identifiable_MailchimpFormRecord_Fragment
   | Identifiable_MenuItemRecord_Fragment
-  | Identifiable_MusicRecord_Fragment
   | Identifiable_PageRecord_Fragment
-  | Identifiable_PersonRecord_Fragment
   | Identifiable_SubmenuItemRecord_Fragment
   | Identifiable_TextBlockRecord_Fragment
   | Identifiable_TwoColumnRecord_Fragment
@@ -4556,13 +4286,6 @@ export type MenuItemFragment = {
     _updatedAt: string
     id: string
   } | null
-}
-
-export type MusicFragment = {
-  __typename?: 'MusicRecord'
-  id: string
-  title?: string | null
-  composer?: string | null
 }
 
 export type PageFragment = {
@@ -4722,6 +4445,7 @@ export type PageFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -4743,12 +4467,6 @@ export type PageFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -4882,6 +4600,7 @@ export type PageFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -4903,12 +4622,6 @@ export type PageFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -5015,6 +4728,7 @@ export type PageFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -5036,12 +4750,6 @@ export type PageFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -5237,6 +4945,7 @@ export type PageDetailFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -5258,12 +4967,6 @@ export type PageDetailFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -5397,6 +5100,7 @@ export type PageDetailFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -5418,12 +5122,6 @@ export type PageDetailFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -5530,6 +5228,7 @@ export type PageDetailFragment = {
                   title?: string | null
                   slug?: string | null
                   cloudinaryPoster?: unknown | null
+                  music?: unknown | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -5551,12 +5250,6 @@ export type PageDetailFragment = {
                         longitude: number
                       } | null
                     } | null
-                  }>
-                  program: Array<{
-                    __typename?: 'MusicRecord'
-                    id: string
-                    title?: string | null
-                    composer?: string | null
                   }>
                 }>
               }
@@ -5760,6 +5453,7 @@ export type TextBlockContentFragment = {
           title?: string | null
           slug?: string | null
           cloudinaryPoster?: unknown | null
+          music?: unknown | null
           _createdAt: string
           _firstPublishedAt?: string | null
           _publishedAt?: string | null
@@ -5781,12 +5475,6 @@ export type TextBlockContentFragment = {
                 longitude: number
               } | null
             } | null
-          }>
-          program: Array<{
-            __typename?: 'MusicRecord'
-            id: string
-            title?: string | null
-            composer?: string | null
           }>
         }>
       }
@@ -5913,6 +5601,7 @@ export type LeftContentFragment = {
           title?: string | null
           slug?: string | null
           cloudinaryPoster?: unknown | null
+          music?: unknown | null
           _createdAt: string
           _firstPublishedAt?: string | null
           _publishedAt?: string | null
@@ -5934,12 +5623,6 @@ export type LeftContentFragment = {
                 longitude: number
               } | null
             } | null
-          }>
-          program: Array<{
-            __typename?: 'MusicRecord'
-            id: string
-            title?: string | null
-            composer?: string | null
           }>
         }>
       }
@@ -6047,6 +5730,7 @@ export type RightContentFragment = {
           title?: string | null
           slug?: string | null
           cloudinaryPoster?: unknown | null
+          music?: unknown | null
           _createdAt: string
           _firstPublishedAt?: string | null
           _publishedAt?: string | null
@@ -6068,12 +5752,6 @@ export type RightContentFragment = {
                 longitude: number
               } | null
             } | null
-          }>
-          program: Array<{
-            __typename?: 'MusicRecord'
-            id: string
-            title?: string | null
-            composer?: string | null
           }>
         }>
       }
@@ -6188,6 +5866,7 @@ export type TextBlockFragment = {
             title?: string | null
             slug?: string | null
             cloudinaryPoster?: unknown | null
+            music?: unknown | null
             _createdAt: string
             _firstPublishedAt?: string | null
             _publishedAt?: string | null
@@ -6209,12 +5888,6 @@ export type TextBlockFragment = {
                   longitude: number
                 } | null
               } | null
-            }>
-            program: Array<{
-              __typename?: 'MusicRecord'
-              id: string
-              title?: string | null
-              composer?: string | null
             }>
           }>
         }
@@ -6349,6 +6022,7 @@ export type TwoColumFragment = {
             title?: string | null
             slug?: string | null
             cloudinaryPoster?: unknown | null
+            music?: unknown | null
             _createdAt: string
             _firstPublishedAt?: string | null
             _publishedAt?: string | null
@@ -6370,12 +6044,6 @@ export type TwoColumFragment = {
                   longitude: number
                 } | null
               } | null
-            }>
-            program: Array<{
-              __typename?: 'MusicRecord'
-              id: string
-              title?: string | null
-              composer?: string | null
             }>
           }>
         }
@@ -6482,6 +6150,7 @@ export type TwoColumFragment = {
             title?: string | null
             slug?: string | null
             cloudinaryPoster?: unknown | null
+            music?: unknown | null
             _createdAt: string
             _firstPublishedAt?: string | null
             _publishedAt?: string | null
@@ -6503,12 +6172,6 @@ export type TwoColumFragment = {
                   longitude: number
                 } | null
               } | null
-            }>
-            program: Array<{
-              __typename?: 'MusicRecord'
-              id: string
-              title?: string | null
-              composer?: string | null
             }>
           }>
         }
@@ -6597,6 +6260,8 @@ export type GetEventQuery = {
     title?: string | null
     slug?: string | null
     cloudinaryPoster?: unknown | null
+    music?: unknown | null
+    extraInfo?: unknown | null
     _createdAt: string
     _firstPublishedAt?: string | null
     _publishedAt?: string | null
@@ -6618,18 +6283,6 @@ export type GetEventQuery = {
           longitude: number
         } | null
       } | null
-    }>
-    persons: Array<{
-      __typename?: 'PersonRecord'
-      id: string
-      name?: string | null
-      role?: string | null
-    }>
-    program: Array<{
-      __typename?: 'MusicRecord'
-      id: string
-      title?: string | null
-      composer?: string | null
     }>
     content: Array<
       | {
@@ -6779,6 +6432,7 @@ export type GetEventQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -6800,12 +6454,6 @@ export type GetEventQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -6939,6 +6587,7 @@ export type GetEventQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -6960,12 +6609,6 @@ export type GetEventQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -7072,6 +6715,7 @@ export type GetEventQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -7093,12 +6737,6 @@ export type GetEventQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -7149,6 +6787,8 @@ export type GetEventPageQuery = {
     title?: string | null
     slug?: string | null
     cloudinaryPoster?: unknown | null
+    music?: unknown | null
+    extraInfo?: unknown | null
     _createdAt: string
     _firstPublishedAt?: string | null
     _publishedAt?: string | null
@@ -7170,18 +6810,6 @@ export type GetEventPageQuery = {
           longitude: number
         } | null
       } | null
-    }>
-    persons: Array<{
-      __typename?: 'PersonRecord'
-      id: string
-      name?: string | null
-      role?: string | null
-    }>
-    program: Array<{
-      __typename?: 'MusicRecord'
-      id: string
-      title?: string | null
-      composer?: string | null
     }>
     content: Array<
       | {
@@ -7331,6 +6959,7 @@ export type GetEventPageQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -7352,12 +6981,6 @@ export type GetEventPageQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -7491,6 +7114,7 @@ export type GetEventPageQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -7512,12 +7136,6 @@ export type GetEventPageQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -7624,6 +7242,7 @@ export type GetEventPageQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -7645,12 +7264,6 @@ export type GetEventPageQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -7734,6 +7347,8 @@ export type GetEventsQuery = {
     title?: string | null
     slug?: string | null
     cloudinaryPoster?: unknown | null
+    music?: unknown | null
+    extraInfo?: unknown | null
     _createdAt: string
     _firstPublishedAt?: string | null
     _publishedAt?: string | null
@@ -7755,18 +7370,6 @@ export type GetEventsQuery = {
           longitude: number
         } | null
       } | null
-    }>
-    persons: Array<{
-      __typename?: 'PersonRecord'
-      id: string
-      name?: string | null
-      role?: string | null
-    }>
-    program: Array<{
-      __typename?: 'MusicRecord'
-      id: string
-      title?: string | null
-      composer?: string | null
     }>
     content: Array<
       | {
@@ -7916,6 +7519,7 @@ export type GetEventsQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -7937,12 +7541,6 @@ export type GetEventsQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -8076,6 +7674,7 @@ export type GetEventsQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -8097,12 +7696,6 @@ export type GetEventsQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -8209,6 +7802,7 @@ export type GetEventsQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -8230,12 +7824,6 @@ export type GetEventsQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -8298,6 +7886,8 @@ export type GetFutureEventsQuery = {
     title?: string | null
     slug?: string | null
     cloudinaryPoster?: unknown | null
+    music?: unknown | null
+    extraInfo?: unknown | null
     _createdAt: string
     _firstPublishedAt?: string | null
     _publishedAt?: string | null
@@ -8319,18 +7909,6 @@ export type GetFutureEventsQuery = {
           longitude: number
         } | null
       } | null
-    }>
-    persons: Array<{
-      __typename?: 'PersonRecord'
-      id: string
-      name?: string | null
-      role?: string | null
-    }>
-    program: Array<{
-      __typename?: 'MusicRecord'
-      id: string
-      title?: string | null
-      composer?: string | null
     }>
     content: Array<
       | {
@@ -8480,6 +8058,7 @@ export type GetFutureEventsQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -8501,12 +8080,6 @@ export type GetFutureEventsQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -8640,6 +8213,7 @@ export type GetFutureEventsQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -8661,12 +8235,6 @@ export type GetFutureEventsQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -8773,6 +8341,7 @@ export type GetFutureEventsQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -8794,12 +8363,6 @@ export type GetFutureEventsQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -9050,6 +8613,7 @@ export type GetPageQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -9071,12 +8635,6 @@ export type GetPageQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -9210,6 +8768,7 @@ export type GetPageQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -9231,12 +8790,6 @@ export type GetPageQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -9343,6 +8896,7 @@ export type GetPageQuery = {
                     title?: string | null
                     slug?: string | null
                     cloudinaryPoster?: unknown | null
+                    music?: unknown | null
                     _createdAt: string
                     _firstPublishedAt?: string | null
                     _publishedAt?: string | null
@@ -9364,12 +8918,6 @@ export type GetPageQuery = {
                           longitude: number
                         } | null
                       } | null
-                    }>
-                    program: Array<{
-                      __typename?: 'MusicRecord'
-                      id: string
-                      title?: string | null
-                      composer?: string | null
                     }>
                   }>
                 }
@@ -9709,48 +9257,6 @@ export const LocationItemFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<LocationItemFragment, unknown>
-export const AuthorFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'author' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'PersonRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<AuthorFragment, unknown>
-export const MusicFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<MusicFragment, unknown>
 export const ConcertLinkFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -10430,19 +9936,7 @@ export const ConcertDetailSmallFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -10535,22 +10029,6 @@ export const ConcertDetailSmallFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
         ],
       },
     },
@@ -10684,22 +10162,6 @@ export const EventBlockFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -10728,19 +10190,7 @@ export const EventBlockFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -11237,22 +10687,6 @@ export const TextBlockContentFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -11281,19 +10715,7 @@ export const TextBlockContentFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -11707,22 +11129,6 @@ export const TextBlockFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -11751,19 +11157,7 @@ export const TextBlockFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -12359,22 +11753,6 @@ export const LeftContentFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -12403,19 +11781,7 @@ export const LeftContentFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -12849,22 +12215,6 @@ export const RightContentFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -12893,19 +12243,7 @@ export const RightContentFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -13292,22 +12630,6 @@ export const TwoColumFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -13336,19 +12658,7 @@ export const TwoColumFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -13808,32 +13118,8 @@ export const ConcertDetailFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'persons' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'author' },
-                },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'extraInfo' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'content' },
@@ -14167,22 +13453,6 @@ export const ConcertDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -14211,19 +13481,7 @@ export const ConcertDetailFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -14784,22 +14042,6 @@ export const ConcertDetailFragmentDoc = {
               ],
             },
           },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'author' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'PersonRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'role' } },
         ],
       },
     },
@@ -15895,22 +15137,6 @@ export const PageFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -15939,19 +15165,7 @@ export const PageFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -16973,22 +16187,6 @@ export const PageDetailFragmentDoc = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -17017,19 +16215,7 @@ export const PageDetailFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -17894,7 +17080,7 @@ export const SiteMetadataFragmentDoc = {
   ],
 } as unknown as DocumentNode<SiteMetadataFragment, unknown>
 export const GetEventDocument = {
-  __meta__: { hash: '707d009686ec5b1024110c20375af30029a31c4d' },
+  __meta__: { hash: 'ea1969e84ac099692072772b56eedddfc97d42c7' },
   kind: 'Document',
   definitions: [
     {
@@ -18055,38 +17241,6 @@ export const GetEventDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'author' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'PersonRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertLink' },
       typeCondition: {
         kind: 'NamedType',
@@ -18325,19 +17479,7 @@ export const GetEventDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -19004,32 +18146,8 @@ export const GetEventDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'persons' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'author' },
-                },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'extraInfo' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'content' },
@@ -19093,7 +18211,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '5b63753b62b11e1277cd68c9c46ba31bb5a6ba02' },
+  __meta__: { hash: '7c246645b81077d3f88716ba6b70828dcf3ea0b6' },
   kind: 'Document',
   definitions: [
     {
@@ -19254,38 +18372,6 @@ export const GetEventPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'author' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'PersonRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertLink' },
       typeCondition: {
         kind: 'NamedType',
@@ -19524,19 +18610,7 @@ export const GetEventPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -20203,32 +19277,8 @@ export const GetEventPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'persons' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'author' },
-                },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'extraInfo' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'content' },
@@ -20457,7 +19507,7 @@ export const GetEventSeoDocument = {
   ],
 } as unknown as DocumentNode<GetEventSeoQuery, GetEventSeoQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: 'b84c00a88ad21c39999846f0590c1841bdeeafd8' },
+  __meta__: { hash: '4d86b074f5d9d27d1c7ebd08c76ae276d6c12d7f' },
   kind: 'Document',
   definitions: [
     {
@@ -20639,38 +19689,6 @@ export const GetEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'author' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'PersonRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
         ],
       },
     },
@@ -20914,19 +19932,7 @@ export const GetEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -21593,32 +20599,8 @@ export const GetEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'persons' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'author' },
-                },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'extraInfo' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'content' },
@@ -21708,7 +20690,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '83ef223b102f60410b82dcf5849830b3f36d8b50' },
+  __meta__: { hash: 'ea18e07eadaf14e616606561da8ddc26d4d57c92' },
   kind: 'Document',
   definitions: [
     {
@@ -21914,38 +20896,6 @@ export const GetFutureEventsDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'author' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'PersonRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'role' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertLink' },
       typeCondition: {
         kind: 'NamedType',
@@ -22184,19 +21134,7 @@ export const GetFutureEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
@@ -22863,32 +21801,8 @@ export const GetFutureEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'persons' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'author' },
-                },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'extraInfo' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'content' },
@@ -23134,7 +22048,7 @@ export const GetGeneralInfoDocument = {
   ],
 } as unknown as DocumentNode<GetGeneralInfoQuery, GetGeneralInfoQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: 'c4d90f198896e63a342ac1cea7ac57a196c7b651' },
+  __meta__: { hash: 'f1334655d16386dbea07ef54cddc47800623f2ea' },
   kind: 'Document',
   definitions: [
     {
@@ -23505,22 +22419,6 @@ export const GetPageDocument = {
     },
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'music' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'MusicRecord' },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'composer' } },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'concertDetailSmall' },
       typeCondition: {
         kind: 'NamedType',
@@ -23549,19 +22447,7 @@ export const GetPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
-          {
-            kind: 'Field',
-            name: { kind: 'Name', value: 'program' },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'music' },
-                },
-              ],
-            },
-          },
+          { kind: 'Field', name: { kind: 'Name', value: 'music' } },
         ],
       },
     },
