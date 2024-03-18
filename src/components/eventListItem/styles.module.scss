@@ -183,6 +183,8 @@ $padding-large-left: map.get(spacing.$rem, 40);
   }
 
   .imageContainer {
+    margin-bottom: map.get(spacing.$rem, 24);
+
     @media screen and (min-width: breakpoints.$sm) {
       width: $image-large-width;
       height: $image-large-height;
