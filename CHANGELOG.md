@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.2](https://github.com/crea-orkest/crea-public/compare/v2.5.1...v2.5.2) (2024-03-18)
+
+
+### Bug Fixes
+
+* **eventListItem:** add margin for event link ([0d7b976](https://github.com/crea-orkest/crea-public/commit/0d7b97623b0975e69cec1e1fcf8a26a38d1e9d22))
+
 ## [2.5.1](https://github.com/crea-orkest/crea-public/compare/v2.5.0...v2.5.1) (2024-03-17)
 
 
