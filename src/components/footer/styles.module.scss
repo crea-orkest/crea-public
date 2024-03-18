@@ -36,12 +36,14 @@
 .address {
   font-style: normal;
   margin-bottom: map.get(spacing.$rem, 32);
-
-  p {
-    margin: 0;
-  }
 }
 
+.addressLink {
+  display: flex;
+  flex-direction: column;
+}
+
+.addressLink,
 .link {
   color: colors.$background;
 

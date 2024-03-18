@@ -22,8 +22,15 @@ export const Footer = ({ generalInfo, siteName }: Props) => {
           </h2>
 
           <address className={classNames(styles.address)}>
-            <p>Nieuwe Achtergracht 170</p>
-            <p>1018 WV Amsterdam</p>
+            <Link
+              className={classNames(styles.addressLink)}
+              href="https://maps.google.com/?q=Nieuwe+Achtergracht+170,+1018+WV+Amsterdam"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Nieuwe Achtergracht 170</span>
+              <span>1018 WV Amsterdam</span>
+            </Link>
           </address>
 
           <ul className={classNames(styles.list, styles.logoList)}>
