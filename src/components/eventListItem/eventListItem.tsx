@@ -81,8 +81,9 @@ export const EventListItem = ({
                   if (!item?.id) return null
                   const ticketLink = item.ticketLink
                   const concertPast =
-                    item.startTime && dateIsInThePast(item.startTime)
-                  const startTime = item.startTime && formatDate(item.startTime)
+                    item?.startTime && dateIsInThePast(item.startTime)
+                  const startTime =
+                    item?.startTime && formatDate(item.startTime)
                   const itemTitle = item.title || startTime
 
                   return (

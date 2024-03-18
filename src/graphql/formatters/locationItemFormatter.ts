@@ -8,7 +8,7 @@ export const locationItemFormatter = (
   if (!location.location?.id) return
   return {
     ...locationFormatter(location.location),
-    startTime: location.dateTime ?? undefined,
-    ticketLink: location.ticketLink ?? undefined,
+    startTime: location.dateTime ?? null,
+    ticketLink: location.ticketLink ?? null,
   }
 }

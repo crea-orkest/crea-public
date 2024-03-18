@@ -113,7 +113,7 @@ export const EventPage = ({ data }: Props) => {
       </div>
       <div className={styles.locations}>
         {data.locations.map((location) => {
-          if (!location?.id || !location.startTime) return null
+          if (!location?.id || !location?.startTime) return null
           return <LocationDetail key={location?.id} data={location} />
         })}
       </div>
