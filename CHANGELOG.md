@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.1](https://github.com/crea-orkest/crea-public/compare/v2.6.0...v2.6.1) (2024-03-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/exchange-graphcache to v6.5.1 ([13d59bf](https://github.com/crea-orkest/crea-public/commit/13d59bf839d0851b7e03ecb77d6249bf3336977d))
+
 ## [2.6.0](https://github.com/crea-orkest/crea-public/compare/v2.5.2...v2.6.0) (2024-03-18)
 
 
