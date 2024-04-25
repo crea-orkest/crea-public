@@ -13,7 +13,7 @@ jobs:
       DATOCMS_ACCESS_TOKEN: ${{ secrets.DATOCMS_ACCESS_TOKEN }}
       APOLLO_VCS_COMMIT: ${{ github.event.pull_request.head.sha }}
     steps:
-      - uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
       - name: Install Rover
         run: |
           curl -sSL https://rover.apollo.dev/nix/v0.19.1 | sh
