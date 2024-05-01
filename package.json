@@ -36,7 +36,7 @@
   "homepage": "https://github.com/crea-orkest/crea-public#readme",
   "dependencies": {
     "@react-google-maps/api": "2.19.3",
-    "@urql/core": "5.0.2",
+    "@urql/core": "5.0.3",
     "@urql/exchange-graphcache": "7.0.2",
     "classnames": "2.5.1",
     "datocms-structured-text-utils": "4.0.0",
