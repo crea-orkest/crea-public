@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.6.1](https://github.com/crea-orkest/crea-public/compare/v2.6.0...v2.6.1) (2024-05-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/core to v5 ([2eb094c](https://github.com/crea-orkest/crea-public/commit/2eb094c3e8d2ac5620648c0eeb55e897fb286ed6))
+* **deps:** update dependency @urql/core to v5.0.3 ([9178916](https://github.com/crea-orkest/crea-public/commit/9178916081244f6f481b98379e8ea2b42edb513f))
+* **deps:** update dependency @urql/exchange-graphcache to v6.5.1 ([13d59bf](https://github.com/crea-orkest/crea-public/commit/13d59bf839d0851b7e03ecb77d6249bf3336977d))
+* **deps:** update dependency @urql/exchange-graphcache to v7 ([294dfef](https://github.com/crea-orkest/crea-public/commit/294dfef8ba76c6dc86e98cf78676e14fdce8e148))
+* **deps:** update dependency datocms-structured-text-utils to v4 ([67338fc](https://github.com/crea-orkest/crea-public/commit/67338fce66b890998048a7fb54f856f113490349))
+* **deps:** update dependency react-datocms to v6 ([f833d4d](https://github.com/crea-orkest/crea-public/commit/f833d4d7920e306f594b5f9053984a072adb064d))
+* **deps:** update dependency urql to v4.0.7 ([ff16a1f](https://github.com/crea-orkest/crea-public/commit/ff16a1f0c3e06eae99eaba273d54efdf4a9ea2bd))
+* **gqlClient:** remove maskTypename ([dec430a](https://github.com/crea-orkest/crea-public/commit/dec430a5c1d4e38b142bb72cbe881cdea29dc488))
+
 ## [2.6.0](https://github.com/crea-orkest/crea-public/compare/v2.5.2...v2.6.0) (2024-03-18)
 
 
