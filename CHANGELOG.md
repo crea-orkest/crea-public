@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.7.0](https://github.com/crea-orkest/crea-public/compare/v2.6.1...v2.7.0) (2024-06-14)
+
+
+### Features
+
+* change apollographos endpoint ([f235ad2](https://github.com/crea-orkest/crea-public/commit/f235ad28f8ed2e1f6184817990483e61359e7811))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/core to v5.0.4 ([3749b0c](https://github.com/crea-orkest/crea-public/commit/3749b0cf76bf81dc11e3f481753de56cd6abb20f))
+* **deps:** update dependency @urql/exchange-graphcache to v7.1.0 ([2fca48a](https://github.com/crea-orkest/crea-public/commit/2fca48aaf7a69cf67f27ea3f6662392478304d68))
+* **deps:** update dependency @urql/exchange-graphcache to v7.1.1 ([6b5499d](https://github.com/crea-orkest/crea-public/commit/6b5499d56959cba940339614223993df766ce9e5))
+* **deps:** update dependency datocms-structured-text-utils to v4.0.1 ([0e88c46](https://github.com/crea-orkest/crea-public/commit/0e88c46de2e7f05da17166de005f0409541e23d7))
+* **deps:** update dependency graphql to v16.8.2 ([ba3b0cf](https://github.com/crea-orkest/crea-public/commit/ba3b0cf4d6eb70b6597e8dd9df489263c4d8b66b))
+* **deps:** update dependency react-datocms to v6.0.2 ([8fec941](https://github.com/crea-orkest/crea-public/commit/8fec941da716f9d0c870474934411d1e1948ed61))
+* **deps:** update dependency react-datocms to v6.0.3 ([bd7e695](https://github.com/crea-orkest/crea-public/commit/bd7e695a3ecdb0da7532f054c19f58c72861bac1))
+* **deps:** update dependency react-datocms to v6.0.4 ([81725a8](https://github.com/crea-orkest/crea-public/commit/81725a8b7a68adbd7596b66f9b46251af15fce63))
+* **deps:** update dependency react-datocms to v6.0.5 ([0e16fb3](https://github.com/crea-orkest/crea-public/commit/0e16fb39d17683ba57ebc8fc3a6365d4dd7f7f98))
+* **deps:** update dependency react-datocms to v6.0.6 ([c75eda8](https://github.com/crea-orkest/crea-public/commit/c75eda8f540b048cf82a389bfa595ae2c41acec3))
+* **deps:** update dependency urql to v4.1.0 ([a424ed1](https://github.com/crea-orkest/crea-public/commit/a424ed16804a293f586839ed84c0eed0150e72a1))
+* revert tf vercel provider ([fa4968d](https://github.com/crea-orkest/crea-public/commit/fa4968dc550e2c9cd0c429439b2a49935f46e32d))
+* update deps ([7ba1a4e](https://github.com/crea-orkest/crea-public/commit/7ba1a4e872af779e5225ac40c138abd6f6d76075))
+* update turbo ([04805fe](https://github.com/crea-orkest/crea-public/commit/04805fee76dde210860360260c5da5dc27e6c5a4))
+
 ## [2.6.1](https://github.com/crea-orkest/crea-public/compare/v2.6.0...v2.6.1) (2024-05-01)
 
 
