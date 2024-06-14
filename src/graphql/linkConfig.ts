@@ -1,6 +1,6 @@
 const getUrl = () => {
   if (typeof window === 'undefined')
-    return 'https://main--crea-orkest-p7nmyh.apollographos.net/graphql' as const
+    return 'https://current--crea-orkest.apollographos.net/graphql' as const
 
   return '/graphql' as const
 }

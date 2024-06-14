@@ -754,13 +754,49 @@ input ImgixParams {
   auto: [ImgixParamsAuto!]
 
   """
+  Background Removal Fallback
+
+  Overrides default fallback behavior for bg-remove failures.
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)
+  """
+  bgRemoveFallback: BooleanType
+
+  """
   Background Removal
 
   Removes background from image.
 
-  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background-removal/bg-remove)
+  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)
   """
   bgRemove: BooleanType
+
+  """
+  Background Removal Fallback
+
+  Overrides default fallback behavior for bg-replace failures.
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)
+  """
+  bgReplaceFallback: BooleanType
+
+  """
+  Background Replacement Negative Prompt
+
+  Provides a negative text suggestion for background replacement.
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace-neg-prompt)
+  """
+  bgReplaceNegPrompt: String
+
+  """
+  Background Replacement
+
+  Replaces background from image using a string based prompt.
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)
+  """
+  bgReplace: String
 
   """
   Background Color
@@ -1191,6 +1227,149 @@ input ImgixParams {
   fillColor: String
 
   """
+  Fill Generative Fallback
+
+  Sets the fallback behavior for generative fill.
+
+  Depends on: `fit=fill`, `fill=gen`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-fallback)
+  """
+  fillGenFallback: BooleanType
+
+  """
+  Fill Generative Negative Prompt
+
+  Provides a negative text suggestion to the generative fill parameter. Used to reduce the probability of a subject, detail, or object appearing in generative output.
+
+  Depends on: `fit=fill`, `fill=gen`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-neg-prompt)
+  """
+  fillGenNegPrompt: String
+
+  """
+  Fill Generative Position
+
+  Sets the position of the Origin Image in relation to the generative fill.
+
+  Depends on: `fit=fill`, `fill=gen`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-pos)
+  """
+  fillGenPos: [ImgixParamsFillGenPos!]
+
+  """
+  Fill Generative Prompt
+
+  Provides a text suggestion to the generative fill parameter.
+
+  Depends on: `fit=fill`, `fill=gen`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-prompt)
+  """
+  fillGenPrompt: String
+
+  """
+  Fill Generative Seed
+
+  Sets the generative seed value. Used to generate similar outputs from different prompts.
+
+  Depends on: `fit=fill`, `fill=gen`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-seed)
+  """
+  fillGenSeed: IntType
+
+  """
+  Fill Gradient Color Space
+
+  Defines the color space as linear, sRGB, Oklab, HSL, or LCH for gradient color interpolation
+
+  Depends on: `fit=fill`, `fill=gradient`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-cs)
+  """
+  fillGradientCs: ImgixParamsFillGradientCs
+
+  """
+  Fill Gradient Linear Direction
+
+  The fill-gradient-linear-direction specifies the gradient's direction, flowing towards the bottom, top, right, or left
+
+  Depends on: `fit=fill`, `fill=gen`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear-direction)
+  """
+  fillGradientLinearDirection: [ImgixParamsFillGradientLinearDirection!]
+
+  """
+  Fill Gradient Linear
+
+  Blends a gradient between two colors, {color1} and {color2}, along a straight path
+
+  Depends on: `fit=fill`, `fill=gradient`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear)
+  """
+  fillGradientLinear: String
+
+  """
+  Fill Gradient Radial Radius
+
+  Parameter defines the radial gradient's radius as pixels or a percentage (0.0-1.0) of the image's smallest dimension
+
+  Depends on: `fit=fill`, `fill=gradient`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-radius)
+  """
+  fillGradientRadialRadius: String
+
+  """
+  Fill Gradient Radial X
+
+  Specifies the location of the radial gradient's center along the x-axis, using either a pixel value or a floating point percentage (ranging from 0.0 to 1.0) of the image's width
+
+  Depends on: `fit=fill`, `fill=gradient`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-x)
+  """
+  fillGradientRadialX: FloatType
+
+  """
+  Fill Gradient Radial Y
+
+  Parameter sets the radial gradient's center on the y-axis, using pixels or a 0.0 to 1.0 percentage of the image's height
+
+  Depends on: `fit=fill`, `fill=gradient`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-y)
+  """
+  fillGradientRadialY: FloatType
+
+  """
+  Fill Gradient Radial
+
+  The fill-gradient-radial parameter creates a circular gradient transitioning from a central color (Color1) to an outer color (Color2)
+
+  Depends on: `fit=fill`, `fill=gradient`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial)
+  """
+  fillGradientRadial: String
+
+  """
+  Fill Gradient Type
+
+  Specifies if a gradient is radial (circular) or linear (straight)
+
+  Depends on: `fit=fill`, `fill=gradient`
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-type)
+  """
+  fillGradientType: ImgixParamsFillGradientType
+
+  """
   Fill Mode
 
   Determines how to fill in additional space created by the fit setting
@@ -1298,6 +1477,8 @@ input ImgixParams {
   """
   Animated Gif Quality
 
+  Specifies the quality of the animated gif. The higher the value, the better more compression is applied.
+
   Depends on: `fm=gif`
   """
   gifQ: IntType
@@ -1378,6 +1559,13 @@ input ImgixParams {
   Determine if IPTC data should be passed for JPEG images.
   """
   iptc: ImgixParamsIptc
+
+  """
+  Jpg Progressive
+
+  Specifies whether or not a jpg/jpeg uses progressive (true) or baseline (false)
+  """
+  jpgProgressive: BooleanType
 
   """
   Animation Loop Count
@@ -1808,6 +1996,13 @@ input ImgixParams {
   skip: IntType
 
   """
+  Sanitize Svg
+
+  Specifies whether to sanitize an SVG.
+  """
+  svgSanitize: BooleanType
+
+  """
   Transparency
 
   Adds checkerboard behind images which support transparency.
@@ -1947,17 +2142,6 @@ input ImgixParams {
   txtLead: IntType
 
   """
-  Text Ligatures
-
-  Controls the level of ligature substitution
-
-  Depends on: `txt`
-
-  [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)
-  """
-  txtLig: IntType
-
-  """
   Text Outline Color
 
   Specifies a text outline color.
@@ -2066,6 +2250,24 @@ input ImgixParams {
   txt: String
 
   """
+  Super Resolution Fallback
+
+  Overrides default fallback behavior for super resolution failures
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale-fallback)
+  """
+  upscaleFallback: BooleanType
+
+  """
+  Super Resolution
+
+  Uses generative AI fill to upscale low resolution images.
+
+  [Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale)
+  """
+  upscale: BooleanType
+
+  """
   Unsharp Mask
 
   Sharpens the source image using an unsharp mask.
@@ -2102,6 +2304,13 @@ input ImgixParams {
   [Open Imgix reference »](https://docs.imgix.com/apis/url/size/w)
   """
   w: FloatType
+
+  """
+  Bypasses any [DatoCMS Automatic Image Optimization](https://www.datocms.com/docs/cdn-settings/advanced-asset-settings) that might be set up for the project.
+
+  Exercise caution when using this parameter, as it could significantly increase your bandwidth costs.
+  """
+  skipDefaultOptimizations: BooleanType
 }
 
 enum ImgixParamsAuto {
@@ -2186,6 +2395,38 @@ enum ImgixParamsCs {
 enum ImgixParamsFill {
   solid
   blur
+  gen
+  generative
+  gradient
+}
+
+enum ImgixParamsFillGenPos {
+  top
+  bottom
+  middle
+  left
+  right
+  center
+}
+
+enum ImgixParamsFillGradientCs {
+  linear
+  srgb
+  oklab
+  hsl
+  lch
+}
+
+enum ImgixParamsFillGradientLinearDirection {
+  top
+  bottom
+  left
+  right
+}
+
+enum ImgixParamsFillGradientType {
+  linear
+  radial
 }
 
 enum ImgixParamsFit {
