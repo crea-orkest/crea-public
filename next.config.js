@@ -39,8 +39,7 @@ const nextConfig = {
       beforeFiles: [
         {
           source: '/graphql',
-          destination:
-            'https://main--crea-orkest-p7nmyh.apollographos.net/graphql',
+          destination: 'https://current--crea-orkest.apollographos.net/graphql',
         },
       ],
     }

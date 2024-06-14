@@ -26,4 +26,7 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
-      - run: npm run turbo
+      - run: npx --yes oxlint@latest
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
