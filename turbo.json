@@ -1,15 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
       "outputs": [".next/**", "!.next/cache/**"],
-      "dotEnv": [".env"]
+      "inputs": [".env"]
     },
     "analyze": {
       "outputs": [".next/**", "!.next/cache/**"],
-      "dotEnv": [".env"]
+      "inputs": [".env"]
     },
     "lint": {},
+    "lint:js": {},
+    "lint:styles": {},
+    "lint:typescript": {},
     "test": {}
   },
   "remoteCache": {
