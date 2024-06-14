@@ -88,7 +88,7 @@ describe('getPageSeo', () => {
         variables: {},
         kind: 'query',
         context: {
-          url: 'https://main--crea-orkest-p7nmyh.apollographos.net/graphql',
+          url: 'https://current--crea-orkest.apollographos.net/graphql',
           requestPolicy: 'cache-first',
         },
       },
