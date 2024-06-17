@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.8.0](https://github.com/crea-orkest/crea-public/compare/v2.7.0...v2.8.0) (2024-06-17)
+
+
+### Features
+
+* **generated:** add new graphql query ([e70b0de](https://github.com/crea-orkest/crea-public/commit/e70b0de8ab4edc4b5f1732b5dc5895c52143c35d))
+* **metadataFormatter:** add poster to meta data ([ef917a6](https://github.com/crea-orkest/crea-public/commit/ef917a6b7c806f5911b2f5991eb801ba4d2bcf0a))
+
+
+### Bug Fixes
+
+* **metadataFormatter:** fix checking for image ([eac5192](https://github.com/crea-orkest/crea-public/commit/eac519203cd96f10c2c8673576cf171ee3639eaf))
+* **metadataFormatter:** use smaller poster url ([d9a5737](https://github.com/crea-orkest/crea-public/commit/d9a5737c4b7b253f4a2149addf151ce489bc4a2f))
+
 ## [2.7.0](https://github.com/crea-orkest/crea-public/compare/v2.6.1...v2.7.0) (2024-06-14)
 
 
