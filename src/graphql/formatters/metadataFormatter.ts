@@ -37,11 +37,16 @@ export const metadataFormatter = (
     isOfTypeCloudinaryAsset(data?.cloudinaryPoster) &&
     data.cloudinaryPoster.url
   ) {
+    const [baseUrl, rest] = data.cloudinaryPoster.url.split(
+      `/v${data.cloudinaryPoster.version}/`
+    )
+    console.log(baseUrl, rest)
+    const posterUrl = `${baseUrl}/c_fit,w_1200,f_auto/v${data.cloudinaryPoster.version}/${rest}`
     extraMetaTags = [
       {
         attributes: {
           name: 'twitter:image',
-          content: data?.cloudinaryPoster.url,
+          content: posterUrl,
         },
         content: null,
         tag: 'meta',
@@ -49,7 +54,7 @@ export const metadataFormatter = (
       {
         attributes: {
           name: 'og:image',
-          content: data?.cloudinaryPoster.url,
+          content: posterUrl,
         },
         content: null,
         tag: 'meta',
