@@ -13,6 +13,7 @@ export const eventPageSeo = gql`
     seo {
       ...seoField
     }
+    cloudinaryPoster
   }
   ${identifiable}
   ${seoField}

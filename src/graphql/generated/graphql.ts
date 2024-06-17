@@ -4044,6 +4044,7 @@ export type EventLinkFragment = {
 export type EventPageSeoFragment = {
   __typename: 'ConcertRecord'
   title?: string | null
+  cloudinaryPoster?: unknown | null
   _createdAt: string
   _firstPublishedAt?: string | null
   _publishedAt?: string | null
@@ -7534,6 +7535,7 @@ export type GetEventSeoQuery = {
   concert?: {
     __typename: 'ConcertRecord'
     title?: string | null
+    cloudinaryPoster?: unknown | null
     _createdAt: string
     _firstPublishedAt?: string | null
     _publishedAt?: string | null
@@ -14502,6 +14504,7 @@ export const EventPageSeoFragmentDoc = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
         ],
       },
     },
@@ -19564,7 +19567,7 @@ export const GetEventPageDocument = {
   ],
 } as unknown as DocumentNode<GetEventPageQuery, GetEventPageQueryVariables>
 export const GetEventSeoDocument = {
-  __meta__: { hash: 'b9650c4e2497e00a27be98d51294c42d3a7560cd' },
+  __meta__: { hash: '607aab8274bea78fb8328778015580bce283c7f5' },
   kind: 'Document',
   definitions: [
     {
@@ -19723,6 +19726,7 @@ export const GetEventSeoDocument = {
               ],
             },
           },
+          { kind: 'Field', name: { kind: 'Name', value: 'cloudinaryPoster' } },
         ],
       },
     },
