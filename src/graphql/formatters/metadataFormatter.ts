@@ -34,13 +34,13 @@ export const metadataFormatter = (
   let extraMetaTags: TitleMetaLinkTag[] = []
   if (
     data?.__typename === 'ConcertRecord' &&
+    data?.cloudinaryPoster &&
     isOfTypeCloudinaryAsset(data?.cloudinaryPoster) &&
-    data.cloudinaryPoster.url
+    data?.cloudinaryPoster?.url
   ) {
     const [baseUrl, rest] = data.cloudinaryPoster.url.split(
       `/v${data.cloudinaryPoster.version}/`
     )
-    console.log(baseUrl, rest)
     const posterUrl = `${baseUrl}/c_fit,w_1200,f_auto/v${data.cloudinaryPoster.version}/${rest}`
     extraMetaTags = [
       {
