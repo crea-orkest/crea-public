@@ -2642,9 +2642,13 @@ input LinkFilter {
 
 input LocationItemModelFilter {
   id: ItemIdFilter
+  afterTicketsText: StringFilter
+  changeLabelText: BooleanFilter
   dateTime: DateTimeFilter
   location: LinkFilter
+  noTicketsText: StringFilter
   ticketLink: StringFilter
+  ticketsText: StringFilter
   OR: [LocationItemModelFilter]
   AND: [LocationItemModelFilter]
 }
@@ -2677,10 +2681,14 @@ type LocationItemRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  afterTicketsText: String
+  changeLabelText: BooleanType
   dateTime: DateTime
   id: ItemId!
   location: LocationRecord
+  noTicketsText: String
   ticketLink: String
+  ticketsText: String
 }
 
 input LocationModelFilter {

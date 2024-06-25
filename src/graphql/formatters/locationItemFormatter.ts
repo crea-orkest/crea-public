@@ -10,5 +10,8 @@ export const locationItemFormatter = (
     ...locationFormatter(location.location),
     startTime: location.dateTime ?? null,
     ticketLink: location.ticketLink ?? null,
+    ticketsText: location.ticketsText ?? null,
+    noTicketsText: location.noTicketsText ?? null,
+    afterTicketsText: location.afterTicketsText ?? null,
   }
 }

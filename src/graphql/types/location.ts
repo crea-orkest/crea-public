@@ -8,4 +8,7 @@ export interface Location {
   lng?: number
   startTime?: LocationItemFragment['dateTime']
   ticketLink?: LocationItemFragment['ticketLink']
+  ticketsText?: LocationItemFragment['ticketsText']
+  noTicketsText?: LocationItemFragment['noTicketsText']
+  afterTicketsText?: LocationItemFragment['afterTicketsText']
 }
