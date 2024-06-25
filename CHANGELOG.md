@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.9.0](https://github.com/crea-orkest/crea-public/compare/v2.8.0...v2.9.0) (2024-06-25)
+
+
+### Features
+
+* **eventListItem:** add small box-shadow ([6d3939e](https://github.com/crea-orkest/crea-public/commit/6d3939e97c6001ccce10b4d2d77ff13d618c7f5d))
+* **eventListItem:** use tickets text from dato for rendering text ([e14da5c](https://github.com/crea-orkest/crea-public/commit/e14da5c941b3211831eab5fd5fa489bb86e2c2b0))
+* **generated:** update queries with new text options ([1317ba6](https://github.com/crea-orkest/crea-public/commit/1317ba6fd4aecc542abfb5edb29344b99dee6a9c))
+
+
+### Bug Fixes
+
+* **deps:** update dependency graphql to v16.9.0 ([c373733](https://github.com/crea-orkest/crea-public/commit/c373733654688b080a13d1aa65766f34beb33e81))
+* **tests:** update/fix tests ([83f78df](https://github.com/crea-orkest/crea-public/commit/83f78df0306c816a4ee37cb14102eeac11101b96))
+
 ## [2.8.0](https://github.com/crea-orkest/crea-public/compare/v2.7.0...v2.8.0) (2024-06-17)
 
 
