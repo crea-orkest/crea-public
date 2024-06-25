@@ -77,7 +77,7 @@ export const EventListItem = ({
               )}
             {data.locations?.length > 0 ? (
               <ul className={styles.locations}>
-                {data.locations.map((item) => {
+                {data.locations.map((item, index) => {
                   if (!item?.id) return null
                   const ticketLink = item.ticketLink
                   const concertPast =
@@ -85,9 +85,12 @@ export const EventListItem = ({
                   const startTime =
                     item?.startTime && formatDate(item.startTime)
                   const itemTitle = item.title || startTime
+                  const itemFooterContent = concertPast
+                    ? item.afterTicketsText
+                    : item.noTicketsText
 
                   return (
-                    <li key={item.id} className={styles.location}>
+                    <li key={`${item.id}-${index}`} className={styles.location}>
                       <h3
                         className={classNames(styles.locationTitle, {
                           h5: size === 'small',
@@ -101,34 +104,40 @@ export const EventListItem = ({
                           {startTime}
                         </p>
                       )}
-                      <p
-                        className={classNames(styles.locationLinkContainer, {
-                          'text-small': size === 'small' || !ticketLink,
-                        })}
-                      >
-                        {concertPast ? (
-                          'Concert voorbij'
-                        ) : (
-                          <>
-                            {ticketLink ? (
-                              <Link
-                                href={ticketLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <span className={styles.locationLink}>
-                                  Koop nu kaarten
-                                  <ArrowRight
-                                    className={styles.locationLinkIcon}
-                                  />
-                                </span>
-                              </Link>
-                            ) : (
-                              'Link voor de kaartverkoop volgt spoedig'
+
+                      {itemFooterContent && (!ticketLink || concertPast) ? (
+                        <p
+                          className={classNames(styles.locationLinkContainer, {
+                            'text-small': size === 'small' || !ticketLink,
+                          })}
+                        >
+                          {itemFooterContent}
+                        </p>
+                      ) : (
+                        ticketLink && (
+                          <p
+                            className={classNames(
+                              styles.locationLinkContainer,
+                              {
+                                'text-small': size === 'small' || !ticketLink,
+                              }
                             )}
-                          </>
-                        )}
-                      </p>
+                          >
+                            <Link
+                              href={ticketLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <span className={styles.locationLink}>
+                                {item.ticketsText}
+                                <ArrowRight
+                                  className={styles.locationLinkIcon}
+                                />
+                              </span>
+                            </Link>
+                          </p>
+                        )
+                      )}
                     </li>
                   )
                 })}
@@ -158,7 +167,7 @@ export const EventListItem = ({
           })}
           href={data.url}
         >
-          Bekijk concert
+          Bekijk programma
           <ArrowRight />
         </Link>
       )}
