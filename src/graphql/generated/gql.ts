@@ -51,7 +51,7 @@ const documents = {
     types.DocumentFragmentDoc,
   '\n  fragment location on LocationRecord {\n    id\n    title\n    addressTitle\n    address {\n      ...coordinates\n    }\n  }\n  \n':
     types.LocationFragmentDoc,
-  '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n  }\n  \n':
+  '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n    noTicketsText\n    ticketsText\n    afterTicketsText\n  }\n  \n':
     types.LocationItemFragmentDoc,
   '\n  fragment mailchimpForm on MailchimpFormRecord {\n    ...identifiable\n    title\n  }\n  \n':
     types.MailchimpFormFragmentDoc,
@@ -251,8 +251,8 @@ export function gql(
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(
-  source: '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n  }\n  \n'
-): (typeof documents)['\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n  }\n  \n']
+  source: '\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n    noTicketsText\n    ticketsText\n    afterTicketsText\n  }\n  \n'
+): (typeof documents)['\n  fragment locationItem on LocationItemRecord {\n    id\n    dateTime\n    location {\n      ...location\n    }\n    ticketLink\n    noTicketsText\n    ticketsText\n    afterTicketsText\n  }\n  \n']
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

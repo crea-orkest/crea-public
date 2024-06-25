@@ -9,6 +9,9 @@ export const locationItem = gql`
       ...location
     }
     ticketLink
+    noTicketsText
+    ticketsText
+    afterTicketsText
   }
   ${location}
 `

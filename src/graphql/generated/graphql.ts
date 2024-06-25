@@ -2254,10 +2254,14 @@ export type LinkFilter = {
 export type LocationItemModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<LocationItemModelFilter>>>
   OR?: InputMaybe<Array<InputMaybe<LocationItemModelFilter>>>
+  afterTicketsText?: InputMaybe<StringFilter>
+  changeLabelText?: InputMaybe<BooleanFilter>
   dateTime?: InputMaybe<DateTimeFilter>
   id?: InputMaybe<ItemIdFilter>
   location?: InputMaybe<LinkFilter>
+  noTicketsText?: InputMaybe<StringFilter>
   ticketLink?: InputMaybe<StringFilter>
+  ticketsText?: InputMaybe<StringFilter>
 }
 
 /** Block of type Locatie item (location_item) */
@@ -2276,10 +2280,14 @@ export type LocationItemRecord = RecordInterface & {
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
+  afterTicketsText?: Maybe<Scalars['String']['output']>
+  changeLabelText?: Maybe<Scalars['BooleanType']['output']>
   dateTime?: Maybe<Scalars['DateTime']['output']>
   id: Scalars['ItemId']['output']
   location?: Maybe<LocationRecord>
+  noTicketsText?: Maybe<Scalars['String']['output']>
   ticketLink?: Maybe<Scalars['String']['output']>
+  ticketsText?: Maybe<Scalars['String']['output']>
 }
 
 /** Block of type Locatie item (location_item) */
@@ -3441,6 +3449,9 @@ export type ConcertDetailFragment = {
     id: string
     dateTime?: string | null
     ticketLink?: string | null
+    noTicketsText?: string | null
+    ticketsText?: string | null
+    afterTicketsText?: string | null
     location?: {
       __typename?: 'LocationRecord'
       id: string
@@ -3612,6 +3623,9 @@ export type ConcertDetailFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -3767,6 +3781,9 @@ export type ConcertDetailFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -3895,6 +3912,9 @@ export type ConcertDetailFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -3960,6 +3980,9 @@ export type ConcertDetailSmallFragment = {
     id: string
     dateTime?: string | null
     ticketLink?: string | null
+    noTicketsText?: string | null
+    ticketsText?: string | null
+    afterTicketsText?: string | null
     location?: {
       __typename?: 'LocationRecord'
       id: string
@@ -4015,6 +4038,9 @@ export type EventBlockFragment = {
       id: string
       dateTime?: string | null
       ticketLink?: string | null
+      noTicketsText?: string | null
+      ticketsText?: string | null
+      afterTicketsText?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -4472,6 +4498,9 @@ export type LocationItemFragment = {
   id: string
   dateTime?: string | null
   ticketLink?: string | null
+  noTicketsText?: string | null
+  ticketsText?: string | null
+  afterTicketsText?: string | null
   location?: {
     __typename?: 'LocationRecord'
     id: string
@@ -4679,6 +4708,9 @@ export type PageFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -4834,6 +4866,9 @@ export type PageFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -4962,6 +4997,9 @@ export type PageFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -5179,6 +5217,9 @@ export type PageDetailFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -5334,6 +5375,9 @@ export type PageDetailFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -5462,6 +5506,9 @@ export type PageDetailFragment = {
                     id: string
                     dateTime?: string | null
                     ticketLink?: string | null
+                    noTicketsText?: string | null
+                    ticketsText?: string | null
+                    afterTicketsText?: string | null
                     location?: {
                       __typename?: 'LocationRecord'
                       id: string
@@ -5687,6 +5734,9 @@ export type TextBlockContentFragment = {
             id: string
             dateTime?: string | null
             ticketLink?: string | null
+            noTicketsText?: string | null
+            ticketsText?: string | null
+            afterTicketsText?: string | null
             location?: {
               __typename?: 'LocationRecord'
               id: string
@@ -5835,6 +5885,9 @@ export type LeftContentFragment = {
             id: string
             dateTime?: string | null
             ticketLink?: string | null
+            noTicketsText?: string | null
+            ticketsText?: string | null
+            afterTicketsText?: string | null
             location?: {
               __typename?: 'LocationRecord'
               id: string
@@ -5964,6 +6017,9 @@ export type RightContentFragment = {
             id: string
             dateTime?: string | null
             ticketLink?: string | null
+            noTicketsText?: string | null
+            ticketsText?: string | null
+            afterTicketsText?: string | null
             location?: {
               __typename?: 'LocationRecord'
               id: string
@@ -6100,6 +6156,9 @@ export type TextBlockFragment = {
               id: string
               dateTime?: string | null
               ticketLink?: string | null
+              noTicketsText?: string | null
+              ticketsText?: string | null
+              afterTicketsText?: string | null
               location?: {
                 __typename?: 'LocationRecord'
                 id: string
@@ -6256,6 +6315,9 @@ export type TwoColumFragment = {
               id: string
               dateTime?: string | null
               ticketLink?: string | null
+              noTicketsText?: string | null
+              ticketsText?: string | null
+              afterTicketsText?: string | null
               location?: {
                 __typename?: 'LocationRecord'
                 id: string
@@ -6384,6 +6446,9 @@ export type TwoColumFragment = {
               id: string
               dateTime?: string | null
               ticketLink?: string | null
+              noTicketsText?: string | null
+              ticketsText?: string | null
+              afterTicketsText?: string | null
               location?: {
                 __typename?: 'LocationRecord'
                 id: string
@@ -6495,6 +6560,9 @@ export type GetEventQuery = {
       id: string
       dateTime?: string | null
       ticketLink?: string | null
+      noTicketsText?: string | null
+      ticketsText?: string | null
+      afterTicketsText?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -6666,6 +6734,9 @@ export type GetEventQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -6821,6 +6892,9 @@ export type GetEventQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -6949,6 +7023,9 @@ export type GetEventQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -7022,6 +7099,9 @@ export type GetEventPageQuery = {
       id: string
       dateTime?: string | null
       ticketLink?: string | null
+      noTicketsText?: string | null
+      ticketsText?: string | null
+      afterTicketsText?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -7193,6 +7273,9 @@ export type GetEventPageQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -7348,6 +7431,9 @@ export type GetEventPageQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -7476,6 +7562,9 @@ export type GetEventPageQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -7583,6 +7672,9 @@ export type GetEventsQuery = {
       id: string
       dateTime?: string | null
       ticketLink?: string | null
+      noTicketsText?: string | null
+      ticketsText?: string | null
+      afterTicketsText?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -7754,6 +7846,9 @@ export type GetEventsQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -7909,6 +8004,9 @@ export type GetEventsQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -8037,6 +8135,9 @@ export type GetEventsQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -8122,6 +8223,9 @@ export type GetFutureEventsQuery = {
       id: string
       dateTime?: string | null
       ticketLink?: string | null
+      noTicketsText?: string | null
+      ticketsText?: string | null
+      afterTicketsText?: string | null
       location?: {
         __typename?: 'LocationRecord'
         id: string
@@ -8293,6 +8397,9 @@ export type GetFutureEventsQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -8448,6 +8555,9 @@ export type GetFutureEventsQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -8576,6 +8686,9 @@ export type GetFutureEventsQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -8848,6 +8961,9 @@ export type GetPageQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -9003,6 +9119,9 @@ export type GetPageQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -9131,6 +9250,9 @@ export type GetPageQuery = {
                       id: string
                       dateTime?: string | null
                       ticketLink?: string | null
+                      noTicketsText?: string | null
+                      ticketsText?: string | null
+                      afterTicketsText?: string | null
                       location?: {
                         __typename?: 'LocationRecord'
                         id: string
@@ -9432,6 +9554,9 @@ export const LocationItemFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -10253,6 +10378,9 @@ export const ConcertDetailSmallFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -10381,6 +10509,9 @@ export const EventBlockFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -10906,6 +11037,9 @@ export const TextBlockContentFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -11348,6 +11482,9 @@ export const TextBlockFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -11972,6 +12109,9 @@ export const LeftContentFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -12434,6 +12574,9 @@ export const RightContentFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -12849,6 +12992,9 @@ export const TwoColumFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -13672,6 +13818,9 @@ export const ConcertDetailFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -15357,6 +15506,9 @@ export const PageFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -16407,6 +16559,9 @@ export const PageDetailFragmentDoc = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -17305,7 +17460,7 @@ export const SiteMetadataFragmentDoc = {
   ],
 } as unknown as DocumentNode<SiteMetadataFragment, unknown>
 export const GetEventDocument = {
-  __meta__: { hash: 'ea1969e84ac099692072772b56eedddfc97d42c7' },
+  __meta__: { hash: '34ef26035e58fac2dcfff7e2219632da77002d08' },
   kind: 'Document',
   definitions: [
     {
@@ -17461,6 +17616,9 @@ export const GetEventDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -18436,7 +18594,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '7c246645b81077d3f88716ba6b70828dcf3ea0b6' },
+  __meta__: { hash: '6f5b226e8d03c47596a1f5e464109848c1702947' },
   kind: 'Document',
   definitions: [
     {
@@ -18592,6 +18750,9 @@ export const GetEventPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -19733,7 +19894,7 @@ export const GetEventSeoDocument = {
   ],
 } as unknown as DocumentNode<GetEventSeoQuery, GetEventSeoQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '4d86b074f5d9d27d1c7ebd08c76ae276d6c12d7f' },
+  __meta__: { hash: '60368b3284e3add013b08fe07a399b5e42766fd2' },
   kind: 'Document',
   definitions: [
     {
@@ -19915,6 +20076,9 @@ export const GetEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -20916,7 +21080,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: 'ea18e07eadaf14e616606561da8ddc26d4d57c92' },
+  __meta__: { hash: '43b81f1a8ff7c2114b0f378755dfeebc6d444fbd' },
   kind: 'Document',
   definitions: [
     {
@@ -21117,6 +21281,9 @@ export const GetFutureEventsDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
@@ -22274,7 +22441,7 @@ export const GetGeneralInfoDocument = {
   ],
 } as unknown as DocumentNode<GetGeneralInfoQuery, GetGeneralInfoQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: 'f1334655d16386dbea07ef54cddc47800623f2ea' },
+  __meta__: { hash: '5372c0d8df347b606e86b42c51d808aabc17aa84' },
   kind: 'Document',
   definitions: [
     {
@@ -22640,6 +22807,9 @@ export const GetPageDocument = {
             },
           },
           { kind: 'Field', name: { kind: 'Name', value: 'ticketLink' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'noTicketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'ticketsText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'afterTicketsText' } },
         ],
       },
     },
