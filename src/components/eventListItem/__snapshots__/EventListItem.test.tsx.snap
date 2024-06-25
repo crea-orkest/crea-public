@@ -31,11 +31,6 @@ exports[`EventListItem component shows all the data 1`] = `
             >
               Vrijdag 1 september — 14:32
             </h3>
-            <p
-              class="locationLinkContainer text-small"
-            >
-              Concert voorbij
-            </p>
           </li>
         </ul>
       </div>
@@ -44,7 +39,7 @@ exports[`EventListItem component shows all the data 1`] = `
       class="eventLink text-small"
       href="/some-slug"
     >
-      Bekijk concert
+      Bekijk programma
       <svg
         aria-hidden="true"
         class="icon"
