@@ -70,7 +70,7 @@
     "sass": "1.77.6",
     "ts-jest": "29.1.5",
     "ts-node": "10.9.2",
-    "turbo": "2.0.4",
+    "turbo": "2.0.5",
     "typescript": "5.5.2",
     "webpack-bundle-analyzer": "4.10.2"
   }
