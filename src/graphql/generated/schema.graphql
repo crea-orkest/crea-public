@@ -2795,6 +2795,8 @@ type MailchimpFormRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  formUrl: String
+  height: IntType
   id: ItemId!
   title: String
 }

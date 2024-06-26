@@ -4,7 +4,8 @@ import { identifiable } from './identifiable'
 export const mailchimpForm = gql`
   fragment mailchimpForm on MailchimpFormRecord {
     ...identifiable
-    title
+    formUrl
+    height
   }
   ${identifiable}
 `

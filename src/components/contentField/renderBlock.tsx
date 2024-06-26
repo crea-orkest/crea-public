@@ -88,7 +88,7 @@ export const renderBlock = ({
   if (isOfType<MailchimpFormFragment>(record, 'MailchimpFormRecord')) {
     return (
       <div className={styles.spacingLarge}>
-        <MailchimpForm title={record.title || ''} />
+        <MailchimpForm url={record.formUrl || ''} height={record.height} />
       </div>
     )
   }

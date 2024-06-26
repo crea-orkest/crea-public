@@ -2380,6 +2380,8 @@ export type MailchimpFormRecord = RecordInterface & {
   _status: ItemStatus
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>
   _updatedAt: Scalars['DateTime']['output']
+  formUrl?: Maybe<Scalars['String']['output']>
+  height?: Maybe<Scalars['IntType']['output']>
   id: Scalars['ItemId']['output']
   title?: Maybe<Scalars['String']['output']>
 }
@@ -3661,7 +3663,8 @@ export type ConcertDetailFragment = {
               }
             | {
                 __typename: 'MailchimpFormRecord'
-                title?: string | null
+                formUrl?: string | null
+                height?: number | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
                 _publishedAt?: string | null
@@ -4516,7 +4519,8 @@ export type LocationItemFragment = {
 
 export type MailchimpFormFragment = {
   __typename: 'MailchimpFormRecord'
-  title?: string | null
+  formUrl?: string | null
+  height?: number | null
   _createdAt: string
   _firstPublishedAt?: string | null
   _publishedAt?: string | null
@@ -4746,7 +4750,8 @@ export type PageFragment = {
               }
             | {
                 __typename: 'MailchimpFormRecord'
-                title?: string | null
+                formUrl?: string | null
+                height?: number | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
                 _publishedAt?: string | null
@@ -5255,7 +5260,8 @@ export type PageDetailFragment = {
               }
             | {
                 __typename: 'MailchimpFormRecord'
-                title?: string | null
+                formUrl?: string | null
+                height?: number | null
                 _createdAt: string
                 _firstPublishedAt?: string | null
                 _publishedAt?: string | null
@@ -5772,7 +5778,8 @@ export type TextBlockContentFragment = {
       }
     | {
         __typename: 'MailchimpFormRecord'
-        title?: string | null
+        formUrl?: string | null
+        height?: number | null
         _createdAt: string
         _firstPublishedAt?: string | null
         _publishedAt?: string | null
@@ -6194,7 +6201,8 @@ export type TextBlockFragment = {
         }
       | {
           __typename: 'MailchimpFormRecord'
-          title?: string | null
+          formUrl?: string | null
+          height?: number | null
           _createdAt: string
           _firstPublishedAt?: string | null
           _publishedAt?: string | null
@@ -6772,7 +6780,8 @@ export type GetEventQuery = {
                 }
               | {
                   __typename: 'MailchimpFormRecord'
-                  title?: string | null
+                  formUrl?: string | null
+                  height?: number | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -7311,7 +7320,8 @@ export type GetEventPageQuery = {
                 }
               | {
                   __typename: 'MailchimpFormRecord'
-                  title?: string | null
+                  formUrl?: string | null
+                  height?: number | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -7884,7 +7894,8 @@ export type GetEventsQuery = {
                 }
               | {
                   __typename: 'MailchimpFormRecord'
-                  title?: string | null
+                  formUrl?: string | null
+                  height?: number | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -8435,7 +8446,8 @@ export type GetFutureEventsQuery = {
                 }
               | {
                   __typename: 'MailchimpFormRecord'
-                  title?: string | null
+                  formUrl?: string | null
+                  height?: number | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -8999,7 +9011,8 @@ export type GetPageQuery = {
                 }
               | {
                   __typename: 'MailchimpFormRecord'
-                  title?: string | null
+                  formUrl?: string | null
+                  height?: number | null
                   _createdAt: string
                   _firstPublishedAt?: string | null
                   _publishedAt?: string | null
@@ -10760,7 +10773,8 @@ export const MailchimpFormFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -11316,7 +11330,8 @@ export const TextBlockContentFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -11723,7 +11738,8 @@ export const TextBlockFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -13998,7 +14014,8 @@ export const ConcertDetailFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -15686,7 +15703,8 @@ export const PageFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -16739,7 +16757,8 @@ export const PageDetailFragmentDoc = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -17460,7 +17479,7 @@ export const SiteMetadataFragmentDoc = {
   ],
 } as unknown as DocumentNode<SiteMetadataFragment, unknown>
 export const GetEventDocument = {
-  __meta__: { hash: '34ef26035e58fac2dcfff7e2219632da77002d08' },
+  __meta__: { hash: 'cf40f2a07edcb4a868b1f5df70cfa83ed30f7767' },
   kind: 'Document',
   definitions: [
     {
@@ -18006,7 +18025,8 @@ export const GetEventDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -18594,7 +18614,7 @@ export const GetEventDocument = {
   ],
 } as unknown as DocumentNode<GetEventQuery, GetEventQueryVariables>
 export const GetEventPageDocument = {
-  __meta__: { hash: '6f5b226e8d03c47596a1f5e464109848c1702947' },
+  __meta__: { hash: '3ef4efc92893e367ac7d6f29c02f8bfee7b20415' },
   kind: 'Document',
   definitions: [
     {
@@ -19140,7 +19160,8 @@ export const GetEventPageDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -19894,7 +19915,7 @@ export const GetEventSeoDocument = {
   ],
 } as unknown as DocumentNode<GetEventSeoQuery, GetEventSeoQueryVariables>
 export const GetEventsDocument = {
-  __meta__: { hash: '60368b3284e3add013b08fe07a399b5e42766fd2' },
+  __meta__: { hash: 'ac328da021c338068ad132f36ada4d5fa28437f8' },
   kind: 'Document',
   definitions: [
     {
@@ -20466,7 +20487,8 @@ export const GetEventsDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -21080,7 +21102,7 @@ export const GetEventsMetaDocument = {
   ],
 } as unknown as DocumentNode<GetEventsMetaQuery, GetEventsMetaQueryVariables>
 export const GetFutureEventsDocument = {
-  __meta__: { hash: '43b81f1a8ff7c2114b0f378755dfeebc6d444fbd' },
+  __meta__: { hash: '9e2707ced98057464973044adcbe336dff76cd13' },
   kind: 'Document',
   definitions: [
     {
@@ -21671,7 +21693,8 @@ export const GetFutureEventsDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
@@ -22441,7 +22464,7 @@ export const GetGeneralInfoDocument = {
   ],
 } as unknown as DocumentNode<GetGeneralInfoQuery, GetGeneralInfoQueryVariables>
 export const GetPageDocument = {
-  __meta__: { hash: '5372c0d8df347b606e86b42c51d808aabc17aa84' },
+  __meta__: { hash: '29728ae16f147dbc91c3e962b62f4b0c4c033f5d' },
   kind: 'Document',
   definitions: [
     {
@@ -22987,7 +23010,8 @@ export const GetPageDocument = {
             kind: 'FragmentSpread',
             name: { kind: 'Name', value: 'identifiable' },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'formUrl' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'height' } },
         ],
       },
     },
