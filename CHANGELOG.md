@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.10.0](https://github.com/crea-orkest/crea-public/compare/v2.9.0...v2.10.0) (2024-06-26)
+
+
+### Features
+
+* **grahpql:** implement new form url and height ([b3362de](https://github.com/crea-orkest/crea-public/commit/b3362de1d830255a8947cecc93124404c63eb29d))
+* **mailchimpForm:** add mailchimpForm in iframe instead of own integration ([23b8e55](https://github.com/crea-orkest/crea-public/commit/23b8e55eb05d5958a028d175b831dd7852cfb65a))
+* **mailchimpForm:** remove own integration ([e2222d1](https://github.com/crea-orkest/crea-public/commit/e2222d1878e19f87c17d944df5e41c0a0a8b7c05))
+
 ## [2.9.0](https://github.com/crea-orkest/crea-public/compare/v2.8.0...v2.9.0) (2024-06-25)
 
 
