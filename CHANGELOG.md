@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.1](https://github.com/crea-orkest/crea-public/compare/v2.10.0...v2.10.1) (2024-07-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/exchange-graphcache to v7.1.2 ([6589c58](https://github.com/crea-orkest/crea-public/commit/6589c5845c828aad72bf0057dc8b85518557ed8e))
+
 ## [2.10.0](https://github.com/crea-orkest/crea-public/compare/v2.9.0...v2.10.0) (2024-06-26)
 
 
