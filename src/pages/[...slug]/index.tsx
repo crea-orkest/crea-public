@@ -41,24 +41,27 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
+  type Paths = Record<'params', { slug: string[] }>[]
   const pages = await getAllPages()
 
-  const paths = pages
-    .map((page) => {
-      if (
-        !page.slug ||
-        page.slug === '' ||
-        page.slug === 'concerten' ||
-        page.slug === '404'
-      ) {
-        return
-      }
+  const initialValue: Paths = []
 
-      return {
-        params: { slug: page.slug.split('/') },
-      }
-    })
-    .filter(Boolean)
+  const paths = pages.reduce((acc, page) => {
+    if (
+      !page.slug ||
+      page.slug === '' ||
+      page.slug === 'concerten' ||
+      page.slug === '404'
+    ) {
+      return acc
+    }
+
+    const path = {
+      params: { slug: page.slug.split('/') },
+    }
+
+    return [...acc, path]
+  }, initialValue)
 
   return {
     paths,

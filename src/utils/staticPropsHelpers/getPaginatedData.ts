@@ -1,4 +1,4 @@
-import type { PageRecord } from 'graphql/generated/graphql'
+import type { GetPagesQuery } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
 import { getPages } from 'graphql/getters/getPages'
 import { getPagesMeta } from 'graphql/getters/getPagesMeta'
@@ -7,17 +7,18 @@ import { getEvents } from 'graphql/getters/getEvents'
 
 const defaultFirst = 100
 
-export async function getAllPages(): Promise<PageRecord[]> {
+export async function getAllPages(): Promise<GetPagesQuery['allPages']> {
   const pagesMeta = await getPagesMeta()
   const first = defaultFirst
-  const pageCount = pagesMeta.data?.count || 0
+  const pageCount = pagesMeta.data?.count ?? 0
 
-  const pages: PageRecord[] = []
+  const pages: GetPagesQuery['allPages'] = []
 
   for (let step = 0; step < pageCount; step += first) {
-    const { data } = (await getPages({ skip: step, first })) as {
-      data: PageRecord[] | null
-    }
+    const { data } = await getPages({
+      skip: step,
+      first,
+    })
 
     if (!data || !data.length) {
       return pages
@@ -39,16 +40,16 @@ export async function getAllEvents(): Promise<Event[]> {
   const events: Event[] = []
 
   for (let step = 0; step < pageCount; step += first) {
-    const { data } = (await getEvents({ skip: step, first })) as {
-      data: Event[] | null
-    }
+    const { data } = await getEvents({ skip: step, first })
 
     if (!data || !data.length) {
       return events
     }
 
     data.map((item) => {
-      events.push(item)
+      if (item) {
+        events.push(item)
+      }
     })
   }
 
