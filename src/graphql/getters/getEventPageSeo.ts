@@ -25,7 +25,7 @@ export const getEventPageSeo = async (
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
     return {
-      data: await metadataFormatter(undefined, eventSlug, metadata),
+      data: metadataFormatter(undefined, eventSlug, metadata),
       error,
     }
   }
