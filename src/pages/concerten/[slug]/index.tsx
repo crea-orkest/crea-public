@@ -43,18 +43,21 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
+  type Paths = Record<'params', { slug: string }>[]
   const events = await getAllEvents()
-  const paths = events
-    .map((event) => {
-      if (!event.slug || event.slug === '') {
-        return
-      }
 
-      return {
-        params: { slug: event.slug },
-      }
-    })
-    .filter(Boolean)
+  const initialValue: Paths = []
+  const paths = events.reduce((acc, event) => {
+    if (!event.slug || event.slug === '') {
+      return acc
+    }
+
+    const path = {
+      params: { slug: event.slug },
+    }
+
+    return [...acc, path]
+  }, initialValue)
 
   return {
     paths,

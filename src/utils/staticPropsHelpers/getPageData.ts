@@ -12,8 +12,8 @@ export async function getPageData(slug: string) {
   const { data: generalData } = await getGeneralInfo()
 
   return {
-    pageData,
-    pageSeo,
+    pageData: pageData ?? null,
+    pageSeo: pageSeo ?? null,
     generalInfo: generalData?.general,
   }
 }
@@ -25,8 +25,8 @@ export async function getEventData(slug: string) {
   const { data: generalData } = await getGeneralInfo()
 
   return {
-    eventData,
-    eventSeo,
-    generalInfo: generalData?.general,
+    eventData: eventData ?? null,
+    eventSeo: eventSeo ?? null,
+    generalInfo: generalData?.general ?? null,
   }
 }
