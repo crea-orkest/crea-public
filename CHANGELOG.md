@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.10.1](https://github.com/crea-orkest/crea-public/compare/v2.10.0...v2.10.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/exchange-graphcache to v7.1.2 ([6589c58](https://github.com/crea-orkest/crea-public/commit/6589c5845c828aad72bf0057dc8b85518557ed8e))
+* retry config ([8bf0ae9](https://github.com/crea-orkest/crea-public/commit/8bf0ae96753e654f07582690c839742686ebfdb5))
+* retry options ([5d78899](https://github.com/crea-orkest/crea-public/commit/5d78899f83b76fd73cbdcfdc2931d1a470e1b5c8))
+
 ## [2.10.0](https://github.com/crea-orkest/crea-public/compare/v2.9.0...v2.10.0) (2024-06-26)
 
 
