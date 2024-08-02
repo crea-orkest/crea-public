@@ -3,6 +3,7 @@ export const isValidUrl = (url: string) => {
     // TODO: edge case when url should be relative
     return Boolean(new URL(url))
   } catch (e) {
+    console.log(e)
     return false
   }
 }
