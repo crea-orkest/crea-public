@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.10.2](https://github.com/crea-orkest/crea-public/compare/v2.10.1...v2.10.2) (2024-08-22)
+
+
+### Bug Fixes
+
+* catch error unused var ([6d74b8f](https://github.com/crea-orkest/crea-public/commit/6d74b8f1d21e9529eecd0e8b482578b81858d621))
+* **deps:** update dependency @urql/core to v5.0.5 ([0fd39fa](https://github.com/crea-orkest/crea-public/commit/0fd39fa9a4c7e7edf99159f6a45b7b7fd1513952))
+* **deps:** update dependency @urql/core to v5.0.6 ([1a03aad](https://github.com/crea-orkest/crea-public/commit/1a03aadde08fba0446e25c243151a5f7bd1aad16))
+* **deps:** update dependency next to v14.2.6 ([#925](https://github.com/crea-orkest/crea-public/issues/925)) ([c72779d](https://github.com/crea-orkest/crea-public/commit/c72779ddd514fd2b2fc800c2f0a79a97549f8a39))
+* update dependabot config ([11aba28](https://github.com/crea-orkest/crea-public/commit/11aba28111a69185463c0fc0864efad17283e353))
+* update husky ([f235a40](https://github.com/crea-orkest/crea-public/commit/f235a403c010031aa1f4c9ad669ebc0ba2cfa7b4))
+
 ## [2.10.1](https://github.com/crea-orkest/crea-public/compare/v2.10.0...v2.10.1) (2024-07-04)
 
 
