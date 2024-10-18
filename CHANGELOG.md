@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.10.3](https://github.com/crea-orkest/crea-public/compare/v2.10.2...v2.10.3) (2024-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-google-maps/api to v2.20.2 ([#1008](https://github.com/crea-orkest/crea-public/issues/1008)) ([bd8d69b](https://github.com/crea-orkest/crea-public/commit/bd8d69b8982f06c8946c0fbf4de80993f2c9da2f))
+* **deps:** update dependency @react-google-maps/api to v2.20.3 ([#1011](https://github.com/crea-orkest/crea-public/issues/1011)) ([7354bed](https://github.com/crea-orkest/crea-public/commit/7354bede58b2a3b3c9aab625d003fbd240654a69))
+* **deps:** update dependency @urql/exchange-graphcache to v7.1.3 ([#957](https://github.com/crea-orkest/crea-public/issues/957)) ([14d0828](https://github.com/crea-orkest/crea-public/commit/14d08280cca4c49491417d440c9a083ebc4be3cc))
+* **deps:** update dependency @urql/exchange-graphcache to v7.2.0 ([#999](https://github.com/crea-orkest/crea-public/issues/999)) ([bf54ca6](https://github.com/crea-orkest/crea-public/commit/bf54ca6b41a73fbfc653c0640fe1542a8b79bfec))
+* **deps:** update dependency next to v14.2.12 ([#972](https://github.com/crea-orkest/crea-public/issues/972)) ([af73ae9](https://github.com/crea-orkest/crea-public/commit/af73ae962f5dc46155ebe8ef5d99aa69ac194561))
+* **deps:** update dependency next to v14.2.13 ([#978](https://github.com/crea-orkest/crea-public/issues/978)) ([8290860](https://github.com/crea-orkest/crea-public/commit/82908605d1a587fc420e6a2fc8528a19834df837))
+* **deps:** update dependency react-datocms to v7.0.3 ([#983](https://github.com/crea-orkest/crea-public/issues/983)) ([5a29ab5](https://github.com/crea-orkest/crea-public/commit/5a29ab5bf1187e5eb15b7e1cae16e4e1813df6d2))
+
 ## [2.10.2](https://github.com/crea-orkest/crea-public/compare/v2.10.1...v2.10.2) (2024-08-22)
 
 
