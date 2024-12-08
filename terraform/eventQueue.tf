@@ -28,7 +28,19 @@ resource "aws_iam_role_policy" "event_queue_iam_role_policy" {
   role = aws_iam_role.event_queue_iam_role.id
   policy = jsonencode({
     Version   = "2012-10-17"
-    Statement = []
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "sqs:SendMessage",
+          "sqs:ReceiveMessage",
+          "sqs:DeleteMessage",
+          "sqs:GetQueueAttributes",
+          "sqs:GetQueueUrl"
+        ]
+        Resource = "*"
+      }
+    ]
   })
 }
 
