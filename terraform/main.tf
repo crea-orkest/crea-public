@@ -14,7 +14,7 @@ terraform {
     }
     google = {
       source  = "hashicorp/google"
-      version = "6.12.0"
+      version = "5.45.0"
     }
     hcp = {
       source  = "hashicorp/hcp"
