@@ -1,5 +1,5 @@
 resource "vercel_project" "crea" {
-  name                       = "crea-public"
+  name                       = "crea-public-website"
   framework                  = "nextjs"
   install_command            = "npm ci"
   build_command              = "npm run build"
