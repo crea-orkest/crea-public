@@ -1,6 +1,6 @@
 {
   "name": "crea-public",
-  "version": "2.10.2",
+  "version": "2.10.3",
   "description": "The public CREA Orkest website",
   "type": "module",
   "packageManager": "npm@10.9.2",
