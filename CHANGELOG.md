@@ -1,5 +1,64 @@
 # Changelog
 
+## 1.0.0 (2025-02-06)
+
+
+### Features
+
+* change apollographos endpoint ([f235ad2](https://github.com/crea-orkest/crea-public/commit/f235ad28f8ed2e1f6184817990483e61359e7811))
+* **eventListItem:** add small box-shadow ([6d3939e](https://github.com/crea-orkest/crea-public/commit/6d3939e97c6001ccce10b4d2d77ff13d618c7f5d))
+* **eventListItem:** use tickets text from dato for rendering text ([e14da5c](https://github.com/crea-orkest/crea-public/commit/e14da5c941b3211831eab5fd5fa489bb86e2c2b0))
+* **generated:** add new graphql query ([e70b0de](https://github.com/crea-orkest/crea-public/commit/e70b0de8ab4edc4b5f1732b5dc5895c52143c35d))
+* **generated:** update queries with new text options ([1317ba6](https://github.com/crea-orkest/crea-public/commit/1317ba6fd4aecc542abfb5edb29344b99dee6a9c))
+* **grahpql:** implement new form url and height ([b3362de](https://github.com/crea-orkest/crea-public/commit/b3362de1d830255a8947cecc93124404c63eb29d))
+* **mailchimpForm:** add mailchimpForm in iframe instead of own integration ([23b8e55](https://github.com/crea-orkest/crea-public/commit/23b8e55eb05d5958a028d175b831dd7852cfb65a))
+* **mailchimpForm:** remove own integration ([e2222d1](https://github.com/crea-orkest/crea-public/commit/e2222d1878e19f87c17d944df5e41c0a0a8b7c05))
+* **metadataFormatter:** add poster to meta data ([ef917a6](https://github.com/crea-orkest/crea-public/commit/ef917a6b7c806f5911b2f5991eb801ba4d2bcf0a))
+
+
+### Bug Fixes
+
+* catch error unused var ([6d74b8f](https://github.com/crea-orkest/crea-public/commit/6d74b8f1d21e9529eecd0e8b482578b81858d621))
+* commit lint rules ([#1110](https://github.com/crea-orkest/crea-public/issues/1110)) ([b8d2f0d](https://github.com/crea-orkest/crea-public/commit/b8d2f0dc91496f974b01542dfff4695bad7eb1ec))
+* **deps:** update dependency @react-google-maps/api to v2.20.2 ([#1008](https://github.com/crea-orkest/crea-public/issues/1008)) ([bd8d69b](https://github.com/crea-orkest/crea-public/commit/bd8d69b8982f06c8946c0fbf4de80993f2c9da2f))
+* **deps:** update dependency @react-google-maps/api to v2.20.3 ([#1011](https://github.com/crea-orkest/crea-public/issues/1011)) ([7354bed](https://github.com/crea-orkest/crea-public/commit/7354bede58b2a3b3c9aab625d003fbd240654a69))
+* **deps:** update dependency @react-google-maps/api to v2.20.5 ([#1147](https://github.com/crea-orkest/crea-public/issues/1147)) ([53332cd](https://github.com/crea-orkest/crea-public/commit/53332cd322450b5abad75a8a056d6f9368c4ca7c))
+* **deps:** update dependency @urql/core to v5.0.5 ([0fd39fa](https://github.com/crea-orkest/crea-public/commit/0fd39fa9a4c7e7edf99159f6a45b7b7fd1513952))
+* **deps:** update dependency @urql/core to v5.0.6 ([1a03aad](https://github.com/crea-orkest/crea-public/commit/1a03aadde08fba0446e25c243151a5f7bd1aad16))
+* **deps:** update dependency @urql/core to v5.0.7 ([#1030](https://github.com/crea-orkest/crea-public/issues/1030)) ([84813b9](https://github.com/crea-orkest/crea-public/commit/84813b9e95de08107ca9eedc203db30933ab9381))
+* **deps:** update dependency @urql/core to v5.0.8 ([#1034](https://github.com/crea-orkest/crea-public/issues/1034)) ([a2f83c8](https://github.com/crea-orkest/crea-public/commit/a2f83c8511526904065880d87002296d88b59ef1))
+* **deps:** update dependency @urql/core to v5.1.0 ([#1120](https://github.com/crea-orkest/crea-public/issues/1120)) ([732bcdb](https://github.com/crea-orkest/crea-public/commit/732bcdbabfd934e1f6f0747bce2012336fe3081c))
+* **deps:** update dependency @urql/exchange-graphcache to v7.1.2 ([6589c58](https://github.com/crea-orkest/crea-public/commit/6589c5845c828aad72bf0057dc8b85518557ed8e))
+* **deps:** update dependency @urql/exchange-graphcache to v7.1.3 ([#957](https://github.com/crea-orkest/crea-public/issues/957)) ([14d0828](https://github.com/crea-orkest/crea-public/commit/14d08280cca4c49491417d440c9a083ebc4be3cc))
+* **deps:** update dependency @urql/exchange-graphcache to v7.2.0 ([#999](https://github.com/crea-orkest/crea-public/issues/999)) ([bf54ca6](https://github.com/crea-orkest/crea-public/commit/bf54ca6b41a73fbfc653c0640fe1542a8b79bfec))
+* **deps:** update dependency @urql/exchange-graphcache to v7.2.1 ([#1033](https://github.com/crea-orkest/crea-public/issues/1033)) ([25306e3](https://github.com/crea-orkest/crea-public/commit/25306e3abba706510bfa43915c6e5078b8e94618))
+* **deps:** update dependency @urql/exchange-graphcache to v7.2.2 ([#1189](https://github.com/crea-orkest/crea-public/issues/1189)) ([1e76204](https://github.com/crea-orkest/crea-public/commit/1e7620440738f0316be2e098c036347238f8dfd4))
+* **deps:** update dependency graphql to v16.9.0 ([c373733](https://github.com/crea-orkest/crea-public/commit/c373733654688b080a13d1aa65766f34beb33e81))
+* **deps:** update dependency next to v14.2.12 ([#972](https://github.com/crea-orkest/crea-public/issues/972)) ([af73ae9](https://github.com/crea-orkest/crea-public/commit/af73ae962f5dc46155ebe8ef5d99aa69ac194561))
+* **deps:** update dependency next to v14.2.13 ([#978](https://github.com/crea-orkest/crea-public/issues/978)) ([8290860](https://github.com/crea-orkest/crea-public/commit/82908605d1a587fc420e6a2fc8528a19834df837))
+* **deps:** update dependency next to v14.2.6 ([#925](https://github.com/crea-orkest/crea-public/issues/925)) ([c72779d](https://github.com/crea-orkest/crea-public/commit/c72779ddd514fd2b2fc800c2f0a79a97549f8a39))
+* **deps:** update dependency react-datocms to v7 ([867ea13](https://github.com/crea-orkest/crea-public/commit/867ea131f22bc8689a692e4568df396cedc381d6))
+* **deps:** update dependency react-datocms to v7.0.3 ([#983](https://github.com/crea-orkest/crea-public/issues/983)) ([5a29ab5](https://github.com/crea-orkest/crea-public/commit/5a29ab5bf1187e5eb15b7e1cae16e4e1813df6d2))
+* **deps:** update dependency react-datocms to v7.0.4 ([#1081](https://github.com/crea-orkest/crea-public/issues/1081)) ([372cb9d](https://github.com/crea-orkest/crea-public/commit/372cb9deffd71a7ff49c40cae6ae66290c868fcd))
+* **deps:** update dependency react-datocms to v7.1.0 ([#1145](https://github.com/crea-orkest/crea-public/issues/1145)) ([29ceea1](https://github.com/crea-orkest/crea-public/commit/29ceea1728c93353f7a8a4dfdc4c8e2b688bc7e2))
+* **deps:** update dependency urql to v4.2.0 ([#1031](https://github.com/crea-orkest/crea-public/issues/1031)) ([7d6ff88](https://github.com/crea-orkest/crea-public/commit/7d6ff8839624a1efb2b89202e6336a8640b61e2d))
+* **deps:** update dependency urql to v4.2.1 ([#1064](https://github.com/crea-orkest/crea-public/issues/1064)) ([d764e1f](https://github.com/crea-orkest/crea-public/commit/d764e1f7e41764bb4173027c0cbf1eb4ccf9fcae))
+* **deps:** update nextjs monorepo to v14.2.21 ([#1139](https://github.com/crea-orkest/crea-public/issues/1139)) ([e2be312](https://github.com/crea-orkest/crea-public/commit/e2be312a7cc566b1a153efcc43079afe156caae2))
+* **deps:** update nextjs monorepo to v14.2.22 ([#1149](https://github.com/crea-orkest/crea-public/issues/1149)) ([7335fff](https://github.com/crea-orkest/crea-public/commit/7335ffff25b469500de07a20e4fc793954b61e63))
+* **deps:** update nextjs monorepo to v14.2.23 ([#1161](https://github.com/crea-orkest/crea-public/issues/1161)) ([c0472f1](https://github.com/crea-orkest/crea-public/commit/c0472f183871594ef1589a977bfcb5fde1abde5e))
+* **metadataFormatter:** fix checking for image ([eac5192](https://github.com/crea-orkest/crea-public/commit/eac519203cd96f10c2c8673576cf171ee3639eaf))
+* **metadataFormatter:** use smaller poster url ([d9a5737](https://github.com/crea-orkest/crea-public/commit/d9a5737c4b7b253f4a2149addf151ce489bc4a2f))
+* move dependabot ([#1058](https://github.com/crea-orkest/crea-public/issues/1058)) ([10fd841](https://github.com/crea-orkest/crea-public/commit/10fd84195729dee663f85611d8bb12e4a52f433a))
+* retry config ([8bf0ae9](https://github.com/crea-orkest/crea-public/commit/8bf0ae96753e654f07582690c839742686ebfdb5))
+* retry options ([5d78899](https://github.com/crea-orkest/crea-public/commit/5d78899f83b76fd73cbdcfdc2931d1a470e1b5c8))
+* revert google provider update ([#1114](https://github.com/crea-orkest/crea-public/issues/1114)) ([1b07527](https://github.com/crea-orkest/crea-public/commit/1b07527ae987683d040d3292ed306c4ae472e3d5))
+* sqs policy statement ([#1117](https://github.com/crea-orkest/crea-public/issues/1117)) ([2da2f2a](https://github.com/crea-orkest/crea-public/commit/2da2f2a28f5b0b21e56ed933af892a1cacb37580))
+* **tests:** update/fix tests ([83f78df](https://github.com/crea-orkest/crea-public/commit/83f78df0306c816a4ee37cb14102eeac11101b96))
+* update dependabot config ([11aba28](https://github.com/crea-orkest/crea-public/commit/11aba28111a69185463c0fc0864efad17283e353))
+* update husky ([f235a40](https://github.com/crea-orkest/crea-public/commit/f235a403c010031aa1f4c9ad669ebc0ba2cfa7b4))
+* update release please ([#1062](https://github.com/crea-orkest/crea-public/issues/1062)) ([aae1b76](https://github.com/crea-orkest/crea-public/commit/aae1b76d4af056c497b6d5629c30b3c7144ed762))
+* vercel provider ([#1116](https://github.com/crea-orkest/crea-public/issues/1116)) ([f208826](https://github.com/crea-orkest/crea-public/commit/f20882675120a3a957f470372f63879eb0662b65))
+
 ## [2.10.2](https://github.com/crea-orkest/crea-public/compare/v2.10.1...v2.10.2) (2024-08-22)
 
 
