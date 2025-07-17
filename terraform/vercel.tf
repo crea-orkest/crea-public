@@ -6,8 +6,14 @@ resource "vercel_project" "crea" {
   serverless_function_region = "fra1"
 }
 
+data "vercel_project_directory" "crea" {
+  path = "./"
+}
+
 resource "vercel_deployment" "crea" {
   project_id  = resource.vercel_project.crea.id
+  files       = data.vercel_project_directory.crea.files
+  path_prefix = data.vercel_project_directory.crea.path
   production  = var.TFC_CONFIGURATION_VERSION_GIT_TAG != "" ? true : false
 }
 
