@@ -8,10 +8,6 @@ terraform {
     }
   }
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "6.3.0"
-    }
     hcp = {
       source  = "hashicorp/hcp"
       version = "0.109.0"
@@ -25,16 +21,4 @@ terraform {
       version = "2.5.0"
     }
   }
-}
-
-resource "aws_s3_bucket" "crea-orkest" {
-  bucket = "crea-orkest"
-}
-
-resource "aws_sqs_queue" "eventQueue" {
-  name                      = "eventQueue"
-  delay_seconds             = 10
-  max_message_size          = 1024
-  message_retention_seconds = 3600
-  sqs_managed_sse_enabled   = true
 }
