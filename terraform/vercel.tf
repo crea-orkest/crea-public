@@ -1,13 +1,13 @@
 resource "vercel_project" "crea" {
   name                       = "crea-public"
   framework                  = "nextjs"
-  install_command            = "npm ci"
+  install_command            = "npm i"
   build_command              = "turbo build"
   serverless_function_region = "fra1"
 }
 
 data "vercel_project_directory" "crea" {
-  path = "./"
+  path = "../"
 }
 
 resource "vercel_deployment" "crea" {
