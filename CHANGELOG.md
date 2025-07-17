@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.2](https://github.com/crea-orkest/crea-public/compare/v1.0.1...v1.0.2) (2025-07-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @urql/core to v5.2.0 ([#1386](https://github.com/crea-orkest/crea-public/issues/1386)) ([15d1a25](https://github.com/crea-orkest/crea-public/commit/15d1a251e3e52db92cc39003c8f9bf24b8ba1873))
+* **deps:** update dependency @urql/exchange-graphcache to v7.2.4 ([#1372](https://github.com/crea-orkest/crea-public/issues/1372)) ([dc172e3](https://github.com/crea-orkest/crea-public/commit/dc172e3835876543bc32a91e1312789fa5f3ee13))
+* **deps:** update dependency @urql/exchange-retry to v1.3.2 ([#1381](https://github.com/crea-orkest/crea-public/issues/1381)) ([5d233d2](https://github.com/crea-orkest/crea-public/commit/5d233d24dfe8a8652eab10579ae856430ebd768e))
+
 ## [1.0.1](https://github.com/crea-orkest/crea-public/compare/v1.0.0...v1.0.1) (2025-07-17)
 
 
