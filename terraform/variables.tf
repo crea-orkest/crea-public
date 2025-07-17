@@ -1,9 +1,3 @@
-variable "aws_region" {
-  sensitive = false
-  type      = string
-  default   = "eu-central-1"
-}
-
 variable "cloudflare_zone_id" {
   sensitive = true
   type      = string
@@ -38,7 +32,6 @@ variable "MAILCHIMP_SUBSCRIBE_URL" {
   sensitive = false
   type      = string
   default   = ""
-  
 }
 
 variable "TFC_CONFIGURATION_VERSION_GIT_COMMIT_SHA" {
