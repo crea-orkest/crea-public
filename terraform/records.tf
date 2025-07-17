@@ -4,5 +4,6 @@ resource "cloudflare_dns_record" "crea-public" {
   name    = "crea"
   content = "crea-public.vercel.app"
   type    = "CNAME"
+  ttl     = 3600
   proxied = true
 }
