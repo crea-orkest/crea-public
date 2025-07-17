@@ -7,7 +7,7 @@ resource "vercel_project" "crea" {
 }
 
 data "vercel_project_directory" "crea" {
-  path = "./"
+  path = "../"
 }
 
 resource "vercel_deployment" "crea" {
