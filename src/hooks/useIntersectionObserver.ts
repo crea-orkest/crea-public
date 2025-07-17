@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { type RefObject } from 'react'
 
 interface Props {
   enabled?: boolean
-  ref: React.RefObject<Element> | null
+  ref: RefObject<HTMLDivElement | null>
   options?: IntersectionObserverInit
 }
 
