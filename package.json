@@ -1,9 +1,9 @@
 {
   "name": "crea-public",
-  "version": "2.10.2",
+  "version": "1.0.0",
   "description": "The public CREA Orkest website",
   "type": "module",
-  "packageManager": "npm@10.9.2",
+  "packageManager": "npm@11.4.2",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
@@ -43,11 +43,11 @@
     "urql": "4.2.2"
   },
   "devDependencies": {
-    "@apollo/rover": "0.26.3",
+    "@apollo/rover": "0.34.1",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@graphql-codegen/cli": "5.0.7",
-    "@graphql-codegen/client-preset": "4.8.2",
+    "@graphql-codegen/client-preset": "4.8.3",
     "@graphql-codegen/introspection": "4.0.3",
     "@graphql-codegen/typescript": "4.1.6",
     "@graphql-codegen/typescript-operations": "4.6.1",
@@ -71,7 +71,7 @@
     "sass": "1.89.2",
     "ts-jest": "29.4.0",
     "ts-node": "10.9.2",
-    "turbo": "2.5.4",
+    "turbo": "2.5.5",
     "typescript": "5.8.3",
     "webpack-bundle-analyzer": "4.10.2"
   }
