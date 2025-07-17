@@ -1,7 +1,7 @@
 resource "vercel_project" "crea" {
   name                       = "crea-public"
   framework                  = "nextjs"
-  install_command            = "npm ci"
+  install_command            = "npm i"
   build_command              = "turbo build"
   serverless_function_region = "fra1"
 }
