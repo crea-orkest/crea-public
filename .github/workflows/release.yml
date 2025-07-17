@@ -1,9 +1,6 @@
 name: Release
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
@@ -40,14 +37,11 @@ jobs:
       patch-tag: ${{ steps.release.outputs.patch }}
     steps:
       - uses: googleapis/release-please-action@v4
-        id: release
+        id: Release
         with:
           token: ${{ env.GITHUB_TOKEN }}
           release-type: node
-          package-name: crea-public
-          bump-minor-pre-major: true
-          bump-patch-for-minor-pre-major: true
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: tag major and minor versions
         if: ${{ steps.release.outputs.release_created }}
         run: |

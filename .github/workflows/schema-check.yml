@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Install Rover
         run: |
-          curl -sSL https://rover.apollo.dev/nix/v0.23.0 | sh
+          curl -sSL https://rover.apollo.dev/nix/v0.34.1 | sh
 
           # Add Rover to the $GITHUB_PATH so it can be used in another step
           # https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#adding-a-system-path
