@@ -1,9 +1,12 @@
 export const isValidUrl = (url: string) => {
+  if (typeof URL.canParse === 'function') {
+    return URL.canParse(url)
+  }
+
   try {
-    // TODO: edge case when url should be relative
-    return Boolean(new URL(url))
-  } catch (e) {
-    console.log(e)
+    new URL(url)
+    return true
+  } catch {
     return false
   }
 }

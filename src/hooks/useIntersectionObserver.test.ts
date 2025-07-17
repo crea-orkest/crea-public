@@ -21,14 +21,14 @@ describe('useIntersectionObserver', () => {
       return useIntersectionObserver({ enabled: true, ref: elementRef })
     })
     expect(result.current).toEqual([{ isIntersecting: true }])
-    expect(mockIntersectionObserver).toBeCalledWith(
+    expect(mockIntersectionObserver).toHaveBeenCalledWith(
       expect.any(Function),
       undefined
     )
-    expect(mockObserver.observe).toBeCalledWith(mockHTMLDivElement)
+    expect(mockObserver.observe).toHaveBeenCalledWith(mockHTMLDivElement)
 
     unmount()
 
-    expect(mockObserver.disconnect).toBeCalled()
+    expect(mockObserver.disconnect).toHaveBeenCalled()
   })
 })
