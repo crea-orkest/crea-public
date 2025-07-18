@@ -1,6 +1,6 @@
 import type { Location } from 'graphql/types/location'
 import styles from './styles.module.scss'
-import { StaticMap } from './staticMap'
+import { Map } from './map'
 
 export interface Props {
   data: Location
@@ -14,6 +14,6 @@ export const LocationDetail = ({
       <h3 className="h4">{title}</h3>
       {address && <p className={styles.detailsText}>{address}</p>}
     </div>
-    {lat && lng && <StaticMap lat={lat} lng={lng} title={title ?? 'Locatie'} />}
+    {lat && lng && <Map lat={lat} lng={lng} title={title ?? 'Locatie'} />}
   </address>
 )

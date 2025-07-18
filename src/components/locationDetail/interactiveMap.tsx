@@ -3,11 +3,11 @@ import { Map } from 'components/map'
 export interface Props {
   lat: number
   lng: number
-  key: string
+  apiKey: string
   title: string
 }
 
-export const InteractiveMap = ({ lat, lng, title, key }: Props) => {
+export const InteractiveMap = ({ lat, lng, title, apiKey }: Props) => {
   return (
     <Map
       id="concert-location"
@@ -16,7 +16,7 @@ export const InteractiveMap = ({ lat, lng, title, key }: Props) => {
         lat,
         lng,
       }}
-      googleMapsApiKey={key}
+      googleMapsApiKey={apiKey}
       dimensions={{
         width: '100%',
         height: '400px',
