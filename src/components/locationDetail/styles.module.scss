@@ -20,3 +20,17 @@
 .detailsText {
   margin: 0;
 }
+
+.staticMap {
+  object-fit: cover;
+  width: 100%;
+  height: 400px;
+}
+
+.staticMapLink {
+  margin-bottom: 1rem;
+}
+
+.staticMapLinkText {
+  padding: 0 map.get(spacing.$rem, 24);
+}

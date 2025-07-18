@@ -1,47 +1,19 @@
-import { Map } from 'components/map'
 import type { Location } from 'graphql/types/location'
 import styles from './styles.module.scss'
+import { StaticMap } from './staticMap'
 
 export interface Props {
   data: Location
 }
 
-const googleMapsApiKey = process.env['NEXT_PUBLIC_GOOGLE_MAPS_API_KEY']
-
-export const LocationDetail = ({ data }: Props) => {
-  const { title, address, lat, lng } = data
-
-  return (
-    <address className={styles.root}>
-      <div className={styles.details}>
-        <h3 className="h4">{title}</h3>
-        {address && <p className={styles.detailsText}>{address}</p>}
-      </div>
-      {lat && lng && googleMapsApiKey ? (
-        <Map
-          id="concert-location"
-          pin={{
-            title: title ?? '',
-            lat,
-            lng,
-          }}
-          googleMapsApiKey={googleMapsApiKey}
-          dimensions={{
-            width: '100%',
-            height: '400px',
-          }}
-        />
-      ) : (
-        <div className={styles.details}>
-          <a
-            href={`https://maps.google.com/?q=${lat},${lng}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open in Google Maps
-          </a>
-        </div>
-      )}
-    </address>
-  )
-}
+export const LocationDetail = ({
+  data: { title, address, lat, lng },
+}: Props) => (
+  <address className={styles.root}>
+    <div className={styles.details}>
+      <h3 className="h4">{title}</h3>
+      {address && <p className={styles.detailsText}>{address}</p>}
+    </div>
+    {lat && lng && <StaticMap lat={lat} lng={lng} title={title ?? 'Locatie'} />}
+  </address>
+)
