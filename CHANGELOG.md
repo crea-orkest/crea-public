@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/crea-orkest/crea-public/compare/v1.0.3...v1.0.4) (2025-07-17)
+
+
+### Bug Fixes
+
+* mistake ([#1396](https://github.com/crea-orkest/crea-public/issues/1396)) ([7ab05a2](https://github.com/crea-orkest/crea-public/commit/7ab05a2cd6b18f1d4d1d0a24aebc040ee18d6f3e))
+* vercel terraform ([#1394](https://github.com/crea-orkest/crea-public/issues/1394)) ([47abbc8](https://github.com/crea-orkest/crea-public/commit/47abbc8e8c40a4f978f09911ccf052bacb48ec85))
+
 ## [1.0.3](https://github.com/crea-orkest/crea-public/compare/v1.0.2...v1.0.3) (2025-07-17)
 
 
