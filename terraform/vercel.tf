@@ -24,5 +24,10 @@ resource "vercel_project_environment_variables" "crea" {
     value     = var.GOOGLE_MAPS_API_KEY
     target    = ["preview", "production"]
     sensitive = false
+  }, {
+    key = "NEXT_PUBLIC_GOOGLE_MAPS_STATIC_API_KEY"
+    value = var.GOOGLE_MAPS_STATIC_API_KEY
+    target = ["preview", "production"]
+    sensitive = false
   }]
 }
