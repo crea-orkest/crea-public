@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.5](https://github.com/crea-orkest/crea-public/compare/v1.0.4...v1.0.5) (2025-07-18)
+
+
+### Bug Fixes
+
+* static map ([#1399](https://github.com/crea-orkest/crea-public/issues/1399)) ([5b8d472](https://github.com/crea-orkest/crea-public/commit/5b8d472e176c85ead0876c03b498e3549a174080)), closes [#515](https://github.com/crea-orkest/crea-public/issues/515)
+* static map env variables ([#1401](https://github.com/crea-orkest/crea-public/issues/1401)) ([f596f93](https://github.com/crea-orkest/crea-public/commit/f596f930a31100d6aafd03787d06ca94d83b2744))
+
 ## [1.0.4](https://github.com/crea-orkest/crea-public/compare/v1.0.3...v1.0.4) (2025-07-17)
 
 
