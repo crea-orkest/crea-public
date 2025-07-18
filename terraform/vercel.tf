@@ -17,15 +17,6 @@ resource "vercel_deployment" "crea" {
   production  = var.TFC_CONFIGURATION_VERSION_GIT_TAG != "" ? true : false
 }
 
-resource "vercel_project_deployment_retention" "crea" {
-  project_id            = vercel_project.crea.id
-  team_id               = vercel_project.crea.team_id
-  expiration_preview    = "1m"
-  expiration_production = "1y"
-  expiration_canceled   = "1m"
-  expiration_errored    = "1m"
-}
-
 resource "vercel_project_environment_variables" "crea" {
   project_id = vercel_project.crea.id
   variables = [{
