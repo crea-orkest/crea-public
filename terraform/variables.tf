@@ -22,7 +22,25 @@ variable "vercel_team_id" {
   default   = ""
 }
 
+variable "vercel_api_token" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
+
+variable "cloudflare_api_token" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
+
 variable "GOOGLE_MAPS_API_KEY" {
+  sensitive = false
+  type      = string
+  default   = ""
+}
+
+variable "GOOGLE_MAPS_STATIC_API_KEY" {
   sensitive = false
   type      = string
   default   = ""
