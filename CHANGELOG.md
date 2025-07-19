@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/crea-orkest/crea-public/compare/v1.0.5...v1.0.6) (2025-07-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency next to v15.4.2 ([#1402](https://github.com/crea-orkest/crea-public/issues/1402)) ([f8efc45](https://github.com/crea-orkest/crea-public/commit/f8efc4506817c47ff6f36d935b415561ebf8dcc6))
+
 ## [1.0.5](https://github.com/crea-orkest/crea-public/compare/v1.0.4...v1.0.5) (2025-07-18)
 
 
