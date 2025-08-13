@@ -51,7 +51,7 @@
     "@graphql-codegen/introspection": "4.0.3",
     "@graphql-codegen/typescript": "4.1.6",
     "@graphql-codegen/typescript-operations": "4.6.1",
-    "@testing-library/jest-dom": "6.6.4",
+    "@testing-library/jest-dom": "6.7.0",
     "@testing-library/react": "16.3.0",
     "@types/jest": "30.0.0 ",
     "@types/node": "22.17.1",
