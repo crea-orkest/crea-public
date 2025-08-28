@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.6](https://github.com/crea-orkest/crea-public/compare/v1.0.5...v1.0.6) (2025-08-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency next to v15.4.2 ([#1402](https://github.com/crea-orkest/crea-public/issues/1402)) ([f8efc45](https://github.com/crea-orkest/crea-public/commit/f8efc4506817c47ff6f36d935b415561ebf8dcc6))
+* **deps:** update dependency next to v15.4.3 ([#1407](https://github.com/crea-orkest/crea-public/issues/1407)) ([be1da11](https://github.com/crea-orkest/crea-public/commit/be1da112e268af50c50a7f6f41e807bfd59477ac))
+* **deps:** update dependency next to v15.4.4 ([#1411](https://github.com/crea-orkest/crea-public/issues/1411)) ([98f8844](https://github.com/crea-orkest/crea-public/commit/98f8844c9d92d75882b12902dec8ad4f86958a36))
+* **deps:** update dependency next to v15.4.5 ([#1420](https://github.com/crea-orkest/crea-public/issues/1420)) ([5e8606a](https://github.com/crea-orkest/crea-public/commit/5e8606a8bc580ed154fbe9e1d391a1bb6c13a038))
+* **deps:** update dependency next to v15.4.6 ([#1432](https://github.com/crea-orkest/crea-public/issues/1432)) ([6740a2b](https://github.com/crea-orkest/crea-public/commit/6740a2b359f62579d3b48d90e3854b11554e6233))
+* **deps:** update dependency next to v15.5.1 ([#1450](https://github.com/crea-orkest/crea-public/issues/1450)) ([92e0feb](https://github.com/crea-orkest/crea-public/commit/92e0feb5ce803bbab35413aa7dacf921ef953407))
+* **deps:** update dependency next to v15.5.2 ([#1457](https://github.com/crea-orkest/crea-public/issues/1457)) ([a5ad6b1](https://github.com/crea-orkest/crea-public/commit/a5ad6b176ac6bb73a3dd2096e5d46543e9dd9a39))
+* **deps:** update nextjs monorepo ([#1449](https://github.com/crea-orkest/crea-public/issues/1449)) ([a960b4c](https://github.com/crea-orkest/crea-public/commit/a960b4cb63755db5c41c1dc97baebb34462b6832))
+* **deps:** update react monorepo to v19.1.1 ([#1417](https://github.com/crea-orkest/crea-public/issues/1417)) ([ab079f0](https://github.com/crea-orkest/crea-public/commit/ab079f0b058eadb9eb49e9e056e50c03849093d4))
+
 ## [1.0.5](https://github.com/crea-orkest/crea-public/compare/v1.0.4...v1.0.5) (2025-07-18)
 
 
