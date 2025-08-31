@@ -11,7 +11,7 @@ export const LocationDetail = ({
 }: Props) => (
   <address className={styles.root}>
     <div className={styles.details}>
-      <h3 className="h4">{title}</h3>
+      <h3 className="h4">{title ?? 'Locatie'}</h3>
       {address && <p className={styles.detailsText}>{address}</p>}
     </div>
     {lat && lng && <Map lat={lat} lng={lng} title={title ?? 'Locatie'} />}

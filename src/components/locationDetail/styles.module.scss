@@ -5,6 +5,7 @@
 @use '../../styles/tokens/z-indices.scss' as z;
 
 .root {
+  font-style: normal;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,7 +13,6 @@
 }
 
 .details {
-  font-style: normal;
   padding: 0 map.get(spacing.$rem, 24);
   margin-bottom: map.get(spacing.$rem, 24);
 }
@@ -27,10 +27,8 @@
   height: 400px;
 }
 
-.staticMapLink {
-  margin-bottom: 1rem;
-}
-
 .staticMapLinkText {
+  display: block;
   padding: 0 map.get(spacing.$rem, 24);
+  margin-block-end: map.get(spacing.$rem, 8);
 }
