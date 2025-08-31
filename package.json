@@ -40,7 +40,7 @@
     "react": "19.1.1",
     "react-datocms": "7.2.2",
     "react-dom": "19.1.1",
-    "urql": "4.2.2"
+    "urql": "5.0.1"
   },
   "devDependencies": {
     "@apollo/rover": "0.34.1",
