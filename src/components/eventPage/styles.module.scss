@@ -131,7 +131,6 @@ $sidebar-translate: 50px;
 .imageContainer {
   border-radius: radius.$md;
   flex-shrink: 0;
-  max-width: fit-content;
 
   @media screen and (min-width: breakpoints.$sm) {
     box-shadow: $shadow;
