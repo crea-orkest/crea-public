@@ -5,13 +5,7 @@ import { slugFormatter } from 'utils/slugFormatter'
 import { isOfTypeCloudinaryAsset } from '../types/image'
 import { formatCloudinaryImage } from './formatCloudinaryImage'
 import { uniqueLocations } from './uniqueLocations'
-
-function hasOnlyStringValues(obj: object): obj is Record<string, string> {
-  return (
-    Object.keys(obj).length > 0 &&
-    Object.values(obj).every((v: unknown) => typeof v === 'string')
-  )
-}
+import { hasOnlyStringValues } from 'utils/hasOnlyStringValues'
 
 export const eventFormatter = (
   event: ConcertDetailFragment
@@ -37,7 +31,7 @@ export const eventFormatter = (
       event.music &&
       hasOnlyStringValues(event.music)
         ? event.music
-        : undefined,
+        : null,
     extraInfo:
       typeof event.extraInfo === 'object' &&
       event.extraInfo !== null &&

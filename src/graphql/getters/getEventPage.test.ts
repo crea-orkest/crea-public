@@ -31,7 +31,7 @@ describe('getEventPage', () => {
           title: 'another concert',
           slug: 'another-concert',
           locations: [],
-          music: {},
+          music: null,
           extraInfo: {},
           poster: {
             id: '72577339',
@@ -69,7 +69,7 @@ describe('getEventPage', () => {
       id: '201835035',
       image: null,
       locations: [],
-      music: {},
+      music: null,
       extraInfo: {},
       title: 'another concert',
       url: '/concerten/another-concert',

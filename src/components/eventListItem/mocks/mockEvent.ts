@@ -10,7 +10,7 @@ export const mockEvent: Event = {
   title: 'name',
   image: null,
   locations: [{ startTime: '2023-09-01T13:32:36+01:00', id: 'test id' }],
-  music: {},
+  music: null,
   extraInfo: {},
   url: '/some-slug',
   slug: 'some-slug',
