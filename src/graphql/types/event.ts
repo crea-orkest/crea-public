@@ -10,7 +10,7 @@ export interface Event {
   _updatedAt: ConcertDetailFragment['_updatedAt']
   id: ConcertDetailFragment['id']
   title: ConcertDetailFragment['title']
-  image?: Image | null
+  image: Image | null
   locations: Location[]
   music?: { [key: string]: string }
   extraInfo: { [key: string]: string }
@@ -22,7 +22,7 @@ export interface Event {
 export interface EventSmall {
   id: ConcertDetailFragment['id']
   title: ConcertDetailFragment['title']
-  image?: Image | null
+  image: Image | null
   locations: Location[]
   music?: { [key: string]: string }
   slug: ConcertDetailFragment['slug']

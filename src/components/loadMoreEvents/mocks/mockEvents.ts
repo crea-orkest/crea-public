@@ -10,7 +10,7 @@ export const mockEvent: Event = {
   title: 'title',
   slug: 'url',
   url: '/url',
-  image: undefined,
+  image: null,
   locations: [],
   music: {},
   extraInfo: {},
