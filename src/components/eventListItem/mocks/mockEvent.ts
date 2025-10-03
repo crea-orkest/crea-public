@@ -8,7 +8,7 @@ export const mockEvent: Event = {
   _updatedAt: '2023-08-14T09:37:24+01:00',
   id: 'id',
   title: 'name',
-  image: undefined,
+  image: null,
   locations: [{ startTime: '2023-09-01T13:32:36+01:00', id: 'test id' }],
   music: {},
   extraInfo: {},
