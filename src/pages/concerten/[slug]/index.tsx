@@ -1,4 +1,4 @@
-import type { GeneralRecord } from 'graphql/generated/graphql'
+import type { GetGeneralInfoQuery } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
 import { DefaultLayout } from 'components/defaultLayout'
@@ -14,7 +14,7 @@ interface GetStaticPathsResult {
 interface Props {
   eventData: Event
   eventSeo: Metadata
-  generalInfo: GeneralRecord
+  generalInfo: GetGeneralInfoQuery['general']
 }
 
 export default function Page({ eventData, eventSeo, generalInfo }: Props) {

@@ -45,8 +45,8 @@ export async function getServerSideProps({ res }: GetServerSidePropsContext) {
   const pagesMeta = await getPagesMeta()
   const eventsMeta = await getEventsMeta()
 
-  const pageCount = pagesMeta.data?.count || 0
-  const eventCount = eventsMeta.data?.count || 0
+  const pageCount = pagesMeta.data?.count ?? 0
+  const eventCount = eventsMeta.data?.count ?? 0
 
   const pages: (PageLinkFragment | Event)[] = []
 

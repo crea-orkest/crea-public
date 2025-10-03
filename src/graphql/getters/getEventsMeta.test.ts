@@ -41,12 +41,11 @@ describe('getEventsMeta', () => {
     expect(data).toEqual({ count: '186234305' })
   })
 
-  it('should return an error', async () => {
+  it('should not return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
-    const { data, error } = await getEventsMeta()
-    expect(data).toBeNull()
-    expect(error).toBeInstanceOf(Error)
+    const { data } = await getEventsMeta()
+    expect(data.count).toBe(0)
     expect(console.log).toHaveBeenLastCalledWith('error')
   })
 })

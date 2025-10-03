@@ -83,9 +83,8 @@ describe('getEvents', () => {
   it('should return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
-    const { data, error } = await getEvents({ skip: 0, first: 1 })
+    const { data } = await getEvents({ skip: 0, first: 1 })
     expect(data).toBeNull()
-    expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
   })
 })

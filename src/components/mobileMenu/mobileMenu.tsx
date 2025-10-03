@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import classNames from 'classnames'
-import type { GeneralRecord } from 'graphql/generated/graphql'
+import type { GeneralInfoFragment } from 'graphql/generated/graphql'
 import { useHrefClick } from 'hooks/useHrefClick'
 import { Hamburger } from 'components/icons/hamburger'
 import { Cross } from 'components/icons/cross'
@@ -9,7 +9,7 @@ import { NavigationItem } from 'components/navigationItem'
 import styles from './styles.module.scss'
 
 interface Props {
-  menu: GeneralRecord['menu']
+  menu: GeneralInfoFragment['menu'] | null
 }
 
 export const MobileMenu = ({ menu }: Props) => {
@@ -50,7 +50,7 @@ export const MobileMenu = ({ menu }: Props) => {
           </div>
 
           <ul className={styles.mobileMenuItems}>
-            {menu.map((item) => {
+            {menu?.map((item) => {
               if ('link' in item) {
                 return (
                   <NavigationItem

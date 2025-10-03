@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import type { PageFragment } from 'graphql/generated/graphql'
+import type { GetPageQuery } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
 import { EventListItem } from 'components/eventListItem'
 import { Header } from 'components/header'
@@ -11,7 +11,7 @@ import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
 import styles from './styles.module.scss'
 
 export interface Props {
-  pageData: PageFragment
+  pageData: GetPageQuery['page']
   eventData: Event[]
   numberOfLoadedEvents: number
   numberOfEvents: number
@@ -65,10 +65,10 @@ export const ConcertsPage = ({
               ? header.cloudinaryCover
               : undefined
           )}
-          title={pageData.title || ''}
+          title={pageData?.title || ''}
         />
       ) : (
-        <Header title={pageData.title || ''} />
+        <Header title={pageData?.title || ''} />
       )}
       {events}
       <PageContent sectionClassName="content-layout" items={pageContent} />

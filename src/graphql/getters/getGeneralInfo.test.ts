@@ -39,9 +39,8 @@ describe('getGeneralInfo', () => {
   it('should return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
-    const { data, error } = await getGeneralInfo()
+    const { data } = await getGeneralInfo()
     expect(data).toBeNull()
-    expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
   })
 })

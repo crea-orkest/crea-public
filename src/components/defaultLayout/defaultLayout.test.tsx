@@ -23,7 +23,7 @@ jest.mock('../footer', () => {
 describe('Default layout', () => {
   it('shows all the data', () => {
     const { container } = render(
-      <DefaultLayout>
+      <DefaultLayout generalInfo={{}} siteName="Crea">
         <div>main content</div>
       </DefaultLayout>
     )

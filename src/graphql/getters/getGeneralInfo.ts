@@ -7,17 +7,18 @@ import {
 
 export const getGeneralInfo = async () => {
   try {
-    const { data, error } = await client.query<
+    const { data } = await client.query<
       GetGeneralInfoQuery,
       GetGeneralInfoQueryVariables
     >(GetGeneralInfoDocument, {})
 
+    console.log('General info fetched', data)
+
     return {
       data,
-      error,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: null, error }
+    return { data: null }
   }
 }

@@ -5,19 +5,20 @@ import {
   type GetEventsMetaQueryVariables,
 } from '../generated/graphql'
 
-export const getEventsMeta = async () => {
+export const getEventsMeta = async (): Promise<{
+  data: GetEventsMetaQuery['_allConcertsMeta']
+}> => {
   try {
-    const { data, error } = await client.query<
+    const { data } = await client.query<
       GetEventsMetaQuery,
       GetEventsMetaQueryVariables
     >(GetEventsMetaDocument, {})
 
     return {
-      data: data?._allConcertsMeta ?? null,
-      error,
+      data: data?._allConcertsMeta ?? { count: 0 },
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: null, error }
+    return { data: { count: 0 } }
   }
 }
