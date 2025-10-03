@@ -18,7 +18,7 @@ export const getEvents = async ({
   order = ConcertModelOrderBy.PositionAsc,
 }: Props) => {
   try {
-    const { data, error } = await client.query<
+    const { data } = await client.query<
       GetEventsQuery,
       GetEventsQueryVariables
     >(GetEventsDocument, {
@@ -29,10 +29,9 @@ export const getEvents = async ({
 
     return {
       data: data?.allConcerts ? eventsFormatter(data.allConcerts) : [],
-      error,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: null, error }
+    return { data: null }
   }
 }

@@ -76,12 +76,11 @@ describe('getEventPage', () => {
     })
   })
 
-  it('should return an error', async () => {
+  it('should not return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
-    const { data, error } = await getEventPage({ slug: 'another-concert' })
+    const { data } = await getEventPage({ slug: 'another-concert' })
     expect(data).toBeNull()
-    expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
   })
 })

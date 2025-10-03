@@ -19,7 +19,6 @@ describe('Events component', () => {
   it('shows all the data', () => {
     getEventsMock.mockResolvedValue({
       data: [mockEvent],
-      error: undefined,
     })
 
     const { container } = render(

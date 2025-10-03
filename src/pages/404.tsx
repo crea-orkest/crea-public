@@ -1,4 +1,7 @@
-import type { GeneralRecord, PageFragment } from 'graphql/generated/graphql'
+import type {
+  GetGeneralInfoQuery,
+  GetPageQuery,
+} from 'graphql/generated/graphql'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
 import { DefaultLayout } from 'components/defaultLayout'
 import { SeoHead } from 'components/seoHead'
@@ -9,8 +12,8 @@ const errorSlug = '404'
 
 interface Props {
   pageSeo: Metadata
-  pageData: PageFragment
-  generalInfo: GeneralRecord
+  pageData: GetPageQuery['page']
+  generalInfo: GetGeneralInfoQuery['general']
 }
 
 export default function Page({ pageSeo, pageData, generalInfo }: Props) {
@@ -18,7 +21,7 @@ export default function Page({ pageSeo, pageData, generalInfo }: Props) {
     <>
       <SeoHead metaTags={pageSeo.metaTags} baseUrl={pageSeo.baseUrl} />
       <DefaultLayout generalInfo={generalInfo} siteName={pageSeo.siteName}>
-        {pageData?.content.length > 0 ? (
+        {pageData && pageData.content.length > 0 ? (
           <PageContent
             sectionClassName="content-layout"
             items={pageData.content}
@@ -33,7 +36,7 @@ export default function Page({ pageSeo, pageData, generalInfo }: Props) {
 
 export async function getStaticProps() {
   const { pageData, pageSeo, generalInfo } = await getPageData(errorSlug)
-  const parsedMetaTags = pageSeo.metaTags.filter(
+  const parsedMetaTags = pageSeo?.metaTags.filter(
     (tag) =>
       !tag.attributes || (tag.attributes && tag.attributes.rel !== 'canonical')
   )

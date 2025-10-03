@@ -35,7 +35,7 @@ export async function getAllPages(): Promise<GetPagesQuery['allPages']> {
 export async function getAllEvents(): Promise<Event[]> {
   const eventsMeta = await getEventsMeta()
   const first = defaultFirst
-  const pageCount = eventsMeta.data?.count || 0
+  const pageCount = eventsMeta.data?.count ?? 0
 
   const events: Event[] = []
 

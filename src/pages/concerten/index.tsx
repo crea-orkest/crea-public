@@ -1,4 +1,8 @@
-import type { GeneralRecord, PageFragment } from 'graphql/generated/graphql'
+import type {
+  GetEventsMetaQuery,
+  GetGeneralInfoQuery,
+  GetPageQuery,
+} from 'graphql/generated/graphql'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
 import type { Event } from 'graphql/types/event'
 import { DefaultLayout } from 'components/defaultLayout'
@@ -12,11 +16,11 @@ const eventPageSlug = 'concerten'
 const numberOfLoadedEvents = 50
 
 interface Props {
-  eventMeta: { count: number }
-  pageData: PageFragment
+  eventMeta: GetEventsMetaQuery['_allConcertsMeta']
+  pageData: GetPageQuery['page']
   pageSeo: Metadata
   eventData: Event[]
-  generalInfo: GeneralRecord
+  generalInfo: GetGeneralInfoQuery['general']
 }
 
 export default function Page({

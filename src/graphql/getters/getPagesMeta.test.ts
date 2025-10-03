@@ -45,12 +45,11 @@ describe('getPagesMeta', () => {
     })
   })
 
-  it('should return an error', async () => {
+  it('should not return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
-    const { data, error } = await getPagesMeta()
+    const { data } = await getPagesMeta()
     expect(data).toBeNull()
-    expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
   })
 })

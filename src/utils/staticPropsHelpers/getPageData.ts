@@ -1,3 +1,9 @@
+import { type Metadata } from 'graphql/formatters/metadataFormatter'
+import { type Event } from 'graphql/types/event'
+import {
+  type GetPageQuery,
+  type GetGeneralInfoQuery,
+} from 'graphql/generated/graphql'
 import { getEventPage } from 'graphql/getters/getEventPage'
 import { getEventPageSeo } from 'graphql/getters/getEventPageSeo'
 import { getGeneralInfo } from 'graphql/getters/getGeneralInfo'
@@ -5,7 +11,11 @@ import { getPage } from 'graphql/getters/getPage'
 import { getPageSeo } from 'graphql/getters/getPageSeo'
 import { getSiteMetadata } from 'graphql/getters/getSiteMetadata'
 
-export async function getPageData(slug: string) {
+export async function getPageData(slug: string): Promise<{
+  pageData: GetPageQuery['page'] | null
+  pageSeo: Metadata | null
+  generalInfo: GetGeneralInfoQuery['general'] | null
+}> {
   const { data: pageData } = await getPage({ slug })
   const { metadata } = await getSiteMetadata()
   const { data: pageSeo } = await getPageSeo({ slug }, metadata)
@@ -14,11 +24,15 @@ export async function getPageData(slug: string) {
   return {
     pageData: pageData ?? null,
     pageSeo: pageSeo ?? null,
-    generalInfo: generalData?.general,
+    generalInfo: generalData,
   }
 }
 
-export async function getEventData(slug: string) {
+export async function getEventData(slug: string): Promise<{
+  eventData: Event | null
+  eventSeo: Metadata | null
+  generalInfo: GetGeneralInfoQuery['general'] | null
+}> {
   const { data: eventData } = await getEventPage({ slug })
   const { metadata } = await getSiteMetadata()
   const { data: eventSeo } = await getEventPageSeo({ slug }, metadata)
@@ -27,6 +41,6 @@ export async function getEventData(slug: string) {
   return {
     eventData: eventData ?? null,
     eventSeo: eventSeo ?? null,
-    generalInfo: generalData?.general ?? null,
+    generalInfo: generalData,
   }
 }

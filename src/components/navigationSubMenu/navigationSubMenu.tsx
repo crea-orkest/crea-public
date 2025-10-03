@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import classNames from 'classnames'
-import type { MenuItemRecord } from 'graphql/generated/graphql'
+import type { MenuItemFragment } from 'graphql/generated/graphql'
 import { useOutsideClick } from 'hooks/useOutsideClick'
 import { useEscapeKey } from 'hooks/useEscapeKey'
 import { NavigationSubMenuItem } from '../navigationSubMenuItem'
@@ -9,7 +9,7 @@ import styles from './styles.module.scss'
 
 export interface SubMenuProps {
   label?: string | null
-  submenu: MenuItemRecord[]
+  submenu: MenuItemFragment[]
 }
 
 export const NavigationSubMenu = ({ label, submenu }: SubMenuProps) => {

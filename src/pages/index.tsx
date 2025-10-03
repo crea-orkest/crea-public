@@ -1,4 +1,7 @@
-import type { GeneralRecord, PageFragment } from 'graphql/generated/graphql'
+import type {
+  GetGeneralInfoQuery,
+  GetPageQuery,
+} from 'graphql/generated/graphql'
 import type { siteMetadata } from 'graphql/formatters/formatSiteMetadata'
 import type { Event } from 'graphql/types/event'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
@@ -11,10 +14,10 @@ import { getPageData } from 'utils/staticPropsHelpers/getPageData'
 const homepageSlug = 'homepage'
 
 interface Props {
-  pageData: PageFragment
+  pageData: GetPageQuery['page']
   pageSeo: Metadata
   eventData: Event[]
-  generalInfo: GeneralRecord
+  generalInfo: GetGeneralInfoQuery['general']
   metadata: siteMetadata
 }
 

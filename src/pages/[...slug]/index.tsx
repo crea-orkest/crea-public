@@ -1,4 +1,7 @@
-import type { GeneralRecord, PageFragment } from 'graphql/generated/graphql'
+import type {
+  GetGeneralInfoQuery,
+  GetPageQuery,
+} from 'graphql/generated/graphql'
 import type { Metadata } from 'graphql/formatters/metadataFormatter'
 import { DefaultLayout } from 'components/defaultLayout'
 import { DefaultPage } from 'components/defaultPage'
@@ -11,9 +14,9 @@ interface GetStaticPathsResult {
 }
 
 interface Props {
-  pageData: PageFragment
+  pageData: GetPageQuery['page']
   pageSeo: Metadata
-  generalInfo: GeneralRecord
+  generalInfo: GetGeneralInfoQuery['general']
 }
 
 export default function Page({ pageData, generalInfo, pageSeo }: Props) {

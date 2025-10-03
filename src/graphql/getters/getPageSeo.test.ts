@@ -99,12 +99,11 @@ describe('getPageSeo', () => {
     expect(data).toEqual(pageSeo)
   })
 
-  it('should return an error', async () => {
+  it('should not return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
-    const { data, error } = await getPageSeo({ slug: '' }, metaData)
+    const { data } = await getPageSeo({ slug: '' }, metaData)
     expect(data).toEqual(pageSeo)
-    expect(error).toBeInstanceOf(Error)
     expect(console.log).toHaveBeenLastCalledWith('error')
   })
 })

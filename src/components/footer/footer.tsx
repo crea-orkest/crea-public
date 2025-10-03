@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import classNames from 'classnames'
-import type { GeneralRecord } from 'graphql/generated/graphql'
+import type { GetGeneralInfoQuery } from 'graphql/generated/graphql'
 import { slugFormatter } from 'utils/slugFormatter'
 
 import styles from './styles.module.scss'
 
 interface Props {
-  generalInfo: GeneralRecord
+  generalInfo: GetGeneralInfoQuery['general']
   siteName: string
 }
 
@@ -91,7 +91,7 @@ export const Footer = ({ generalInfo, siteName }: Props) => {
         <div>
           <h3 className={classNames(styles.title)}>Navigatie</h3>
           <ul className={classNames(styles.list)}>
-            {generalInfo.menu.map((item) => {
+            {generalInfo?.menu.map((item) => {
               if ('link' in item && item?.link?.slug && item.label) {
                 return (
                   <li key={item.id}>

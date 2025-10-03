@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { GeneralRecord } from 'graphql/generated/graphql'
+import type { GetGeneralInfoQuery } from 'graphql/generated/graphql'
 import classNames from 'classnames'
 import { Footer } from 'components/footer'
 import { Navigation } from 'components/navigation'
@@ -8,7 +8,7 @@ import styles from './styles.module.scss'
 
 interface Props {
   children: ReactNode
-  generalInfo: GeneralRecord
+  generalInfo: GetGeneralInfoQuery['general']
   siteName: string
 }
 
