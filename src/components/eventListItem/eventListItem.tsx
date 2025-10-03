@@ -46,7 +46,7 @@ export const EventListItem = ({
         })}
       >
         {title && <span className="h2">{title}</span>}
-        {showLink && data.url && data.title && (
+        {showLink && data.url && typeof data?.title === 'string' && (
           <span>
             <Link href={data.url}>{data.title}</Link>
           </span>
@@ -99,7 +99,7 @@ export const EventListItem = ({
                       >
                         {itemTitle}
                       </h3>
-                      {item.title && startTime && (
+                      {typeof item?.title === 'string' && startTime && (
                         <p className={classNames(styles.locationSubtitle)}>
                           {startTime}
                         </p>

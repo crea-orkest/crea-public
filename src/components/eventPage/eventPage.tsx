@@ -33,7 +33,7 @@ export const EventPage = ({ data }: Props) => {
         )}
 
         <div className={classNames(styles.titleContainer, 'content-layout')}>
-          {data.title && <h2>{data.title}</h2>}
+          {typeof data.title === 'string' && <h2>{data.title}</h2>}
 
           {data.music && Object.entries(data.music).length > 0 && (
             <ul className={styles.program}>
