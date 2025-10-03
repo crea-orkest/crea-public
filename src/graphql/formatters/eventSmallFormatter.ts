@@ -4,6 +4,7 @@ import { locationItemFormatter } from './locationItemFormatter'
 import { slugFormatter } from 'utils/slugFormatter'
 import { isOfTypeCloudinaryAsset } from '../types/image'
 import { formatCloudinaryImage } from './formatCloudinaryImage'
+import { uniqueLocations } from './uniqueLocations'
 
 export const eventSmallFormatter = (
   event: ConcertDetailSmallFragment
@@ -20,9 +21,9 @@ export const eventSmallFormatter = (
           : undefined
       ) || null,
     music: event.music as { [key: string]: string },
-    locations: event.locations
-      .map((location) => locationItemFormatter(location))
-      .filter(Boolean),
+    locations: uniqueLocations(
+      event.locations.map((location) => locationItemFormatter(location))
+    ),
     slug: slugFormatter({ slug: event.slug, prefix: '/concerten' }),
     url: event.slug,
   }

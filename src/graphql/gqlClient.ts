@@ -6,8 +6,8 @@ import { retryExchange, type RetryExchangeOptions } from '@urql/exchange-retry'
 const options: RetryExchangeOptions = {
   initialDelayMs: 3000,
   maxDelayMs: 15000,
-  randomDelay: true,
-  maxNumberAttempts: 2,
+  randomDelay: false,
+  maxNumberAttempts: 3,
   retryIf: (error: CombinedError) => {
     // DATOCMS does not handle many requests
     if (error.response?.status === 429) return true
