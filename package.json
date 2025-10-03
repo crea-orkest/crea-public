@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "npm run lint:styles && npm run lint:js && npm run lint:typescript",
-    "lint:js": "eslint . --fix",
+    "lint:js": "eslint . ",
     "lint:styles": "prettier . --write --cache --log-level silent --list-different",
     "lint:typescript": "tsc",
     "analyze": "ANALYZE=true npm run build && webpack-bundle-analyzer .next/stats.json",

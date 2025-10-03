@@ -1,5 +1,5 @@
 {
-  "ignorePatterns": ["**/generated/*.ts"],
+  "ignorePatterns": ["**/generated/*.ts", "next-env.d.ts"],
   "plugins": ["@typescript-eslint", "testing-library"],
   "extends": [
     "eslint:recommended",
