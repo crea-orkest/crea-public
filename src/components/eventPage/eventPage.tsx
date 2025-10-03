@@ -16,10 +16,10 @@ export const EventPage = ({ data }: Props) => {
     <article className={styles.root}>
       <header
         className={classNames(styles.header, 'with-background', {
-          [`${styles.withImage}`]: data.image?.url,
+          [`${styles.withImage}`]: data?.image?.url,
         })}
       >
-        {data.image?.url && (
+        {data?.image?.url && (
           <div className={classNames(styles.headerImageWrapper)}>
             <Image
               className={classNames(styles.headerImage)}
@@ -54,12 +54,12 @@ export const EventPage = ({ data }: Props) => {
       </header>
       <div
         className={classNames(styles.container, 'content-layout', {
-          [`${styles.noGrid}`]: !data.image?.url,
+          [`${styles.noGrid}`]: !data?.image?.url,
         })}
       >
         <aside className={styles.sidebar}>
           <div className={styles.sidebarContent}>
-            {data.image?.url && (
+            {data?.image?.url && (
               <div className={classNames(styles.imageContainer)}>
                 <Image
                   priority={true}

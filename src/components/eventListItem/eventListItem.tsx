@@ -35,7 +35,7 @@ export const EventListItem = ({
         [`${styles.large}`]: size === 'large',
         [`${styles.isLast}`]: isLast,
         [`${styles.hasTitle}`]: title,
-        [`${styles.hasImage}`]: data.image?.url && showImage,
+        [`${styles.hasImage}`]: data?.image?.url && showImage,
         [`${styles.oneLocation}`]: data.locations?.length === 1,
       })}
     >
@@ -53,7 +53,7 @@ export const EventListItem = ({
         )}
       </h2>
       {(data.locations.length > 0 ||
-        data.image?.url ||
+        data?.image?.url ||
         (data.music && Object.entries(data.music).length > 0)) && (
         <div className={styles.content}>
           <div>
@@ -147,7 +147,7 @@ export const EventListItem = ({
             )}
           </div>
 
-          {showImage && data.image?.url && (
+          {showImage && data?.image?.url && (
             <div className={classNames(styles.imageContainer)}>
               <Image
                 className={classNames(styles.image)}
