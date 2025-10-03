@@ -3,13 +3,13 @@ import type { Image } from './image'
 import type { Location } from './location'
 
 export interface Event {
-  __typename: ConcertDetailFragment['__typename']
-  _createdAt: ConcertDetailFragment['_createdAt']
+  __typename: 'ConcertRecord'
+  _createdAt: string
   _firstPublishedAt: ConcertDetailFragment['_firstPublishedAt']
   _publishedAt: ConcertDetailFragment['_publishedAt']
   _updatedAt: ConcertDetailFragment['_updatedAt']
   id: ConcertDetailFragment['id']
-  title: ConcertDetailFragment['title']
+  title: string
   image: Image | null
   locations: Location[]
   music?: { [key: string]: string }

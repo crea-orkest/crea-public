@@ -18,7 +18,7 @@ export const eventFormatter = (
     _publishedAt: event._publishedAt,
     _updatedAt: event._updatedAt,
     id: event.id,
-    title: event.title,
+    title: event.title ?? '',
     image:
       formatCloudinaryImage(
         isOfTypeCloudinaryAsset(event.cloudinaryPoster)

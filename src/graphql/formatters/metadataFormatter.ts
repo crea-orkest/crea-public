@@ -1,8 +1,5 @@
 import { metaTitleFormatter } from './metaTitleFormatter'
-import type {
-  EventPageSeoFragment,
-  PageDetailSeoFragment,
-} from '../generated/graphql'
+import type { GetEventSeoQuery, GetPageSeoQuery } from '../generated/graphql'
 import type { siteMetadata } from 'graphql/formatters/formatSiteMetadata'
 import type { TitleMetaLinkTag } from 'react-datocms/seo'
 import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
@@ -14,7 +11,7 @@ export type Metadata = {
 }
 
 export const metadataFormatter = (
-  data: PageDetailSeoFragment | EventPageSeoFragment | undefined,
+  data: GetPageSeoQuery['page'] | GetEventSeoQuery['concert'] | undefined,
   slug: string,
   metaData: siteMetadata
 ): Metadata => {
