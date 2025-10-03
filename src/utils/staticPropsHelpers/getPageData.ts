@@ -14,7 +14,7 @@ export async function getPageData(slug: string) {
   return {
     pageData: pageData ?? null,
     pageSeo: pageSeo ?? null,
-    generalInfo: generalData?.general,
+    generalInfo: generalData?.general ?? null,
   }
 }
 
