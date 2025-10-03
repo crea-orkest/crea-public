@@ -8,19 +8,18 @@ import {
 
 export const getEvent = async ({ id }: GetEventQueryVariables) => {
   try {
-    const { data, error } = await client.query<
-      GetEventQuery,
-      GetEventQueryVariables
-    >(GetEventDocument, {
-      id,
-    })
+    const { data } = await client.query<GetEventQuery, GetEventQueryVariables>(
+      GetEventDocument,
+      {
+        id,
+      }
+    )
 
     return {
-      data: data?.concert ? eventFormatter(data.concert) : null,
-      error,
+      data: data?.concert ? (eventFormatter(data.concert) ?? null) : null,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: null, error }
+    return { data: null }
   }
 }

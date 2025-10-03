@@ -34,9 +34,9 @@ describe('getGeneralInfo', () => {
       hasNext: false,
     })
     const { data } = await getGeneralInfo()
-    expect(data).toEqual({})
+    expect(data).toBeNull()
   })
-  it('should return an error', async () => {
+  it('should not return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
     const { data } = await getGeneralInfo()

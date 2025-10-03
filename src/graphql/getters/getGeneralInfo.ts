@@ -12,10 +12,8 @@ export const getGeneralInfo = async () => {
       GetGeneralInfoQueryVariables
     >(GetGeneralInfoDocument, {})
 
-    console.log('General info fetched', data)
-
     return {
-      data,
+      data: data?.general ?? null,
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)

@@ -80,7 +80,7 @@ describe('getEvents', () => {
     ])
   })
 
-  it('should return an error', async () => {
+  it('should not return an error', async () => {
     console.log = jest.fn()
     mockedQuery.mockRejectedValue(new Error('error'))
     const { data } = await getEvents({ skip: 0, first: 1 })

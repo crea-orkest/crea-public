@@ -5,7 +5,6 @@ interface WithPrefixProps {
   prefix?: string
 }
 export function slugFormatter({ slug, prefix }: WithPrefixProps): string {
-  console.log('Formatting slug:', { slug, prefix })
   if (prefix === '/') {
     prefix = undefined
   }

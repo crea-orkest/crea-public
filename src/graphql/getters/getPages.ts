@@ -7,17 +7,17 @@ import {
 
 export const getPages = async ({ skip, first }: GetPagesQueryVariables) => {
   try {
-    const { data, error } = await client.query<
-      GetPagesQuery,
-      GetPagesQueryVariables
-    >(GetPagesDocument, {
-      skip,
-      first,
-    })
+    const { data } = await client.query<GetPagesQuery, GetPagesQueryVariables>(
+      GetPagesDocument,
+      {
+        skip,
+        first,
+      }
+    )
 
-    return { data: data?.allPages.length ? data?.allPages : [], error }
+    return { data: data?.allPages.length ? data?.allPages : [] }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: null, error }
+    return { data: [] }
   }
 }

@@ -16,7 +16,6 @@ export async function getPageData(slug: string): Promise<{
   pageSeo: Metadata | null
   generalInfo: GetGeneralInfoQuery['general'] | null
 }> {
-  console.log('Getting page data for slug:', slug)
   const { data: pageData } = await getPage({ slug })
   const { metadata } = await getSiteMetadata()
   const { data: pageSeo } = await getPageSeo({ slug }, metadata)
@@ -25,7 +24,7 @@ export async function getPageData(slug: string): Promise<{
   return {
     pageData: pageData ?? null,
     pageSeo: pageSeo ?? null,
-    generalInfo: generalData?.general ?? null,
+    generalInfo: generalData,
   }
 }
 
@@ -42,6 +41,6 @@ export async function getEventData(slug: string): Promise<{
   return {
     eventData: eventData ?? null,
     eventSeo: eventSeo ?? null,
-    generalInfo: generalData?.general ?? null,
+    generalInfo: generalData,
   }
 }

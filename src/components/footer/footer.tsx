@@ -12,7 +12,6 @@ interface Props {
 }
 
 export const Footer = ({ generalInfo, siteName }: Props) => {
-  console.log('generalInfo in footer:', generalInfo) // Debugging line
   return (
     <footer className={classNames(styles.root, 'with-background')}>
       <div className={classNames(styles.content, 'content-layout')}>
