@@ -27,6 +27,7 @@ describe('getEventPage', () => {
           _publishedAt: '2023-09-24T17:30:44+02:00',
           _updatedAt: '2023-09-24T17:30:44+02:00',
           id: '201835035',
+          image: null,
           title: 'another concert',
           slug: 'another-concert',
           locations: [],

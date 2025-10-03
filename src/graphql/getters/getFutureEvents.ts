@@ -7,6 +7,7 @@ import {
   type GetFutureEventsQuery,
   type GetFutureEventsQueryVariables,
 } from '../generated/graphql'
+import type { Event } from 'graphql/types/event'
 
 interface Props extends GetFutureEventsQueryVariables {
   skip: number
@@ -33,11 +34,9 @@ export const getFutureEvents = async ({
   first,
   order = ConcertModelOrderBy.PositionDesc,
   filter = defaultFilter,
-}: Props) => {
+}: Props): Promise<{ data: Event[] }> => {
   try {
-    let futureEventData = null
-    let futureEventError = null
-    const { data, error } = await client.query<
+    const { data } = await client.query<
       GetFutureEventsQuery,
       GetFutureEventsQueryVariables
     >(GetFutureEventsDocument, {
@@ -46,11 +45,9 @@ export const getFutureEvents = async ({
       order,
       filter,
     })
-    futureEventData = data?.allConcerts
-    futureEventError = error
 
-    if (futureEventData && futureEventData.length < 1) {
-      const { data, error } = await client.query<
+    if (data && data.allConcerts.length < 1) {
+      const { data } = await client.query<
         GetFutureEventsQuery,
         GetFutureEventsQueryVariables
       >(GetFutureEventsDocument, {
@@ -58,17 +55,20 @@ export const getFutureEvents = async ({
         first: 1,
         order: ConcertModelOrderBy.PositionAsc,
       })
-
-      futureEventData = data?.allConcerts
-      futureEventError = error
+      return {
+        data: Array.isArray(data?.allConcerts)
+          ? eventsFormatter(data.allConcerts)
+          : [],
+      }
     }
 
     return {
-      data: futureEventData ? eventsFormatter(futureEventData) : [],
-      error: futureEventError,
+      data: Array.isArray(data?.allConcerts)
+        ? eventsFormatter(data.allConcerts)
+        : [],
     }
   } catch (error) {
     if (error instanceof Error) console.log(error.message)
-    return { data: null, error }
+    return { data: [] }
   }
 }
