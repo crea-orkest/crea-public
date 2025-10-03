@@ -9,7 +9,7 @@ import { uniqueLocations } from './uniqueLocations'
 export const eventSmallFormatter = (
   event: ConcertDetailSmallFragment
 ): EventSmall | undefined => {
-  if (!event.title) return
+  if (typeof event.title !== 'string') return
   if (!event.slug) return
   return {
     id: event.id,

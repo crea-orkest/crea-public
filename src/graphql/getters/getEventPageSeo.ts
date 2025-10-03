@@ -1,5 +1,8 @@
 import { client } from '../gqlClient'
-import { metadataFormatter } from '../formatters/metadataFormatter'
+import {
+  type Metadata,
+  metadataFormatter,
+} from '../formatters/metadataFormatter'
 import { slugFormatter } from 'utils/slugFormatter'
 import {
   GetEventSeoDocument,
@@ -11,7 +14,7 @@ import type { siteMetadata } from 'graphql/formatters/formatSiteMetadata'
 export const getEventPageSeo = async (
   { slug }: GetEventSeoQueryVariables,
   metadata: siteMetadata
-) => {
+): Promise<{ data: Metadata }> => {
   const eventSlug = slugFormatter({ slug, prefix: '/concerten' })
   try {
     const { data } = await client.query<

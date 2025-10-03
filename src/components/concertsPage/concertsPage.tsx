@@ -65,10 +65,10 @@ export const ConcertsPage = ({
               ? header.cloudinaryCover
               : undefined
           )}
-          title={pageData?.title || ''}
+          title={pageData?.title ?? ''}
         />
       ) : (
-        <Header title={pageData?.title || ''} />
+        <Header title={pageData?.title ?? ''} />
       )}
       {events}
       <PageContent sectionClassName="content-layout" items={pageContent} />

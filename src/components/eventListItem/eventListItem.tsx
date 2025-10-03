@@ -45,7 +45,7 @@ export const EventListItem = ({
           h2: size === 'large',
         })}
       >
-        {title && <span className="h2">{title}</span>}
+        {typeof title === 'string' && <span className="h2">{title}</span>}
         {showLink && data.url && typeof data?.title === 'string' && (
           <span>
             <Link href={data.url}>{data.title}</Link>

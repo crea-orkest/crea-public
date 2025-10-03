@@ -10,7 +10,7 @@ export const DefaultPage = ({ data }: Props) => {
     <PageContent
       sectionClassName="content-layout"
       items={data?.content}
-      pageTitle={data?.title || ''}
+      pageTitle={data?.title ?? ''}
     />
   )
 }
