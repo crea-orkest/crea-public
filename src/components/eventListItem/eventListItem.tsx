@@ -46,7 +46,7 @@ export const EventListItem = ({
         })}
       >
         {title && <span className="h2">{title}</span>}
-        {showLink && (
+        {showLink && data.url && data.title && (
           <span>
             <Link href={data.url}>{data.title}</Link>
           </span>
