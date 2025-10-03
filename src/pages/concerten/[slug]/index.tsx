@@ -13,15 +13,18 @@ interface GetStaticPathsResult {
 
 interface Props {
   eventData: Event
-  eventSeo: Metadata
+  eventSeo: Metadata | null
   generalInfo: GetGeneralInfoQuery['general']
 }
 
 export default function Page({ eventData, eventSeo, generalInfo }: Props) {
   return (
     <>
-      <SeoHead metaTags={eventSeo.metaTags} baseUrl={eventSeo.baseUrl} />
-      <DefaultLayout generalInfo={generalInfo} siteName={eventSeo.siteName}>
+      <SeoHead metaTags={eventSeo?.metaTags} baseUrl={eventSeo?.baseUrl} />
+      <DefaultLayout
+        generalInfo={generalInfo}
+        siteName={eventSeo?.siteName ?? ''}
+      >
         <EventPage data={eventData} />
       </DefaultLayout>
     </>

@@ -12,6 +12,6 @@ export const mockEvent: Event = {
   url: '/url',
   image: null,
   locations: [],
-  music: {},
+  music: null,
   extraInfo: {},
 }

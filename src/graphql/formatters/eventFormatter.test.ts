@@ -17,7 +17,7 @@ describe('eventFormatter', () => {
             },
           },
         ],
-        music: {},
+        music: null,
         content: [],
         extraInfo: {},
         slug: 'some-slug',
@@ -47,7 +47,7 @@ describe('eventFormatter', () => {
       title: 'required title',
       url: '/concerten/some-slug',
       slug: 'some-slug',
-      music: {},
+      music: null,
       content: [],
       extraInfo: {},
     })

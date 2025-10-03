@@ -5,11 +5,12 @@ import { slugFormatter } from 'utils/slugFormatter'
 import { isOfTypeCloudinaryAsset } from '../types/image'
 import { formatCloudinaryImage } from './formatCloudinaryImage'
 import { uniqueLocations } from './uniqueLocations'
+import { hasOnlyStringValues } from 'utils/hasOnlyStringValues'
 
 export const eventSmallFormatter = (
   event: ConcertDetailSmallFragment
 ): EventSmall | undefined => {
-  if (!event.title) return
+  if (typeof event.title !== 'string') return
   if (!event.slug) return
   return {
     id: event.id,
@@ -20,7 +21,12 @@ export const eventSmallFormatter = (
           ? event.cloudinaryPoster
           : undefined
       ) || null,
-    music: event.music as { [key: string]: string },
+    music:
+      typeof event.music === 'object' &&
+      event.music &&
+      hasOnlyStringValues(event.music)
+        ? event.music
+        : null,
     locations: uniqueLocations(
       event.locations.map((location) => locationItemFormatter(location))
     ),

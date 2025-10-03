@@ -8,11 +8,11 @@ export interface Event {
   _firstPublishedAt: ConcertDetailFragment['_firstPublishedAt']
   _publishedAt: ConcertDetailFragment['_publishedAt']
   _updatedAt: ConcertDetailFragment['_updatedAt']
-  id: ConcertDetailFragment['id']
+  id: string
   title: string
   image: Image | null
   locations: Location[]
-  music?: { [key: string]: string }
+  music: { [key: string]: string } | null
   extraInfo: { [key: string]: string }
   slug: ConcertDetailFragment['slug']
   url: string
@@ -20,11 +20,11 @@ export interface Event {
 }
 
 export interface EventSmall {
-  id: ConcertDetailFragment['id']
-  title: ConcertDetailFragment['title']
+  id: string
+  title: string
   image: Image | null
   locations: Location[]
-  music?: { [key: string]: string }
-  slug: ConcertDetailFragment['slug']
+  music: { [key: string]: string } | null
+  slug: string
   url: string
 }

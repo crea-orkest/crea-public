@@ -36,7 +36,7 @@ export const renderBlock = ({
       <div className={styles.spacing}>
         {record.pinnedConcerts.map((item, index) => {
           const event = eventSmallFormatter(item)
-          if (!event) return null
+          if (event === undefined) return null
           return (
             <EventListItem
               className="content-layout--small"
