@@ -4,7 +4,7 @@ import { eventFormatter } from './eventFormatter'
 
 export const eventsFormatter = (events: ConcertDetailFragment[]): Event[] => {
   const validEvents: Event[] = []
-  events.map((event) => {
+  events.forEach((event) => {
     const formattedEvent = eventFormatter(event)
     if (formattedEvent) validEvents.push(formattedEvent)
   })

@@ -5,8 +5,11 @@ import {
   type GetEventPageQuery,
   type GetEventPageQueryVariables,
 } from '../generated/graphql'
+import type { Event } from 'graphql/types/event'
 
-export const getEventPage = async ({ slug }: GetEventPageQueryVariables) => {
+export const getEventPage = async ({
+  slug,
+}: GetEventPageQueryVariables): Promise<{ data: Event | null }> => {
   try {
     const { data } = await client.query<
       GetEventPageQuery,

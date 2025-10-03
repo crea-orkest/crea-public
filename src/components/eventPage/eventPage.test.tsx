@@ -21,7 +21,7 @@ describe('Event page', () => {
       data: {
         id: 'unique-id',
         title: 'title',
-        image: undefined,
+        image: null,
         locations: [],
         persons: [],
         program: [],
