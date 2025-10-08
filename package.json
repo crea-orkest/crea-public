@@ -3,7 +3,7 @@
   "version": "1.0.6",
   "description": "The public CREA Orkest website",
   "type": "module",
-  "packageManager": "npm@11.6.1",
+  "packageManager": "npm@11.6.2",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
