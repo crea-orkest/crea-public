@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.0.7](https://github.com/crea-orkest/crea-public/compare/v1.0.6...v1.0.7) (2025-10-21)
+
+
+### Bug Fixes
+
+* build error ([#1504](https://github.com/crea-orkest/crea-public/issues/1504)) ([619d341](https://github.com/crea-orkest/crea-public/commit/619d341079604a40277831af4f156c3db48e1494))
+* **deps:** update dependency @urql/exchange-retry to v2 ([#1436](https://github.com/crea-orkest/crea-public/issues/1436)) ([82ed802](https://github.com/crea-orkest/crea-public/commit/82ed80278c76a2824efb37292ff1ddc39b8a89e7))
+* **deps:** update dependency next to v15.5.3 ([#1480](https://github.com/crea-orkest/crea-public/issues/1480)) ([b5df782](https://github.com/crea-orkest/crea-public/commit/b5df782e8c7bd8381879b8bc692e4a42444a739f))
+* **deps:** update dependency next to v15.5.5 ([#1533](https://github.com/crea-orkest/crea-public/issues/1533)) ([117abac](https://github.com/crea-orkest/crea-public/commit/117abac757ba9c4335da338a87a656c69ab2c54e))
+* **deps:** update dependency next to v15.5.6 ([#1537](https://github.com/crea-orkest/crea-public/issues/1537)) ([186dd26](https://github.com/crea-orkest/crea-public/commit/186dd2654ab424d0eb491c491e8f15fb9ede6c3c))
+* **deps:** update dependency react-datocms to v7.2.3 ([#1505](https://github.com/crea-orkest/crea-public/issues/1505)) ([adf43ff](https://github.com/crea-orkest/crea-public/commit/adf43ff4c8813609e977957a601d25910ac8025b))
+* **deps:** update nextjs monorepo ([#1506](https://github.com/crea-orkest/crea-public/issues/1506)) ([ca82f9e](https://github.com/crea-orkest/crea-public/commit/ca82f9e949c242e3f3a9d9fdabfe82ae82a243b5))
+* **deps:** update react monorepo to v19.2.0 ([#1516](https://github.com/crea-orkest/crea-public/issues/1516)) ([0e917b7](https://github.com/crea-orkest/crea-public/commit/0e917b7abeeab7c5d0e675a40258e77417b8d51e))
+* event image nullability ([#1508](https://github.com/crea-orkest/crea-public/issues/1508)) ([3a658b5](https://github.com/crea-orkest/crea-public/commit/3a658b55ff294c09dc373544cf2a630bc04dd12b))
+* extra checks for undefined title ([#1513](https://github.com/crea-orkest/crea-public/issues/1513)) ([dcf16bd](https://github.com/crea-orkest/crea-public/commit/dcf16bd64fbc730245530751c1abbc8ff0604276))
+* prerender error missing title ([#1514](https://github.com/crea-orkest/crea-public/issues/1514)) ([bb7b08a](https://github.com/crea-orkest/crea-public/commit/bb7b08a208f58cbb28d658020d808d2e9fc14c1a))
+* prerender error title ([#1517](https://github.com/crea-orkest/crea-public/issues/1517)) ([f8373d6](https://github.com/crea-orkest/crea-public/commit/f8373d64e110c3cd40bf26d67640d52a21ecce04))
+* remove vault config ([#1498](https://github.com/crea-orkest/crea-public/issues/1498)) ([320b4eb](https://github.com/crea-orkest/crea-public/commit/320b4ebb9768cb542a692be3bfb6e881bd53c7dc))
+* update deps ([#1499](https://github.com/crea-orkest/crea-public/issues/1499)) ([c2e6434](https://github.com/crea-orkest/crea-public/commit/c2e6434457a01467b84f7e14ade836c007d1d110))
+
 ## [1.0.6](https://github.com/crea-orkest/crea-public/compare/v1.0.5...v1.0.6) (2025-08-31)
 
 
