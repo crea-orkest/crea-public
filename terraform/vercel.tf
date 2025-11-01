@@ -29,7 +29,7 @@ resource "vercel_project_environment_variables" "crea" {
     target    = ["preview", "production"]
     sensitive = false
     }, {
-    key       = "production"
+    key       = "NEXT_PUBLIC_PRODUCTION"
     value     = var.production
     target    = ["production"]
     sensitive = false

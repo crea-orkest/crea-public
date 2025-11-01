@@ -1,6 +1,7 @@
 import { getUrl } from './getUrl'
 
-const production: boolean = process.env.production === 'true' ? true : false
+const production: boolean =
+  process.env.NEXT_PUBLIC_PRODUCTION === 'true' ? true : false
 
 export const linkConfig = {
   url: getUrl({ env: production ? 'current' : 'dev' }),
