@@ -3,6 +3,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  turbopack: {},
   reactStrictMode: true,
   experimental: {
     // typedRoutes: true,
