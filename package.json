@@ -14,7 +14,7 @@
     "lint:typescript": "tsc",
     "analyze": "ANALYZE=true npm run build && webpack-bundle-analyzer .next/stats.json",
     "prepare": "husky",
-    "download-schema": "rover graph fetch crea-orkest@current > ./src/graphql/generated/schema.graphql && npm run lint:styles",
+    "download-schema": "rover graph fetch crea-orkest@dev > ./src/graphql/generated/schema.graphql && npm run lint:styles",
     "codegen": "graphql-codegen --require dotenv/config --config ./src/graphql/codegen.ts",
     "codegen:watch": "graphql-codegen --require dotenv/config --config ./src/graphql/codegen.ts --watch",
     "test": "jest"
@@ -57,6 +57,7 @@
     "@types/node": "22.18.12",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@types/webpack-bundle-analyzer": "4.7.0",
     "@typescript-eslint/eslint-plugin": "8.46.2",
     "@typescript-eslint/parser": "8.46.2",
     "dotenv": "17.2.3",

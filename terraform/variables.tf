@@ -46,6 +46,12 @@ variable "GOOGLE_MAPS_STATIC_API_KEY" {
   default   = ""
 }
 
+variable "production" {
+  sensitive = false
+  type      = string
+  default   = "true"
+}
+
 variable "MAILCHIMP_SUBSCRIBE_URL" {
   sensitive = false
   type      = string

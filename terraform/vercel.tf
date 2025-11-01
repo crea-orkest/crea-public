@@ -1,9 +1,8 @@
 resource "vercel_project" "crea" {
-  name                       = "crea-public"
-  framework                  = "nextjs"
-  install_command            = "npm i"
-  build_command              = "turbo build"
-  serverless_function_region = "fra1"
+  name            = "crea-public"
+  framework       = "nextjs"
+  install_command = "npm i"
+  build_command   = "turbo build"
 }
 
 data "vercel_project_directory" "crea" {
@@ -24,10 +23,15 @@ resource "vercel_project_environment_variables" "crea" {
     value     = var.GOOGLE_MAPS_API_KEY
     target    = ["preview", "production"]
     sensitive = false
-  }, {
-    key = "NEXT_PUBLIC_GOOGLE_MAPS_STATIC_API_KEY"
-    value = var.GOOGLE_MAPS_STATIC_API_KEY
-    target = ["preview", "production"]
+    }, {
+    key       = "NEXT_PUBLIC_GOOGLE_MAPS_STATIC_API_KEY"
+    value     = var.GOOGLE_MAPS_STATIC_API_KEY
+    target    = ["preview", "production"]
+    sensitive = false
+    }, {
+    key       = "production"
+    value     = var.production
+    target    = ["production"]
     sensitive = false
   }]
 }

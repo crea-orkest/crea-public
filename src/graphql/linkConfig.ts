@@ -1,12 +1,9 @@
-const getUrl = () => {
-  if (typeof window === 'undefined')
-    return 'https://current--crea-orkest.apollographos.net/graphql' as const
+import { getUrl } from './getUrl'
 
-  return '/graphql' as const
-}
+const production: boolean = process.env.production === 'true' ? true : false
 
 export const linkConfig = {
-  url: getUrl(),
+  url: getUrl({ env: production ? 'current' : 'dev' }),
   headers: {
     'Content-Language': 'nl-NL',
     'content-type': 'application/json',
