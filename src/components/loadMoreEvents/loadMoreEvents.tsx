@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { useState, useRef, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Event as EventType } from '../../graphql/types/event'
 import { getEvents } from '../../graphql/getters/getEvents'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
@@ -30,22 +30,30 @@ export const LoadMoreEvents = ({ initialSkip, numberOfEvents }: Props) => {
     if (!numberOfEvents) return
     if (events.length === numberOfEvents - initialSkip) return
     if (skip > numberOfEvents) return
-    setLoading(true)
-    // TODO: abort signal to stop fetching
-    getEvents({ skip, first: interval })
-      .then(({ data }) => {
-        if (!data) return
-        setEvents((prev) => [...prev, ...data])
-        setSkip((prev) => {
-          return prev + interval
+
+    let cancelled = false
+    const raf = requestAnimationFrame(() => {
+      if (cancelled) return
+      setLoading(true)
+      // TODO: abort signal to stop fetching
+      getEvents({ skip, first: interval })
+        .then(({ data }) => {
+          if (!data || cancelled) return
+          setEvents((prev) => [...prev, ...data])
+          setSkip((prev) => prev + interval)
         })
-      })
-      .catch(() => {
-        console.log('TODO: render an error')
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+        .catch(() => {
+          if (!cancelled) console.log('TODO: render an error')
+        })
+        .finally(() => {
+          if (!cancelled) setLoading(false)
+        })
+    })
+
+    return () => {
+      cancelled = true
+      cancelAnimationFrame(raf)
+    }
   }, [
     loading,
     skip,

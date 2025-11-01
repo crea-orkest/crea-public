@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 import { Play } from '../icons/play'
@@ -28,9 +28,13 @@ export const VideoPlaceholder = ({
   })
 
   useEffect(() => {
-    if (entry?.isIntersecting) {
+    if (!entry?.isIntersecting) return
+
+    const raf = requestAnimationFrame(() => {
       setHasIntersected(true)
-    }
+    })
+
+    return () => cancelAnimationFrame(raf)
   }, [entry?.isIntersecting])
 
   return (
