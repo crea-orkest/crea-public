@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
       - name: Install Rover
         run: |
-          curl -sSL https://rover.apollo.dev/nix/v0.34.1 | sh
+          curl -sSL https://rover.apollo.dev/nix/v0.35.0 | sh
 
           # Add Rover to the $GITHUB_PATH so it can be used in another step
           # https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#adding-a-system-path
@@ -36,3 +36,7 @@ jobs:
         if: ${{ env.APOLLO_KEY != '' }}
         run: |
           rover subgraph publish crea-orkest@current --name datocms --schema ./src/graphql/generated/datocms.graphql
+      - name: Publishing datocms dev schema
+        if: ${{ env.APOLLO_KEY != '' }}
+        run: |
+          rover subgraph publish crea-orkest@dev --name datocms --schema ./src/graphql/generated/datocms.graphql
