@@ -1,8 +1,8 @@
 import { type Metadata } from 'graphql/formatters/metadataFormatter'
 import { type Event } from 'graphql/types/event'
 import {
-  type GetPageQuery,
   type GetGeneralInfoQuery,
+  type GetPageQuery,
 } from 'graphql/generated/graphql'
 import { getEventPage } from 'graphql/getters/getEventPage'
 import { getEventPageSeo } from 'graphql/getters/getEventPageSeo'

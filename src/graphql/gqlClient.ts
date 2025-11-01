@@ -1,7 +1,7 @@
 import { cacheExchange } from './cacheExchange'
 import { linkConfig } from './linkConfig'
 import { Client, type CombinedError, fetchExchange } from '@urql/core'
-import { retryExchange, type RetryExchangeOptions } from '@urql/exchange-retry'
+import { type RetryExchangeOptions, retryExchange } from '@urql/exchange-retry'
 
 const options: RetryExchangeOptions = {
   initialDelayMs: 3000,
