@@ -10,7 +10,7 @@ terraform {
   required_providers {
     hcp = {
       source  = "hashicorp/hcp"
-      version = "0.109.0"
+      version = "0.111.0"
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
