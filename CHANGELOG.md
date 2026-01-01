@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.1](https://github.com/crea-orkest/crea-public/compare/v3.0.0...v3.0.1) (2026-01-01)
+
+
+### Bug Fixes
+
+* **deps:** update nextjs monorepo to v16.1.0 ([#1586](https://github.com/crea-orkest/crea-public/issues/1586)) ([4d420d5](https://github.com/crea-orkest/crea-public/commit/4d420d5581799b81fa9cc13a5aafb954bfecf57e))
+* **deps:** update nextjs monorepo to v16.1.1 ([#1594](https://github.com/crea-orkest/crea-public/issues/1594)) ([38f957a](https://github.com/crea-orkest/crea-public/commit/38f957a7963cace90d8a37c201b3fe7de5a3af04))
+
 ## [3.0.0](https://github.com/crea-orkest/crea-public/compare/v2.0.0...v3.0.0) (2025-12-18)
 
 
