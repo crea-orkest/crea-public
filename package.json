@@ -61,7 +61,7 @@
     "@types/webpack-bundle-analyzer": "4.7.0",
     "@typescript-eslint/eslint-plugin": "8.54.0",
     "@typescript-eslint/parser": "8.54.0",
-    "dotenv": "17.2.3",
+    "dotenv": "17.2.4",
     "eslint": "9.39.2",
     "eslint-config-next": "16.1.6",
     "eslint-plugin-react-hooks": "7.0.1",
