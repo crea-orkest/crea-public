@@ -43,7 +43,7 @@
     "urql": "5.0.1"
   },
   "devDependencies": {
-    "@apollo/rover": "0.35.0",
+    "@apollo/rover": "0.37.0",
     "@commitlint/cli": "20.4.1",
     "@commitlint/config-conventional": "20.4.1",
     "@graphql-codegen/cli": "6.1.1",
