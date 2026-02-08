@@ -1,5 +1,24 @@
 # Changelog
 
+## [3.0.1](https://github.com/crea-orkest/crea-public/compare/v3.0.0...v3.0.1) (2026-02-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-datocms to v7.2.10 ([#1629](https://github.com/crea-orkest/crea-public/issues/1629)) ([03d3206](https://github.com/crea-orkest/crea-public/commit/03d320679327c9cd9c999fa131596a9b0e826949))
+* **deps:** update dependency react-datocms to v7.2.14 ([#1635](https://github.com/crea-orkest/crea-public/issues/1635)) ([b0a1109](https://github.com/crea-orkest/crea-public/commit/b0a1109226df64a286e7dca80dc08d6bd8950e36))
+* **deps:** update dependency react-datocms to v7.2.6 ([#1625](https://github.com/crea-orkest/crea-public/issues/1625)) ([ad7d6ed](https://github.com/crea-orkest/crea-public/commit/ad7d6ed94aa866f3cf1332f216836967cc267f9b))
+* **deps:** update dependency react-datocms to v7.2.7 ([#1626](https://github.com/crea-orkest/crea-public/issues/1626)) ([3d8f4fd](https://github.com/crea-orkest/crea-public/commit/3d8f4fd1dfdc8447b7f76c213c99eebfba9be093))
+* **deps:** update dependency react-datocms to v7.2.9 ([#1628](https://github.com/crea-orkest/crea-public/issues/1628)) ([c3a09d0](https://github.com/crea-orkest/crea-public/commit/c3a09d0f00c3931735d852f098a9c8d22f7cc634))
+* **deps:** update nextjs monorepo to v16.1.0 ([#1586](https://github.com/crea-orkest/crea-public/issues/1586)) ([4d420d5](https://github.com/crea-orkest/crea-public/commit/4d420d5581799b81fa9cc13a5aafb954bfecf57e))
+* **deps:** update nextjs monorepo to v16.1.1 ([#1594](https://github.com/crea-orkest/crea-public/issues/1594)) ([38f957a](https://github.com/crea-orkest/crea-public/commit/38f957a7963cace90d8a37c201b3fe7de5a3af04))
+* **deps:** update nextjs monorepo to v16.1.2 ([#1613](https://github.com/crea-orkest/crea-public/issues/1613)) ([023e51b](https://github.com/crea-orkest/crea-public/commit/023e51b27f8fce8783662834adeabb92a13f84c8))
+* **deps:** update nextjs monorepo to v16.1.3 ([#1615](https://github.com/crea-orkest/crea-public/issues/1615)) ([33d61e8](https://github.com/crea-orkest/crea-public/commit/33d61e8ecd977228452560914e5408726de063ca))
+* **deps:** update nextjs monorepo to v16.1.4 ([#1619](https://github.com/crea-orkest/crea-public/issues/1619)) ([d76f4c8](https://github.com/crea-orkest/crea-public/commit/d76f4c874ff82064ec5a640c37da824f49906e5e))
+* **deps:** update nextjs monorepo to v16.1.5 ([#1630](https://github.com/crea-orkest/crea-public/issues/1630)) ([450adff](https://github.com/crea-orkest/crea-public/commit/450adff159181c614fde740d0604066b6e636f2b))
+* **deps:** update nextjs monorepo to v16.1.6 ([#1634](https://github.com/crea-orkest/crea-public/issues/1634)) ([7ee758b](https://github.com/crea-orkest/crea-public/commit/7ee758bbd76dbca265346f457bfa299d90901609))
+* **deps:** update react monorepo to v19.2.4 ([#1631](https://github.com/crea-orkest/crea-public/issues/1631)) ([774af88](https://github.com/crea-orkest/crea-public/commit/774af88f7e5b7f1a8b5380ee210bf1f020fd1c46))
+
 ## [3.0.0](https://github.com/crea-orkest/crea-public/compare/v2.0.0...v3.0.0) (2025-12-18)
 
 
