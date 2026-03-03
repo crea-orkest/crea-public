@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         {
           source: '/graphql',
-          destination: `https://${process.env.NEXT_PUBLIC_PRODUCTION === 'true' ? 'current' : 'dev'}--crea-orkest.apollographos.net/graphql`,
+          destination: 'https://graphql.datocms.com',
         },
       ],
     }),

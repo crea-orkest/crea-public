@@ -40,6 +40,18 @@ variable "GOOGLE_MAPS_API_KEY" {
   default   = ""
 }
 
+variable "PROD_DATOCMS_READONLY_API_TOKEN" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
+
+variable "DEV_DATOCMS_READONLY_API_TOKEN" {
+  sensitive = true
+  type      = string
+  default   = ""
+}
+
 variable "GOOGLE_MAPS_STATIC_API_KEY" {
   sensitive = false
   type      = string
