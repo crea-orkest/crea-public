@@ -3,7 +3,6 @@ import type { GetPageQuery } from 'graphql/generated/graphql'
 import type { Event } from 'graphql/types/event'
 import { EventListItem } from 'components/eventListItem'
 import { Header } from 'components/header'
-import { LoadMoreEvents } from 'components/loadMoreEvents'
 import { PageContent } from 'components/pageContent'
 import { formatCloudinaryImage } from 'graphql/formatters/formatCloudinaryImage'
 import { isOfTypeCloudinaryAsset } from 'graphql/types/image'
@@ -13,16 +12,9 @@ import styles from './styles.module.scss'
 export interface Props {
   pageData: GetPageQuery['page']
   eventData: Event[]
-  numberOfLoadedEvents: number
-  numberOfEvents: number
 }
 
-export const ConcertsPage = ({
-  pageData,
-  eventData,
-  numberOfLoadedEvents,
-  numberOfEvents,
-}: Props) => {
+export const ConcertsPage = ({ pageData, eventData }: Props) => {
   const events = (
     <div className={classNames(styles.concerts, 'content-layout')}>
       {eventData?.map((event, index) => {
@@ -33,18 +25,10 @@ export const ConcertsPage = ({
             className="content-layout--small"
             key={event.id}
             data={event}
-            isLast={
-              eventData.length <= numberOfLoadedEvents &&
-              eventData.length - 1 === index
-            }
+            isLast={eventData.length - 1 === index}
           />
         )
       })}
-
-      <LoadMoreEvents
-        initialSkip={numberOfLoadedEvents}
-        numberOfEvents={numberOfEvents}
-      />
     </div>
   )
 
