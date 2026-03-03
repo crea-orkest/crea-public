@@ -7,11 +7,13 @@ export const linkConfig = {
   url: getUrl(),
   headers: {
     'Content-Language': 'nl-NL',
-    'content-type': 'application/json',
-    Authorization:
-      (production
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    Authorization: `Bearer ${
+      production
         ? process.env.PROD_DATOCMS_READONLY_API_TOKEN
-        : process.env.DEV_DATOCMS_READONLY_API_TOKEN) || '',
+        : process.env.DEV_DATOCMS_READONLY_API_TOKEN
+    }`,
     'X-Environment': 'main',
     'X-Exclude-Invalid': 'true',
   },

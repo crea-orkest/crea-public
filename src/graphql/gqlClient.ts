@@ -1,7 +1,7 @@
-import { cacheExchange } from './cacheExchange'
-import { linkConfig } from './linkConfig'
 import { Client, type CombinedError, fetchExchange } from '@urql/core'
 import { type RetryExchangeOptions, retryExchange } from '@urql/exchange-retry'
+import { cacheExchange } from './cacheExchange'
+import { linkConfig } from './linkConfig'
 
 const options: RetryExchangeOptions = {
   initialDelayMs: 3000,
@@ -15,6 +15,8 @@ const options: RetryExchangeOptions = {
     return false
   },
 }
+
+console.log(linkConfig)
 
 export const client = new Client({
   url: linkConfig.url,
