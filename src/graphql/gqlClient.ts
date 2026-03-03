@@ -16,8 +16,6 @@ const options: RetryExchangeOptions = {
   },
 }
 
-console.log(linkConfig)
-
 export const client = new Client({
   url: linkConfig.url,
   exchanges: [cacheExchange, retryExchange(options), fetchExchange],
