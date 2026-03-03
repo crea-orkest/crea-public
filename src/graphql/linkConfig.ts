@@ -1,10 +1,8 @@
-import { getUrl } from './getUrl'
-
 const production: boolean =
-  process.env.NEXT_PUBLIC_PRODUCTION === 'true' ? true : false
+  process.env.NEXT_PUBLIC_PRODUCTION === 'true' ? true : true
 
 export const linkConfig = {
-  url: getUrl(),
+  url: 'https://graphql.datocms.com',
   headers: {
     'Content-Language': 'nl-NL',
     'Content-Type': 'application/json',
