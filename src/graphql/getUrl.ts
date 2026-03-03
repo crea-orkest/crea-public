@@ -1,10 +1,6 @@
-interface Props {
-  env: 'current' | 'dev'
-}
-
-export const getUrl = ({ env }: Props) => {
+export const getUrl = () => {
   if (typeof window === 'undefined')
-    return `https://${env}--crea-orkest.apollographos.net/graphql` as const
+    return 'https://graphql.datocms.com' as const
 
   return '/graphql' as const
 }
