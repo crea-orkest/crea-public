@@ -52,7 +52,7 @@ describe('getEvents', () => {
         variables: {},
         kind: 'query',
         context: {
-          url: 'https://current--crea-orkest.apollographos.net/graphql',
+          url: 'https://graphql.datocms.com',
           requestPolicy: 'cache-first',
         },
       },
