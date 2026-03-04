@@ -5,11 +5,6 @@ function getToken() {
   const datoCmsReadOnlyToken = production
     ? process.env['PROD_DATOCMS_READONLY_API_TOKEN']
     : process.env['DEV_DATOCMS_READONLY_API_TOKEN']
-  if (!datoCmsReadOnlyToken) {
-    throw new Error(
-      `${production ? 'PROD_DATOCMS_READONLY_API_TOKEN' : 'DEV_DATOCMS_READONLY_API_TOKEN'} environment variable should be set.`
-    )
-  }
   return datoCmsReadOnlyToken
 }
 

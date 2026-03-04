@@ -38,6 +38,18 @@ export default function Page({
 }
 
 export async function getStaticProps() {
+  function getToken() {
+    const datoCmsReadOnlyToken = false
+      ? process.env['PROD_DATOCMS_READONLY_API_TOKEN']
+      : process.env['DEV_DATOCMS_READONLY_API_TOKEN']
+    if (!datoCmsReadOnlyToken) {
+      throw new Error(
+        `${false ? 'PROD_DATOCMS_READONLY_API_TOKEN' : 'DEV_DATOCMS_READONLY_API_TOKEN'} environment variable should be set.`
+      )
+    }
+    return datoCmsReadOnlyToken
+  }
+  console.log(getToken())
   const { pageData, pageSeo, generalInfo } = await getPageData(homepageSlug)
   const { data: eventData } = await getFutureEvents({ skip: 0, first: 5 })
   return {
