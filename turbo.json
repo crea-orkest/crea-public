@@ -3,6 +3,10 @@
   "tasks": {
     "build": {
       "outputs": [".next/**", "!.next/cache/**"],
+      "env": [
+        "PROD_DATOCMS_READONLY_API_TOKEN",
+        "DEV_DATOCMS_READONLY_API_TOKEN"
+      ],
       "inputs": [".env"]
     },
     "analyze": {
