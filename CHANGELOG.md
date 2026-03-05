@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.5](https://github.com/crea-orkest/crea-public/compare/v3.0.4...v3.0.5) (2026-03-05)
+
+
+### Bug Fixes
+
+* remove old map component ([#1689](https://github.com/crea-orkest/crea-public/issues/1689)) ([c84164a](https://github.com/crea-orkest/crea-public/commit/c84164af8a4c6840f662a37bf18029fa3894d970))
+
 ## [3.0.4](https://github.com/crea-orkest/crea-public/compare/v3.0.3...v3.0.4) (2026-03-05)
 
 
