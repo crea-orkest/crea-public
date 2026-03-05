@@ -34,12 +34,12 @@ resource "vercel_project_environment_variables" "crea" {
     target    = ["production"]
     sensitive = false
     }, {
-    key       = "PROD_DATOCMS_READONLY_API_TOKEN"
+    key       = "NEXT_PUBLIC_PROD_DATOCMS_READONLY_API_TOKEN"
     value     = var.PROD_DATOCMS_READONLY_API_TOKEN
     target    = ["production"]
     sensitive = true
     }, {
-    key       = "DEV_DATOCMS_READONLY_API_TOKEN"
+    key       = "NEXT_PUBLIC_DEV_DATOCMS_READONLY_API_TOKEN"
     value     = var.DEV_DATOCMS_READONLY_API_TOKEN
     target    = ["preview"]
     sensitive = true
