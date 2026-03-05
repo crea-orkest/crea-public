@@ -3,8 +3,8 @@ const production: boolean =
 
 function getToken() {
   const datoCmsReadOnlyToken = production
-    ? process.env['PROD_DATOCMS_READONLY_API_TOKEN']
-    : process.env['DEV_DATOCMS_READONLY_API_TOKEN']
+    ? process.env['NEXT_PUBLIC_PROD_DATOCMS_READONLY_API_TOKEN']
+    : process.env['NEXT_PUBLIC_DEV_DATOCMS_READONLY_API_TOKEN']
   return datoCmsReadOnlyToken
 }
 
