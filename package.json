@@ -1,6 +1,6 @@
 {
   "name": "crea-public",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "The public CREA Orkest website",
   "type": "module",
   "packageManager": "npm@11.11.0",
@@ -35,7 +35,7 @@
     "@urql/exchange-retry": "2.0.0",
     "classnames": "2.5.1",
     "datocms-structured-text-utils": "4.1.2",
-    "graphql": "16.13.0",
+    "graphql": "16.13.1",
     "next": "16.1.6",
     "react": "19.2.4",
     "react-datocms": "7.2.14",
@@ -73,7 +73,7 @@
     "sass": "1.97.3",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
-    "turbo": "2.8.12",
+    "turbo": "2.8.13",
     "typescript": "5.9.3",
     "webpack-bundle-analyzer": "5.2.0"
   }
