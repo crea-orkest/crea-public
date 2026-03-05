@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/crea-orkest/crea-public/compare/v3.0.1...v3.0.2) (2026-03-05)
+
+
+### Bug Fixes
+
+* public keys ([#1684](https://github.com/crea-orkest/crea-public/issues/1684)) ([1b4de49](https://github.com/crea-orkest/crea-public/commit/1b4de49800f2cf85d0b1f95908f6752b02b36826))
+
 ## [3.0.1](https://github.com/crea-orkest/crea-public/compare/v3.0.0...v3.0.1) (2026-03-03)
 
 
