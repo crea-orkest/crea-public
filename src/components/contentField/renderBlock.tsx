@@ -15,7 +15,6 @@ import { DocumentBlock } from 'components/documentBlock'
 import { ImageBlock } from 'components/imageBlock'
 import { VideoBlock } from 'components/videoBlock'
 import { EventListItem } from 'components/eventListItem'
-import { FutureEvents } from 'components/futureEvents'
 import { MailchimpForm } from 'components/mailchimpForm'
 
 import styles from './styles.module.scss'
@@ -47,7 +46,6 @@ export const renderBlock = ({
             />
           )
         })}
-        {record.futureConcerts && <FutureEvents />}
       </div>
     )
   }

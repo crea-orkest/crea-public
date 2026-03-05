@@ -1,5 +1,4 @@
 import type {
-  GetEventsMetaQuery,
   GetGeneralInfoQuery,
   GetPageQuery,
 } from 'graphql/generated/graphql'
@@ -10,13 +9,11 @@ import { ConcertsPage } from 'components/concertsPage'
 import { getPageData } from 'utils/staticPropsHelpers/getPageData'
 import { SeoHead } from 'components/seoHead'
 import { getEvents } from 'graphql/getters/getEvents'
-import { getEventsMeta } from 'graphql/getters/getEventsMeta'
 
 const eventPageSlug = 'concerten'
-const numberOfLoadedEvents = 50
+const numberOfLoadedEvents = 250
 
 interface Props {
-  eventMeta: GetEventsMetaQuery['_allConcertsMeta']
   pageData: GetPageQuery['page']
   pageSeo: Metadata
   eventData: Event[]
@@ -24,7 +21,6 @@ interface Props {
 }
 
 export default function Page({
-  eventMeta,
   pageData,
   pageSeo,
   eventData,
@@ -34,12 +30,7 @@ export default function Page({
     <>
       <SeoHead metaTags={pageSeo.metaTags} baseUrl={pageSeo.baseUrl} />
       <DefaultLayout generalInfo={generalInfo} siteName={pageSeo.siteName}>
-        <ConcertsPage
-          pageData={pageData}
-          eventData={eventData}
-          numberOfLoadedEvents={numberOfLoadedEvents}
-          numberOfEvents={eventMeta.count}
-        />
+        <ConcertsPage pageData={pageData} eventData={eventData} />
       </DefaultLayout>
     </>
   )
@@ -50,12 +41,10 @@ export async function getStaticProps() {
     skip: 0,
     first: numberOfLoadedEvents,
   })
-  const { data: eventMeta } = await getEventsMeta()
   const { pageData, pageSeo, generalInfo } = await getPageData(eventPageSlug)
 
   return {
     props: {
-      eventMeta,
       eventData,
       pageData,
       pageSeo,
