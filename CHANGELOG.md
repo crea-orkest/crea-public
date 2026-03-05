@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.4](https://github.com/crea-orkest/crea-public/compare/v3.0.3...v3.0.4) (2026-03-05)
+
+
+### Bug Fixes
+
+* use Bearer token ([#1681](https://github.com/crea-orkest/crea-public/issues/1681)) ([03ac019](https://github.com/crea-orkest/crea-public/commit/03ac019699516636512d139e3d86a3e97a61fcec))
+
 ## [3.0.3](https://github.com/crea-orkest/crea-public/compare/v3.0.2...v3.0.3) (2026-03-05)
 
 
