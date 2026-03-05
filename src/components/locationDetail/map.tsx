@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { Map as GoogleMap } from 'components/map'
 import { LinkToMap } from './linkToMap'
 import styles from './styles.module.scss'
 
@@ -10,7 +9,6 @@ export interface Props {
 }
 
 const linkText = 'Open in Google Maps'
-const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 const staticMapKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_STATIC_API_KEY
 
 export const Map = ({ lat, lng, title }: Props) => {
@@ -30,24 +28,6 @@ export const Map = ({ lat, lng, title }: Props) => {
           </>
         )}
       </LinkToMap>
-    )
-  }
-
-  if (googleMapsApiKey) {
-    return (
-      <GoogleMap
-        id="concert-location"
-        pin={{
-          title: title ?? '',
-          lat,
-          lng,
-        }}
-        googleMapsApiKey={googleMapsApiKey}
-        dimensions={{
-          width: '100%',
-          height: '400px',
-        }}
-      />
     )
   }
 
