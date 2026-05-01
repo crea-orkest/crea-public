@@ -61,7 +61,7 @@
     "@typescript-eslint/eslint-plugin": "8.59.1",
     "@typescript-eslint/parser": "8.59.1",
     "dotenv": "17.4.2",
-    "eslint": "9.39.4",
+    "eslint": "10.2.1",
     "eslint-config-next": "16.2.1",
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-testing-library": "7.16.2",
