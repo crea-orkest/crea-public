@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.6](https://github.com/crea-orkest/crea-public/compare/v3.0.5...v3.0.6) (2026-05-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency graphql to v16.13.2 ([#1718](https://github.com/crea-orkest/crea-public/issues/1718)) ([a39e604](https://github.com/crea-orkest/crea-public/commit/a39e604d673636807c049e2aad51c2579cba7b56))
+* **deps:** update dependency urql to v5.0.2 ([#1752](https://github.com/crea-orkest/crea-public/issues/1752)) ([e20eab7](https://github.com/crea-orkest/crea-public/commit/e20eab7520d95b7fadfe623dd1c66bc6a7ef2ffe))
+* **deps:** update nextjs monorepo to v16.1.7 ([#1705](https://github.com/crea-orkest/crea-public/issues/1705)) ([febbdba](https://github.com/crea-orkest/crea-public/commit/febbdba4809e28e927583fc81d21728ed9af2cae))
+* **deps:** update nextjs monorepo to v16.2.0 ([#1708](https://github.com/crea-orkest/crea-public/issues/1708)) ([1757975](https://github.com/crea-orkest/crea-public/commit/17579756f16d44e104392dd3552a5247bdb984a7))
+* **deps:** update nextjs monorepo to v16.2.1 ([#1714](https://github.com/crea-orkest/crea-public/issues/1714)) ([ec134d9](https://github.com/crea-orkest/crea-public/commit/ec134d9aa675b99a0a7f3bea63cd212d93417ccb))
+* **deps:** update react monorepo to v19.2.5 ([#1746](https://github.com/crea-orkest/crea-public/issues/1746)) ([c006a85](https://github.com/crea-orkest/crea-public/commit/c006a85fd4a49bdea254d9dd8d7a6023aa694c9a))
+* **deps:** update react monorepo to v19.2.6 ([#1778](https://github.com/crea-orkest/crea-public/issues/1778)) ([cd1cbc1](https://github.com/crea-orkest/crea-public/commit/cd1cbc1836fbc6301f7d8852b6aa71437b16451b))
+
 ## [3.0.5](https://github.com/crea-orkest/crea-public/compare/v3.0.4...v3.0.5) (2026-03-05)
 
 
