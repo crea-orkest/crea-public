@@ -67,7 +67,7 @@
     "eslint-plugin-testing-library": "7.16.2",
     "husky": "9.1.7",
     "jest": "30.4.0",
-    "jest-environment-jsdom": "30.4.0",
+    "jest-environment-jsdom": "30.4.1",
     "pretty-quick": "4.2.2",
     "sass": "1.99.0",
     "ts-jest": "29.4.9",
